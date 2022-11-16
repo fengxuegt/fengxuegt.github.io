@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="WJW_Lambda表达式"/><meta name="keywords" content="C++, WJW, 枫雪" /><link rel="alternate" href="/default" title="枫雪" ><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="http://example.com/2022/06/25/WJW-Lambda表达式/"/>
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":false};
+</script>
+
+    <title>WJW_Lambda表达式 - 枫雪</title>
+  <meta name="generator" content="Hexo 5.4.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">枫雪</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">首页
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">归档
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">枫雪</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            首页
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            归档
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            标签
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            分类
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            关于
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">WJW_Lambda表达式
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2022-06-25
+        </span><span class="post-category">
+            <a href="/categories/Technology/">Technology</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-text">Lambda表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%94%A8%E6%B3%95%E7%AE%80%E4%BB%8B"><span class="toc-text">一、用法简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%8D%95%E8%8E%B7%E5%88%97%E8%A1%A8"><span class="toc-text">二、捕获列表</span></a></li></ol></li></ol>
+    </div>
+  </div><div class="post-content"><h1 id="Lambda表达式"><a href="#Lambda表达式" class="headerlink" title="Lambda表达式"></a>Lambda表达式</h1><p><strong>写在前面</strong></p>
+<p>此文为王建伟老师lambda表达式的学习笔记。</p>
+<span id="more"></span>
+
+<h2 id="一、用法简介"><a href="#一、用法简介" class="headerlink" title="一、用法简介"></a>一、用法简介</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// C++11：也是一种可调用对象</span></span><br><span class="line"><span class="comment">// lambda表达式，定义了一个匿名函数，并且可以捕获一定范围内的变量</span></span><br><span class="line"><span class="comment">// 特点：</span></span><br><span class="line"><span class="comment">// a) 是个匿名函数，也可以理解为“可调用的代码单元”，或者理解为未命名的内联函数</span></span><br><span class="line"><span class="comment">// b) 它也有一个返回类型，一个参数列表，一个函数体</span></span><br><span class="line"><span class="comment">// c) 与普通函数不同的是，lambda表达式可以在函数内部定义，这个是常规函数做不到的</span></span><br><span class="line"><span class="comment">// 格式：</span></span><br><span class="line"><span class="comment">// [捕捉列表](参数列表) -&gt; 返回类型(函数体)：</span></span><br><span class="line"><span class="comment">// a) 这是一个返回类型后置语法（lambda表达式的返回类型后置是必须的，这个语法就是这么规定的）；</span></span><br><span class="line"><span class="comment">// 因为很多时候lambda表达式返回值特别明显，所以允许lambda表达式返回值省略</span></span><br><span class="line"><span class="comment">// lambda表达式参数可以有默认值</span></span><br><span class="line"><span class="comment">// 要注意，编译器并不是总能推断出返回值类型，当编译器无法推断出类型时，就会报错，这个时候就必须显示指定返回值类型</span></span><br><span class="line"><span class="comment">// b) 没有参数的时候，参数列表是可以省略的，甚至括号也是可以省略的，因此如下格式都是合法的：</span></span><br><span class="line"><span class="keyword">auto</span> f = []()&#123;<span class="keyword">return</span> <span class="number">1</span>;&#125;;</span><br><span class="line"><span class="keyword">auto</span> f2 = []&#123;<span class="keyword">return</span> <span class="number">2</span>;&#125;;</span><br><span class="line"><span class="comment">// c) 捕获列表和函数体是不能省略的</span></span><br><span class="line"><span class="comment">// d) lambda调用方式和普通函数相同，都是使用（）函数调用运算符</span></span><br><span class="line"><span class="comment">// e) lambda可以不返回任何类型，不返回任何类型就是void</span></span><br><span class="line"><span class="keyword">auto</span> f3 = []&#123;&#125;;</span><br><span class="line"><span class="comment">// f) 函数体末尾的分号不能省略</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="二、捕获列表"><a href="#二、捕获列表" class="headerlink" title="二、捕获列表"></a>二、捕获列表</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">[捕获列表]：通过捕获列表可以捕获一定范围内的变量，范围是啥意思呢？</span></span><br><span class="line"><span class="comment">a）[]不捕获任何变量，但是不包括静态局部变量。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">auto</span> f = []&#123;</span><br><span class="line">    <span class="keyword">return</span> i; <span class="comment">// 报错，无法捕获外部变量，不认识i，</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/C/">C++</a>
+            <a href="/tags/WJW/">WJW</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2022/11/16/WebServer%E6%9C%8D%E5%8A%A1%E5%99%A8%E2%80%94%E2%80%94Linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">WebServer服务器——Linux系统编程入门</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    <a class="next" href="/2022/06/22/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/">
+        <span class="next-text nav-default">智能指针</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/fengxuegt" class="iconfont icon-github" title="github"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    </div><div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2021 - 2022<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">枫雪</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>
