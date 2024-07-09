@@ -192,15 +192,15 @@
         <div id="content" class="content">
           <article class="post">
   <div class="post-content">
-    <p>我，一个工作一年多的菜鸡程序员。</p>
-<p>之前学生时代落下了太多东西，所以现在才这么痛苦的在弥补。</p>
-<p>但是该做的一定要做呀，加油！</p>
+    <p>Welcome to my world.</p>
 
   </div>
 </article>
         </div>
           
   <div class="comments" id="comments">  
+      
+      <div id="gitalk-container"></div>  
       
   </div>  
   
@@ -305,7 +305,33 @@
     
     
     
+  
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css" />
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'Ov23linyjoE7z3V3Gako',
+    clientSecret: '4bbd23045cfc104a6cf9f988ca2051cf86f1b25b',
+    repo: 'blog-review',
+    owner: 'fengxuegt',
+    admin: ['fengxuegt'],
+    id: md5(location.pathname),
     
+    language: '',
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
     
     
   
