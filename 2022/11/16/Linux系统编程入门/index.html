@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="Linux系统编程入门" />
+
+
+<!-- Website keywords -->
+
+<meta name="keywords" content="Linux系统编程, 枫雪gt" />
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/default" title="枫雪gt" >
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="http://example.com/2022/11/16/Linux系统编程入门/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });  
+  </script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<!-- Analytics and push -->
+
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"latex":true};
+</script>
+  
+  <title>Linux系统编程入门 - 枫雪gt</title>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">枫雪gt</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        首页              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        归档              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        标签              </li>
+    </a>
+    
+    <a href="/categories/">
+      <li class="mobile-menu-item">
+        
+        
+        分类              </li>
+    </a>
+    
+    <a href="/about/">
+      <li class="mobile-menu-item">
+        
+        
+        关于              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">枫雪gt</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              首页  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              归档  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              标签  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/categories/">  
+              
+              
+              分类  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/about/">  
+              
+              
+              关于  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      Linux系统编程入门
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2022-11-16
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/Technology/">Technology</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E5%BA%93%E7%9A%84%E5%88%B6%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">静态库的制作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E5%BA%93%E7%9A%84%E5%88%B6%E4%BD%9C%E5%92%8C%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">动态库的制作和使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E7%82%B9%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">重点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text">工作原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Makefile"><span class="toc-number"></span> <span class="toc-text">Makefile</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86-1"><span class="toc-number">1.</span> <span class="toc-text">工作原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GDB"><span class="toc-number"></span> <span class="toc-text">GDB</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6IO"><span class="toc-number"></span> <span class="toc-text">文件IO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4"><span class="toc-number"></span> <span class="toc-text">虚拟地址空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6"><span class="toc-number"></span> <span class="toc-text">文件描述符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Open%E5%87%BD%E6%95%B0"><span class="toc-number"></span> <span class="toc-text">Open函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#read%E3%80%81write%E5%87%BD%E6%95%B0"><span class="toc-number"></span> <span class="toc-text">read、write函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lseek%E5%87%BD%E6%95%B0"><span class="toc-number"></span> <span class="toc-text">lseek函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stat%E5%87%BD%E6%95%B0"><span class="toc-number"></span> <span class="toc-text">stat函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9Fls-l"><span class="toc-number"></span> <span class="toc-text">模拟ls -l</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0"><span class="toc-number"></span> <span class="toc-text">文件属性相关函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C%E5%87%BD%E6%95%B0"><span class="toc-number"></span> <span class="toc-text">目录操作函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86%E5%87%BD%E6%95%B0"><span class="toc-number"></span> <span class="toc-text">目录遍历函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dup%E3%80%81dup2%E5%87%BD%E6%95%B0"><span class="toc-number"></span> <span class="toc-text">dup、dup2函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fcntl%E5%87%BD%E6%95%B0"><span class="toc-number"></span> <span class="toc-text">fcntl函数</span></a>
+    </div>
+  </div>
+  
+
+  <div class="post-content">
+    
+    <p><strong>写在前面</strong></p>
+<p>本文是牛客网项目的学习笔记；</p>
+<span id="more"></span>
+
+<h3 id="静态库的制作"><a href="#静态库的制作" class="headerlink" title="静态库的制作"></a>静态库的制作</h3><p>命名规则：</p>
+<p>libxxx.a</p>
+<p>制作方式：</p>
+<ul>
+<li><p>gcc获得.o文件</p>
+</li>
+<li><p>将.o文件打包，使用ar工具（archive）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ar rcs libxxx.a xxx.o xxx.o</span><br><span class="line">r - 将文件插入备存文件中</span><br><span class="line">c - 建立备存文件</span><br><span class="line">s - 索引</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>使用方式：</p>
+<p><img src="/static_lib.png" alt="image-20221112214924917"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gcc -c add.c sub.c -I ../include/</span><br><span class="line">ar rcs libcalc.a  *.o</span><br><span class="line">gcc main.c -o app -I ./include -l calc -L ./lib</span><br></pre></td></tr></table></figure>
+
+<h3 id="动态库的制作和使用"><a href="#动态库的制作和使用" class="headerlink" title="动态库的制作和使用"></a>动态库的制作和使用</h3><p>命名规则：</p>
+<p>libxxx.so</p>
+<p>制作方式：</p>
+<ul>
+<li><p>gcc 得到.o文件，得到与位置无关的代码</p>
+<p>gcc -c -fpic a.c b.c</p>
+</li>
+<li><p>gcc 得到动态库</p>
+<p>gcc -shared a.o b.o -o libcalc.so</p>
+</li>
+</ul>
+<p>使用方式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gcc -c *.c -I ../include/</span><br><span class="line">gcc -shared -fpic -o libcalc.so *.o</span><br><span class="line">gcc main.c -o app -I include/ -l calc -L lib/</span><br></pre></td></tr></table></figure>
+
+<h3 id="重点："><a href="#重点：" class="headerlink" title="重点："></a>重点：</h3><p>动态库和静态库的使用方式是一样的，那么两者都存在的时候优先使用什么库呢？</p>
+<p>优先使用动态库，除非使用– static强制使用静态库。</p>
+<h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><p>静态库：gcc进行连接时，将静态库的代码直接打包到可执行程序中</p>
+<p>动态库：gcc进行连接时，动态库的代码不会被打包到可执行程序中</p>
+<p>程序启动之后，动态库会被加载到内存中，然后通过ldd命令检查动态库依赖关系</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">lighthouse@VM-4-12-ubuntu:~/webserver/lesson04/library$ ldd app</span><br><span class="line">        linux-vdso.so.1 (0x00007fffd8ab3000)</span><br><span class="line">        libcalc.so =&gt; not found</span><br><span class="line">        libc.so.6 =&gt; /lib/x86_64-linux-gnu/libc.so.6 (0x00007f4af34ce000)</span><br><span class="line">        /lib64/ld-linux-x86-64.so.2 (0x00007f4af36d0000)</span><br></pre></td></tr></table></figure>
+
+<p>如何定位动态库文件呢？</p>
+<p>当系统加载可执行代码的时候，需要知道所依赖的库的名字，同时需要知道绝对路径。此时需要系统的动态载入器（&#x2F;lib64&#x2F;ld-linux-x86-64.so.2 ）来获取该绝对路径。对于elf格式的可执行程序，是由ld-linux.so来完成的，它先后搜索<br>elf文件的DT_RPATH段、<br>LD_LIBRARY_PATH、<br>&#x2F;etc&#x2F;ld.so.cache文件列表、<br>&#x2F;lib，&#x2F;usr&#x2F;lib</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 第一种方式，修改LD_LIBRARY_PATH</span><br><span class="line">export LD_LIBRARY_PATH=./lib/</span><br><span class="line">export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/lighthouse/webserver/lesson04/library/lib</span><br><span class="line"># 还能够长久的配置，用户级别是修改bashrc，系统级别是修改/etc/profile</span><br><span class="line"></span><br><span class="line"># 第二种方式，修改/etc/ld.so.cache</span><br><span class="line"># 但是不能直接修改这个文件，需要间接修改，修改</span><br><span class="line">sudo vim /etc/ld.so.conf</span><br><span class="line"># 在这个文件中加入so文件的路径，然后更新</span><br><span class="line">sudo ldconfig</span><br></pre></td></tr></table></figure>
+
+<h2 id="Makefile"><a href="#Makefile" class="headerlink" title="Makefile"></a>Makefile</h2><h3 id="工作原理-1"><a href="#工作原理-1" class="headerlink" title="工作原理"></a>工作原理</h3><ul>
+<li>命令在执行之前，需要先检查规则中的依赖是否存在<ul>
+<li>如果存在，执行命令</li>
+<li>如果不存在，向下执行其他的规则，检查是否有规则是用来生成这个依赖的，如果找到了，则执行该规则中的命令</li>
+</ul>
+</li>
+<li>检测更新，在执行规则中的命令时，会比较目标和依赖文件的时间<ul>
+<li>如果依赖的时间比目标时间晚，则需要重新生成目标</li>
+<li>如果早，则不需要更新，不需要执行对应规则中的命令</li>
+</ul>
+</li>
+</ul>
+<p><img src="/makefile.png" alt="image"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 定义变量</span><br><span class="line"># add.c sub.c main.c</span><br><span class="line">src=$(wildcard ./*.c)</span><br><span class="line">objs=$(patsubst %.c, %.o, $(src))</span><br><span class="line">target=app</span><br><span class="line">$(target):$(objs)</span><br><span class="line">	$(CC) $(objs) -o $(target)</span><br><span class="line">%.o:%.c</span><br><span class="line">	$(CC) -c $&lt; -o $@</span><br><span class="line">.PHONY:clean</span><br><span class="line">	rm $(objs) -f</span><br></pre></td></tr></table></figure>
+
+<h2 id="GDB"><a href="#GDB" class="headerlink" title="GDB"></a>GDB</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">display a 每次都打印</span><br><span class="line">set var i=9</span><br></pre></td></tr></table></figure>
+
+<h2 id="文件IO"><a href="#文件IO" class="headerlink" title="文件IO"></a>文件IO</h2><p><img src="/IO.png" alt="img"></p>
+<p>网络编程中是使用Linux本身的IO，因为不需要缓冲区，但是其他场景下最好使用C语言IO，首先具有很好的可移植性，其次有缓冲区机制，效率比较高。</p>
+<h2 id="虚拟地址空间"><a href="#虚拟地址空间" class="headerlink" title="虚拟地址空间"></a>虚拟地址空间</h2><p><img src="/virtual_address.png" alt="img"></p>
+<h2 id="文件描述符"><a href="#文件描述符" class="headerlink" title="文件描述符"></a>文件描述符</h2><p>文件描述符（file descriptor）就是内核为了高效管理这些已经被打开的文件所创建的索引，其是一个非负整数（通常是小整数），用于指代被打开的文件，所有执行I&#x2F;O操作的系统调用都通过文件描述符来实现。同时还规定系统刚刚启动的时候，0是标准输入，1是标准输出，2是标准错误。这意味着如果此时去打开一个新的文件，它的文件描述符会是3，再打开一个文件文件描述符就是4</p>
+<p>每个进程中PCB都维护一个文件描述符表（数组），大小为1024，用于存储程序所关联的文件描述符。</p>
+<p>上面只是简单理解，实际上关于文件描述符，Linux内核维护了3个数据结构：</p>
+<ul>
+<li>进程级的文件描述符表</li>
+<li>系统级的打开文件描述符表</li>
+<li>文件系统的i-node表</li>
+</ul>
+<p>一个进程启动之后，会在内核空间中创建一个PCB块。进程之间相互独立，一个使用了文件描述符3，另一个进程同样可以使用。</p>
+<p>除了进程级别的文件描述符表，系统还需要维护两张表：打开文件表、i-node表。这两张表存储了每个打开文件的打开文件句柄。一个打开文件句柄存储了一个打开文件的全部信息。</p>
+<p>系统级的打开文件描述符表：</p>
+<ul>
+<li>当前文件偏移量（调用read()和write()时更新，或使用lseek()直接修改）</li>
+<li>打开文件时的标识（open()的flags参数）</li>
+<li>文件访问模式（如调用open()时所设置的只读模式、只写模式或读写模式）</li>
+<li>与信号驱动相关的设置</li>
+<li>对该文件i-node对象的引用，即i-node 表指针</li>
+</ul>
+<p>文件系统的i-node表</p>
+<ul>
+<li>文件类型（例如：常规文件、套接字或FIFO）和访问权限</li>
+<li>一个指针，指向该文件所持有的锁列表</li>
+<li>文件的各种属性，包括文件大小以及与不同类型操作相关的时间戳</li>
+</ul>
+<p><img src="/fd.png" alt="img"></p>
+<p>这就说明：</p>
+<ul>
+<li>同一个进程的不同文件描述符可以指向同一个文件（在一个进程中多次打开同一个文件）；</li>
+<li>不同进程可以拥有相同的文件描述符；</li>
+<li>不同进程的同一个文件描述符可以指向不同的文件（一般也是这样，除了 0、1、2 这三个特殊的文件）；</li>
+<li>不同进程的不同文件描述符也可以指向同一个文件。</li>
+</ul>
+<h2 id="Open函数"><a href="#Open函数" class="headerlink" title="Open函数"></a>Open函数</h2><p>open在linux环境下通常用来打开或者创建一个文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;sys/types.h&gt;</span><br><span class="line">#include&lt;sys/stat.h&gt;</span><br><span class="line">#include&lt;fcntl.h&gt;</span><br><span class="line">int open(const char *pathname, int flags);</span><br><span class="line">int open(const char *pathname, int flags, mode_t mode);</span><br></pre></td></tr></table></figure>
+
+<p>返回值：open函数成功时会返回一个文件描述符，如果操作失败，会返回-1；</p>
+<p>参数：</p>
+<p> pathname：文件路径名、文件名</p>
+<p> flags：O_RDONLY、O_WRONLY、O_RDWR三选一必选，其他为可选参数。</p>
+<p>O_APPEND 表示追加，如果原来文件里面有内容，则这次写入会写在文件的最末尾。</p>
+<p>O_CREAT 表示如果指定文件不存在，则创建这个文件</p>
+<p>O_EXCL 表示如果要创建的文件已存在，则出错，同时返回 -1，并且修改 errno 的值。</p>
+<p>O_TRUNC 表示截断，如果文件存在，并且以只写、读写方式打开，则将其长度截断为0。</p>
+<p>O_NOCTTY 如果路径名指向终端设备，不要把这个设备用作控制终端。</p>
+<p>O_NONBLOCK 如果路径名指向 FIFO&#x2F;块文件&#x2F;字符文件，则把文件的打开和后继 I&#x2F;O设置为非阻塞模式（nonblocking mode）</p>
+<p>以下三个常量同样是选用的，它们用于同步输入输出</p>
+<p>O_DSYNC 等待物理 I&#x2F;O 结束后再 write。在不影响读取新写入的数据的前提下，不等待文件属性更新。</p>
+<p>O_RSYNC read 等待所有写入同一区域的写操作完成后再进行</p>
+<p>O_SYNC 等待物理 I&#x2F;O 结束后再 write，包括更新文件属性的 I&#x2F;O</p>
+<p> mode：mode参数表示设置文件访问权限的初始值，和用户掩码<strong>umask</strong>(初始值一般为0002）有关，要注意以下几点：</p>
+<p> 文件权限由open中的mode参数和当前进程的umask掩码共同决定。<br>​ 第三个参数只有在第二个参数中有O_CREAT时才作用，如果没有，则第三个参数可以忽略。</p>
+<h2 id="read、write函数"><a href="#read、write函数" class="headerlink" title="read、write函数"></a>read、write函数</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;unistd.h&gt;</span><br><span class="line">int read(int filedes, void *buf, int nbytes);</span><br><span class="line">返回值：</span><br><span class="line">    实际读到的字节数，若到文件末尾为0，若出错，返回-1；读出来的数据不会在末尾添加&#x27;\0&#x27;</span><br><span class="line">int write(int filedes, const void *buf, int nbytes);</span><br><span class="line">返回值：</span><br><span class="line">    若成功则返回已写的字节数，若出错则为-1</span><br></pre></td></tr></table></figure>
+
+<h2 id="lseek函数"><a href="#lseek函数" class="headerlink" title="lseek函数"></a>lseek函数</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;sys/types.h&gt;</span><br><span class="line">#include&lt;unistd.h&gt;</span><br><span class="line">off_t lseek(int fd, off_t offset, int whence);</span><br><span class="line">lseek主要用于移动文件读写指针</span><br><span class="line">参数：</span><br><span class="line">    fd：文件描述符</span><br><span class="line">    offset：相对于基准的偏移量</span><br><span class="line">    whence：可以是SEEK_SET（文件指针开始），SEEK_CUR（文件指针当前位置） ，SEEK_END为文件指针尾</span><br><span class="line">返回值：</span><br><span class="line">    文件读写指针距离文件开头的字节大小，出错则返回-1</span><br><span class="line">    </span><br><span class="line">lseek函数的几种用法：</span><br><span class="line">//1.获取文件长度</span><br><span class="line">off_t length = lseek(fd, 0, SEEK_END);</span><br><span class="line">//2.获取当前指针位置</span><br><span class="line">off_t currPos = lseek(fd, 0, SEEK_CUR);</span><br><span class="line">//3.移动指针到文件头部</span><br><span class="line">off_t currPos = lseek(fd, 0, SEEK_SET);</span><br><span class="line">//4.拓展文件长度</span><br><span class="line">off_t pos = lseek(fd, n, SEEK_END);</span><br><span class="line">//做一次写操作</span><br><span class="line">write(fd, buff, sizeof(buff));</span><br></pre></td></tr></table></figure>
+
+<h2 id="stat函数"><a href="#stat函数" class="headerlink" title="stat函数"></a>stat函数</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;sys/stat.h&gt;</span><br><span class="line">#include&lt;unistd.h&gt;</span><br><span class="line">int stat(const char *filename, struct stat *buf);</span><br><span class="line">函数说明：通过文件名获取文件信息，并保存到buf所指的结构体stat中。</span><br><span class="line">返回值：执行成功则返回0，失败返回-1，并将错误代码存储在errno中。</span><br></pre></td></tr></table></figure>
+
+<p><img src="/stat.png" alt="img"></p>
+<h2 id="模拟ls-l"><a href="#模拟ls-l" class="headerlink" title="模拟ls -l"></a>模拟ls -l</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;sys/stat.h&gt;</span><br><span class="line">#include&lt;sys/types.h&gt;</span><br><span class="line">#include&lt;unistd.h&gt;</span><br><span class="line">#include&lt;pwd.h&gt;</span><br><span class="line">#include&lt;grp.h&gt;</span><br><span class="line">#include&lt;time.h&gt;</span><br><span class="line">#include&lt;string.h&gt;</span><br><span class="line">#include&lt;stdlib.h&gt;</span><br><span class="line">int main(int argc, char **argv)</span><br><span class="line">&#123;</span><br><span class="line">    if (argc != 2) &#123;</span><br><span class="line">        perror(&quot;Usage: app filename...\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    struct stat buf;</span><br><span class="line">    int err = stat(argv[1], &amp;buf);</span><br><span class="line">    if (err == -1) &#123;</span><br><span class="line">        perror(&quot;stat() error&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    char perms[11] = &#123;0&#125;;</span><br><span class="line">    switch (buf.st_mode &amp; S_IFMT) </span><br><span class="line">    &#123;</span><br><span class="line">    case S_IFLNK:</span><br><span class="line">        perms[0] = &#x27;l&#x27;;</span><br><span class="line">        break;</span><br><span class="line">    case S_IFDIR:</span><br><span class="line">        perms[0] = &#x27;d&#x27;;</span><br><span class="line">        break;</span><br><span class="line">    case S_IFREG:</span><br><span class="line">        perms[0] = &#x27;-&#x27;;</span><br><span class="line">        break;</span><br><span class="line">    default:</span><br><span class="line">        break;</span><br><span class="line">    &#125;</span><br><span class="line">    // 文件user权限</span><br><span class="line">    perms[1] = buf.st_mode &amp; S_IRUSR ? &#x27;r&#x27; : &#x27;-&#x27;;</span><br><span class="line">    perms[2] = buf.st_mode &amp; S_IWUSR ? &#x27;w&#x27; : &#x27;-&#x27;;</span><br><span class="line">    perms[3] = buf.st_mode &amp; S_IXUSR ? &#x27;x&#x27; : &#x27;-&#x27;;</span><br><span class="line">    // 文件硬连接数</span><br><span class="line">    int link_num = buf.st_nlink;</span><br><span class="line">    // 文件username</span><br><span class="line">    char *username = getpwuid(buf.st_uid)-&gt;pw_name;</span><br><span class="line">    // 文件所在组</span><br><span class="line">    char *groupname = getgrgid(buf.st_gid)-&gt;gr_name;</span><br><span class="line">    // 文件大小</span><br><span class="line">    long int size = buf.st_size;</span><br><span class="line">    //  获取修改时间</span><br><span class="line">    struct timespec time_spe = buf.st_mtim;</span><br><span class="line">    char *c_time = ctime(&amp;time_spe.tv_sec); // 要特别注意参数是否是指针！！！！！！！</span><br><span class="line">    char m_time[512];</span><br><span class="line">    strncpy(m_time, c_time, strlen(c_time) - 1);</span><br><span class="line">    char buff[1024];</span><br><span class="line">    sprintf(buff, &quot;%s %d %s %s %ld %s %s&quot;, perms, link_num, username, groupname, size, m_time, argv[1]);</span><br><span class="line">    printf(&quot;%s\n&quot;, buff);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="文件属性相关函数"><a href="#文件属性相关函数" class="headerlink" title="文件属性相关函数"></a>文件属性相关函数</h2><p>access函数</p>
+<ul>
+<li><p>函数功能：检测调用进程是否可以对指定文件执行某种操作</p>
+</li>
+<li><p>`&#96;&#96;c<br>#include&lt;stdio.h&gt;<br>#include&lt;unistd.h&gt;<br>int access(const char *pathname, mode);<br>参数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">R_OK ： 读</span><br><span class="line">W_OK ： 写</span><br><span class="line">X_OK ： 执行</span><br><span class="line">F_OK ： 是否存在</span><br></pre></td></tr></table></figure>
+
+<p>返回值：成功返回0，失败返回-1， 同时errno会被设置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">chmod函数</span><br><span class="line"></span><br><span class="line">```c</span><br><span class="line">#include&lt;sys/stat.h&gt;</span><br><span class="line">int chmod(const char* pathname, int mode);</span><br><span class="line">参数：mode</span><br><span class="line">    权限，对应的8进制数字</span><br><span class="line">返回值：成功返回0，失败返回-1，同时errno会被设置为合适值</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>chown函数</p>
+<p>函数功能：修改文件所有组</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;unistd.h&gt;</span><br><span class="line">int chown(const char *pathname, uid_t owner, gid_t group);</span><br><span class="line">返回值：成功返回0，失败返回-1，同时errno会被设置为合适值</span><br></pre></td></tr></table></figure>
+
+<p>truncate函数</p>
+<p>函数功能：修改文件大小</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;unistd.h&gt;</span><br><span class="line">#include&lt;sys/types.h&gt;</span><br><span class="line">int truncate(const char *pathname, off_t length);</span><br><span class="line">参数：</span><br><span class="line">    pathname为文件名称，length为最终文件的大小；off_t为长整型</span><br><span class="line">    a、若最终比原来大，向后扩展，自动填充&#x27;\0&#x27;</span><br><span class="line">    b、若最终比原来小，删除后面的部分</span><br><span class="line">返回值：成功返回0，失败返回-1，同时errno会被设置为合适值</span><br></pre></td></tr></table></figure>
+
+<h2 id="目录操作函数"><a href="#目录操作函数" class="headerlink" title="目录操作函数"></a>目录操作函数</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int mkdir(const char *pathname, mode_t mode);</span><br><span class="line">int rmdir(const char *pathname);</span><br><span class="line">int rename(const char *pathname, const char *newpath);</span><br><span class="line">int chdir(const char *path); // 修改进程的工作目录到path</span><br><span class="line">char *getcwd(char *buf, size_t size); // buf： 保存数组路径， size为数组大小</span><br><span class="line">// char buf[128];</span><br><span class="line">// getcwd(buf, sizeof(buf));</span><br></pre></td></tr></table></figure>
+
+<h2 id="目录遍历函数"><a href="#目录遍历函数" class="headerlink" title="目录遍历函数"></a>目录遍历函数</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">	#include &lt;sys/types.h&gt;</span><br><span class="line">    #include &lt;dirent.h&gt;</span><br><span class="line">    DIR *opendir(const char *name);</span><br><span class="line">        参数：</span><br><span class="line">            name 需要打开的目录名称</span><br><span class="line">        返回值：</span><br><span class="line">            DIR *类型 理解为目录流信息</span><br><span class="line">            错误返回NULL</span><br><span class="line"></span><br><span class="line">    // 读取目录中的数据</span><br><span class="line">    #include &lt;dirent.h&gt;</span><br><span class="line">    struct dirent *readdir(DIR *dirp);</span><br><span class="line">        参数：</span><br><span class="line">            dirp是opendir返回的结果</span><br><span class="line">        返回值：</span><br><span class="line">            struct dirent，代表读取到的文件信息</span><br><span class="line">            读取到了目录流的末尾或者错误返回NULL</span><br><span class="line"></span><br><span class="line">    // 关闭文件</span><br><span class="line">    #include &lt;sys/types.h&gt;</span><br><span class="line">    #include &lt;dirent.h&gt;</span><br><span class="line">    int closedir(DIR *dirp);</span><br><span class="line">*/</span><br><span class="line">int getFileNumber(const char *path)</span><br><span class="line">&#123;</span><br><span class="line">    if (path == NULL) &#123;</span><br><span class="line">        exit(0);</span><br><span class="line">    &#125;</span><br><span class="line">    DIR *dir = opendir(path);</span><br><span class="line">    struct dirent *ptr = NULL;</span><br><span class="line">    int count = 0;</span><br><span class="line">    while ((ptr = readdir(dir)) != NULL) &#123;</span><br><span class="line">        printf(&quot;%s\n&quot;, ptr-&gt;d_name);</span><br><span class="line">        if (strcmp(ptr-&gt;d_name, &quot;.&quot;) == 0 || strcmp(ptr-&gt;d_name, &quot;..&quot;) == 0) &#123;</span><br><span class="line">            continue;</span><br><span class="line">        &#125;</span><br><span class="line">        if (ptr-&gt;d_type == DT_REG) &#123;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        if (ptr-&gt;d_type == DT_DIR) &#123;</span><br><span class="line">            char newpath[300];</span><br><span class="line">            sprintf(newpath, &quot;%s/%s&quot;, path, ptr-&gt;d_name);</span><br><span class="line">            count += getFileNumber(newpath);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="dup、dup2函数"><a href="#dup、dup2函数" class="headerlink" title="dup、dup2函数"></a>dup、dup2函数</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">#include&lt;unistd.h&gt;</span><br><span class="line">int dup(int oldfd);</span><br><span class="line">    作用：复制一个新的文件描述符</span><br><span class="line">    fd = 3，int fd1 = dup(fd);</span><br><span class="line">    fd指向的是a.txt，fd1也是指向a.txt</span><br><span class="line">    从空闲的文件描述符中找出一个最小的，作为新的拷贝的文件描述符</span><br><span class="line"></span><br><span class="line">int dup2(int oldfd, int newfd);</span><br><span class="line">    作用：重定向文件描述符</span><br><span class="line">    oldfd指向a.txt， newfd指向b.txt</span><br><span class="line">    调用函数成功后：newfd和b.txt做close，newfd指向了a.txt</span><br><span class="line">    oldfd必须是一个有效的文件描述符</span><br><span class="line">    oldfd和newfd值相同时，相当于什么都不做。</span><br><span class="line">*/</span><br><span class="line">int fd = open(&quot;a.txt&quot;, O_RDWR | O_CREAT, 0644);</span><br><span class="line">int fd1 = dup(fd);</span><br><span class="line">if (fd1 == -1) &#123;</span><br><span class="line">    perror(&quot;dup&quot;);</span><br><span class="line">    return -1;</span><br><span class="line">&#125;</span><br><span class="line">printf(&quot;fd: %d, fd1: %d\n&quot;, fd, fd1);</span><br><span class="line">close(fd);</span><br><span class="line">char str[10] = &quot;hello&quot;;</span><br><span class="line">write(fd1, str, sizeof(str));</span><br></pre></td></tr></table></figure>
+
+<h2 id="fcntl函数"><a href="#fcntl函数" class="headerlink" title="fcntl函数"></a>fcntl函数</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">#include&lt;unistd.h&gt;</span><br><span class="line">#include&lt;fcntl.h&gt;</span><br><span class="line">int fcntl(int fd, int cmd, ...);</span><br><span class="line">    参数：</span><br><span class="line">        fd：表示需要操作的文件描述符</span><br><span class="line">        cmd：表示对文件描述符的操作</span><br><span class="line">            1、复制文件描述符 F_DUPFD，复制文件描述符fd，得到一个新的描述符，返回值就是</span><br><span class="line">            2、设置文件描述符状态 F_GETFL: 获取指定文件描述符的文件状态flag，获取的flag就是我们通过open函数传递的flag</span><br><span class="line">                F_SETFL：设置文件描述符的flag</span><br><span class="line">                必选项目：O_RDONLY, O_WRONLY, ORDWR</span><br><span class="line">                可选项目：O_APPEND, O_NONBLOCK</span><br><span class="line">                O_APPEND表示追加数据</span><br><span class="line">                O_NONBLOCK设置为非阻塞</span><br><span class="line">            阻塞和非阻塞；描述的是函数调用的行为。</span><br><span class="line">*/</span><br><span class="line">// 复制文件描述符</span><br><span class="line">// int fd = open(&quot;a.txt&quot;, O_RDONLY);</span><br><span class="line">// int ret = fcntl(fd, F_DUPFD);</span><br><span class="line"></span><br><span class="line">// 修改或者获取文件flag</span><br><span class="line">int fd = open(&quot;a.txt&quot;, O_RDONLY);</span><br><span class="line">int flag = fcntl(fd, F_GETFL);</span><br><span class="line">int ret = fcntl(fd, F_SETFL, flag | O_APPEND);</span><br></pre></td></tr></table></figure>
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/Linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B/">Linux系统编程</a>
+      
+    </div>
+    
+      
+  <nav class="post-nav">  
+      
+      <a class="prev" href="/2022/11/18/Linux%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%BC%80%E5%8F%91/">  
+        <i class="iconfont icon-left"></i>  
+        <span class="prev-text nav-default">Linux多进程开发</span>  
+        <span class="prev-text nav-mobile">上一篇</span>  
+      </a>  
+      
+      
+      <a class="next" href="/2022/05/27/C-%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8/">  
+        <span class="next-text nav-default">C++右值引用</span>  
+        <span class="prev-text nav-mobile">下一篇</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/fengxuegt" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2021 - 2024      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">枫雪</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+    
+    
+    
+    
+    
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+
+</html>

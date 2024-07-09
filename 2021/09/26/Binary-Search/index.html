@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="Binary_Search" />
+
+
+<!-- Website keywords -->
+
+<meta name="keywords" content="BinarySearch, LeetCode, 枫雪gt" />
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/default" title="枫雪gt" >
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="http://example.com/2021/09/26/Binary-Search/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });  
+  </script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<!-- Analytics and push -->
+
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"latex":true};
+</script>
+  
+  <title>Binary_Search - 枫雪gt</title>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">枫雪gt</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        首页              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        归档              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        标签              </li>
+    </a>
+    
+    <a href="/categories/">
+      <li class="mobile-menu-item">
+        
+        
+        分类              </li>
+    </a>
+    
+    <a href="/about/">
+      <li class="mobile-menu-item">
+        
+        
+        关于              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">枫雪gt</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              首页  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              归档  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              标签  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/categories/">  
+              
+              
+              分类  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/about/">  
+              
+              
+              关于  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      Binary_Search
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2021-09-26
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/Technology/">Technology</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E5%88%86%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">二分法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#LeetCode-704-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="toc-number">1.0.1.</span> <span class="toc-text">LeetCode 704 二分查找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeetCode-35-%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE"><span class="toc-number">1.0.2.</span> <span class="toc-text">LeetCode 35 搜索插入位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeetCode-34-%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%92%8C%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E4%BD%8D%E7%BD%AE"><span class="toc-number">1.0.3.</span> <span class="toc-text">LeetCode 34 在排序数组中查找元素的第一个和最后一个位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeetCode-69-x%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9"><span class="toc-number">1.0.4.</span> <span class="toc-text">LeetCode 69 x的平方根</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeetCode-367-%E6%9C%89%E6%95%88%E7%9A%84%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0"><span class="toc-number">1.0.5.</span> <span class="toc-text">LeetCode 367 有效的完全平方数</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </div>
+  
+
+  <div class="post-content">
+    
+    <h1 id="二分法"><a href="#二分法" class="headerlink" title="二分法"></a>二分法</h1><span id="more"></span>
+<h3 id="LeetCode-704-二分查找"><a href="#LeetCode-704-二分查找" class="headerlink" title="LeetCode 704 二分查找"></a>LeetCode 704 二分查找</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-search/">力扣题目链接</a></p>
+<p>应用二分查找的前提条件是数组是有序的，并且题目中强调是没有重复元素的。</p>
+<p><strong>注意点：</strong></p>
+<p>​	二分查找思路并不难，难的是边界条件的处理。有两种处理方式，分别是前闭后闭区间和前闭后开区间。两种方式不同，写法也不同。以前的时候我习惯使用前闭后闭区间写法，但是后来尝试之后可能前闭后开区间更易理解，因此以后二分相关问题，我打算都使用前闭后开的写法来实现了；</p>
+<p>实现代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">search</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span>; <span class="comment">//前闭</span></span><br><span class="line">    <span class="type">int</span> j = nums.<span class="built_in">size</span>(); <span class="comment">//后开</span></span><br><span class="line">    <span class="keyword">while</span> (i &lt; j) &#123;</span><br><span class="line">        <span class="type">int</span> mid = i + (j - i) / <span class="number">2</span>; <span class="comment">// 避免整数溢出</span></span><br><span class="line">        <span class="keyword">if</span> (nums[mid] &gt; target) &#123;</span><br><span class="line">            j = mid; <span class="comment">// 因为后面为开区间，因此将j = mid，不会再计算</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] &lt; target) &#123;</span><br><span class="line">            i = mid + <span class="number">1</span>; <span class="comment">// 因为是前闭，所以i仍要参与计算，因此i = mid + 1</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="LeetCode-35-搜索插入位置"><a href="#LeetCode-35-搜索插入位置" class="headerlink" title="LeetCode 35 搜索插入位置"></a>LeetCode 35 搜索插入位置</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/search-insert-position/">力扣题目链接</a></p>
+<p>此题目也是二分搜索的思路来解。同样采用前闭后开的方式来实现；</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 暴力解法</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">searchInsert</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[i] &gt;= target) &#123;</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> nums.<span class="built_in">size</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 二分解法</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">searchInsert</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> j = nums.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">while</span> (i &lt; j) &#123;</span><br><span class="line">        <span class="type">int</span> mid = i + (j - i) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (nums[mid] == target) &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] &gt; target) &#123;</span><br><span class="line">            j = mid;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            i = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i; <span class="comment">// 最后是i == j，因此返回哪个应该都可以；</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>未完待续。。。</p>
+<h3 id="LeetCode-34-在排序数组中查找元素的第一个和最后一个位置"><a href="#LeetCode-34-在排序数组中查找元素的第一个和最后一个位置" class="headerlink" title="LeetCode 34 在排序数组中查找元素的第一个和最后一个位置"></a>LeetCode 34 在排序数组中查找元素的第一个和最后一个位置</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/">力扣题目链接</a></p>
+<h3 id="LeetCode-69-x的平方根"><a href="#LeetCode-69-x的平方根" class="headerlink" title="LeetCode 69 x的平方根"></a>LeetCode 69 x的平方根</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sqrtx/">力扣题目链接</a></p>
+<h3 id="LeetCode-367-有效的完全平方数"><a href="#LeetCode-367-有效的完全平方数" class="headerlink" title="LeetCode 367 有效的完全平方数"></a>LeetCode 367 有效的完全平方数</h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/valid-perfect-square/">力扣题目链接</a></p>
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/BinarySearch/">BinarySearch</a>
+      
+      <a href="/tags/LeetCode/">LeetCode</a>
+      
+    </div>
+    
+      
+  <nav class="post-nav">  
+      
+      <a class="prev" href="/2021/09/27/remove-element/">  
+        <i class="iconfont icon-left"></i>  
+        <span class="prev-text nav-default">Remove_Element</span>  
+        <span class="prev-text nav-mobile">上一篇</span>  
+      </a>  
+      
+      
+      <a class="next" href="/2021/09/26/yourname-github-io%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE/">  
+        <span class="next-text nav-default">yourname-github-io无法访问</span>  
+        <span class="prev-text nav-mobile">下一篇</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/fengxuegt" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2021 - 2024      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">枫雪</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+    
+    
+    
+    
+    
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+
+</html>

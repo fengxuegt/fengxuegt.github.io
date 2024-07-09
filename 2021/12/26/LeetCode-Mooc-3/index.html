@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="LeetCode_Mooc(3)" />
+
+
+<!-- Website keywords -->
+
+<meta name="keywords" content="LeetCode, 枫雪gt" />
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/default" title="枫雪gt" >
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="http://example.com/2021/12/26/LeetCode-Mooc-3/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });  
+  </script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<!-- Analytics and push -->
+
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"latex":true};
+</script>
+  
+  <title>LeetCode_Mooc(3) - 枫雪gt</title>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">枫雪gt</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        首页              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        归档              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        标签              </li>
+    </a>
+    
+    <a href="/categories/">
+      <li class="mobile-menu-item">
+        
+        
+        分类              </li>
+    </a>
+    
+    <a href="/about/">
+      <li class="mobile-menu-item">
+        
+        
+        关于              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">枫雪gt</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              首页  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              归档  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              标签  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/categories/">  
+              
+              
+              分类  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/about/">  
+              
+              
+              关于  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      LeetCode_Mooc(3)
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2021-12-26
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/Technology/">Technology</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">1.</span> <span class="toc-text">二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%A4%A9%E7%84%B6%E9%80%92%E5%BD%92%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.</span> <span class="toc-text">二叉树的天然递归结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86%E7%9A%84%E9%80%92%E5%BD%92%E5%86%99%E6%B3%95"><span class="toc-number">1.1.1.</span> <span class="toc-text">二叉树前序遍历的递归写法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8key"><span class="toc-number">1.1.2.</span> <span class="toc-text">判断二叉树中是否存在key</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeetCode226-%E5%8F%8D%E8%BD%AC%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">1.1.3.</span> <span class="toc-text">LeetCode226 反转二叉树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeetCode100-%E5%88%A4%E6%96%AD%E4%B8%A4%E6%A3%B5%E6%A0%91%E6%98%AF%E5%90%A6%E7%9B%B8%E7%AD%89"><span class="toc-number">1.1.4.</span> <span class="toc-text">LeetCode100 判断两棵树是否相等</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeetCode101-%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E6%98%AF%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">1.1.5.</span> <span class="toc-text">LeetCode101 判断是否是对称二叉树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeetCode110-%E5%88%A4%E6%96%AD%E4%B8%80%E6%A3%B5%E6%A0%91%E6%98%AF%E5%90%A6%E6%98%AF%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">1.1.6.</span> <span class="toc-text">LeetCode110 判断一棵树是否是平衡二叉树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeetCode104-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6"><span class="toc-number">1.1.7.</span> <span class="toc-text">LeetCode104 二叉树的最大深度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%BB%88%E6%AD%A2%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.2.</span> <span class="toc-text">二叉树的终止条件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#LeetCode112-%E8%B7%AF%E5%BE%84%E6%80%BB%E5%92%8C"><span class="toc-number">1.2.1.</span> <span class="toc-text">LeetCode112 路径总和</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </div>
+  
+
+  <div class="post-content">
+    
+    <p><strong>写在前面</strong></p>
+<p>这是LeetCode for Mooc的blog记录（三）。<span id="more"></span></p>
+<h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1><h2 id="二叉树的天然递归结构"><a href="#二叉树的天然递归结构" class="headerlink" title="二叉树的天然递归结构"></a>二叉树的天然递归结构</h2><h3 id="二叉树前序遍历的递归写法"><a href="#二叉树前序遍历的递归写法" class="headerlink" title="二叉树前序遍历的递归写法"></a>二叉树前序遍历的递归写法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">void preorder(TreeNode *node) &#123; // 二叉树前序遍历的递归写法</span><br><span class="line">  if (node == nullptr) &#123;</span><br><span class="line">    return; // 递归终止条件</span><br><span class="line">  &#125;</span><br><span class="line">  cout &lt;&lt; node-&gt;val; // 递归过程</span><br><span class="line">  preorder(node-&gt;left);</span><br><span class="line">  preorder(node-&gt;right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="判断二叉树中是否存在key"><a href="#判断二叉树中是否存在key" class="headerlink" title="判断二叉树中是否存在key"></a>判断二叉树中是否存在key</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">bool contain(TreeNode *node, Key key) &#123; // 判断二叉树中是否存在key</span><br><span class="line">    if (node == nullptr) &#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    if (node-&gt;val == key) &#123;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">    if (contain(node-&gt;left, key) || contain(node-&gt;right, key)) &#123;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">    return false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>删除树</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">void destroy(TreeNode *node) // 删除树</span><br><span class="line">&#123;</span><br><span class="line">    if (node == nullptr) &#123;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    destroy(node-&gt;left);</span><br><span class="line">    destroy(node-&gt;right);</span><br><span class="line">    delete node;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="LeetCode226-反转二叉树"><a href="#LeetCode226-反转二叉树" class="headerlink" title="LeetCode226 反转二叉树"></a>LeetCode226 反转二叉树</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">void invertTree(TreeNode *node) // 反转二叉树</span><br><span class="line">&#123;</span><br><span class="line">    if (node == nullptr) &#123;</span><br><span class="line">        return node;</span><br><span class="line">    &#125;</span><br><span class="line">    invertTree(node-&gt;left);</span><br><span class="line">    invertTree(node-&gt;right);</span><br><span class="line">    swap(node-&gt;left, node-&gt;right);</span><br><span class="line">    return node;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="LeetCode100-判断两棵树是否相等"><a href="#LeetCode100-判断两棵树是否相等" class="headerlink" title="LeetCode100 判断两棵树是否相等"></a>LeetCode100 判断两棵树是否相等</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">bool isSameTree(TreeNode* p, TreeNode* q) &#123; // 判断两棵树是否相等</span><br><span class="line">    if (p == nullptr &amp;&amp; q == nullptr) &#123;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">    else if (p == nullptr || q == nullptr) &#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    else if (q-&gt;val != p-&gt;val) &#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    if (isSameTree(p-&gt;left, q-&gt;left) &amp;&amp; isSameTree(p-&gt;right, q-&gt;right)) &#123;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">    return false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="LeetCode101-判断是否是对称二叉树"><a href="#LeetCode101-判断是否是对称二叉树" class="headerlink" title="LeetCode101 判断是否是对称二叉树"></a>LeetCode101 判断是否是对称二叉树</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">bool check(TreeNode *p, TreeNode *q) &#123;</span><br><span class="line">    if (p == nullptr &amp;&amp; q == nullptr) &#123;</span><br><span class="line">        return true;</span><br><span class="line">    &#125; else if (p == nullptr || q == nullptr) &#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125; else if (p-&gt;val != q-&gt;val) &#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    return check(p-&gt;left, q-&gt;right) &amp;&amp; check(p-&gt;right, q-&gt;left);</span><br><span class="line">&#125;</span><br><span class="line">bool isSymmetric(TreeNode* root) &#123;</span><br><span class="line">    if (root == nullptr) &#123;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">    return check(root-&gt;left, root-&gt;right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="LeetCode110-判断一棵树是否是平衡二叉树"><a href="#LeetCode110-判断一棵树是否是平衡二叉树" class="headerlink" title="LeetCode110 判断一棵树是否是平衡二叉树"></a>LeetCode110 判断一棵树是否是平衡二叉树</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">int hight(TreeNode *node) &#123;</span><br><span class="line">    if (node == nullptr) &#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    int l = hight(node-&gt;left);</span><br><span class="line">    int r = hight(node-&gt;right);</span><br><span class="line">    return max(l, r) + 1;</span><br><span class="line">&#125;</span><br><span class="line">bool isBalanced(TreeNode* root) &#123;</span><br><span class="line">    if (root == nullptr) &#123;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">    int l = hight(root-&gt;left);</span><br><span class="line">    int r = hight(root-&gt;right);</span><br><span class="line">    return abs(l - r) &lt;= 1 &amp;&amp; isBalanced(root-&gt;left) &amp;&amp; isBalanced(root-&gt;right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="LeetCode104-二叉树的最大深度"><a href="#LeetCode104-二叉树的最大深度" class="headerlink" title="LeetCode104 二叉树的最大深度"></a>LeetCode104 二叉树的最大深度</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int maxDepth(TreeNode* root) &#123;</span><br><span class="line">    if (root == nullptr) &#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    int leftHeight = maxDepth(root-&gt;left);</span><br><span class="line">    int rightHeight = maxDepth(root-&gt;right);</span><br><span class="line">    return std::max(leftHeight, rightHeight) + 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="二叉树的终止条件"><a href="#二叉树的终止条件" class="headerlink" title="二叉树的终止条件"></a>二叉树的终止条件</h2><h3 id="LeetCode112-路径总和"><a href="#LeetCode112-路径总和" class="headerlink" title="LeetCode112 路径总和"></a>LeetCode112 路径总和</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/LeetCode/">LeetCode</a>
+      
+    </div>
+    
+      
+  <nav class="post-nav">  
+      
+      <a class="prev" href="/2022/01/16/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E4%B8%80/">  
+        <i class="iconfont icon-left"></i>  
+        <span class="prev-text nav-default">汇编语言一</span>  
+        <span class="prev-text nav-mobile">上一篇</span>  
+      </a>  
+      
+      
+      <a class="next" href="/2021/12/20/Vscode-Macos%E9%85%8D%E7%BD%AE/">  
+        <span class="next-text nav-default">Vscode Macos配置</span>  
+        <span class="prev-text nav-mobile">下一篇</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/fengxuegt" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2021 - 2024      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">枫雪</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+    
+    
+    
+    
+    
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+
+</html>
