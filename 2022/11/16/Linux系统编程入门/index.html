@@ -241,7 +241,8 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ar rcs libxxx.a xxx.o xxx.o</span><br><span class="line">r - 将文件插入备存文件中</span><br><span class="line">c - 建立备存文件</span><br><span class="line">s - 索引</span><br></pre></td></tr></table></figure></li>
 </ul>
 <p>使用方式：</p>
-<p><img src="/static_lib.png" alt="image-20221112214924917"></p>
+<img src="/2022/11/16/Linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/static_lib.png" class title="image-20221112214924917">
+
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gcc -c add.c sub.c -I ../include/</span><br><span class="line">ar rcs libcalc.a  *.o</span><br><span class="line">gcc main.c -o app -I ./include -l calc -L ./lib</span><br></pre></td></tr></table></figure>
 
 <h3 id="动态库的制作和使用"><a href="#动态库的制作和使用" class="headerlink" title="动态库的制作和使用"></a>动态库的制作和使用</h3><p>命名规则：</p>
@@ -281,14 +282,17 @@
 </ul>
 </li>
 </ul>
-<p><img src="/makefile.png" alt="image"></p>
+<img src="/2022/11/16/Linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/makefile.png" class title="image">
+
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 定义变量</span><br><span class="line"># add.c sub.c main.c</span><br><span class="line">src=$(wildcard ./*.c)</span><br><span class="line">objs=$(patsubst %.c, %.o, $(src))</span><br><span class="line">target=app</span><br><span class="line">$(target):$(objs)</span><br><span class="line">	$(CC) $(objs) -o $(target)</span><br><span class="line">%.o:%.c</span><br><span class="line">	$(CC) -c $&lt; -o $@</span><br><span class="line">.PHONY:clean</span><br><span class="line">	rm $(objs) -f</span><br></pre></td></tr></table></figure>
 
 <h2 id="GDB"><a href="#GDB" class="headerlink" title="GDB"></a>GDB</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">display a 每次都打印</span><br><span class="line">set var i=9</span><br></pre></td></tr></table></figure>
 
-<h2 id="文件IO"><a href="#文件IO" class="headerlink" title="文件IO"></a>文件IO</h2><p><img src="/IO.png" alt="img"></p>
+<h2 id="文件IO"><a href="#文件IO" class="headerlink" title="文件IO"></a>文件IO</h2><img src="/2022/11/16/Linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/IO.png" class title="img">
+
 <p>网络编程中是使用Linux本身的IO，因为不需要缓冲区，但是其他场景下最好使用C语言IO，首先具有很好的可移植性，其次有缓冲区机制，效率比较高。</p>
-<h2 id="虚拟地址空间"><a href="#虚拟地址空间" class="headerlink" title="虚拟地址空间"></a>虚拟地址空间</h2><p><img src="/virtual_address.png" alt="img"></p>
+<h2 id="虚拟地址空间"><a href="#虚拟地址空间" class="headerlink" title="虚拟地址空间"></a>虚拟地址空间</h2><img src="/2022/11/16/Linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/virtual_address.png" class title="img">
+
 <h2 id="文件描述符"><a href="#文件描述符" class="headerlink" title="文件描述符"></a>文件描述符</h2><p>文件描述符（file descriptor）就是内核为了高效管理这些已经被打开的文件所创建的索引，其是一个非负整数（通常是小整数），用于指代被打开的文件，所有执行I&#x2F;O操作的系统调用都通过文件描述符来实现。同时还规定系统刚刚启动的时候，0是标准输入，1是标准输出，2是标准错误。这意味着如果此时去打开一个新的文件，它的文件描述符会是3，再打开一个文件文件描述符就是4</p>
 <p>每个进程中PCB都维护一个文件描述符表（数组），大小为1024，用于存储程序所关联的文件描述符。</p>
 <p>上面只是简单理解，实际上关于文件描述符，Linux内核维护了3个数据结构：</p>
@@ -313,7 +317,8 @@
 <li>一个指针，指向该文件所持有的锁列表</li>
 <li>文件的各种属性，包括文件大小以及与不同类型操作相关的时间戳</li>
 </ul>
-<p><img src="/fd.png" alt="img"></p>
+<img src="/2022/11/16/Linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/fd.png" class title="img">
+
 <p>这就说明：</p>
 <ul>
 <li>同一个进程的不同文件描述符可以指向同一个文件（在一个进程中多次打开同一个文件）；</li>
