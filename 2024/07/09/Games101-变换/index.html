@@ -238,42 +238,42 @@
 <p>$$<br>x_1 &#x3D; S_x \times x_0<br>$$</p>
 <p>$$<br>y_1 &#x3D; S_y \times y_0<br>$$</p>
 <p>写成矩阵的形式就是：</p>
-<p>$$<br>\begin{bmatrix} x_1 \ y_1 \end{bmatrix} &#x3D;<br>\begin{bmatrix} S_x &amp; 0 \ 0 &amp; S_y \end{bmatrix}<br>\begin{bmatrix} x_0 \ y_0 \end{bmatrix}<br>$$</p>
+<p>$$<br>\begin{bmatrix} x_1 \ y_1 \end{bmatrix} &#x3D;<br>\begin{bmatrix} S_x &amp; 0 \\ 0 &amp; S_y \end{bmatrix}<br>\begin{bmatrix} x_0 \ y_0 \end{bmatrix}<br>$$</p>
 <p><strong>镜像</strong>是一个非常常见的缩放变换，只需要把缩放因子变成负数即可实现某个方向的镜像。如当缩放因子是$ (-1, 1) $ 时，经过缩放变换之后的图形就是以 Y 轴为对称轴的镜像。</p>
 <h2 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h2><img src="/2024/07/09/Games101-%E5%8F%98%E6%8D%A2/2d_rotation.png" class title="img">
 
 <p>旋转是指绕一点作为旋转中心，旋转 𝜃 角度的变换。 如上图所示，该正方形绕原点旋转了 𝜃 角度。假设正方形的边长为 1，那么我们很容易可以得到如下的关系：</p>
-<p>$$<br>\begin{bmatrix} x_1 \ y_1 \end{bmatrix} &#x3D;<br>\begin{bmatrix} A &amp; B \ C &amp; D \end{bmatrix}<br>\begin{bmatrix} x_0 \ y_0 \end{bmatrix}<br>$$<br>对于右下角的点，变换前的坐标是 (1,0)，变换后的坐标是 (𝑐𝑜𝑠𝜃,𝑠𝑖𝑛𝜃)， 我们可以得到如下的关系：</p>
-<p>$$<br>\begin{bmatrix} cos \theta \ sin \theta \end{bmatrix} &#x3D;<br>\begin{bmatrix} A &amp; B \ C &amp; D \end{bmatrix}<br>\begin{bmatrix} 1 \ 0 \end{bmatrix}<br>$$</p>
+<p>$$<br>\begin{bmatrix} x_1 \ y_1 \end{bmatrix} &#x3D;<br>\begin{bmatrix} A &amp; B \\ C &amp; D \end{bmatrix}<br>\begin{bmatrix} x_0 \ y_0 \end{bmatrix}<br>$$<br>对于右下角的点，变换前的坐标是 (1,0)，变换后的坐标是 (𝑐𝑜𝑠𝜃,𝑠𝑖𝑛𝜃)， 我们可以得到如下的关系：</p>
+<p>$$<br>\begin{bmatrix} cos \theta \ sin \theta \end{bmatrix} &#x3D;<br>\begin{bmatrix} A &amp; B \\ C &amp; D \end{bmatrix}<br>\begin{bmatrix} 1 \ 0 \end{bmatrix}<br>$$</p>
 <p>$$<br>cos \theta &#x3D; A \times 1 + B \times 0 &#x3D; A<br>$$</p>
 <p>$$<br>sin \theta &#x3D; C \times 1 + D \times 0 &#x3D; C<br>$$</p>
 <p>同理，对于左上角的点，变换前的坐标为 (0,1)，变换后的坐标为 (−𝑠𝑖𝑛𝜃,𝑐𝑜𝑠𝜃)，我们同样可以得到如下的关系：</p>
-<p>$$<br>\begin{bmatrix} -sin \theta \ cos \theta \end{bmatrix} &#x3D;<br>\begin{bmatrix} A &amp; B \ C &amp; D \end{bmatrix}<br>\begin{bmatrix} 0 \ 1 \end{bmatrix}<br>$$</p>
+<p>$$<br>\begin{bmatrix} -sin \theta \ cos \theta \end{bmatrix} &#x3D;<br>\begin{bmatrix} A &amp; B \\ C &amp; D \end{bmatrix}<br>\begin{bmatrix} 0 \ 1 \end{bmatrix}<br>$$</p>
 <p>$$<br>-sin \theta &#x3D; A \times 0 + B \times 1 &#x3D; B<br>$$</p>
 <p>$$<br>cos \theta &#x3D; C \times 0 + D \times 1 &#x3D; D<br>$$</p>
 <p>这样我们就得到了旋转矩阵：</p>
-<p>$$<br>R_\theta &#x3D; \begin{bmatrix} cos \theta &amp; -sin \theta \ sin \theta &amp; cos \theta \end{bmatrix}<br>$$</p>
+<p>$$<br>R_\theta &#x3D; \begin{bmatrix} cos \theta &amp; -sin \theta \\ sin \theta &amp; cos \theta \end{bmatrix}<br>$$</p>
 <h2 id="线性变换"><a href="#线性变换" class="headerlink" title="线性变换"></a>线性变换</h2><p>通过上面的例子我们可以发现，缩放和旋转都能以线性变换的形式来表示，即：</p>
 <p>$$<br>x_1 &#x3D; ax_0 + by_0<br>$$</p>
 <p>$$<br>y_1 &#x3D; cx_0 + dy_0<br>$$</p>
 <p>以矩阵的形式来表示即：</p>
-<p>$$<br>\begin{bmatrix} x_1 \ y_1 \end{bmatrix} &#x3D;<br>\begin{bmatrix} A &amp; B \ C &amp; D \end{bmatrix}<br>\begin{bmatrix} x_0 \ y_0 \end{bmatrix}<br>$$<br>如果变换可以通过以矩阵M 与点相乘然后得到一个新的点的话，那么这种变换就可以称为是线性变换。</p>
+<p>$$<br>\begin{bmatrix} x_1 \ y_1 \end{bmatrix} &#x3D;<br>\begin{bmatrix} A &amp; B \\ C &amp; D \end{bmatrix}<br>\begin{bmatrix} x_0 \ y_0 \end{bmatrix}<br>$$<br>如果变换可以通过以矩阵M 与点相乘然后得到一个新的点的话，那么这种变换就可以称为是线性变换。</p>
 <h2 id="平移"><a href="#平移" class="headerlink" title="平移"></a>平移</h2><img src="/2024/07/09/Games101-%E5%8F%98%E6%8D%A2/2d_translate.png" class title="img">
 
 <p>平移就是把 (𝑥,𝑦) 移动一段距离 (𝑇𝑥,𝑇𝑦) 然后得到一个新的坐标，即：</p>
 <p>$$<br>x_1 &#x3D; x_0 + T_x<br>$$</p>
 <p>$$<br>y_1 &#x3D; y_0 + T_y<br>$$</p>
 <h2 id="齐次坐标"><a href="#齐次坐标" class="headerlink" title="齐次坐标"></a>齐次坐标</h2><p>观察平移的公式后可以发现，我们不能像缩放和旋转那样写出一个类似的平移矩阵。我们必须把带有平移的变换写成如下的形式：</p>
-<p>$$<br>\begin{bmatrix} x_1 \ y_1 \end{bmatrix} &#x3D;<br>\begin{bmatrix} A &amp; B \ C &amp; D \end{bmatrix}<br>\begin{bmatrix} x_0 \ y_0 \end{bmatrix}<br>+<br>\begin{bmatrix} T_x \ T_y \end{bmatrix}<br>$$<br>我们希望有一个工具来统一所有变换，这个工具就是 —— 齐次坐标。</p>
+<p>$$<br>\begin{bmatrix} x_1 \ y_1 \end{bmatrix} &#x3D;<br>\begin{bmatrix} A &amp; B \\ C &amp; D \end{bmatrix}<br>\begin{bmatrix} x_0 \ y_0 \end{bmatrix}<br>+<br>\begin{bmatrix} T_x \ T_y \end{bmatrix}<br>$$<br>我们希望有一个工具来统一所有变换，这个工具就是 —— 齐次坐标。</p>
 <p>齐次坐标是再给点、向量增加一个 w 维度：</p>
 <ul>
 <li>2D 点： (𝑥,𝑦,1)</li>
 <li>2D 向量： (𝑥,𝑦,0)</li>
 </ul>
 <p>当点、向量增加一个 w 纬度之后，我们就可以把上述带有平移的变换写成如下的形式：</p>
-<p>$$<br>\begin{bmatrix} x_1 \ y_1 \ w_1 \end{bmatrix} &#x3D;<br>\begin{bmatrix} A &amp; B &amp; T_x \ C &amp; D &amp; T_y \ 0 &amp; 0 &amp; 1 \end{bmatrix}<br>\begin{bmatrix} x_0 \ y_0 \ w_0 \end{bmatrix}<br>$$<br>因此，在齐次坐标下，我们就可以用一个矩阵来同时表示平移、旋转、缩放三种变换了。</p>
+<p>$$<br>\begin{bmatrix} x_1 \ y_1 \ w_1 \end{bmatrix} &#x3D;<br>\begin{bmatrix} A &amp; B &amp; T_x \\ C &amp; D &amp; T_y \\ 0 &amp; 0 &amp; 1 \end{bmatrix}<br>\begin{bmatrix} x_0 \ y_0 \ w_0 \end{bmatrix}<br>$$<br>因此，在齐次坐标下，我们就可以用一个矩阵来同时表示平移、旋转、缩放三种变换了。</p>
 <p>并且，由于向量具有平移不变性，因此 w 为 0 的时候刚好能保证平移矩阵与向量相乘时，w 分量依然保持 0，如：</p>
-<p>$$<br>\begin{bmatrix} x_1 \ y_1 \ w_1 \end{bmatrix} &#x3D;<br>\begin{bmatrix} 1 &amp; 0 &amp; T_x \ 0 &amp; 1 &amp; T_y \ 0 &amp; 0 &amp; 1 \end{bmatrix}<br>\begin{bmatrix} x_0 \ y_0 \ 0 \end{bmatrix} &#x3D;<br>\begin{bmatrix} x_0 + T_x \ y_0 + T_y \ 0 \end{bmatrix}<br>$$<br>另外，对于 w 分量，还有些相关的结论：</p>
+<p>$$<br>\begin{bmatrix} x_1 \ y_1 \ w_1 \end{bmatrix} &#x3D;<br>\begin{bmatrix} 1 &amp; 0 &amp; T_x \\ 0 &amp; 1 &amp; T_y \\ 0 &amp; 0 &amp; 1 \end{bmatrix}<br>\begin{bmatrix} x_0 \ y_0 \ 0 \end{bmatrix} &#x3D;<br>\begin{bmatrix} x_0 + T_x \ y_0 + T_y \ 0 \end{bmatrix}<br>$$<br>另外，对于 w 分量，还有些相关的结论：</p>
 <ul>
 <li>向量 + 向量 &#x3D; 向量<ul>
 <li>因为 𝑤1+𝑤2&#x3D;0</li>
@@ -296,22 +296,22 @@
 
 <p>逆变换是指把已应用的变换还原的变换，在数学上是指变换矩阵的逆矩阵$ M^{-1} $。</p>
 <h2 id="仿射变换"><a href="#仿射变换" class="headerlink" title="仿射变换"></a>仿射变换</h2><p>仿射变换线性变换平移仿射变换&#x3D;线性变换+平移</p>
-<p>$$<br>\begin{bmatrix} x_1 \ y_1 \end{bmatrix} &#x3D;<br>\begin{bmatrix} A &amp; B \ C &amp; D \end{bmatrix}<br>\begin{bmatrix} x_0 \ y_0 \end{bmatrix}<br>+<br>\begin{bmatrix} T_x \ T_y \end{bmatrix}<br>$$<br>其对应的齐次坐标的形式为：</p>
-<p>$$<br>\begin{bmatrix} x_1 \ y_1 \ 1 \end{bmatrix} &#x3D;<br>\begin{bmatrix} A &amp; B &amp; T_x \ C &amp; D &amp; T_y \ 0 &amp; 0 &amp; 1 \end{bmatrix}<br>\begin{bmatrix} x_0 \ y_0 \ 1 \end{bmatrix}<br>$$<br>相对于仿射变换，齐次坐标有如下优点：</p>
+<p>$$<br>\begin{bmatrix} x_1 \ y_1 \end{bmatrix} &#x3D;<br>\begin{bmatrix} A &amp; B \\ C &amp; D \end{bmatrix}<br>\begin{bmatrix} x_0 \ y_0 \end{bmatrix}<br>+<br>\begin{bmatrix} T_x \ T_y \end{bmatrix}<br>$$<br>其对应的齐次坐标的形式为：</p>
+<p>$$<br>\begin{bmatrix} x_1 \ y_1 \ 1 \end{bmatrix} &#x3D;<br>\begin{bmatrix} A &amp; B &amp; T_x \\ C &amp; D &amp; T_y \\ 0 &amp; 0 &amp; 1 \end{bmatrix}<br>\begin{bmatrix} x_0 \ y_0 \ 1 \end{bmatrix}<br>$$<br>相对于仿射变换，齐次坐标有如下优点：</p>
 <ul>
 <li>可以用一个矩阵来表示平移、旋转、缩放三种变换。</li>
 <li>逆变换可以通过逆矩阵来表示。</li>
 </ul>
 <p>我们可以把平移、旋转、缩放三种变换分别以齐次坐标的形式表示：</p>
-<p>$$<br>T_{(x, y)} &#x3D; \begin{bmatrix} 0 &amp; 0 &amp; T_x \ 0 &amp; 0 &amp; T_y \ 0 &amp; 0 &amp; 1 \end{bmatrix}<br>$$</p>
-<p>$$<br>R_{(\theta)} &#x3D; \begin{bmatrix} cos \theta &amp; -sin \theta &amp; 0 \ sin \theta &amp; cos \theta &amp; 0 \ 0 &amp; 0 &amp; 1 \end{bmatrix}<br>$$</p>
-<p>$$<br>S_{(x, y)} &#x3D; \begin{bmatrix} S_x &amp; 0 &amp; 0 \ 0 &amp; S_y &amp; 0 \ 0 &amp; 0 &amp; 1 \end{bmatrix}<br>$$</p>
+<p>$$<br>T_{(x, y)} &#x3D; \begin{bmatrix} 0 &amp; 0 &amp; T_x \\ 0 &amp; 0 &amp; T_y \\ 0 &amp; 0 &amp; 1 \end{bmatrix}<br>$$</p>
+<p>$$<br>R_{(\theta)} &#x3D; \begin{bmatrix} cos \theta &amp; -sin \theta &amp; 0 \\ sin \theta &amp; cos \theta &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}<br>$$</p>
+<p>$$<br>S_{(x, y)} &#x3D; \begin{bmatrix} S_x &amp; 0 &amp; 0 \\ 0 &amp; S_y &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}<br>$$</p>
 <p><strong>在仿射变换下，变换的先后顺序是先进行线性变换，然后再进行平移变换。</strong></p>
 <h2 id="组合变换"><a href="#组合变换" class="headerlink" title="组合变换"></a>组合变换</h2><p>矩阵乘法没有交换律，所以两种变换是不能调换顺序的。 即先平移再旋转并不等于先旋转再平移的结果。因此，应用变换的顺序很重要。</p>
 <p>而在应用变换的时候，是根据从右往左的顺序来进行的。</p>
-<p>$$<br>T \cdot R \cdot \begin{bmatrix} x \ y \ 1 \end{bmatrix}<br>$$<br>上面这个变换表示先进行旋转，然后再进行平移。</p>
+<p>$$<br>T \cdot R \cdot \begin{bmatrix} x \\ y \\ 1 \end{bmatrix}<br>$$<br>上面这个变换表示先进行旋转，然后再进行平移。</p>
 <p>矩阵乘法满足结合律，因此有：</p>
-<p>$$<br>A_n( \cdots A_2( A_1 \cdot \begin{bmatrix} x \ y \ 1 \end{bmatrix} ) &#x3D;<br>A_n \cdots A_2 \cdot A_1 \cdot \begin{bmatrix} x \ y \ 1 \end{bmatrix}<br>$$<br>观察右边的式子，我们可以预先计算$ T &#x3D; A_n \cdots A_2 \cdot A_1 $，然后直接 $ T \cdot \begin{bmatrix} x \ y \ 1 \end{bmatrix} $即可。这是一种优化计算的手段。</p>
+<p>$$<br>A_n( \cdots A_2( A_1 \cdot \begin{bmatrix} x \\ y \\ 1 \end{bmatrix} ) &#x3D;<br>A_n \cdots A_2 \cdot A_1 \cdot \begin{bmatrix} x \\ y \\ 1 \end{bmatrix}<br>$$<br>观察右边的式子，我们可以预先计算$ T &#x3D; A_n \cdots A_2 \cdot A_1 $，然后直接 $ T \cdot \begin{bmatrix} x \\ y \\ 1 \end{bmatrix} $即可。这是一种优化计算的手段。</p>
 <h2 id="分解复杂变换"><a href="#分解复杂变换" class="headerlink" title="分解复杂变换"></a>分解复杂变换</h2><p>默认情况下，旋转是绕原点进行的。如果想自定义旋转中心，可以通过如下的组合变换来实现：</p>
 <ol>
 <li>把旋转中心平移到原点</li>
@@ -325,11 +325,11 @@
 </ul>
 <p>通常，(𝑥,𝑦,𝑧,𝑤) 在 𝑤≠0 时表示为一个 3D 的点，它的坐标为 (𝑥&#x2F;𝑤,𝑦&#x2F;𝑤,𝑧&#x2F;𝑤)。</p>
 <p>我们会用一个 4×4 的矩阵来表示三维变换：</p>
-<p>$$<br>\begin{bmatrix} x_1 \ y_1 \ z_1 \ 1 \end{bmatrix} &#x3D;<br>\begin{bmatrix} A &amp; B &amp; C &amp; T_x \ D &amp; E &amp; F &amp; T_y \ G &amp; H &amp; I &amp; T_z  \ 0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix}<br>\begin{bmatrix} x_0 \ y_0 \ z_0 \ 1 \end{bmatrix}<br>$$</p>
+<p>$$<br>\begin{bmatrix} x_1 \\ y_1 \\ z_1 \\ 1 \end{bmatrix} &#x3D;<br>\begin{bmatrix} A &amp; B &amp; C &amp; T_x \\ D &amp; E &amp; F &amp; T_y \\ G &amp; H &amp; I &amp; T_z  \\ 0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix}<br>\begin{bmatrix} x_0 \\ y_0 \\ z_0 \\ 1 \end{bmatrix}<br>$$</p>
 <h2 id="正交矩阵"><a href="#正交矩阵" class="headerlink" title="正交矩阵"></a>正交矩阵</h2><p>仔细观察一下旋转矩阵，和它的逆矩阵、转置矩阵，我们会发现一个有趣的现象：</p>
-<p>$$<br>R_\theta &#x3D; \begin{bmatrix} cos \theta &amp; -sin \theta \ sin \theta &amp; cos \theta \end{bmatrix}<br>$$</p>
-<p>$$<br>R_{-\theta} &#x3D; \begin{bmatrix} cos \theta &amp; sin \theta \ -sin \theta &amp; cos \theta \end{bmatrix}<br>$$</p>
-<p>$$<br>{R_\theta}^T &#x3D; \begin{bmatrix} cos \theta &amp; sin \theta \ -sin \theta &amp; cos \theta \end{bmatrix}<br>$$</p>
+<p>$$<br>R_\theta &#x3D; \begin{bmatrix} cos \theta &amp; -sin \theta \\ sin \theta &amp; cos \theta \end{bmatrix}<br>$$</p>
+<p>$$<br>R_{-\theta} &#x3D; \begin{bmatrix} cos \theta &amp; sin \theta \\ -sin \theta &amp; cos \theta \end{bmatrix}<br>$$</p>
+<p>$$<br>{R_\theta}^T &#x3D; \begin{bmatrix} cos \theta &amp; sin \theta \\ -sin \theta &amp; cos \theta \end{bmatrix}<br>$$</p>
 <p>$$<br>R_{-\theta} &#x3D; {R_\theta}^T<br>$$</p>
 <p>旋转矩阵的逆矩阵与它的转置矩阵相同。我们可以利用旋转矩阵的这个性质来求它的逆矩阵。</p>
 <p>另外，当一个矩阵的逆矩阵等于该矩阵的转置矩阵时，这个矩阵称为正交矩阵，因此旋转矩阵也是一个正交矩阵。</p>
@@ -364,15 +364,15 @@
 </ol>
 <p>这些步骤就是视图变换（View Transformation）了，即：</p>
 <p>$$<br>M_{view} &#x3D; R_{view} \cdot T_{view}<br>$$<br>假设摄像机所在的世界坐标是 (𝑥,𝑦,𝑧)，那么：</p>
-<p>$$<br>T_{view} &#x3D; \begin{bmatrix} 1 &amp; 0 &amp; 0 &amp; -x \\ 0 &amp; 1 &amp; 0 &amp; -y \\ 0 &amp; 0 &amp; 1 &amp; -z \\ 0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix}<br>$$<br>假设摄像机的的上方向为 $ \hat t $，同时往$ \hat g $方向看，由于$ \hat e $、$ \hat g $ 是摄像机的本地坐标系，因此三者相互垂直，所以有：</p>
+<p>$$<br>T_{view} &#x3D; \begin{bmatrix} 1 &amp; 0 &amp; 0 &amp; -x \\\ 0 &amp; 1 &amp; 0 &amp; -y \\\ 0 &amp; 0 &amp; 1 &amp; -z \\\ 0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix}<br>$$<br>假设摄像机的的上方向为 $ \hat t $，同时往$ \hat g $方向看，由于$ \hat e $、$ \hat g $ 是摄像机的本地坐标系，因此三者相互垂直，所以有：</p>
 <p>$$<br>\hat e &#x3D; \hat g \times \hat t<br>$$<br>接下来需要求 $ R_{view} $，它是一个把摄像机的本地坐标系旋转成标准直角坐标系的变换，直接计算会比较复杂。</p>
 <p>幸运的是，我们可以利用旋转矩阵是正交矩阵的特性，来求 $ R_{view} $。</p>
 <p>首先求它的逆矩阵：</p>
-<p>$$<br>{R_{view}}^{-1}<br>\begin{bmatrix}<br>x_{\hat g \times \hat t} &amp; x_t &amp; x_{-g} &amp; 0 \\<br>y_{\hat g \times \hat t} &amp; y_t &amp; y_{-g} &amp; 0 \\<br>z_{\hat g \times \hat t} &amp; z_t &amp; z_{-g} &amp; 0 \\<br>0 &amp; 0 &amp; 0 &amp; 1<br>\end{bmatrix}<br>$$<br>然后再进行一次转置操作即可：</p>
+<p>$$<br>{R_{view}}^{-1}<br>\begin{bmatrix}<br>x_{\hat g \times \hat t} &amp; x_t &amp; x_{-g} &amp; 0 \\\<br>y_{\hat g \times \hat t} &amp; y_t &amp; y_{-g} &amp; 0 \\\<br>z_{\hat g \times \hat t} &amp; z_t &amp; z_{-g} &amp; 0 \\\<br>0 &amp; 0 &amp; 0 &amp; 1<br>\end{bmatrix}<br>$$<br>然后再进行一次转置操作即可：</p>
 <img src="/2024/07/09/Games101-%E5%8F%98%E6%8D%A2/image-20240713173257211-0863179.png" class title="image-20240713173257211">
 
 <p>最后，我们就可以得到视图矩阵：</p>
-<p>$$<br>M_{view} &#x3D;<br>R_{view} \cdot T_{view} &#x3D;<br>\begin{bmatrix}<br>x_{\hat g \times \hat t} &amp; y_{\hat g \times \hat t} &amp; z_{\hat g \times \hat t} &amp; -x \<br>x_t &amp; y_t &amp; z_t &amp; -y \<br>x_{-g} &amp; y_{-g} &amp; z_{-g} &amp; -z \<br>0 &amp; 0 &amp; 0 &amp; 1<br>\end{bmatrix}<br>$$</p>
+<p>$$<br>M_{view} &#x3D;<br>R_{view} \cdot T_{view} &#x3D;<br>\begin{bmatrix}<br>x_{\hat g \times \hat t} &amp; y_{\hat g \times \hat t} &amp; z_{\hat g \times \hat t} &amp; -x \\<br>x_t &amp; y_t &amp; z_t &amp; -y \\<br>x_{-g} &amp; y_{-g} &amp; z_{-g} &amp; -z \\<br>0 &amp; 0 &amp; 0 &amp; 1<br>\end{bmatrix}<br>$$</p>
 <h2 id="投影变换"><a href="#投影变换" class="headerlink" title="投影变换"></a>投影变换</h2><p>投影矩阵的作用是把三维空间变换成二维空间，即图片。</p>
 <p>常见的投影有两种：</p>
 <ul>
@@ -400,14 +400,14 @@
 <p>即：</p>
 <p>$$<br>M_{ortho} &#x3D; S_{ortho} \cdot T_{ortho}<br>$$</p>
 <p>由于我们知道空间的六个面，因此这个空间的中心就是：$ (\frac {l + r} 2, \frac {b + t} 2, \frac {f + n} 2) $，那么就有：</p>
-<p>$$<br>T_{ortho} &#x3D;<br>\begin{bmatrix}<br>1 &amp; 0 &amp; 0 &amp; -{\frac {r + l} 2} \<br>0 &amp; 1 &amp; 0 &amp; -{\frac {t + b} 2} \<br>0 &amp; 0 &amp; 1 &amp; -{\frac {n + f} 2} \<br>0 &amp; 0 &amp; 0 &amp; 1<br>\end{bmatrix}<br>$$</p>
+<p>$$<br>T_{ortho} &#x3D;<br>\begin{bmatrix}<br>1 &amp; 0 &amp; 0 &amp; -{\frac {r + l} 2} \\<br>0 &amp; 1 &amp; 0 &amp; -{\frac {t + b} 2} \\<br>0 &amp; 0 &amp; 1 &amp; -{\frac {n + f} 2} \\<br>0 &amp; 0 &amp; 0 &amp; 1<br>\end{bmatrix}<br>$$</p>
 <p>下一步就是压缩空间了，这一步骤相当于进行一次缩放，把当前空间缩放到大小为 2 的立方体。</p>
 <p>以空间的 X 方向为例，其长度为 𝑟−𝑙，因此 X 方向的缩放因子就是:</p>
 <p>$$<br>(r - l) \times S_x &#x3D; 2<br>$$</p>
 <p>$$<br>S_x &#x3D; \frac 2 {r - l}<br>$$</p>
 <p>同理可求出 𝑆𝑦 和 𝑆𝑧，然后得到：</p>
-<p>$$<br>S_{ortho} &#x3D;<br>\begin{bmatrix}<br>\frac 2 {r - l} &amp; 0 &amp; 0 &amp; 0 \<br>0 &amp; \frac 2 {t - b} &amp; 0 &amp; 0 \<br>0 &amp; 0 &amp; \frac 2 {n - f} &amp; 0 \<br>0 &amp; 0 &amp; 0 &amp; 1<br>\end{bmatrix}<br>$$<br>最后，正交投影矩阵为：</p>
-<p>$$<br>M_{ortho} &#x3D;<br>S_{ortho} \cdot T_{ortho} &#x3D;<br>\begin{bmatrix}<br>\frac 2 {r - l} &amp; 0 &amp; 0 &amp; -{\frac {r + l} {r - l}} \<br>0 &amp; \frac 2 {t - b} &amp; 0 &amp; -{\frac {t + b} {t - b}} \<br>0 &amp; 0 &amp; \frac 2 {n - f} &amp; -{\frac {n + f} {n - f}} \<br>0 &amp; 0 &amp; 0 &amp; 1<br>\end{bmatrix}<br>$$</p>
+<p>$$<br>S_{ortho} &#x3D;<br>\begin{bmatrix}<br>\frac 2 {r - l} &amp; 0 &amp; 0 &amp; 0 \\<br>0 &amp; \frac 2 {t - b} &amp; 0 &amp; 0 \\<br>0 &amp; 0 &amp; \frac 2 {n - f} &amp; 0 \\<br>0 &amp; 0 &amp; 0 &amp; 1<br>\end{bmatrix}<br>$$<br>最后，正交投影矩阵为：</p>
+<p>$$<br>M_{ortho} &#x3D;<br>S_{ortho} \cdot T_{ortho} &#x3D;<br>\begin{bmatrix}<br>\frac 2 {r - l} &amp; 0 &amp; 0 &amp; -{\frac {r + l} {r - l}} \\<br>0 &amp; \frac 2 {t - b} &amp; 0 &amp; -{\frac {t + b} {t - b}} \\<br>0 &amp; 0 &amp; \frac 2 {n - f} &amp; -{\frac {n + f} {n - f}} \\<br>0 &amp; 0 &amp; 0 &amp; 1<br>\end{bmatrix}<br>$$</p>
 <h3 id="透视投影"><a href="#透视投影" class="headerlink" title="透视投影"></a>透视投影</h3><img src="/2024/07/09/Games101-%E5%8F%98%E6%8D%A2/perspective_projection.png" class title="img">
 
 <p>透视投影与正交投影类似，也是经过类似的步骤：</p>
@@ -426,13 +426,13 @@
 <p>同理，对于 x 坐标，我们也能得到类似的等式：</p>
 <p>$$<br>x^{\prime} &#x3D; \frac n z x<br>$$<br>然后，我们就能得到如下的结果：</p>
 <p>$$<br>M_{persp -&gt; ortho}</p>
-<p>\begin{bmatrix}<br>x \<br>y \<br>z \<br>1<br>\end{bmatrix}</p>
+<p>\begin{bmatrix}<br>x \\<br>y \\<br>z \\<br>1<br>\end{bmatrix}</p>
 <p>&#x3D;</p>
-<p>\begin{bmatrix}<br>\frac {nx} z \<br>\frac {ny} z \<br>unknow \<br>1<br>\end{bmatrix}<br>$$<br>再稍微变换一下写法（乘以z），我们能得到：</p>
+<p>\begin{bmatrix}<br>\frac {nx} z \\<br>\frac {ny} z \\<br>unknow \\<br>1<br>\end{bmatrix}<br>$$<br>再稍微变换一下写法（乘以z），我们能得到：</p>
 <p>$$<br>M_{persp -&gt; ortho}</p>
-<p>\begin{bmatrix}<br>x \<br>y \<br>z \<br>1<br>\end{bmatrix}</p>
+<p>\begin{bmatrix}<br>x \\<br>y \\<br>z \\<br>1<br>\end{bmatrix}</p>
 <p>&#x3D;</p>
-<p>\begin{bmatrix}<br>nx \<br>ny \<br>unknow \<br>z<br>\end{bmatrix}<br>$$<br>计算一下 $ M_{persp -&gt; ortho} $，矩阵的第一行，可以得到：</p>
+<p>\begin{bmatrix}<br>nx \\<br>ny \\<br>unknow \\<br>z<br>\end{bmatrix}<br>$$<br>计算一下 $ M_{persp -&gt; ortho} $，矩阵的第一行，可以得到：</p>
 <p>$$<br>ax + by + cz + d &#x3D; nx<br>$$</p>
 <p>于是有</p>
 <p>$$<br>a &#x3D; n<br>$$</p>
@@ -440,7 +440,7 @@
 <p>$$<br>𝑐&#x3D;0<br>$$</p>
 <p>$$<br>𝑑&#x3D;0<br>$$</p>
 <p>我们可以用同样的方法去计算矩阵的其它行，于是就能得到矩阵的雏形：</p>
-<p>$$<br>M_{persp -&gt; ortho} &#x3D;<br>\begin{bmatrix}<br>n &amp; 0 &amp; 0 &amp; 0 \<br>0 &amp; n &amp; 0 &amp; 0 \<br>? &amp; ? &amp; ? &amp; ? \<br>0 &amp; 0 &amp; 1 &amp; 0<br>\end{bmatrix}<br>$$<br>矩阵的第三行是表示 z 方向的变换的，而我们知道有两个事实：</p>
+<p>$$<br>M_{persp -&gt; ortho} &#x3D;<br>\begin{bmatrix}<br>n &amp; 0 &amp; 0 &amp; 0 \\<br>0 &amp; n &amp; 0 &amp; 0 \\<br>? &amp; ? &amp; ? &amp; ? \\<br>0 &amp; 0 &amp; 1 &amp; 0<br>\end{bmatrix}<br>$$<br>矩阵的第三行是表示 z 方向的变换的，而我们知道有两个事实：</p>
 <ul>
 <li>任何在近平面的点，都不会发生变化，即：</li>
 </ul>
@@ -457,11 +457,11 @@
 <li>任何在远平面上的店，z 都不会发生变化。我们取远平片中的一个中心点 (0,0,𝑓,1) ，它在空间压缩前后都不会发生变化，那么：</li>
 </ul>
 <p>$$<br>\begin{bmatrix}<br>0 &amp; 0 &amp; A &amp; B<br>\end{bmatrix}</p>
-<p>\begin{bmatrix}<br>0 \<br>0 \<br>f \<br>1<br>\end{bmatrix}</p>
+<p>\begin{bmatrix}<br>0 \\<br>0 \\<br>f \\<br>1<br>\end{bmatrix}</p>
 <p>&#x3D; </p>
-<p>\begin{bmatrix}<br>0 \<br>0 \<br>f \<br>1<br>\end{bmatrix}</p>
+<p>\begin{bmatrix}<br>0 \\<br>0 \\<br>f \\<br>1<br>\end{bmatrix}</p>
 <p>&#x3D;&#x3D;</p>
-<p>\begin{bmatrix}<br>0 \<br>0 \<br>f^2 \<br>f<br>\end{bmatrix}<br>$$</p>
+<p>\begin{bmatrix}<br>0 \\<br>0 \\<br>f^2 \\<br>f<br>\end{bmatrix}<br>$$</p>
 <p>联立方程组：</p>
 <p>$$<br>An + B &#x3D; n^2<br>$$</p>
 <p>$$<br>𝐴𝑓+𝐵&#x3D;𝑓2<br>$$</p>
@@ -471,7 +471,7 @@
 <p>因此，我们要求的矩阵为：</p>
 <p>$$<br>M_{persp -&gt; ortho}</p>
 <p>&#x3D;</p>
-<p>\begin{bmatrix}<br>n &amp; 0 &amp; 0 &amp; 0 \<br>0 &amp; n &amp; 0 &amp; 0 \<br>0 &amp; 0 &amp; n + f &amp; -nf \<br>0 &amp; 0 &amp; 1 &amp; 0<br>\end{bmatrix}<br>$$<br>所以，投影矩阵为：</p>
+<p>\begin{bmatrix}<br>n &amp; 0 &amp; 0 &amp; 0 \\<br>0 &amp; n &amp; 0 &amp; 0 \\<br>0 &amp; 0 &amp; n + f &amp; -nf \\<br>0 &amp; 0 &amp; 1 &amp; 0<br>\end{bmatrix}<br>$$<br>所以，投影矩阵为：</p>
 <p>$$<br>M_{persp} &#x3D; M_{ortho} M_{persp -&gt; ortho}<br>$$<br>最后的问题就是 $ M_{ortho} $ 了。对于这个正交投影，我们只知道 [𝑓,𝑛]，还缺少 [𝑙,𝑟] 和 [𝑏,𝑡]，但我们可以通过其他途径来计算出这些需要的值。</p>
 <p>对于透视投影，还有两个重要的概念，那就是 <strong><code>field of view(fov)</code></strong> 和 **<code>aspect ratio</code>**。</p>
 <img src="/2024/07/09/Games101-%E5%8F%98%E6%8D%A2/fov_and_aspect_ratio.png" class title="img">
