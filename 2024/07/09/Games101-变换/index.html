@@ -230,6 +230,7 @@
     <p><strong>写在前面</strong></p>
 <p>Games101 学习记录</p>
 <span id="more"></span>
+<p>转载自：<a target="_blank" rel="noopener" href="https://scarletsky.github.io/2020/06/09/games101-notes-transformation/">https://scarletsky.github.io/2020/06/09/games101-notes-transformation/</a></p>
 <h1 id="二维变换"><a href="#二维变换" class="headerlink" title="二维变换"></a>二维变换</h1><p>二维变换是指二维在平面中进行的变换，一个二维的点经过变换后会得到变成另一个点（一个新的坐标）。</p>
 <h2 id="缩放"><a href="#缩放" class="headerlink" title="缩放"></a>缩放</h2><img src="/2024/07/09/Games101-%E5%8F%98%E6%8D%A2/2d_scale.png" class title="img">
 <p>缩放是指点$ (x_0, y_0) $  经过缩放因子$ S(x, y) $变换之后形成新的点$ (x_1, y_1) $，它们间的关系是：</p>
@@ -409,8 +410,14 @@ y_{\hat g \times \hat t} & y_t & y_{-g} & 0 \\\
 z_{\hat g \times \hat t} & z_t & z_{-g} & 0 \\\ 
 0 & 0 & 0 & 1
 \end{bmatrix}</script><p>然后再进行一次转置操作即可：</p>
-<img src="/2024/07/09/Games101-%E5%8F%98%E6%8D%A2/image-20240713173257211-0863179.png" class title="image-20240713173257211">
-<p>最后，我们就可以得到视图矩阵：</p>
+<script type="math/tex; mode=display">
+R_{view} = { {R_{view} }^{-1} }^T =
+\begin{bmatrix}
+x_{\hat g \times \hat t} & y_{\hat g \times \hat t} & z_{\hat g \times \hat t} & 0 \\\
+x_t & y_t & z_t & 0 \\\
+x_{-g} & y_{-g} & z_{-g} & 0 \\\
+0 & 0 & 0 & 1
+\end{bmatrix}</script><p>最后，我们就可以得到视图矩阵：</p>
 <script type="math/tex; mode=display">
 M_{view} =
 R_{view} \cdot T_{view} =
