@@ -229,28 +229,21 @@
     
     <p><strong>C++11右值引用</strong></p>
 <span id="more"></span>
-
 <p>转载自<a target="_blank" rel="noopener" href="https://blog.csdn.net/QIANGWEIYUAN/article/details/88653747?spm=1001.2014.3001.5501">https://blog.csdn.net/QIANGWEIYUAN/article/details/88653747?spm=1001.2014.3001.5501</a></p>
 <h2 id="左值引用和右值引用"><a href="#左值引用和右值引用" class="headerlink" title="左值引用和右值引用"></a>左值引用和右值引用</h2><p>首先回忆一下C++的传统左值引用，左值引用示例代码：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int a = 10;</span><br><span class="line">	int &amp;b = a;</span><br><span class="line">	b = 20;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>上面这段代码的汇编指令如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">	int a = 10;</span><br><span class="line">	// 这条mov指令把10放到a的内存中</span><br><span class="line">00354218  mov         dword ptr [a],0Ah  </span><br><span class="line"></span><br><span class="line">	int &amp;b = a;</span><br><span class="line">	/* 下面的lea指令把a的地址放入eax寄存器</span><br><span class="line">	   mov指令把eax的内容放入b内存里面</span><br><span class="line">	*/</span><br><span class="line">0035421F  lea         eax,[a]  </span><br><span class="line">00354222  mov         dword ptr [b],eax </span><br><span class="line"> </span><br><span class="line">	b = 20;</span><br><span class="line">	/* 下面的mov指令把b内存的值放入eax寄存器（就是a的地址）</span><br><span class="line">	   mov指令再把20放入eax记录的地址的内存里面（就是把20赋值给a）</span><br><span class="line">	*/</span><br><span class="line">00354225  mov         eax,dword ptr [b]  </span><br><span class="line">00354228  mov         dword ptr [eax],14h</span><br></pre></td></tr></table></figure>
-
 <p>从上面的指令可以看出，定义一个左值引用在汇编上和定义一个指针是没有任何区别的。定义一个引用变量，是必须初始化的，这是因为指令上需要将右边a的地址放入到b的内存里面。当给引用变量b赋值时，指令从b中取出a的地址，并把20写入该地址，也就是a的内存中。所以说，使用引用变量时，汇编指令会做一个指针自动解引用的操作。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int &amp;b = 20;</span><br></pre></td></tr></table></figure>
-
 <p>代码无法编译通过，这是因为定义引用时，需要取右边变量的地址，但是20是立即数，没有在内存上存储，所以无法取得地址。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const int &amp;b = 20;</span><br></pre></td></tr></table></figure>
-
 <p>因此只能像上面这样，那么这样20就能取地址了吗？不是的，是因为在内存上产生了一个临时变量保存了20，b中保存的是这个临时变量的地址。相当于下面这样：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">这里temp是在内存上产生的临时量</span><br><span class="line">const int temp = 20; </span><br><span class="line">const int &amp;b = temp;</span><br><span class="line">*/</span><br><span class="line">const int &amp;b = 20;</span><br></pre></td></tr></table></figure>
-
 <p>从上述不难得出一个结论，左值引用要求右边的值必须能够取地址，如果无法取地址，可以使用常引用来引用。但是这样一来，我们就无法通过引用来改变数据了。那么怎么办呢？</p>
 <p>办法就是使用右值引用。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int &amp;&amp;b = 20;  // 通过指令可以看到，原来const int &amp;b=20和int &amp;&amp;b=20一模一样！！！</span><br><span class="line">	     这里mov指令相当于是产生了临时量，起始地址ebp-14h</span><br><span class="line">00CA18B8  mov         dword ptr [ebp-14h],14h  </span><br><span class="line">		 把临时量的地址放入eax寄存器当中</span><br><span class="line">00CA18BF  lea         eax,[ebp-14h]  </span><br><span class="line">         再把eax的值（临时量的地址）放入b内存中（一个指针大小的内存）</span><br><span class="line">00CA18C2  mov         dword ptr [b],eax  </span><br><span class="line">	b = 40;</span><br><span class="line">00CA18C5  mov         eax,dword ptr [b]  </span><br><span class="line">00CA18C8  mov         dword ptr [eax],28h </span><br></pre></td></tr></table></figure>
-
-<p>从汇编上来看，右值引用变量时仍然要创建临时变量，然后保存临时变量的地址，也就是说const int&amp;b &#x3D; 20和int &amp;&amp;b &#x3D; 20；从指令上来说是没有任何区别的。不同的是，使用右值引用可以修改变量的值，而const左值引用不可以；</p>
+<p>从汇编上来看，右值引用变量时仍然要创建临时变量，然后保存临时变量的地址，也就是说const int&amp;b = 20和int &amp;&amp;b = 20；从指令上来说是没有任何区别的。不同的是，使用右值引用可以修改变量的值，而const左值引用不可以；</p>
 <p>所以得出以下结论，有地址的用左值引用，没有地址的用右值引用；有变量名字的用左值引用，没有变量名字的，用右值引用。</p>
 <h2 id="C-右值引用有什么意义？"><a href="#C-右值引用有什么意义？" class="headerlink" title="C++右值引用有什么意义？"></a>C++右值引用有什么意义？</h2><p>当c++类中有动态存储的类型时，编译器提供的默认拷贝构造函数和默认赋值运算符重载是浅拷贝，这样是有问题的。因为浅拷贝是指针的直接赋值，这样会导致多个对象指向同一块内存，在析构的时候，就会delete多次，导致出错。因此我们需要自定义拷贝构造函数和赋值运算符。</p>
 <p>我们需要把原来的数据拷贝一份，然后再把原来的数据释放掉。效率十分低下。因此我们使用右值引用的方式来编写拷贝构造函数和重写赋值运算符。</p>

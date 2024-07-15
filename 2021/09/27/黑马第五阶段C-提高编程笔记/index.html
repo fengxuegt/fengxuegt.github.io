@@ -228,8 +228,7 @@
   <div class="post-content">
     
     <h2 id="STL容器"><a href="#STL容器" class="headerlink" title="STL容器"></a>STL容器</h2><span id="more"></span>
-
-<h4 id="map-multimap"><a href="#map-multimap" class="headerlink" title="map&#x2F;multimap"></a>map&#x2F;multimap</h4><ul>
+<h4 id="map-multimap"><a href="#map-multimap" class="headerlink" title="map/multimap"></a>map/multimap</h4><ul>
 <li><p>map中所有元素都是pair</p>
 </li>
 <li><p>pair中第一个元素是key，第二个元素是value</p>
@@ -244,10 +243,10 @@
 </ul>
 <p>插入方式</p>
 <ul>
-<li>insert(pair&lt;int, int&gt; (1, 10));</li>
+<li>insert(pair<int, int> (1, 10));</int,></li>
 <li>insert(make_pair(2, 10));</li>
-<li>insert(map&lt;int, int&gt;::value_type(3, 30));</li>
-<li>m[4] &#x3D; 40; &#x2F;&#x2F; 这种方式不推荐，因为即使key值是错误的，也能正常插入，会导致出现意外的问题，但是可以通过[]访问</li>
+<li>insert(map<int, int>::value_type(3, 30));</int,></li>
+<li>m[4] = 40; // 这种方式不推荐，因为即使key值是错误的，也能正常插入，会导致出现意外的问题，但是可以通过[]访问</li>
 </ul>
 <p>删除方式</p>
 <ul>
@@ -258,8 +257,8 @@
 </ul>
 <p>查找和统计</p>
 <ul>
-<li>find(key); &#x2F;&#x2F; 找到了就返回对应迭代器，如果没有找到那就是返回end();</li>
-<li>cout(key); &#x2F;&#x2F; 返回int，返回当前map中有多少个key，map只会返回0或者1；</li>
+<li>find(key); // 找到了就返回对应迭代器，如果没有找到那就是返回end();</li>
+<li>cout(key); // 返回int，返回当前map中有多少个key，map只会返回0或者1；</li>
 </ul>
 <p>排序</p>
 <ul>

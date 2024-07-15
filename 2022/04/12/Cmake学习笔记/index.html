@@ -230,14 +230,11 @@
     <p><strong>写在前面</strong></p>
 <p>是GitHub项目的简单搬运，用于记录简单的cmake工程如何构建编译。</p>
 <span id="more"></span>
-
 <h2 id="Version-1"><a href="#Version-1" class="headerlink" title="Version-1"></a>Version-1</h2><p>同一目录，单个源文件。<br>首先创建CMakeLists.txt</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Cmake 最低版本号</span><br><span class="line">cmake_minimum_required(VERSION 3.2)</span><br><span class="line"># 项目信息</span><br><span class="line">project(demo01)</span><br><span class="line"># 指定生成目标</span><br><span class="line">add_executable(demo main.c)</span><br></pre></td></tr></table></figure>
-
 <p>新建build目录，cd进入，cmake..，然后make</p>
 <h2 id="Version-2"><a href="#Version-2" class="headerlink" title="Version-2"></a>Version-2</h2><p>同一目录，多个源文件。<br>首先创建CMakeLists.txt</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Cmake 最低版本号</span><br><span class="line">cmake_minimum_required(VERSION 3.2)</span><br><span class="line"># 项目信息</span><br><span class="line">project(demo02)</span><br><span class="line"># 添加所有源文件</span><br><span class="line">aux_source_directory(. DIR_SRCS)</span><br><span class="line"># 指定生成目标</span><br><span class="line">add_executable(demo $&#123;DIR_SRCS&#125;)</span><br></pre></td></tr></table></figure>
-
 <h2 id="Version-3"><a href="#Version-3" class="headerlink" title="Version-3"></a>Version-3</h2><p>多个目录，多个源文件。<br>首先创建CMakeLists.txt</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># Cmake 最低版本号</span><br><span class="line">cmake_minimum_required(VERSION 3.2)</span><br><span class="line"># 项目信息</span><br><span class="line">project(demo03)</span><br><span class="line"># 添加所有源文件</span><br><span class="line">aux_source_directory(. DIR_SRCS)</span><br><span class="line"># 添加math子目录</span><br><span class="line">add_subdirectory(math)</span><br><span class="line"># 指定生成目标</span><br><span class="line">add_executable(demo $&#123;DIR_SRCS&#125;)</span><br></pre></td></tr></table></figure>
 

@@ -235,24 +235,20 @@
 <li>安装hexo</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
 <ol>
 <li>新建</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ <span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
-
 <ol>
 <li>启动</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
 <p>查看效果<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a></p>
 <h3 id="三、Next主题"><a href="#三、Next主题" class="headerlink" title="三、Next主题"></a>三、Next主题</h3><p>一款简洁易用的hexo主题。</p>
 <ol>
 <li>下载安装主题</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-
 <ol>
 <li>启用主题<br>打开站点配置文件（folder目录下_config.yml），找到theme字段，并将其值更改为next，重启之后查看效果。</li>
 </ol>
@@ -261,40 +257,33 @@
 <li>生成密钥<br>在git-bash中输入：</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen  -t rsa –C <span class="string">&quot;youremail@example.com&quot;</span></span><br></pre></td></tr></table></figure>
-
 <p>以rsa方式加密生成公钥id_rsa.pub私钥id_rsa</p>
 <ol>
 <li>添加密钥至github<br>将之前生成的is_rsa.pub中的内容添加至：<br>github -&gt; settings -&gt; deploy keys -&gt; add deploy key</li>
 <li>连接测试</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-
 <ol>
 <li>存在多个ssh时需添加、配置config文件（可选）</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">  HostName github.com</span><br><span class="line">  PreferredAuthentications publickey</span><br><span class="line">  IdentityFile ~/.ssh/id_rsa</span><br><span class="line">Host githubpages.com</span><br><span class="line">  HostName github.com</span><br><span class="line">  PreferredAuthentications publickey</span><br><span class="line">  IdentityFile ~/.ssh/id_rsa2</span><br></pre></td></tr></table></figure>
-
 <h3 id="五、部署至github"><a href="#五、部署至github" class="headerlink" title="五、部署至github"></a>五、部署至github</h3><ol>
 <li>安装hexo-deployer-git</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
 <ol>
 <li>配置deploy<br>打开站点配置文件（folder目录下_config.yml）,找到deploy字段，设置如下：</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: git@githubpages.com:&lt;yourname&gt;/&lt;yourname&gt;.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-
 <p><em>备注：因为本地存在多个ssh key,githubpages.com是之前为了进行区分而配置的别名</em></p>
 <ol>
 <li>生成</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
 <ol>
 <li>部署</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
 <h3 id="六、结语"><a href="#六、结语" class="headerlink" title="六、结语"></a>六、结语</h3><p>最后，一个基本的个人博客就搭建好了！~ <a target="_blank" rel="noopener" href="https://fengxuegt.github.io/">戳这里</a></p>
 
     

@@ -230,88 +230,118 @@
     <p><strong>写在前面</strong></p>
 <p>Games101 学习记录</p>
 <span id="more"></span>
-
 <h1 id="二维变换"><a href="#二维变换" class="headerlink" title="二维变换"></a>二维变换</h1><p>二维变换是指二维在平面中进行的变换，一个二维的点经过变换后会得到变成另一个点（一个新的坐标）。</p>
 <h2 id="缩放"><a href="#缩放" class="headerlink" title="缩放"></a>缩放</h2><img src="/2024/07/09/Games101-%E5%8F%98%E6%8D%A2/2d_scale.png" class title="img">
-
 <p>缩放是指点$ (x_0, y_0) $  经过缩放因子$ S(x, y) $变换之后形成新的点$ (x_1, y_1) $，它们间的关系是：</p>
-<p>$$<br>x_1 &#x3D; S_x \times x_0<br>$$</p>
-<p>$$<br>y_1 &#x3D; S_y \times y_0<br>$$</p>
-<p>写成矩阵的形式就是：</p>
-<p>$$<br>\begin{bmatrix} x_1 \ y_1 \end{bmatrix} &#x3D;<br>\begin{bmatrix} S_x &amp; 0 \\ 0 &amp; S_y \end{bmatrix}<br>\begin{bmatrix} x_0 \ y_0 \end{bmatrix}<br>$$</p>
-<p><strong>镜像</strong>是一个非常常见的缩放变换，只需要把缩放因子变成负数即可实现某个方向的镜像。如当缩放因子是$ (-1, 1) $ 时，经过缩放变换之后的图形就是以 Y 轴为对称轴的镜像。</p>
+<script type="math/tex; mode=display">
+x_1 = S_x \times x_0</script><script type="math/tex; mode=display">
+y_1 = S_y \times y_0</script><p>写成矩阵的形式就是：</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix} x_1 \\ y_1 \end{bmatrix} =
+\begin{bmatrix} S_x & 0 \\ 0 & S_y \end{bmatrix}
+\begin{bmatrix} x_0 \\ y_0 \end{bmatrix}</script><p><strong>镜像</strong>是一个非常常见的缩放变换，只需要把缩放因子变成负数即可实现某个方向的镜像。如当缩放因子是$ (-1, 1) $ 时，经过缩放变换之后的图形就是以 Y 轴为对称轴的镜像。</p>
 <h2 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h2><img src="/2024/07/09/Games101-%E5%8F%98%E6%8D%A2/2d_rotation.png" class title="img">
-
 <p>旋转是指绕一点作为旋转中心，旋转 𝜃 角度的变换。 如上图所示，该正方形绕原点旋转了 𝜃 角度。假设正方形的边长为 1，那么我们很容易可以得到如下的关系：</p>
-<p>$$<br>\begin{bmatrix} x_1 \ y_1 \end{bmatrix} &#x3D;<br>\begin{bmatrix} A &amp; B \\ C &amp; D \end{bmatrix}<br>\begin{bmatrix} x_0 \ y_0 \end{bmatrix}<br>$$<br>对于右下角的点，变换前的坐标是 (1,0)，变换后的坐标是 (𝑐𝑜𝑠𝜃,𝑠𝑖𝑛𝜃)， 我们可以得到如下的关系：</p>
-<p>$$<br>\begin{bmatrix} cos \theta \ sin \theta \end{bmatrix} &#x3D;<br>\begin{bmatrix} A &amp; B \\ C &amp; D \end{bmatrix}<br>\begin{bmatrix} 1 \ 0 \end{bmatrix}<br>$$</p>
-<p>$$<br>cos \theta &#x3D; A \times 1 + B \times 0 &#x3D; A<br>$$</p>
-<p>$$<br>sin \theta &#x3D; C \times 1 + D \times 0 &#x3D; C<br>$$</p>
-<p>同理，对于左上角的点，变换前的坐标为 (0,1)，变换后的坐标为 (−𝑠𝑖𝑛𝜃,𝑐𝑜𝑠𝜃)，我们同样可以得到如下的关系：</p>
-<p>$$<br>\begin{bmatrix} -sin \theta \ cos \theta \end{bmatrix} &#x3D;<br>\begin{bmatrix} A &amp; B \\ C &amp; D \end{bmatrix}<br>\begin{bmatrix} 0 \ 1 \end{bmatrix}<br>$$</p>
-<p>$$<br>-sin \theta &#x3D; A \times 0 + B \times 1 &#x3D; B<br>$$</p>
-<p>$$<br>cos \theta &#x3D; C \times 0 + D \times 1 &#x3D; D<br>$$</p>
-<p>这样我们就得到了旋转矩阵：</p>
-<p>$$<br>R_\theta &#x3D; \begin{bmatrix} cos \theta &amp; -sin \theta \\ sin \theta &amp; cos \theta \end{bmatrix}<br>$$</p>
-<h2 id="线性变换"><a href="#线性变换" class="headerlink" title="线性变换"></a>线性变换</h2><p>通过上面的例子我们可以发现，缩放和旋转都能以线性变换的形式来表示，即：</p>
-<p>$$<br>x_1 &#x3D; ax_0 + by_0<br>$$</p>
-<p>$$<br>y_1 &#x3D; cx_0 + dy_0<br>$$</p>
-<p>以矩阵的形式来表示即：</p>
-<p>$$<br>\begin{bmatrix} x_1 \ y_1 \end{bmatrix} &#x3D;<br>\begin{bmatrix} A &amp; B \\ C &amp; D \end{bmatrix}<br>\begin{bmatrix} x_0 \ y_0 \end{bmatrix}<br>$$<br>如果变换可以通过以矩阵M 与点相乘然后得到一个新的点的话，那么这种变换就可以称为是线性变换。</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix} x_1 \\ y_1 \end{bmatrix} =
+\begin{bmatrix} A & B \\ C & D \end{bmatrix}
+\begin{bmatrix} x_0 \\ y_0 \end{bmatrix}</script><p>对于右下角的点，变换前的坐标是 (1,0)，变换后的坐标是 (𝑐𝑜𝑠𝜃,𝑠𝑖𝑛𝜃)， 我们可以得到如下的关系：</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix} cos \theta \\ sin \theta \end{bmatrix} =
+\begin{bmatrix} A & B \\ C & D \end{bmatrix}
+\begin{bmatrix} 1 \\ 0 \end{bmatrix}</script><script type="math/tex; mode=display">
+cos \theta = A \times 1 + B \times 0 = A</script><script type="math/tex; mode=display">
+sin \theta = C \times 1 + D \times 0 = C</script><p>同理，对于左上角的点，变换前的坐标为 (0,1)，变换后的坐标为 (−𝑠𝑖𝑛𝜃,𝑐𝑜𝑠𝜃)，我们同样可以得到如下的关系：</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix} -sin \theta \\ cos \theta \end{bmatrix} =
+\begin{bmatrix} A & B \\ C & D \end{bmatrix}
+\begin{bmatrix} 0 \\ 1 \end{bmatrix}</script><script type="math/tex; mode=display">
+-sin \theta = A \times 0 + B \times 1 = B</script><script type="math/tex; mode=display">
+cos \theta = C \times 0 + D \times 1 = D</script><p>这样我们就得到了旋转矩阵：</p>
+<script type="math/tex; mode=display">
+R_\theta = \begin{bmatrix} cos \theta & -sin \theta \\ sin \theta & cos \theta \end{bmatrix}</script><h2 id="线性变换"><a href="#线性变换" class="headerlink" title="线性变换"></a>线性变换</h2><p>通过上面的例子我们可以发现，缩放和旋转都能以线性变换的形式来表示，即：</p>
+<script type="math/tex; mode=display">
+x_1 = ax_0 + by_0</script><script type="math/tex; mode=display">
+y_1 = cx_0 + dy_0</script><p>以矩阵的形式来表示即：</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix} x_1 \\ y_1 \end{bmatrix} =
+\begin{bmatrix} A & B \\ C & D \end{bmatrix}
+\begin{bmatrix} x_0 \\ y_0 \end{bmatrix}</script><p>如果变换可以通过以矩阵M 与点相乘然后得到一个新的点的话，那么这种变换就可以称为是线性变换。</p>
 <h2 id="平移"><a href="#平移" class="headerlink" title="平移"></a>平移</h2><img src="/2024/07/09/Games101-%E5%8F%98%E6%8D%A2/2d_translate.png" class title="img">
-
 <p>平移就是把 (𝑥,𝑦) 移动一段距离 (𝑇𝑥,𝑇𝑦) 然后得到一个新的坐标，即：</p>
-<p>$$<br>x_1 &#x3D; x_0 + T_x<br>$$</p>
-<p>$$<br>y_1 &#x3D; y_0 + T_y<br>$$</p>
-<h2 id="齐次坐标"><a href="#齐次坐标" class="headerlink" title="齐次坐标"></a>齐次坐标</h2><p>观察平移的公式后可以发现，我们不能像缩放和旋转那样写出一个类似的平移矩阵。我们必须把带有平移的变换写成如下的形式：</p>
-<p>$$<br>\begin{bmatrix} x_1 \ y_1 \end{bmatrix} &#x3D;<br>\begin{bmatrix} A &amp; B \\ C &amp; D \end{bmatrix}<br>\begin{bmatrix} x_0 \ y_0 \end{bmatrix}<br>+<br>\begin{bmatrix} T_x \ T_y \end{bmatrix}<br>$$<br>我们希望有一个工具来统一所有变换，这个工具就是 —— 齐次坐标。</p>
+<script type="math/tex; mode=display">
+x_1 = x_0 + T_x</script><script type="math/tex; mode=display">
+y_1 = y_0 + T_y</script><h2 id="齐次坐标"><a href="#齐次坐标" class="headerlink" title="齐次坐标"></a>齐次坐标</h2><p>观察平移的公式后可以发现，我们不能像缩放和旋转那样写出一个类似的平移矩阵。我们必须把带有平移的变换写成如下的形式：</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix} x_1 \\ y_1 \end{bmatrix} =
+\begin{bmatrix} A & B \\ C & D \end{bmatrix}
+\begin{bmatrix} x_0 \\ y_0 \end{bmatrix}
++
+\begin{bmatrix} T_x \\ T_y \end{bmatrix}</script><p>我们希望有一个工具来统一所有变换，这个工具就是 —— 齐次坐标。</p>
 <p>齐次坐标是再给点、向量增加一个 w 维度：</p>
 <ul>
 <li>2D 点： (𝑥,𝑦,1)</li>
 <li>2D 向量： (𝑥,𝑦,0)</li>
 </ul>
 <p>当点、向量增加一个 w 纬度之后，我们就可以把上述带有平移的变换写成如下的形式：</p>
-<p>$$<br>\begin{bmatrix} x_1 \ y_1 \ w_1 \end{bmatrix} &#x3D;<br>\begin{bmatrix} A &amp; B &amp; T_x \\ C &amp; D &amp; T_y \\ 0 &amp; 0 &amp; 1 \end{bmatrix}<br>\begin{bmatrix} x_0 \ y_0 \ w_0 \end{bmatrix}<br>$$<br>因此，在齐次坐标下，我们就可以用一个矩阵来同时表示平移、旋转、缩放三种变换了。</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix} x_1 \\ y_1 \\ w_1 \end{bmatrix} =
+\begin{bmatrix} A & B & T_x \\ C & D & T_y \\ 0 & 0 & 1 \end{bmatrix}
+\begin{bmatrix} x_0 \\ y_0 \\ w_0 \end{bmatrix}</script><p>因此，在齐次坐标下，我们就可以用一个矩阵来同时表示平移、旋转、缩放三种变换了。</p>
 <p>并且，由于向量具有平移不变性，因此 w 为 0 的时候刚好能保证平移矩阵与向量相乘时，w 分量依然保持 0，如：</p>
-<p>$$<br>\begin{bmatrix} x_1 \ y_1 \ w_1 \end{bmatrix} &#x3D;<br>\begin{bmatrix} 1 &amp; 0 &amp; T_x \\ 0 &amp; 1 &amp; T_y \\ 0 &amp; 0 &amp; 1 \end{bmatrix}<br>\begin{bmatrix} x_0 \ y_0 \ 0 \end{bmatrix} &#x3D;<br>\begin{bmatrix} x_0 + T_x \ y_0 + T_y \ 0 \end{bmatrix}<br>$$<br>另外，对于 w 分量，还有些相关的结论：</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix} x_1 \\ y_1 \\ w_1 \end{bmatrix} =
+\begin{bmatrix} 1 & 0 & T_x \\ 0 & 1 & T_y \\ 0 & 0 & 1 \end{bmatrix}
+\begin{bmatrix} x_0 \\ y_0 \\ 0 \end{bmatrix} =
+\begin{bmatrix} x_0 + T_x \\ y_0 + T_y \\ 0 \end{bmatrix}</script><p>另外，对于 w 分量，还有些相关的结论：</p>
 <ul>
-<li>向量 + 向量 &#x3D; 向量<ul>
-<li>因为 𝑤1+𝑤2&#x3D;0</li>
+<li>向量 + 向量 = 向量<ul>
+<li>因为 𝑤1+𝑤2=0</li>
 </ul>
 </li>
-<li>点 - 点 &#x3D; 向量<ul>
-<li>因为 𝑤1−𝑤2&#x3D;0</li>
+<li>点 - 点 = 向量<ul>
+<li>因为 𝑤1−𝑤2=0</li>
 </ul>
 </li>
-<li>点 + 向量 &#x3D; 点<ul>
-<li>因为 𝑤1+𝑤2&#x3D;1</li>
+<li>点 + 向量 = 点<ul>
+<li>因为 𝑤1+𝑤2=1</li>
 </ul>
 </li>
-<li>点 + 点 &#x3D; 这两点的中点<ul>
-<li>因为 𝑤1+𝑤2&#x3D;2，在齐次坐标下，点的 w 分量为 1，所以结果要除以 2，得到的结果正是两点的中点位置</li>
+<li>点 + 点 = 这两点的中点<ul>
+<li>因为 𝑤1+𝑤2=2，在齐次坐标下，点的 w 分量为 1，所以结果要除以 2，得到的结果正是两点的中点位置</li>
 </ul>
 </li>
 </ul>
 <h2 id="逆变换"><a href="#逆变换" class="headerlink" title="逆变换"></a>逆变换</h2><img src="/2024/07/09/Games101-%E5%8F%98%E6%8D%A2/2d_inverse.png" class title="img">
-
 <p>逆变换是指把已应用的变换还原的变换，在数学上是指变换矩阵的逆矩阵$ M^{-1} $。</p>
-<h2 id="仿射变换"><a href="#仿射变换" class="headerlink" title="仿射变换"></a>仿射变换</h2><p>仿射变换线性变换平移仿射变换&#x3D;线性变换+平移</p>
-<p>$$<br>\begin{bmatrix} x_1 \ y_1 \end{bmatrix} &#x3D;<br>\begin{bmatrix} A &amp; B \\ C &amp; D \end{bmatrix}<br>\begin{bmatrix} x_0 \ y_0 \end{bmatrix}<br>+<br>\begin{bmatrix} T_x \ T_y \end{bmatrix}<br>$$<br>其对应的齐次坐标的形式为：</p>
-<p>$$<br>\begin{bmatrix} x_1 \ y_1 \ 1 \end{bmatrix} &#x3D;<br>\begin{bmatrix} A &amp; B &amp; T_x \\ C &amp; D &amp; T_y \\ 0 &amp; 0 &amp; 1 \end{bmatrix}<br>\begin{bmatrix} x_0 \ y_0 \ 1 \end{bmatrix}<br>$$<br>相对于仿射变换，齐次坐标有如下优点：</p>
+<h2 id="仿射变换"><a href="#仿射变换" class="headerlink" title="仿射变换"></a>仿射变换</h2><p>仿射变换线性变换平移仿射变换=线性变换+平移</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix} x_1 \\ y_1 \end{bmatrix} =
+\begin{bmatrix} A & B \\ C & D \end{bmatrix}
+\begin{bmatrix} x_0 \\ y_0 \end{bmatrix}
++
+\begin{bmatrix} T_x \\ T_y \end{bmatrix}</script><p>其对应的齐次坐标的形式为：</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix} x_1 \\ y_1 \\ 1 \end{bmatrix} =
+\begin{bmatrix} A & B & T_x \\ C & D & T_y \\ 0 & 0 & 1 \end{bmatrix}
+\begin{bmatrix} x_0 \\ y_0 \\ 1 \end{bmatrix}</script><p>相对于仿射变换，齐次坐标有如下优点：</p>
 <ul>
 <li>可以用一个矩阵来表示平移、旋转、缩放三种变换。</li>
 <li>逆变换可以通过逆矩阵来表示。</li>
 </ul>
 <p>我们可以把平移、旋转、缩放三种变换分别以齐次坐标的形式表示：</p>
-<p>$$<br>T_{(x, y)} &#x3D; \begin{bmatrix} 0 &amp; 0 &amp; T_x \\ 0 &amp; 0 &amp; T_y \\ 0 &amp; 0 &amp; 1 \end{bmatrix}<br>$$</p>
-<p>$$<br>R_{(\theta)} &#x3D; \begin{bmatrix} cos \theta &amp; -sin \theta &amp; 0 \\ sin \theta &amp; cos \theta &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}<br>$$</p>
-<p>$$<br>S_{(x, y)} &#x3D; \begin{bmatrix} S_x &amp; 0 &amp; 0 \\ 0 &amp; S_y &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}<br>$$</p>
-<p><strong>在仿射变换下，变换的先后顺序是先进行线性变换，然后再进行平移变换。</strong></p>
+<script type="math/tex; mode=display">
+T_{(x, y)} = \begin{bmatrix} 0 & 0 & T_x \\ 0 & 0 & T_y \\ 0 & 0 & 1 \end{bmatrix}</script><script type="math/tex; mode=display">
+R_{(\theta)} = \begin{bmatrix} cos \theta & -sin \theta & 0 \\ sin \theta & cos \theta & 0 \\ 0 & 0 & 1 \end{bmatrix}</script><script type="math/tex; mode=display">
+S_{(x, y)} = \begin{bmatrix} S_x & 0 & 0 \\ 0 & S_y & 0 \\ 0 & 0 & 1 \end{bmatrix}</script><p><strong>在仿射变换下，变换的先后顺序是先进行线性变换，然后再进行平移变换。</strong></p>
 <h2 id="组合变换"><a href="#组合变换" class="headerlink" title="组合变换"></a>组合变换</h2><p>矩阵乘法没有交换律，所以两种变换是不能调换顺序的。 即先平移再旋转并不等于先旋转再平移的结果。因此，应用变换的顺序很重要。</p>
 <p>而在应用变换的时候，是根据从右往左的顺序来进行的。</p>
-<p>$$<br>T \cdot R \cdot \begin{bmatrix} x \\ y \\ 1 \end{bmatrix}<br>$$<br>上面这个变换表示先进行旋转，然后再进行平移。</p>
+<script type="math/tex; mode=display">
+T \cdot R \cdot \begin{bmatrix} x \\ y \\ 1 \end{bmatrix}</script><p>上面这个变换表示先进行旋转，然后再进行平移。</p>
 <p>矩阵乘法满足结合律，因此有：</p>
-<p>$$<br>A_n( \cdots A_2( A_1 \cdot \begin{bmatrix} x \\ y \\ 1 \end{bmatrix} ) &#x3D;<br>A_n \cdots A_2 \cdot A_1 \cdot \begin{bmatrix} x \\ y \\ 1 \end{bmatrix}<br>$$<br>观察右边的式子，我们可以预先计算$ T &#x3D; A_n \cdots A_2 \cdot A_1 $，然后直接 $ T \cdot \begin{bmatrix} x \\ y \\ 1 \end{bmatrix} $即可。这是一种优化计算的手段。</p>
+<script type="math/tex; mode=display">
+A_n( \cdots A_2( A_1 \cdot \begin{bmatrix} x \\ y \\ 1 \end{bmatrix} ) =
+A_n \cdots A_2 \cdot A_1 \cdot \begin{bmatrix} x \\ y \\ 1 \end{bmatrix}</script><p>观察右边的式子，我们可以预先计算$ T = A_n \cdots A_2 \cdot A_1 $，然后直接 $ T \cdot \begin{bmatrix} x \\ y \\ 1 \end{bmatrix} $即可。这是一种优化计算的手段。</p>
 <h2 id="分解复杂变换"><a href="#分解复杂变换" class="headerlink" title="分解复杂变换"></a>分解复杂变换</h2><p>默认情况下，旋转是绕原点进行的。如果想自定义旋转中心，可以通过如下的组合变换来实现：</p>
 <ol>
 <li>把旋转中心平移到原点</li>
@@ -323,15 +353,17 @@
 <li>3D 点表示为 (𝑥,𝑦,𝑧,1)</li>
 <li>3D 向量表示为 (𝑥,𝑦,𝑧,0)</li>
 </ul>
-<p>通常，(𝑥,𝑦,𝑧,𝑤) 在 𝑤≠0 时表示为一个 3D 的点，它的坐标为 (𝑥&#x2F;𝑤,𝑦&#x2F;𝑤,𝑧&#x2F;𝑤)。</p>
+<p>通常，(𝑥,𝑦,𝑧,𝑤) 在 𝑤≠0 时表示为一个 3D 的点，它的坐标为 (𝑥/𝑤,𝑦/𝑤,𝑧/𝑤)。</p>
 <p>我们会用一个 4×4 的矩阵来表示三维变换：</p>
-<p>$$<br>\begin{bmatrix} x_1 \\ y_1 \\ z_1 \\ 1 \end{bmatrix} &#x3D;<br>\begin{bmatrix} A &amp; B &amp; C &amp; T_x \\ D &amp; E &amp; F &amp; T_y \\ G &amp; H &amp; I &amp; T_z  \\ 0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix}<br>\begin{bmatrix} x_0 \\ y_0 \\ z_0 \\ 1 \end{bmatrix}<br>$$</p>
-<h2 id="正交矩阵"><a href="#正交矩阵" class="headerlink" title="正交矩阵"></a>正交矩阵</h2><p>仔细观察一下旋转矩阵，和它的逆矩阵、转置矩阵，我们会发现一个有趣的现象：</p>
-<p>$$<br>R_\theta &#x3D; \begin{bmatrix} cos \theta &amp; -sin \theta \\ sin \theta &amp; cos \theta \end{bmatrix}<br>$$</p>
-<p>$$<br>R_{-\theta} &#x3D; \begin{bmatrix} cos \theta &amp; sin \theta \\ -sin \theta &amp; cos \theta \end{bmatrix}<br>$$</p>
-<p>$$<br>{R_\theta}^T &#x3D; \begin{bmatrix} cos \theta &amp; sin \theta \\ -sin \theta &amp; cos \theta \end{bmatrix}<br>$$</p>
-<p>$$<br>R_{-\theta} &#x3D; {R_\theta}^T<br>$$</p>
-<p>旋转矩阵的逆矩阵与它的转置矩阵相同。我们可以利用旋转矩阵的这个性质来求它的逆矩阵。</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix} x_1 \\ y_1 \\ z_1 \\ 1 \end{bmatrix} =
+\begin{bmatrix} A & B & C & T_x \\ D & E & F & T_y \\ G & H & I & T_z  \\ 0 & 0 & 0 & 1 \end{bmatrix}
+\begin{bmatrix} x_0 \\ y_0 \\ z_0 \\ 1 \end{bmatrix}</script><h2 id="正交矩阵"><a href="#正交矩阵" class="headerlink" title="正交矩阵"></a>正交矩阵</h2><p>仔细观察一下旋转矩阵，和它的逆矩阵、转置矩阵，我们会发现一个有趣的现象：</p>
+<script type="math/tex; mode=display">
+R_\theta = \begin{bmatrix} cos \theta & -sin \theta \\ sin \theta & cos \theta \end{bmatrix}</script><script type="math/tex; mode=display">
+R_{-\theta} = \begin{bmatrix} cos \theta & sin \theta \\ -sin \theta & cos \theta \end{bmatrix}</script><script type="math/tex; mode=display">
+{R_\theta}^T = \begin{bmatrix} cos \theta & sin \theta \\ -sin \theta & cos \theta \end{bmatrix}</script><script type="math/tex; mode=display">
+R_{-\theta} = {R_\theta}^T</script><p>旋转矩阵的逆矩阵与它的转置矩阵相同。我们可以利用旋转矩阵的这个性质来求它的逆矩阵。</p>
 <p>另外，当一个矩阵的逆矩阵等于该矩阵的转置矩阵时，这个矩阵称为正交矩阵，因此旋转矩阵也是一个正交矩阵。</p>
 <h2 id="观测变换-Viewing-Transformation"><a href="#观测变换-Viewing-Transformation" class="headerlink" title="观测变换 (Viewing Transformation)"></a>观测变换 (Viewing Transformation)</h2><p>观测变换是为了把三维空间变换成二维空间（屏幕），它由两部分组成：</p>
 <ul>
@@ -346,10 +378,8 @@
 <p>因此，我们可以把摄像机放到原点位置，朝向 -Z 方向，其他物体与摄像机保持相对位置不变，我们就能得到与世界空间下拍摄到的一样的图像了。</p>
 <p>视图变换是用来把世界空间变换成摄像机空间。如下图所示：</p>
 <img src="/2024/07/09/Games101-%E5%8F%98%E6%8D%A2/camera_world_space.png" class title="img">
-
 <p>(世界空间)</p>
 <img src="/2024/07/09/Games101-%E5%8F%98%E6%8D%A2/camera_view_space.png" class title="img">
-
 <p>(摄像机空间)</p>
 <p>要确定视图变换，我们需要确定三个变量：</p>
 <ol>
@@ -363,33 +393,48 @@
 <li>把摄像机的上方向调整成与 Y 一致，并让摄像机往 -Z 方向看</li>
 </ol>
 <p>这些步骤就是视图变换（View Transformation）了，即：</p>
-<p>$$<br>M_{view} &#x3D; R_{view} \cdot T_{view}<br>$$<br>假设摄像机所在的世界坐标是 (𝑥,𝑦,𝑧)，那么：</p>
-<p>$$<br>T_{view} &#x3D; \begin{bmatrix} 1 &amp; 0 &amp; 0 &amp; -x \\\ 0 &amp; 1 &amp; 0 &amp; -y \\\ 0 &amp; 0 &amp; 1 &amp; -z \\\ 0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix}<br>$$<br>假设摄像机的的上方向为 $ \hat t $，同时往$ \hat g $方向看，由于$ \hat e $、$ \hat g $ 是摄像机的本地坐标系，因此三者相互垂直，所以有：</p>
-<p>$$<br>\hat e &#x3D; \hat g \times \hat t<br>$$<br>接下来需要求 $ R_{view} $，它是一个把摄像机的本地坐标系旋转成标准直角坐标系的变换，直接计算会比较复杂。</p>
+<script type="math/tex; mode=display">
+M_{view} = R_{view} \cdot T_{view}</script><p>假设摄像机所在的世界坐标是 (𝑥,𝑦,𝑧)，那么：</p>
+<script type="math/tex; mode=display">
+T_{view} = \begin{bmatrix} 1 & 0 & 0 & -x \\\ 0 & 1 & 0 & -y \\\ 0 & 0 & 1 & -z \\\ 0 & 0 & 0 & 1 \end{bmatrix}</script><p>假设摄像机的的上方向为 $ \hat t $，同时往$ \hat g $方向看，由于$ \hat e $、$ \hat g $ 是摄像机的本地坐标系，因此三者相互垂直，所以有：</p>
+<script type="math/tex; mode=display">
+\hat e = \hat g \times \hat t</script><p>接下来需要求 $ R_{view} $，它是一个把摄像机的本地坐标系旋转成标准直角坐标系的变换，直接计算会比较复杂。</p>
 <p>幸运的是，我们可以利用旋转矩阵是正交矩阵的特性，来求 $ R_{view} $。</p>
 <p>首先求它的逆矩阵：</p>
-<p>$$<br>{R_{view}}^{-1}<br>\begin{bmatrix}<br>x_{\hat g \times \hat t} &amp; x_t &amp; x_{-g} &amp; 0 \\\<br>y_{\hat g \times \hat t} &amp; y_t &amp; y_{-g} &amp; 0 \\\<br>z_{\hat g \times \hat t} &amp; z_t &amp; z_{-g} &amp; 0 \\\<br>0 &amp; 0 &amp; 0 &amp; 1<br>\end{bmatrix}<br>$$<br>然后再进行一次转置操作即可：</p>
+<script type="math/tex; mode=display">
+{R_{view}}^{-1}
+\begin{bmatrix}
+x_{\hat g \times \hat t} & x_t & x_{-g} & 0 \\\ 
+y_{\hat g \times \hat t} & y_t & y_{-g} & 0 \\\ 
+z_{\hat g \times \hat t} & z_t & z_{-g} & 0 \\\ 
+0 & 0 & 0 & 1
+\end{bmatrix}</script><p>然后再进行一次转置操作即可：</p>
 <img src="/2024/07/09/Games101-%E5%8F%98%E6%8D%A2/image-20240713173257211-0863179.png" class title="image-20240713173257211">
-
 <p>最后，我们就可以得到视图矩阵：</p>
-<p>$$<br>M_{view} &#x3D;<br>R_{view} \cdot T_{view} &#x3D;<br>\begin{bmatrix}<br>x_{\hat g \times \hat t} &amp; y_{\hat g \times \hat t} &amp; z_{\hat g \times \hat t} &amp; -x \\<br>x_t &amp; y_t &amp; z_t &amp; -y \\<br>x_{-g} &amp; y_{-g} &amp; z_{-g} &amp; -z \\<br>0 &amp; 0 &amp; 0 &amp; 1<br>\end{bmatrix}<br>$$</p>
-<h2 id="投影变换"><a href="#投影变换" class="headerlink" title="投影变换"></a>投影变换</h2><p>投影矩阵的作用是把三维空间变换成二维空间，即图片。</p>
+<script type="math/tex; mode=display">
+M_{view} =
+R_{view} \cdot T_{view} =
+\begin{bmatrix}
+x_{\hat g \times \hat t} & y_{\hat g \times \hat t} & z_{\hat g \times \hat t} & -x \\\
+x_t & y_t & z_t & -y \\\
+x_{-g} & y_{-g} & z_{-g} & -z \\\
+0 & 0 & 0 & 1
+\end{bmatrix}</script><h2 id="投影变换"><a href="#投影变换" class="headerlink" title="投影变换"></a>投影变换</h2><p>投影矩阵的作用是把三维空间变换成二维空间，即图片。</p>
 <p>常见的投影有两种：</p>
 <ul>
 <li>正交投影（不会出现近大远小的现象）</li>
 <li>透视投影（会出现近大远小的现象，透视投影下的平行线最终会汇聚在一点）</li>
 </ul>
 <h3 id="正交投影"><a href="#正交投影" class="headerlink" title="正交投影"></a>正交投影</h3><img src="/2024/07/09/Games101-%E5%8F%98%E6%8D%A2/orthographic_projection.png" class title="img">
-
 <p>在图形学中，正交投影是把$ [l, r] \times [b, t] \times [f, n] $构成的空间压缩成$ [-1, 1]^3 $的立方体中。</p>
 <p>其中：</p>
 <ul>
-<li>l &#x3D; left</li>
-<li>r &#x3D; right</li>
-<li>b &#x3D; bottom</li>
-<li>t &#x3D; top</li>
-<li>f &#x3D; far</li>
-<li>n &#x3D; near</li>
+<li>l = left</li>
+<li>r = right</li>
+<li>b = bottom</li>
+<li>t = top</li>
+<li>f = far</li>
+<li>n = near</li>
 </ul>
 <p><strong>注意：因为摄像机是朝 -Z 方向的，所以 n &gt; f。</strong></p>
 <p>要确定正交投影矩阵，需要经过以下步骤：</p>
@@ -398,18 +443,37 @@
 <li>把空间压缩成 [−1,1]3</li>
 </ol>
 <p>即：</p>
-<p>$$<br>M_{ortho} &#x3D; S_{ortho} \cdot T_{ortho}<br>$$</p>
-<p>由于我们知道空间的六个面，因此这个空间的中心就是：$ (\frac {l + r} 2, \frac {b + t} 2, \frac {f + n} 2) $，那么就有：</p>
-<p>$$<br>T_{ortho} &#x3D;<br>\begin{bmatrix}<br>1 &amp; 0 &amp; 0 &amp; -{\frac {r + l} 2} \\<br>0 &amp; 1 &amp; 0 &amp; -{\frac {t + b} 2} \\<br>0 &amp; 0 &amp; 1 &amp; -{\frac {n + f} 2} \\<br>0 &amp; 0 &amp; 0 &amp; 1<br>\end{bmatrix}<br>$$</p>
-<p>下一步就是压缩空间了，这一步骤相当于进行一次缩放，把当前空间缩放到大小为 2 的立方体。</p>
+<script type="math/tex; mode=display">
+M_{ortho} = S_{ortho} \cdot T_{ortho}</script><p>由于我们知道空间的六个面，因此这个空间的中心就是：$ (\frac {l + r} 2, \frac {b + t} 2, \frac {f + n} 2) $，那么就有：</p>
+<script type="math/tex; mode=display">
+T_{ortho} =
+\begin{bmatrix}
+1 & 0 & 0 & -{\frac {r + l} 2} \\\
+0 & 1 & 0 & -{\frac {t + b} 2} \\\
+0 & 0 & 1 & -{\frac {n + f} 2} \\\
+0 & 0 & 0 & 1
+\end{bmatrix}</script><p>下一步就是压缩空间了，这一步骤相当于进行一次缩放，把当前空间缩放到大小为 2 的立方体。</p>
 <p>以空间的 X 方向为例，其长度为 𝑟−𝑙，因此 X 方向的缩放因子就是:</p>
-<p>$$<br>(r - l) \times S_x &#x3D; 2<br>$$</p>
-<p>$$<br>S_x &#x3D; \frac 2 {r - l}<br>$$</p>
-<p>同理可求出 𝑆𝑦 和 𝑆𝑧，然后得到：</p>
-<p>$$<br>S_{ortho} &#x3D;<br>\begin{bmatrix}<br>\frac 2 {r - l} &amp; 0 &amp; 0 &amp; 0 \\<br>0 &amp; \frac 2 {t - b} &amp; 0 &amp; 0 \\<br>0 &amp; 0 &amp; \frac 2 {n - f} &amp; 0 \\<br>0 &amp; 0 &amp; 0 &amp; 1<br>\end{bmatrix}<br>$$<br>最后，正交投影矩阵为：</p>
-<p>$$<br>M_{ortho} &#x3D;<br>S_{ortho} \cdot T_{ortho} &#x3D;<br>\begin{bmatrix}<br>\frac 2 {r - l} &amp; 0 &amp; 0 &amp; -{\frac {r + l} {r - l}} \\<br>0 &amp; \frac 2 {t - b} &amp; 0 &amp; -{\frac {t + b} {t - b}} \\<br>0 &amp; 0 &amp; \frac 2 {n - f} &amp; -{\frac {n + f} {n - f}} \\<br>0 &amp; 0 &amp; 0 &amp; 1<br>\end{bmatrix}<br>$$</p>
-<h3 id="透视投影"><a href="#透视投影" class="headerlink" title="透视投影"></a>透视投影</h3><img src="/2024/07/09/Games101-%E5%8F%98%E6%8D%A2/perspective_projection.png" class title="img">
-
+<script type="math/tex; mode=display">
+(r - l) \times S_x = 2</script><script type="math/tex; mode=display">
+S_x = \frac 2 {r - l}</script><p>同理可求出 𝑆𝑦 和 𝑆𝑧，然后得到：</p>
+<script type="math/tex; mode=display">
+S_{ortho} =
+\begin{bmatrix}
+\frac 2 {r - l} & 0 & 0 & 0 \\\
+0 & \frac 2 {t - b} & 0 & 0 \\\
+0 & 0 & \frac 2 {n - f} & 0 \\\
+0 & 0 & 0 & 1
+\end{bmatrix}</script><p>最后，正交投影矩阵为：</p>
+<script type="math/tex; mode=display">
+M_{ortho} =
+S_{ortho} \cdot T_{ortho} =
+\begin{bmatrix}
+\frac 2 {r - l} & 0 & 0 & -{\frac {r + l} {r - l}} \\\
+0 & \frac 2 {t - b} & 0 & -{\frac {t + b} {t - b}} \\\
+0 & 0 & \frac 2 {n - f} & -{\frac {n + f} {n - f}} \\\
+0 & 0 & 0 & 1
+\end{bmatrix}</script><h3 id="透视投影"><a href="#透视投影" class="headerlink" title="透视投影"></a>透视投影</h3><img src="/2024/07/09/Games101-%E5%8F%98%E6%8D%A2/perspective_projection.png" class title="img">
 <p>透视投影与正交投影类似，也是经过类似的步骤：</p>
 <ol>
 <li>把空间平移到原点</li>
@@ -419,77 +483,164 @@
 <p>相比正交投影，透视投影多了一个步骤，就是把视锥体变换成长方体，这个变换暂且叫做$ M_{p-&gt;o} $。 要计算这个变换，我们需要先知道这个变换过程发生了什么。</p>
 <p>下图是 YZ 平面的截面：</p>
 <img src="/2024/07/09/Games101-%E5%8F%98%E6%8D%A2/perspective_projection_similar_triangle.png" class title="img">
-
 <p>经过压缩后，对于 y 坐标，空间中的一点 (𝑥,𝑦,𝑧) 会变成 (𝑥,𝑦′,𝑧)，根据相似三角形的性质，我们会得到如下的等式：</p>
-<p>$$<br>\frac n z &#x3D; \frac {y^{\prime}} y<br>$$</p>
-<p>$$<br>y^{\prime} &#x3D; \frac n z y<br>$$</p>
-<p>同理，对于 x 坐标，我们也能得到类似的等式：</p>
-<p>$$<br>x^{\prime} &#x3D; \frac n z x<br>$$<br>然后，我们就能得到如下的结果：</p>
-<p>$$<br>M_{persp -&gt; ortho}</p>
-<p>\begin{bmatrix}<br>x \\<br>y \\<br>z \\<br>1<br>\end{bmatrix}</p>
-<p>&#x3D;</p>
-<p>\begin{bmatrix}<br>\frac {nx} z \\<br>\frac {ny} z \\<br>unknow \\<br>1<br>\end{bmatrix}<br>$$<br>再稍微变换一下写法（乘以z），我们能得到：</p>
-<p>$$<br>M_{persp -&gt; ortho}</p>
-<p>\begin{bmatrix}<br>x \\<br>y \\<br>z \\<br>1<br>\end{bmatrix}</p>
-<p>&#x3D;</p>
-<p>\begin{bmatrix}<br>nx \\<br>ny \\<br>unknow \\<br>z<br>\end{bmatrix}<br>$$<br>计算一下 $ M_{persp -&gt; ortho} $，矩阵的第一行，可以得到：</p>
-<p>$$<br>ax + by + cz + d &#x3D; nx<br>$$</p>
-<p>于是有</p>
-<p>$$<br>a &#x3D; n<br>$$</p>
-<p>$$<br>b&#x3D;0<br>$$</p>
-<p>$$<br>𝑐&#x3D;0<br>$$</p>
-<p>$$<br>𝑑&#x3D;0<br>$$</p>
-<p>我们可以用同样的方法去计算矩阵的其它行，于是就能得到矩阵的雏形：</p>
-<p>$$<br>M_{persp -&gt; ortho} &#x3D;<br>\begin{bmatrix}<br>n &amp; 0 &amp; 0 &amp; 0 \\<br>0 &amp; n &amp; 0 &amp; 0 \\<br>? &amp; ? &amp; ? &amp; ? \\<br>0 &amp; 0 &amp; 1 &amp; 0<br>\end{bmatrix}<br>$$<br>矩阵的第三行是表示 z 方向的变换的，而我们知道有两个事实：</p>
+<script type="math/tex; mode=display">
+\frac n z = \frac {y^{\prime}} y</script><script type="math/tex; mode=display">
+y^{\prime} = \frac n z y</script><p>同理，对于 x 坐标，我们也能得到类似的等式：</p>
+<script type="math/tex; mode=display">
+x^{\prime} = \frac n z x</script><p>然后，我们就能得到如下的结果：</p>
+<script type="math/tex; mode=display">
+M_{persp -> ortho}
+\begin{bmatrix}
+x \\\
+y \\\
+z \\\
+1
+\end{bmatrix}
+=
+\begin{bmatrix}
+\frac {nx} z \\\
+\frac {ny} z \\\
+unknow \\\
+1
+\end{bmatrix}</script><p>再稍微变换一下写法（乘以z），我们能得到：</p>
+<script type="math/tex; mode=display">
+M_{persp -> ortho}
+
+\begin{bmatrix}
+x \\\
+y \\\
+z \\\
+1
+\end{bmatrix}
+
+=
+
+\begin{bmatrix}
+nx \\\
+ny \\\
+unknow \\\
+z
+\end{bmatrix}</script><p>计算一下 $ M_{persp -&gt; ortho} $，矩阵的第一行，可以得到：</p>
+<script type="math/tex; mode=display">
+ax + by + cz + d = nx</script><p>于是有</p>
+<script type="math/tex; mode=display">
+a = n</script><script type="math/tex; mode=display">
+b=0</script><script type="math/tex; mode=display">
+𝑐=0</script><script type="math/tex; mode=display">
+𝑑=0</script><p>我们可以用同样的方法去计算矩阵的其它行，于是就能得到矩阵的雏形：</p>
+<script type="math/tex; mode=display">
+M_{persp -> ortho} =
+\begin{bmatrix}
+n & 0 & 0 & 0 \\\
+0 & n & 0 & 0 \\\
+? & ? & ? & ? \\\
+0 & 0 & 1 & 0
+\end{bmatrix}</script><p>矩阵的第三行是表示 z 方向的变换的，而我们知道有两个事实：</p>
 <ul>
 <li>任何在近平面的点，都不会发生变化，即：</li>
 </ul>
-<p>$$<br>\begin{bmatrix}<br>? &amp; ? &amp; ? &amp; ?<br>\end{bmatrix}</p>
-<p>\begin{bmatrix}<br>x \<br>y \<br>n \<br>1<br>\end{bmatrix}</p>
-<p>&#x3D;</p>
-<p>\begin{bmatrix}<br>x \<br>y \<br>n \<br>1<br>\end{bmatrix}</p>
-<p>&#x3D;&#x3D;</p>
-<p>\begin{bmatrix}<br>nx \<br>ny \<br>n^2 \<br>n<br>\end{bmatrix}<br>$$</p>
-<p>和刚才一样代入计算（因为刚才乘以过 z，所以右边要用 𝑛2，下面的 𝑓2 同理）：</p>
-<p>$$<br>ax + by + cn + d &#x3D; n^2<br>$$<br>于是得到矩阵第三行的四个元素分别是：</p>
-<p>$$<br>\begin{bmatrix}<br>0 &amp; 0 &amp; A &amp; B<br>\end{bmatrix}<br>$$</p>
-<ul>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+? & ? & ? & ?
+\end{bmatrix}
+
+\begin{bmatrix}
+x \\\
+y \\\
+n \\\
+1
+\end{bmatrix}
+
+=
+
+\begin{bmatrix}
+x \\\
+y \\\
+n \\\
+1
+\end{bmatrix}
+
+==
+
+\begin{bmatrix}
+nx \\\
+ny \\\
+n^2 \\\
+n
+\end{bmatrix}</script><p>和刚才一样代入计算（因为刚才乘以过 z，所以右边要用 𝑛2，下面的 𝑓2 同理）：</p>
+<script type="math/tex; mode=display">
+ax + by + cn + d = n^2</script><p>于是得到矩阵第三行的四个元素分别是：</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+0 & 0 & A & B
+\end{bmatrix}</script><ul>
 <li>任何在远平面上的店，z 都不会发生变化。我们取远平片中的一个中心点 (0,0,𝑓,1) ，它在空间压缩前后都不会发生变化，那么：</li>
 </ul>
-<p>$$<br>\begin{bmatrix}<br>0 &amp; 0 &amp; A &amp; B<br>\end{bmatrix}</p>
-<p>\begin{bmatrix}<br>0 \\<br>0 \\<br>f \\<br>1<br>\end{bmatrix}</p>
-<p>&#x3D; </p>
-<p>\begin{bmatrix}<br>0 \\<br>0 \\<br>f \\<br>1<br>\end{bmatrix}</p>
-<p>&#x3D;&#x3D;</p>
-<p>\begin{bmatrix}<br>0 \\<br>0 \\<br>f^2 \\<br>f<br>\end{bmatrix}<br>$$</p>
-<p>联立方程组：</p>
-<p>$$<br>An + B &#x3D; n^2<br>$$</p>
-<p>$$<br>𝐴𝑓+𝐵&#x3D;𝑓2<br>$$</p>
-<p>解得：</p>
-<p>$$<br>𝐴&#x3D;𝑛+𝑓<br>$$</p>
-<p>$$<br>𝐵&#x3D;−𝑛𝑓<br>$$</p>
-<p>因此，我们要求的矩阵为：</p>
-<p>$$<br>M_{persp -&gt; ortho}</p>
-<p>&#x3D;</p>
-<p>\begin{bmatrix}<br>n &amp; 0 &amp; 0 &amp; 0 \\<br>0 &amp; n &amp; 0 &amp; 0 \\<br>0 &amp; 0 &amp; n + f &amp; -nf \\<br>0 &amp; 0 &amp; 1 &amp; 0<br>\end{bmatrix}<br>$$<br>所以，投影矩阵为：</p>
-<p>$$<br>M_{persp} &#x3D; M_{ortho} M_{persp -&gt; ortho}<br>$$<br>最后的问题就是 $ M_{ortho} $ 了。对于这个正交投影，我们只知道 [𝑓,𝑛]，还缺少 [𝑙,𝑟] 和 [𝑏,𝑡]，但我们可以通过其他途径来计算出这些需要的值。</p>
-<p>对于透视投影，还有两个重要的概念，那就是 <strong><code>field of view(fov)</code></strong> 和 **<code>aspect ratio</code>**。</p>
-<img src="/2024/07/09/Games101-%E5%8F%98%E6%8D%A2/fov_and_aspect_ratio.png" class title="img">
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+0 & 0 & A & B
+\end{bmatrix}
 
-<p><strong><code>fov</code></strong> 是指视野范围，分为 <strong><code>fovY</code></strong> 和 **<code>fovX</code>**，两者可以相互推导。</p>
+\begin{bmatrix}
+0 \\\
+0 \\\
+f \\\
+1
+\end{bmatrix}
+
+= 
+
+\begin{bmatrix}
+0 \\\
+0 \\\
+f \\\
+1
+\end{bmatrix}
+
+==
+
+\begin{bmatrix}
+0 \\\
+0 \\\
+f^2 \\\
+f
+\end{bmatrix}</script><p>联立方程组：</p>
+<script type="math/tex; mode=display">
+An + B = n^2</script><script type="math/tex; mode=display">
+𝐴𝑓+𝐵=𝑓2</script><p>解得：</p>
+<script type="math/tex; mode=display">
+𝐴=𝑛+𝑓</script><script type="math/tex; mode=display">
+𝐵=−𝑛𝑓</script><p>因此，我们要求的矩阵为：</p>
+<script type="math/tex; mode=display">
+M_{persp -> ortho}
+
+=
+
+\begin{bmatrix}
+n & 0 & 0 & 0 \\\
+0 & n & 0 & 0 \\\
+0 & 0 & n + f & -nf \\\
+0 & 0 & 1 & 0
+\end{bmatrix}</script><p>所以，投影矩阵为：</p>
+<script type="math/tex; mode=display">
+M_{persp} = M_{ortho} M_{persp -> ortho}</script><p>最后的问题就是 $ M_{ortho} $ 了。对于这个正交投影，我们只知道 [𝑓,𝑛]，还缺少 [𝑙,𝑟] 和 [𝑏,𝑡]，但我们可以通过其他途径来计算出这些需要的值。</p>
+<p>对于透视投影，还有两个重要的概念，那就是 <strong><code>field of view(fov)</code></strong> 和 <strong><code>aspect ratio</code></strong>。</p>
+<img src="/2024/07/09/Games101-%E5%8F%98%E6%8D%A2/fov_and_aspect_ratio.png" class title="img">
+<p><strong><code>fov</code></strong> 是指视野范围，分为 <strong><code>fovY</code></strong> 和 <strong><code>fovX</code></strong>，两者可以相互推导。</p>
 <p><strong><code>aspect ratio</code></strong> 是指近平面的宽高比。</p>
 <img src="/2024/07/09/Games101-%E5%8F%98%E6%8D%A2/fov_calculation.png" class title="img">
-
 <p>根据三角函数，我们可以知道：</p>
-<p>$$<br>tan {\frac {fovY} 2} &#x3D; \frac t {|n|}<br>$$<br>另外，根据宽高比的定义，我们可以得出：</p>
-<p>$$<br>aspect &#x3D; \frac {width} {height} &#x3D; \frac {2r} {2t} &#x3D; \frac r t<br>$$<br>联立方程可得：</p>
-<p>$$<br>t &#x3D; |n| \cdot tan {\frac {fovY} 2}<br>$$</p>
-<p>$$<br>r &#x3D; aspect \cdot t<br>$$</p>
-<p>$$<br>b &#x3D; -t<br>$$</p>
-<p>$$<br>l &#x3D; -r<br>$$</p>
-<p>这样，我们就把所需要的值都计算出来了，直接带入上面的正交矩阵公式即可得到：</p>
+<script type="math/tex; mode=display">
+tan {\frac {fovY} 2} = \frac t {|n|}</script><p>另外，根据宽高比的定义，我们可以得出：</p>
+<script type="math/tex; mode=display">
+aspect = \frac {width} {height} = \frac {2r} {2t} = \frac r t</script><p>联立方程可得：</p>
+<script type="math/tex; mode=display">
+t = |n| \cdot tan {\frac {fovY} 2}</script><script type="math/tex; mode=display">
+r = aspect \cdot t</script><script type="math/tex; mode=display">
+b = -t</script><script type="math/tex; mode=display">
+l = -r</script><p>这样，我们就把所需要的值都计算出来了，直接带入上面的正交矩阵公式即可得到：</p>
 <h1 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h1><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.cpp</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">double</span> MY_PI = <span class="number">3.1415926</span>;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">double</span> DEG_TO_RAD = MY_PI / <span class="number">180.0</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function">Eigen::Matrix4f <span class="title">get_model_matrix</span><span class="params">(<span class="type">float</span> rotation_angle)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Eigen::Matrix4f model = Eigen::Matrix4f::<span class="built_in">Identity</span>();</span><br><span class="line"></span><br><span class="line">    <span class="type">float</span> rad = rotation_angle * DEG_TO_RAD;</span><br><span class="line">    <span class="type">float</span> sin_theta = <span class="built_in">sin</span>(rad);</span><br><span class="line">    <span class="type">float</span> cos_theta = <span class="built_in">cos</span>(rad);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">model</span>(<span class="number">0</span>, <span class="number">0</span>) = cos_theta;</span><br><span class="line">    <span class="built_in">model</span>(<span class="number">0</span>, <span class="number">2</span>) = -sin_theta;</span><br><span class="line">    <span class="built_in">model</span>(<span class="number">2</span>, <span class="number">0</span>) = sin_theta;</span><br><span class="line">    <span class="built_in">model</span>(<span class="number">2</span>, <span class="number">2</span>) = cos_theta;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> model;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function">Eigen::Matrix4f <span class="title">get_projection_matrix</span><span class="params">(<span class="type">float</span> eye_fov, <span class="type">float</span> aspect_ratio,</span></span></span><br><span class="line"><span class="params"><span class="function">                                      <span class="type">float</span> zNear, <span class="type">float</span> zFar)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Eigen::Matrix4f projection = Eigen::Matrix4f::<span class="built_in">Identity</span>();</span><br><span class="line">    Eigen::Matrix4f ortho = Eigen::Matrix4f::<span class="built_in">Identity</span>();</span><br><span class="line">    Eigen::Matrix4f persp_to_ortho = Eigen::Matrix4f::<span class="built_in">Identity</span>();</span><br><span class="line"></span><br><span class="line">    <span class="type">float</span> n = zNear;</span><br><span class="line">    <span class="type">float</span> f = zFar;</span><br><span class="line">    <span class="type">float</span> t = n * <span class="built_in">tan</span>((eye_fov / <span class="number">2.0</span>) * DEG_TO_RAD);</span><br><span class="line">    <span class="type">float</span> r = aspect_ratio * t;</span><br><span class="line">    <span class="type">float</span> b = -t;</span><br><span class="line">    <span class="type">float</span> l = -r;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">ortho</span>(<span class="number">0</span>, <span class="number">0</span>) = <span class="number">2</span> / (r - l);</span><br><span class="line">    <span class="built_in">ortho</span>(<span class="number">1</span>, <span class="number">1</span>) = <span class="number">2</span> / (t - b);</span><br><span class="line">    <span class="built_in">ortho</span>(<span class="number">2</span>, <span class="number">2</span>) = <span class="number">2</span> / (n - f);</span><br><span class="line">    <span class="built_in">ortho</span>(<span class="number">0</span>, <span class="number">3</span>) = -(l + r) / <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">ortho</span>(<span class="number">1</span>, <span class="number">3</span>) = -(b + t) / <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">ortho</span>(<span class="number">2</span>, <span class="number">3</span>) = -(f + n) / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">persp_to_ortho</span>(<span class="number">0</span>, <span class="number">0</span>) = n;</span><br><span class="line">    <span class="built_in">persp_to_ortho</span>(<span class="number">1</span>, <span class="number">1</span>) = n;</span><br><span class="line">    <span class="built_in">persp_to_ortho</span>(<span class="number">2</span>, <span class="number">2</span>) = n + f;</span><br><span class="line">    <span class="built_in">persp_to_ortho</span>(<span class="number">2</span>, <span class="number">3</span>) = -(n * f);</span><br><span class="line">    <span class="built_in">persp_to_ortho</span>(<span class="number">3</span>, <span class="number">2</span>) = <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">persp_to_ortho</span>(<span class="number">3</span>, <span class="number">3</span>) = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    projection = ortho * persp_to_ortho;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> projection;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1X7411F744?p=3">Lecture 03 Transformation</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1X7411F744?p=4">Lecture 04 Transformation Cont.</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1X7411F744?p=5">Lecture 05 Rasterization 1 (Triangles)</a></p>

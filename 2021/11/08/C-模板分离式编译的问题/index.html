@@ -228,15 +228,10 @@
   <div class="post-content">
     
     <h3 id="类模板分离式编译"><a href="#类模板分离式编译" class="headerlink" title="类模板分离式编译"></a>类模板分离式编译</h3><span id="more"></span>
-
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Even with <span class="keyword">this</span>, the issue now becomes how to organize the <span class="keyword">class</span> <span class="title class_">template</span> declaration <span class="keyword">and</span> the member function <span class="keyword">template</span> definitions. The main problem is that the implementations in Figure A<span class="number">.2</span> are <span class="keyword">not</span> actually funtions; they are simply templates awaiting expasion. But they are <span class="keyword">not</span> even expanded when the MemoryCell <span class="keyword">template</span> is instantiated. Each member function <span class="keyword">template</span> is expanded only when it is invoked.</span><br><span class="line"></span><br><span class="line"><span class="comment">//翻译过来就是：</span></span><br><span class="line">主要的问题就是，在类模板.cpp文件中的代码并非实际上的函数，他们只是等待着扩展的模板而已。只有在模板被实例化了之后这些函数才会被扩展，也就是说，只有在调用的时候，成员函数模板才会被扩展开来。</span><br></pre></td></tr></table></figure>
-
-
-
 <p>C++编译器不支持模板的分离式编译问题，在编译时会发生错误，其根本原因在于对于C++的编译器来讲，如果没有地方用到类模板中的模板函数，那么编译器就不会将其实例化出来。因此在链接阶段，调用函数的CPP找不到对应的函数实现就会报链接问题；解决方式就是加上模板实例化的代码就行了；</p>
 <p>例如新增一个test.cpp，内容如下：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;MemoryCell.cpp&quot;</span></span></span><br><span class="line"><span class="keyword">template</span> <span class="keyword">class</span> <span class="title class_">MyQueue</span>&lt;<span class="type">int</span>&gt;;</span><br><span class="line"><span class="keyword">template</span> <span class="keyword">class</span> <span class="title class_">MyQueue</span>&lt;Customer&gt;;</span><br></pre></td></tr></table></figure>
-
 <p>这样实例化之后就不会报编译问题了。</p>
 <h3 id="另外"><a href="#另外" class="headerlink" title="另外"></a>另外</h3><p>在编程过程中也遇到了其他问题，比如重载&lt;&lt;运算符时必须以全局函数的形式去重载，不能用成员函数去重载；</p>
 <p>并且重载时要用friend 函数声明，并进行分离式编写，不能都放到.h里面，否则会出现编译问题；</p>

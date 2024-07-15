@@ -230,14 +230,12 @@
     <p><strong>写在前面</strong></p>
 <p>本篇blog为Makefile的学习笔记，用于记录重点之后复习所用。</p>
 <span id="more"></span>
-
 <h1 id="Makefile"><a href="#Makefile" class="headerlink" title="Makefile"></a>Makefile</h1><h2 id="Makefile的基本规则"><a href="#Makefile的基本规则" class="headerlink" title="Makefile的基本规则"></a>Makefile的基本规则</h2><ul>
 <li>目标：要生成的文件</li>
 <li>依赖：目标文件由哪些文件生成</li>
 <li>命令：通过执行该命令生成可执行文件</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">main:main.c fun1.c fun2.c sum.c</span><br><span class="line">	gcc -o main main.c fun1.c fun2.c sum.c -I ./</span><br></pre></td></tr></table></figure>
-
 <h3 id="基本原则"><a href="#基本原则" class="headerlink" title="基本原则"></a>基本原则</h3><ul>
 <li>若想生成目标，需要检查规则中的所有依赖文件是否存在<ul>
 <li>如果有的依赖文件不存在，那么就向下搜索，查看是否有生成该依赖文件的规则，若有，则生成，若没有，则报错</li>
@@ -246,7 +244,6 @@
 </li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">main:main.o fun1.o fun2.o sum.o</span><br><span class="line">	gcc -o main main.o fun1.o fun2.o sum.o</span><br><span class="line">main.o:main.c</span><br><span class="line">	gcc -o main.o -c main.c -I ./</span><br><span class="line">fun1.o:fun1.c</span><br><span class="line">	gcc -o fun1.o -c fun1.c</span><br><span class="line">fun2.o:fun2.c</span><br><span class="line">	gcc -o fun2.o -c fun2.c</span><br><span class="line">sum.o:sum.c</span><br><span class="line">	gcc -o sum.o -c sum.c</span><br></pre></td></tr></table></figure>
-
 <p>以上写法非常冗余，若c文件过多，则非常麻烦</p>
 <h3 id="makefile中的变量"><a href="#makefile中的变量" class="headerlink" title="makefile中的变量"></a>makefile中的变量</h3><p>makefile中的变量有点像是C语言中的宏定义，进行变量替换</p>
 <ul>
@@ -254,17 +251,15 @@
 <li>自带变量</li>
 <li>自动变量</li>
 </ul>
-<h4 id="普通变量"><a href="#普通变量" class="headerlink" title="普通变量"></a>普通变量</h4><p>定义：用 &#x3D;</p>
+<h4 id="普通变量"><a href="#普通变量" class="headerlink" title="普通变量"></a>普通变量</h4><p>定义：用 =</p>
 <p>使用：用$</p>
 <p>提供的变量：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CC = gcc #arm-linux-gcc</span><br><span class="line">CPPFLAGS = -I</span><br><span class="line">CFLAGS = -Wall -g -c</span><br><span class="line">LDFLAGS = -L</span><br></pre></td></tr></table></figure>
-
 <h4 id="自动变量"><a href="#自动变量" class="headerlink" title="自动变量"></a>自动变量</h4><p>$@:表示规则中的目标</p>
 <p>$&lt;:表示规则中的第一个条件</p>
 <p>$^:表示规则中的所有条件，组成一个列表，以空格分隔</p>
 <p>自动变量只能在规则的命令中使用</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">target=main</span><br><span class="line">object=main.o fun1.o fun2.o sum.o</span><br><span class="line">CC=gcc</span><br><span class="line">CPPFLAGS=-I./</span><br><span class="line">$(target):$(object)</span><br><span class="line">	$(CC) -o $@ $^</span><br><span class="line">%.o:%.c</span><br><span class="line">	$(CC) -o $@ -c $&lt; $(CPPFLAGS)</span><br></pre></td></tr></table></figure>
-
 <h2 id="makefile中的函数"><a href="#makefile中的函数" class="headerlink" title="makefile中的函数"></a>makefile中的函数</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">wildcard 查找指定目录下的指定类型的文件</span><br><span class="line">src=$(wildcard *.c) // 查找当前目录下所有后缀为.c的文件，赋值给src</span><br><span class="line">patsubst 匹配替换</span><br><span class="line">obj=$(patsubst %.c,%.o,$(src)) // 把src变量里所有后缀为.c的文件替换成.o</span><br><span class="line">src=$(wildcard *.c)</span><br><span class="line">target=main</span><br><span class="line">object=$(patsubst %.c,%.o,$(src))</span><br><span class="line">CC=gcc</span><br><span class="line">CPPFLAGS=-I./</span><br><span class="line">$(target):$(object)</span><br><span class="line">	$(CC) -o $@ $^</span><br><span class="line">%.o:%.c</span><br><span class="line">	$(CC) -o $@ -c $&lt; $(CPPFLAGS)</span><br><span class="line">.PHONY:clean</span><br><span class="line">clean:</span><br><span class="line">	-rm -f $(target) $(object)</span><br></pre></td></tr></table></figure>
 
     

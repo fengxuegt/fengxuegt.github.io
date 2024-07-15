@@ -230,7 +230,6 @@
     <p><strong>写在前面</strong></p>
 <p>本篇blog为南京大学Mooc《计算机系统基础一》的笔记；</p>
 <span id="more"></span>
-
 <h1 id="第十二周-重定位及动态链接"><a href="#第十二周-重定位及动态链接" class="headerlink" title="第十二周 重定位及动态链接"></a>第十二周 重定位及动态链接</h1><h2 id="静态库的缺点"><a href="#静态库的缺点" class="headerlink" title="静态库的缺点"></a>静态库的缺点</h2><ul>
 <li>库函数被包含在每个运行进程的代码段中，造成内存资源浪费；</li>
 <li>库函数合并在可执行目标文件中，造成磁盘资源浪费；</li>
@@ -255,9 +254,6 @@
 </li>
 </ul>
 <h2 id="自定义共享库"><a href="#自定义共享库" class="headerlink" title="自定义共享库"></a>自定义共享库</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gcc -c sub.c add.c</span><br><span class="line">gcc -shared -fPIC -o mylib.so sub.o add.o // 生成自定义so</span><br><span class="line"></span><br><span class="line">gcc -c main.c</span><br><span class="line">gcc -o main main.o mylib.so // 生成可执行文件</span><br></pre></td></tr></table></figure>
-
-
-
 <h2 id="位置无关代码"><a href="#位置无关代码" class="headerlink" title="位置无关代码"></a>位置无关代码</h2><ul>
 <li>共享库代码被加载的位置可以是不确定的</li>
 <li>共享库代码的长度发生变化，也不影响调用它的程序</li>
