@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="Games101-着色" />
+
+
+<!-- Website keywords -->
+
+<meta name="keywords" content="Games101, 枫雪gt" />
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/default" title="枫雪gt" >
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="http://example.com/2024/07/24/Games101-着色/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });  
+  </script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<!-- Analytics and push -->
+
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"latex":true};
+</script>
+  
+  <title>Games101-着色 - 枫雪gt</title>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">枫雪gt</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        首页              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        归档              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        标签              </li>
+    </a>
+    
+    <a href="/categories/">
+      <li class="mobile-menu-item">
+        
+        
+        分类              </li>
+    </a>
+    
+    <a href="/about/">
+      <li class="mobile-menu-item">
+        
+        
+        关于              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">枫雪gt</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              首页  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              归档  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              标签  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/categories/">  
+              
+              
+              分类  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/about/">  
+              
+              
+              关于  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      Games101-着色
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2024-07-24
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/Technology/">Technology</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9D%80%E8%89%B2%EF%BC%88Shading%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">着色（Shading）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Blinn-Phong-%E7%9D%80%E8%89%B2%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">Blinn-Phong 着色模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%AB%E5%8F%8D%E5%B0%84-%EF%BC%88Diffuse%EF%BC%89"><span class="toc-number">2.1.</span> <span class="toc-text">漫反射 （Diffuse）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E5%85%89%EF%BC%88Specular%EF%BC%89"><span class="toc-number">2.2.</span> <span class="toc-text">高光（Specular）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%85%89%EF%BC%88Ambient%EF%BC%89"><span class="toc-number">2.3.</span> <span class="toc-text">环境光（Ambient）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9D%80%E8%89%B2%E9%A2%91%E7%8E%87"><span class="toc-number">3.</span> <span class="toc-text">着色频率</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B3%E9%9D%A2%E7%9D%80%E8%89%B2%EF%BC%88Flat%EF%BC%89"><span class="toc-number">3.1.</span> <span class="toc-text">平面着色（Flat）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E6%B4%9B%E5%BE%B7%E7%9D%80%E8%89%B2%EF%BC%88Gouraud%EF%BC%89"><span class="toc-number">3.2.</span> <span class="toc-text">高洛德着色（Gouraud）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%AF%E6%B0%8F%E7%9D%80%E8%89%B2%EF%BC%88Phong%EF%BC%89"><span class="toc-number">3.3.</span> <span class="toc-text">冯氏着色（Phong）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E6%AF%94"><span class="toc-number">3.4.</span> <span class="toc-text">对比</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%B9%E7%90%86%E6%98%A0%E5%B0%84%EF%BC%88Texture-Mapping%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">纹理映射（Texture Mapping）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%87%8D%E5%BF%83%E5%9D%90%E6%A0%87%EF%BC%88Barycentric-Coordinates%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">重心坐标（Barycentric Coordinates）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E7%BA%B9%E7%90%86"><span class="toc-number">6.</span> <span class="toc-text">应用纹理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%B9%E7%B4%A0%EF%BC%88Texel%EF%BC%89"><span class="toc-number">6.1.</span> <span class="toc-text">纹素（Texel）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%B9%E7%90%86%E6%94%BE%E5%A4%A7%EF%BC%88Texture-Magnification%EF%BC%89"><span class="toc-number">6.2.</span> <span class="toc-text">纹理放大（Texture Magnification）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%B9%E7%90%86%E7%BC%A9%E5%B0%8F%EF%BC%88Texture-Minification%EF%BC%89"><span class="toc-number">6.3.</span> <span class="toc-text">纹理缩小（Texture Minification）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E9%97%AE%E9%A2%98"><span class="toc-number">6.4.</span> <span class="toc-text">实际问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mipmap"><span class="toc-number">6.5.</span> <span class="toc-text">Mipmap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%84%E5%90%91%E5%BC%82%E6%80%A7%E8%BF%87%E6%BB%A4%EF%BC%88Anisotropic-Filtering%EF%BC%89"><span class="toc-number">6.6.</span> <span class="toc-text">各向异性过滤（Anisotropic Filtering）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%84%E5%BC%8F%E5%90%84%E6%A0%B7%E7%9A%84%E7%BA%B9%E7%90%86"><span class="toc-number">7.</span> <span class="toc-text">各式各样的纹理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%90%83%E9%9D%A2%E8%B4%B4%E5%9B%BE%EF%BC%88Spherical-Map%EF%BC%89"><span class="toc-number">7.1.</span> <span class="toc-text">球面贴图（Spherical Map）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AB%8B%E6%96%B9%E4%BD%93%E8%B4%B4%E5%9B%BE%EF%BC%88Cube-Map%EF%BC%89"><span class="toc-number">7.2.</span> <span class="toc-text">立方体贴图（Cube Map）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%B9%E5%87%B8%E8%B4%B4%E5%9B%BE%EF%BC%88Bump-Map%EF%BC%89"><span class="toc-number">7.3.</span> <span class="toc-text">凹凸贴图（Bump Map）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%95%E7%BA%BF%E8%B4%B4%E5%9B%BE%EF%BC%88Normal-Map%EF%BC%89"><span class="toc-number">7.4.</span> <span class="toc-text">法线贴图（Normal Map）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A"><span class="toc-number">8.</span> <span class="toc-text">作业</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E6%8F%92%E5%80%BC"><span class="toc-number">8.1.</span> <span class="toc-text">参数插值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Blinn-Phong-%E5%8F%8D%E5%B0%84%E6%A8%A1%E5%9E%8B"><span class="toc-number">8.2.</span> <span class="toc-text">Blinn-Phong 反射模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Texture-mapping"><span class="toc-number">8.3.</span> <span class="toc-text">Texture mapping</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bump-mapping"><span class="toc-number">8.4.</span> <span class="toc-text">Bump mapping</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Displacement-mapping"><span class="toc-number">8.5.</span> <span class="toc-text">Displacement mapping</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">9.</span> <span class="toc-text">参考资料</span></a></li></ol>
+    </div>
+  </div>
+  
+
+  <div class="post-content">
+    
+    <p><strong>写在前面</strong></p>
+<p>Games101 学习记录</p>
+<span id="more"></span>
+<p>转载自：<a target="_blank" rel="noopener" href="https://scarletsky.github.io/2020/07/27/games101-notes-shading/">https://scarletsky.github.io/2020/07/27/games101-notes-shading/</a></p>
+<h1 id="着色（Shading）"><a href="#着色（Shading）" class="headerlink" title="着色（Shading）"></a>着色（Shading）</h1><p>在本课程中，着色指的是为物体应用材质。</p>
+<h1 id="Blinn-Phong-着色模型"><a href="#Blinn-Phong-着色模型" class="headerlink" title="Blinn-Phong 着色模型"></a>Blinn-Phong 着色模型</h1><img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/specular_diffuse_ambient_example.png" class title="img">
+<p>Blinn-Phong 着色模型主要有三部分组成：</p>
+<ul>
+<li>Diffuse （漫反射）：由物体本身的颜色决定</li>
+<li>Specular （高光）：由观察角度与光线反射角度共同决定，两者夹角越小，高光越明显</li>
+<li>Ambient （环境光）：由环境决定</li>
+</ul>
+<p>对于每个着色点，我们可以简化成如下图所示：</p>
+<img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/shading_point.png" class title="img">
+<p>其中有：</p>
+<ul>
+<li>n 表示表面法线方向</li>
+<li>l 表示入射光方向</li>
+<li>v 表示观察方向</li>
+</ul>
+<p><strong>注意：所有向量都是单位向量，所以确保向量进行过 normalize 操作。</strong></p>
+<p>另外，着色过程中是不会产生阴影的，阴影是通过其他技术手段来生成的。</p>
+<h2 id="漫反射-（Diffuse）"><a href="#漫反射-（Diffuse）" class="headerlink" title="漫反射 （Diffuse）"></a>漫反射 （Diffuse）</h2><img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/diffuse.png" class title="img">
+<p>漫反射是指光线照射在物体表面后会往四周反射的现象。</p>
+<p>细心的同学会发现，上图中的入射光线和反射光线的颜色是不同的，这是因为当入射光线到达物体表面时，物体表面会吸收一部分能量，然后反射它没有吸收的能量（暂时不考虑折射），也就是物体本身的颜色。</p>
+<p>从能量的角度考虑，只有当有能量到达物体表面时，物体才能发生漫反射，那么接下来的问题是，怎么知道有多少能量到达物体表面呢？</p>
+<img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/lambert_cosine_law.png" class title="img">
+<p>观察上图，假设光线是离散的。</p>
+<p>左图中的光线与平面法线平行，平面接受了所有光线的能量（6根光线）。</p>
+<p>中图中的光线与平面法线夹角为 60度，平面只接受了一半光线的能量（3根光线）。</p>
+<p>推广到一般情况下，平面能接受的能量与该平面的法线和入射光的角度有关。其关系是：</p>
+<script type="math/tex; mode=display">
+平面接受的能量的百分比 = cos(n, l) = n \cdot l</script><p>接下来的问题是，能量从哪里来？以点光源为例，它的能量是从中心外四周扩散的，如下图所示：</p>
+<img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/light_falloff.png" class title="img">
+<p>假设传播过程中能量守恒，这意味着在半径为 1 时的能量等于半径为 r 时的能量，均为 E。然而，随着半径的增大，球面的表面积也在增大，相当于球面中单位面积的能量减少了。</p>
+<p>我们知道，球面的表面积公式为：</p>
+<script type="math/tex; mode=display">
+S = 4 \pi r^2</script><p>假设单位面积的能量为 I，那么半径为 1 时的能量为：</p>
+<script type="math/tex; mode=display">
+E = I_{1} \times 4 \pi</script><p>半径为 r 时的能量为：</p>
+<script type="math/tex; mode=display">
+E = I_{r} \times 4 \pi r^2</script><p>那么我们就能得到半径为 r 时的单位面积的能量了：</p>
+<script type="math/tex; mode=display">
+I_{r} = \frac {I_1} {r^2}</script><p>知道了半径为 r 时的单位面积的能量，就相当于知道了有多少能量能到达平面了。</p>
+<p>最后，我们来整理一下漫反射公式：</p>
+<script type="math/tex; mode=display">
+到达着色点的能量 = \frac {I} {r^2}</script><script type="math/tex; mode=display">
+被着色点吸收的能量的百分比 = max(0, n \cdot l)</script><p>因此：</p>
+<script type="math/tex; mode=display">
+L_d = k_d \cdot (\frac I {r^2}) \cdot max(0, n \cdot l)</script><p>其中：</p>
+<ul>
+<li>$ L_d $表示着色点的漫反射分量</li>
+<li>$ k_d $ 表示材质的漫反射系数，可调节</li>
+</ul>
+<h2 id="高光（Specular）"><a href="#高光（Specular）" class="headerlink" title="高光（Specular）"></a>高光（Specular）</h2><img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/specular.png" class title="img">
+<p>当光线发生反射时，如果当前视角方向与反射方向接近时，我们就能看到高光了。</p>
+<p>和漫反射公式类似，我们也需要知道有多少能量到达了平面，有多少能量被反射出去了，不同的地方是我们需要求视角方向与反射方向的夹角。</p>
+<img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/reflection_vector.jpg" class title="img">
+<p>观察上图，我们能通过向量的几何意义得出：</p>
+<script type="math/tex; mode=display">
+\vec {OR} = \vec {IR} - \vec {IO}</script><script type="math/tex; mode=display">
+\vec {OR} = 2 \vec {P} - \vec {IO}</script><script type="math/tex; mode=display">
+\vec {P} = \vec {IO} + \vec {S}</script><p>接下来需要求 $ \vec S $，由于$ \theta $是$ \vec {OI} $与 $ \vec {ON} $ 的夹角，所以计算时需要把 $ \vec {IO} $ 取反。</p>
+<p>另外由于点乘的结果是个标量，所以需要乘以法线才能得到$ \vec S $：</p>
+<script type="math/tex; mode=display">
+\vec {S} = \vec {ON} (-\vec {IO} \cdot \theta) = -\vec {ON} (\vec {IO} \cdot \vec {ON})</script><p>把$ \vec S $代入上面的式子得：</p>
+<script type="math/tex; mode=display">
+\vec {OR} = 2(\vec {IO} - \vec {ON} (\vec {IO} \cdot \vec {ON})) - \vec {IO}</script><p>化简得：</p>
+<script type="math/tex; mode=display">
+\vec {OR} = \vec {IO} - 2 \vec {ON} (\vec {IO} \cdot \vec {ON}))</script><p>调整一下入射光 $ \vec {IO} $的方向，使之朝外，并使 $ \vec {OR} = \vec r $、$ \vec {OI} = \vec l $、$ \vec {ON} = \vec n $，于是我们就能得到反射公式：</p>
+<script type="math/tex; mode=display">
+\vec r = 2 \vec n (\vec l \cdot \vec n) - \vec l</script><p>于是我们能得到类似的公式：</p>
+<script type="math/tex; mode=display">
+L_s = k_s \cdot (\frac I {r^2}) \cdot max(0, v \cdot r)</script><p>由于 Phong 着色模型只是经验模型，并没有考虑太多的物理意义，因此在计算高光的时候并没有像漫反射公式那样考虑有多少能量被吸收了，因此就舍弃了$ max(0, n \cdot l) $部分。</p>
+<p>然而，上面公式计算反射光与视角夹角时会得到一个 0~90 度的范围，这意味着在这个范围中都能看到高光，这显然不符合高光的定义。因此需要对该部分进行修正：</p>
+<img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/specular_shininess.png" class title="img">
+<p>可以看到，如果对 𝑐𝑜𝑠 进行指数运算，我们能很容易的调整高光可视范围的阈值，因此可以把该公式修正成：</p>
+<script type="math/tex; mode=display">
+L_s = k_s \cdot (\frac I {r^2}) \cdot max(0, v \cdot r)^p</script><p>其中：</p>
+<ul>
+<li>$ L_s $表示着色点的高光分量</li>
+<li>$ k_s $表示材质的高光系数，可调节</li>
+<li>$ p $ 用来调节高光的可视范围</li>
+</ul>
+<p>Blinn Phong 着色模型在这基础上进行了优化：当反射向量与视角向量相近时，这相当于视角与入射光的 <strong>半程向量</strong> 与法线的夹角相近：</p>
+<img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/half_vector.png" class title="img">
+<p>于是我们可以用半程向量与法线的夹角，可以代替反射向量与视角的夹角，并且半程向量的计算也非常简单：</p>
+<script type="math/tex; mode=display">
+\vec h = \frac {\vec l + \vec v} {||\vec l + \vec v||}</script><p>这样就能对刚才的高光公式调整成：</p>
+<script type="math/tex; mode=display">
+L_s = k_s \cdot (\frac I {r^2}) \cdot max(0, n \cdot h)^p</script><h2 id="环境光（Ambient）"><a href="#环境光（Ambient）" class="headerlink" title="环境光（Ambient）"></a>环境光（Ambient）</h2><img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/ambient.png" class title="img">
+<p>对于没有光线直接照射的平面（如最开始的茶杯的背光位置），该平面依旧会受到环境中各种光照的反射，这就是环境光对场景的影响。</p>
+<p>我们可以近似地认为场景中的环境光是个常量，它表示来自场景中各个方向的光线的总和，并且不受视角方向的影响，于是有：</p>
+<script type="math/tex; mode=display">
+L_a = k_a I_a</script><p>其中：</p>
+<ul>
+<li>$ L_a $ 表示着色点的环境光分量</li>
+<li>$ k_a $表示材质的环境光系数，可调节</li>
+<li>$ I_a $ 表示场景的环境光强度</li>
+</ul>
+<p>当我们计算出漫反射、高光、环境光之后，把它们加起来，就能得到 Blinn Phong 着色模型的结果了：</p>
+<img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/blinn_phong_reflection_model.png" class title="img">
+<p>Blinn Phong 的着色公式为：</p>
+<script type="math/tex; mode=display">
+L = L_a + L_d + L_s</script><script type="math/tex; mode=display">
+L = k_a I_a + k_d(\frac {I} {r^2}) max(0, n \cdot l) + k_s(\frac {I} {r^2}) max(0, n \cdot h)^p</script><h1 id="着色频率"><a href="#着色频率" class="headerlink" title="着色频率"></a>着色频率</h1><img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/shading_frequencies.png" class title="img">
+<p>着色频率指的是发生着色的频率，如上图所示，上面三个球都拥有相同的几何形状，但应用了不同的着色频率，分别是：平面着色（左）、高洛德着色（中）、冯氏着色（右）。</p>
+<h2 id="平面着色（Flat）"><a href="#平面着色（Flat）" class="headerlink" title="平面着色（Flat）"></a>平面着色（Flat）</h2><p>平面着色是指整个三角面中共用一个方向的法线，因此表现为整个三角面的颜色都是一样的。</p>
+<h2 id="高洛德着色（Gouraud）"><a href="#高洛德着色（Gouraud）" class="headerlink" title="高洛德着色（Gouraud）"></a>高洛德着色（Gouraud）</h2><p>高洛德着色是指三角面中三个顶点分别拥有自己的法线，然后在着色时先计算出这三个顶点的颜色，然后其他像素就以插值的方式去计算出其对应的颜色。</p>
+<h2 id="冯氏着色（Phong）"><a href="#冯氏着色（Phong）" class="headerlink" title="冯氏着色（Phong）"></a>冯氏着色（Phong）</h2><p>冯氏着色是指三角面的三个顶点分别拥有自己的法线，然后其他像素也通过插值的方式计算出其对应的法线，然后每个像素都能进行着色。</p>
+<h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2><img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/shading_frequencies_diff.png" class title="img">
+<p>如图所示，着色频率对结果的影响，取决于模型的复杂度。模型的复杂度越低，着色结果区别越大，但随着模型复杂度的提高，平面着色也可以达到冯氏着色的效果。因此我们不能迷信冯氏着色一定比平面着色好。</p>
+<h1 id="纹理映射（Texture-Mapping）"><a href="#纹理映射（Texture-Mapping）" class="headerlink" title="纹理映射（Texture Mapping）"></a>纹理映射（Texture Mapping）</h1><img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/different_colors_at_diffent_places.png" class title="img">
+<p>根据着色公示，我们能计算出每个像素的颜色。但如果我们想要模型显示出更加复杂的颜色呢？例如把一张图片贴到物体表面，如上图中的球和地面那样，它们并不是简单的光照颜色，而是复杂的颜色，这种复杂的颜色看起来是来自于某张纹理的。</p>
+<p>回顾漫反射公式中，我们可以通过改变$ k_d $ 来调整漫反射分量，当这个 $ k_d $ 包含了纹理中某个区域的颜色时，这其实就相当于把该纹理应用到着色公式中了。</p>
+<p>事实上，我们的确是通过某种方式找到物体表面与纹理的关系的，物体表面的某一个三角面对应了纹理中的个区域：</p>
+<img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/screen_world_texture.png" class title="img">
+<p>如上图所示，在屏幕空间中的任意一点，我们都能找到它在贴图空间中对应的位置，这个对应关系就是 <strong>纹理映射</strong>。</p>
+<p>由于任意一个三维物体它都是由二维的三角面构成的，因此我们可以利用这个性质，来建立空间中的三角形与二维纹理中的映射关系。 这项工作通常是在建模软件中完成的。</p>
+<img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/texture_applied_to_surface.png" class title="img">
+<p>接下来的问题是，如何表示这个对应关系呢？答案是 <strong>UV坐标</strong>。</p>
+<p>UV 坐标是指以纹理左下角为原点来建立的二维坐标系，横坐标为 U，纵坐标为 V，它们的取值范围都是 [0,1]，这个取值范围与贴图尺寸无关，即纹理最大宽高在 UV 中都是表示为 1。</p>
+<img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/visualization_of_texture_coordinates.png" class title="img">
+<p>只要三角形中的每个顶点都保存了一个 UV 坐标的信息，那么在着色的时候就可以通过 UV 坐标找到该纹理对应的区域，这样就可以实现应用纹理的效果了。</p>
+<p>现在，我们知道了三角形的三个顶点中都包含了 UV 坐标，但三角形中的任意一点的 UV 坐标又应该怎么计算呢？这时候就需要引入一个新的概念：<strong>重心坐标</strong>。</p>
+<h1 id="重心坐标（Barycentric-Coordinates）"><a href="#重心坐标（Barycentric-Coordinates）" class="headerlink" title="重心坐标（Barycentric Coordinates）"></a>重心坐标（Barycentric Coordinates）</h1><img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/barycentric_coordinates.png" class title="img">
+<p>重心坐标是以三角形的其中一个顶点为原点，分别以另外两个顶点作为基向量作为一个新的坐标系，如上图所示就是以$a$为原点，以$ \vec {ab} $ 和 $ \vec {ac} $ 作为基的坐标系。</p>
+<p>在这个坐标系中，任意一个点 $ p $ 可以表示成：</p>
+<script type="math/tex; mode=display">
+p = a + \beta(b - a) + \gamma(c - a)</script><p>移项得：</p>
+<script type="math/tex; mode=display">
+p = (1 - \beta - \gamma)a + \beta b + \gamma c</script><p>令 $ \alpha = 1 - \beta - \gamma $，于是我们就能得到 $p$ 点的表示方式：</p>
+<script type="math/tex; mode=display">
+p = \alpha a + \beta b + \gamma c</script><p>其中：</p>
+<script type="math/tex; mode=display">
+\alpha + \beta + \gamma = 1</script><p>这样，$p$点的重心坐标为：</p>
+<script type="math/tex; mode=display">
+p = (\alpha, \beta, \gamma)</script><p>当 $ \alpha $、$ \beta $、$ \gamma $ 同时为非负数的时候，$ p $ 点会位于三角形内部。</p>
+<p>重心坐标还有另一种表示方式，即每一个分量等于该顶点所对应的面积与整个三角形面积的比值：</p>
+<img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/barycentric_coordinates_proportional_areas.png" class title="img">
+<p>如图所示，A 所对应的面积为 $ A_A $，B 所对应的面积为 $ A_B $，C 所对应的面积为 $ A_C $，于是重心坐标的三个分量就是：</p>
+<script type="math/tex; mode=display">
+\alpha = \frac {A_A} {A_A + A_B + A_C}</script><script type="math/tex; mode=display">
+\beta = \frac {A_B} {A_A + A_B + A_C}</script><script type="math/tex; mode=display">
+\gamma = \frac {A_C} {A_A + A_B + A_C}</script><p>根据重心坐标的定义，我们能得到几个很特殊的重心坐标：</p>
+<ul>
+<li>$ (1, 0, 0) $：顶点 A 的坐标</li>
+<li>$(0,1,0)$：顶点 B 的坐标</li>
+<li>$(0,0,1)$：顶点 C 的坐标</li>
+<li>$ (\frac 1 3, \frac 1 3, \frac 1 3) $：三角形的重心</li>
+</ul>
+<p>最后，我们可以把二维平面中的三角形的任意一点$ (x, y) $转化成重心坐标 $ (\alpha, \beta, \gamma) $，这里有一个通用公式：</p>
+<script type="math/tex; mode=display">
+\alpha = \frac {-(x - x_B)(y_C - y_B) + (y - y_B)(x_C - x_B)} {-(x_A - x_B)(y_C - y_B) + (y_A - y_B)(x_C - x_B)}</script><script type="math/tex; mode=display">
+\beta = \frac {-(x - x_C)(y_A - y_C) + (y - y_C)(x_A - x_C)} {-(x_B - x_C)(y_A - y_C) + (y_B - y_C)(x_A - x_C)}</script><script type="math/tex; mode=display">
+\gamma = 1 - \alpha - \beta</script><p>有了重心坐标之后，我们就能计算出三角形中任意一点的属性了：</p>
+<img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/using_barycentric_coordinates.png" class title="img">
+<p>无论是位置、法线、颜色、UV 等等其他的属性，我们都能通过重心坐标计算出三角形中任意一点的属性。</p>
+<p>需要注意的是，由于三角形在投影前后的重心坐标（形状）会发生变化，因此并不能用投影后的三角形的重心坐标来计算，必须把它还原成投影前的三角形，然后计算其重心坐标，再计算对应的属性。</p>
+<h1 id="应用纹理"><a href="#应用纹理" class="headerlink" title="应用纹理"></a>应用纹理</h1><p>有了重心坐标之后，我们能计算出任意一个像素对应 UV 坐标了，然后就能为每个像素应用纹理了。应用纹理的逻辑非常简单，只要遍历就可以了：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> each <span class="title function_">pixel</span><span class="params">(x, y)</span>:</span><br><span class="line">    uv = getUv(x, y)</span><br><span class="line">    texColor = sample2D(texture, uv)</span><br><span class="line">    kd = texColor </span><br></pre></td></tr></table></figure>
+<p>然而在应用纹理的时候，我们会遇到一些问题，这些问题的都与纹素有关。</p>
+<h2 id="纹素（Texel）"><a href="#纹素（Texel）" class="headerlink" title="纹素（Texel）"></a>纹素（Texel）</h2><p>纹素与像素非常相似，像素是组成屏幕的基本单位，而纹素则是组成纹理的基本单位，它和像素一样都是有面积的。</p>
+<p>每个像素的尺寸为$ \frac 1 {屏幕宽度} \times \frac 1 {屏幕高度} $</p>
+<p>每个纹素的尺寸为$ \frac 1 {纹理宽度} \times \frac 1 {纹理高度} $</p>
+<p>显然，根据重心坐标计算出来的 UV 坐标是一个浮点数，它会落在纹理中的任意位置。当我们尝试在该位置采样的时候，就会遇到一个问题：我们应该取什么颜色？</p>
+<img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/sample_texture.png" class title="img">
+<p>如图所示，虚线框表示纹素，黑色点表示纹素的中心，红色点表示要采样的位置。显然，我们需要一个采样策略去决定应该获得什么颜色，常见的策略有：</p>
+<ul>
+<li><code>Nearest</code> 取该采样点所在的纹素的颜色（会发生一次采样）</li>
+<li><code>Linear</code> 取该采样点周围四个纹素的颜色，然后进行加权平均（会发生四次采样）</li>
+</ul>
+<p>还有一个问题，当纹理尺寸与显示区域尺寸不同的时候，应该怎么办呢？</p>
+<p>假设我们的显示区域的尺寸是 4x4，当我们要把一张 2x2 的纹理铺满整个显示区域时，我们就需要对它进行<strong>放大</strong>。当我们要把一张 8x8 的纹理铺满整个显示区域时，我们就需要对它进行<strong>缩小</strong>。这时候就涉及到<strong>纹理放大</strong>和<strong>纹理缩小</strong>。</p>
+<h2 id="纹理放大（Texture-Magnification）"><a href="#纹理放大（Texture-Magnification）" class="headerlink" title="纹理放大（Texture Magnification）"></a>纹理放大（Texture Magnification）</h2><img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/texture_magnification.png" class title="img">
+<p>当纹理放大时，一个纹素将会映射到多个像素中。</p>
+<h2 id="纹理缩小（Texture-Minification）"><a href="#纹理缩小（Texture-Minification）" class="headerlink" title="纹理缩小（Texture Minification）"></a>纹理缩小（Texture Minification）</h2><img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/texture_minification.png" class title="img">
+<p>当纹理缩小时，多个纹素将会映射到一个像素中。</p>
+<h2 id="实际问题"><a href="#实际问题" class="headerlink" title="实际问题"></a>实际问题</h2><img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/point_sampling_textures.png" class title="img">
+<p>当我们尝试渲染在一个面片上面贴一张网格图的时候，我们期望得到左边的结果，但实际上得到的是右边的结果，近距离出现锯齿，远距离出现摩尔纹。</p>
+<p>这是因为每个像素对应的纹素区域不同导致的。</p>
+<img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/screen_pixel_footprint_in_texture.png" class title="img">
+<ul>
+<li>对于近距离的像素来说，它所覆盖的纹素范围较少，纹理发生了放大。</li>
+<li>对于远距离的像素来说，它所覆盖的纹理范围较大，纹理发生了缩小。</li>
+</ul>
+<p>这背后的问题就是，对于每个像素来说，它们表示的要表示的区域各不相同，但最终要以一个颜色来填充整个像素。</p>
+<p>这是一个典型的走样问题，我们可以通过之前学到的<strong>超采样</strong>来实现反走样，下面是 512 倍超采样的结果：</p>
+<img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/512x_supersampling.png" class title="img">
+<p>可以看到，超采样的效果比较明显，但它有一个致命的问题：性能消耗巨大。而且对于远距离的像素来说，超采样明显是浪费的，有没有一种更好的方案去解决这种由纹理采样带来的问题呢？</p>
+<p>细心想想，我们刚刚对纹理采样是一种<strong>点查询</strong>，也就是通过一个 UV 坐标去获取一个纹素的颜色的，如果有一种方式可以实现<strong>范围查询</strong>，也就是通过一个 UV 坐标去获取一个范围（任意大小）的平均颜色，那么就能完美解决这个问题了。</p>
+<p>而这个方案就是<strong>Mipmap</strong>。</p>
+<h2 id="Mipmap"><a href="#Mipmap" class="headerlink" title="Mipmap"></a>Mipmap</h2><p>Mipmap 是指根据一张纹理去生成一系列更小的纹理的技术。</p>
+<img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/mipmap.png" class title="img">
+<p>如图所示：</p>
+<ul>
+<li>第 0 级是纹理的原尺寸</li>
+<li>第 1 级由第 0 级纹理缩放$ \frac 1 2 $所得</li>
+<li>…</li>
+<li>第 n 级由第 n - 1 级纹理缩放 $ \frac 1 2 $ 所得</li>
+<li>最后一级的纹理尺寸为 1x1</li>
+</ul>
+<img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/create_mipmap.png" class title="img">
+<p>每一级 mipmap 中的每一个像素，都是由上一级 mipmap 相邻的四个像素求平均所得。</p>
+<p>最后，我们就能得到这个金字塔形状的贴图链：</p>
+<img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/mipmap_chain.png" class title="img">
+<p>这个 mipmap 有什么用呢？</p>
+<p>在采样的时候，我们可以先计算出这个像素覆盖了多大范围的纹素，然后再计算出这个范围应该对应到第几层 mipmap，再对该层 mipmap 进行采样，这样就相当于得到了原区域纹素的平均颜色了。 例如：</p>
+<ul>
+<li>当一个像素覆盖了 1 个纹素的时候，采样时应该访问第 0 层 mipmap</li>
+<li>当一个像素覆盖了 2 个纹素的时候，采样时应该访问第 1 层 mipmap</li>
+<li>当一个像素覆盖了 4 个纹素的时候，采样时应该访问第 2 层 mipmap</li>
+<li>…</li>
+<li>当一个像素覆盖了 128 个纹素的时候，采样时应该访问第 7 层 mipmap</li>
+</ul>
+<p>那要怎么计算一个像素覆盖了多少纹素呢？其实有很多方法可以计算的，这里只介绍一个简单的做法：</p>
+<img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/pixel_mapped_texel.jpg" class title="img">
+<p>只要根据该像素的四个角的 UV 坐标，计算出它们映射到纹理上的位置，然后把它们连起来就可以了。 实际上，我们在采样 mipmap 的时候，会把这个查询区域近似看成<strong>正方形</strong>，而这个过程中有更复杂的算法去实现，具体可以查阅相关资料。</p>
+<p>假设一个像素覆盖了 N 个纹素，应该采样的层数为 L，那么它们的关系就是：</p>
+<script type="math/tex; mode=display">
+L = Log_2 N</script><p>显然，L 有可能是一个浮点数，如 1.5，这时候应该怎么办呢？很简单，先采样第1 层，然后采样第 2 层，再对两个值进行插值即可。</p>
+<p>需要注意的是，由于 mipmap 通过原尺寸的纹理生成了一系列更小的纹理，这样会导致存储体积增大，增大了多少呢？显然，这是一个等比数列求和问题， 于是我们可以套用一下公式：</p>
+<script type="math/tex; mode=display">
+S_n = a_1 \frac {1 - q^n} {1 - q}</script><p>由于它的公比是 $ \frac 1 4 $（因为宽高都为上一级的一半），而首项可以看作是 1，于是代入公式可得：</p>
+<script type="math/tex; mode=display">
+S_n = 1 \cdot \frac {1 - {\frac 1 4^n}} {\frac 3 4} = \frac 4 3 \cdot (1 - \frac 1 4^n)</script><p>当 n 趋向无穷时，$ S_n = \frac 4 3 $ 。因此，使用 mipmap 之后，存储体积会比原来增大$ \frac 1 3 $。</p>
+<p>我们来看一看使用了 mipmap 之后的效果：</p>
+<img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/mipmap_filtering.png" class title="img">
+<p>很明显，效果比之前好多了。 近距离的锯齿明显较少了，然而远距离的却是一大片模糊，这是为什么呢？</p>
+<h2 id="各向异性过滤（Anisotropic-Filtering）"><a href="#各向异性过滤（Anisotropic-Filtering）" class="headerlink" title="各向异性过滤（Anisotropic Filtering）"></a>各向异性过滤（Anisotropic Filtering）</h2><img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/irregular_pixel_footprint_in_texture.png" class title="img">
+<p>这是因为对于远处的像素来说，它们覆盖的纹素实际上并不是一个正方形，而是一个扁矩形，采样 mipmap 的时候以正方形区域来采样会带来比较大的误差。</p>
+<p>因此这里需要一种新的策略，这就是<strong>各向异性过滤</strong>的作用了。</p>
+<p>和 mipmap 类似，各向异性过滤也是利用原纹理去生成更小尺寸的纹理的技术，mipmap 生成的是宽高比例不变的纹理，而各向异性过滤生成的是宽高比例会发生变化的纹理。如下图所示：</p>
+<img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/anisotropic.png" class title="img">
+<p>左上角的是原纹理，顺着左上角往右下角方向生成的是 mipmap，它们与原纹理是等比例的，此外的其他纹理都是由各向异性过滤而生成的纹理。</p>
+<p>和 mipmap 一样，各向异性过滤和也是有层级的，对于上面的那张图，层级如下图所示，相同颜色的区域表示相同层级下的各向异性过滤：</p>
+<img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/anisotropic_levels.png" class title="img">
+<p>我们可以在各种图形 API 中去控制应该生成哪些层级的各向异性过滤的纹理。</p>
+<p>有了各向异性过滤之后，在对于扁矩形区域，我们就可以找到对应的纹理中查询颜色了。我们来看看使用了各向异性过滤之后的效果：</p>
+<img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/anisotropic_filtering.png" class title="img">
+<p>可以看到，这种方式会比之前提到的近似看成正方形的区域要好得多。</p>
+<h1 id="各式各样的纹理"><a href="#各式各样的纹理" class="headerlink" title="各式各样的纹理"></a>各式各样的纹理</h1><p>上面的例子中，我们通过使用纹理去改变了着色公式中的 𝑘𝑑 项，显然，着色公式中的其他项也可以利用纹理去改变的。</p>
+<p>正是这个原因，我们会看到各种各样的纹理，如表示环境光的 sphereMap 和 cubeMap，表示法线的 normalMap 等等。下面介绍几种常见的纹理。</p>
+<h2 id="球面贴图（Spherical-Map）"><a href="#球面贴图（Spherical-Map）" class="headerlink" title="球面贴图（Spherical Map）"></a>球面贴图（Spherical Map）</h2><p>环境贴图可以用来表示环境光照。由于环境光是来自四面八方的，因此在采样环境光的时候可以把其看成是一个球面。</p>
+<img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/environmental_lighting.png" class title="img">
+<p>上图中左图是把环境贴图应用在球面上，然后右图的场景中则是利用该环境贴图进行采样得到的结果。</p>
+<p>但球面贴图有一个缺点，就是容易发生变形，特别是靠近北极南极的区域，变形非常严重。</p>
+<img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/spherical_map_problem.png" class title="img">
+<p>这种现象就导致了如果用球面贴图提供光照信息，那么北极南极方向的光照信息会变得不准确。</p>
+<h2 id="立方体贴图（Cube-Map）"><a href="#立方体贴图（Cube-Map）" class="headerlink" title="立方体贴图（Cube Map）"></a>立方体贴图（Cube Map）</h2><img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/cube_map.png" class title="img">
+<p>立方体贴图是另一种环境贴图，它是利用六张图来构建成一个立方体，然后再根据法线方向去判断采样哪一个面。</p>
+<img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/cube_map_six_face.png" class title="img">
+<p>这种方案比球面贴图更少变形，但需要把一张环境贴图去成六张尺寸相同的图。</p>
+<h2 id="凹凸贴图（Bump-Map）"><a href="#凹凸贴图（Bump-Map）" class="headerlink" title="凹凸贴图（Bump Map）"></a>凹凸贴图（Bump Map）</h2><img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/Bump-map-demo-full.png" class title="img">
+<p>凹凸贴图是一种为模型添加细节的贴图。凹凸贴图是一张灰度图，它保存了着色点与原始表面的高度差，以此来影响光照信息。</p>
+<h2 id="法线贴图（Normal-Map）"><a href="#法线贴图（Normal-Map）" class="headerlink" title="法线贴图（Normal Map）"></a>法线贴图（Normal Map）</h2><img src="/2024/07/24/Games101-%E7%9D%80%E8%89%B2/Normal_map_example.png" class title="img">
+<p>法线贴图是凹凸贴图的另一种实现，原理是改变着色点的法线方向，从而影响光照结果。</p>
+<p>从上面可以看到，我们可以用低模加法线贴图，来模拟高模的效果。</p>
+<h1 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h1><h2 id="参数插值"><a href="#参数插值" class="headerlink" title="参数插值"></a>参数插值</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// rasterizer.cpp</span></span><br><span class="line"><span class="type">void</span> rst::rasterizer::rasterize_triangle(<span class="type">const</span> Triangle&amp; t, <span class="type">const</span> <span class="built_in">std</span>::<span class="built_in">array</span>&lt;Eigen::Vector3f, <span class="number">3</span>&gt;&amp; view_pos) </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">auto</span> v = t.toVector4();</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> top = <span class="built_in">ceil</span>(<span class="built_in">std</span>::max(v[<span class="number">0</span>].y(), <span class="built_in">std</span>::max(v[<span class="number">1</span>].y(), v[<span class="number">2</span>].y())));</span><br><span class="line">    <span class="type">int</span> bottom = <span class="built_in">floor</span>(<span class="built_in">std</span>::min(v[<span class="number">0</span>].y(), <span class="built_in">std</span>::min(v[<span class="number">1</span>].y(), v[<span class="number">2</span>].y())));</span><br><span class="line">    <span class="type">int</span> left = <span class="built_in">floor</span>(<span class="built_in">std</span>::min(v[<span class="number">0</span>].x(), <span class="built_in">std</span>::min(v[<span class="number">1</span>].x(), v[<span class="number">2</span>].x())));</span><br><span class="line">    <span class="type">int</span> right = <span class="built_in">ceil</span>(<span class="built_in">std</span>::max(v[<span class="number">0</span>].x(), <span class="built_in">std</span>::max(v[<span class="number">1</span>].x(), v[<span class="number">2</span>].x())));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">        Eigen::Vector4f vertex = v[i];</span><br><span class="line"></span><br><span class="line">        <span class="type">float</span> x = vertex.x();</span><br><span class="line">        <span class="type">float</span> y = vertex.y();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (y &gt; top) top = <span class="built_in">ceil</span>(y);</span><br><span class="line">        <span class="keyword">if</span> (y &lt; bottom) bottom = <span class="built_in">floor</span>(y);</span><br><span class="line">        <span class="keyword">if</span> (x &gt; right) right = <span class="built_in">ceil</span>(x);</span><br><span class="line">        <span class="keyword">if</span> (x &lt; left) left = <span class="built_in">floor</span>(x);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> x = left; x &lt; right; x++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> y = bottom; y &lt; top; y++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (insideTriangle(x, y, t.v)) &#123;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">auto</span>[alpha, beta, gamma] = computeBarycentric2D(x, y, t.v);</span><br><span class="line">                <span class="type">float</span> Z = <span class="number">1.0</span> / (alpha / v[<span class="number">0</span>].w() + beta / v[<span class="number">1</span>].w() + gamma / v[<span class="number">2</span>].w());</span><br><span class="line">                <span class="type">float</span> zp = alpha * v[<span class="number">0</span>].z() / v[<span class="number">0</span>].w() + beta * v[<span class="number">1</span>].z() / v[<span class="number">1</span>].w() + gamma * v[<span class="number">2</span>].z() / v[<span class="number">2</span>].w();</span><br><span class="line">                zp *= Z;</span><br><span class="line"></span><br><span class="line">                <span class="type">int</span> index = get_index(x, y);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (depth_buf[index] &gt; zp) &#123;</span><br><span class="line">                    depth_buf[index] = zp;</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">auto</span> interpolated_color = interpolate(alpha, beta, gamma, t.color[<span class="number">0</span>], t.color[<span class="number">1</span>], t.color[<span class="number">2</span>], <span class="number">1</span>);</span><br><span class="line">                    <span class="keyword">auto</span> interpolated_normal = interpolate(alpha, beta, gamma, t.normal[<span class="number">0</span>], t.normal[<span class="number">1</span>], t.normal[<span class="number">2</span>], <span class="number">1</span>);</span><br><span class="line">                    <span class="keyword">auto</span> interpolated_texcoords = interpolate(alpha, beta, gamma, t.tex_coords[<span class="number">0</span>], t.tex_coords[<span class="number">1</span>], t.tex_coords[<span class="number">2</span>], <span class="number">1</span>);</span><br><span class="line">                    <span class="keyword">auto</span> interpolated_shadingcoords = interpolate(alpha, beta, gamma, view_pos[<span class="number">0</span>], view_pos[<span class="number">1</span>], view_pos[<span class="number">2</span>], <span class="number">1</span>);</span><br><span class="line">                    <span class="comment">//</span></span><br><span class="line">                    fragment_shader_payload <span class="title function_">payload</span><span class="params">(interpolated_color, interpolated_normal.normalized(), interpolated_texcoords, texture ? &amp;*texture : nullptr)</span>;</span><br><span class="line">                    payload.view_pos = interpolated_shadingcoords;</span><br><span class="line">                    <span class="keyword">auto</span> pixel_color = fragment_shader(payload);</span><br><span class="line"></span><br><span class="line">                    set_pixel(Eigen::Vector2i(x, y), pixel_color);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Blinn-Phong-反射模型"><a href="#Blinn-Phong-反射模型" class="headerlink" title="Blinn-Phong 反射模型"></a>Blinn-Phong 反射模型</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.cpp</span></span><br><span class="line">Eigen::Vector3f <span class="title function_">phong_fragment_shader</span><span class="params">(<span class="type">const</span> fragment_shader_payload&amp; payload)</span></span><br><span class="line">&#123;</span><br><span class="line">    Eigen::Vector3f ka = Eigen::Vector3f(<span class="number">0.005</span>, <span class="number">0.005</span>, <span class="number">0.005</span>);</span><br><span class="line">    Eigen::Vector3f kd = payload.color;</span><br><span class="line">    Eigen::Vector3f ks = Eigen::Vector3f(<span class="number">0.7937</span>, <span class="number">0.7937</span>, <span class="number">0.7937</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">auto</span> l1 = light&#123;&#123;<span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>&#125;, &#123;<span class="number">500</span>, <span class="number">500</span>, <span class="number">500</span>&#125;&#125;;</span><br><span class="line">    <span class="keyword">auto</span> l2 = light&#123;&#123;<span class="number">-20</span>, <span class="number">20</span>, <span class="number">0</span>&#125;, &#123;<span class="number">500</span>, <span class="number">500</span>, <span class="number">500</span>&#125;&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;light&gt; lights = &#123;l1, l2&#125;;</span><br><span class="line">    Eigen::Vector3f amb_light_intensity&#123;<span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>&#125;;</span><br><span class="line">    Eigen::Vector3f eye_pos&#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">10</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="type">float</span> p = <span class="number">150</span>;</span><br><span class="line"></span><br><span class="line">    Eigen::Vector3f color = payload.color;</span><br><span class="line">    Eigen::Vector3f point = payload.view_pos;</span><br><span class="line">    Eigen::Vector3f normal = payload.normal;</span><br><span class="line"></span><br><span class="line">    Eigen::Vector3f result_color = &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>&#125;;</span><br><span class="line">    Eigen::Vector3f La = ka.cwiseProduct(amb_light_intensity);</span><br><span class="line">    result_color += La;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; light : lights)</span><br><span class="line">    &#123;</span><br><span class="line">        Eigen::Vector3f view_dir = (eye_pos - point).normalized();</span><br><span class="line">        Eigen::Vector3f light_dir = (light.position - point).normalized();</span><br><span class="line">        Eigen::Vector3f half_dir = (view_dir + light_dir).normalized();</span><br><span class="line">        Eigen::Vector3f point_to_light = light.position - point;</span><br><span class="line">        <span class="type">double</span> r = point_to_light.dot(point_to_light);</span><br><span class="line">        <span class="type">double</span> NoL = <span class="built_in">std</span>::max(<span class="number">0.0f</span>, normal.normalized().dot(light_dir));</span><br><span class="line">        <span class="type">double</span> VoH = <span class="built_in">std</span>::max(<span class="number">0.0f</span>, normal.normalized().dot(half_dir));</span><br><span class="line"></span><br><span class="line">        Eigen::Vector3f Ld = kd.cwiseProduct(light.intensity / r) * NoL;</span><br><span class="line">        Eigen::Vector3f Ls = ks.cwiseProduct(light.intensity / r) * <span class="built_in">std</span>::<span class="built_in">pow</span>(VoH, p);</span><br><span class="line"></span><br><span class="line">        result_color += (Ld + Ls);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result_color * <span class="number">255.f</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Texture-mapping"><a href="#Texture-mapping" class="headerlink" title="Texture mapping"></a>Texture mapping</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.cpp</span></span><br><span class="line">Eigen::Vector3f <span class="title function_">texture_fragment_shader</span><span class="params">(<span class="type">const</span> fragment_shader_payload&amp; payload)</span></span><br><span class="line">&#123;</span><br><span class="line">    Eigen::Vector3f return_color = &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">if</span> (payload.texture)</span><br><span class="line">    &#123;</span><br><span class="line">        return_color = payload.texture-&gt;getColor(payload.tex_coords.x(), payload.tex_coords.y());</span><br><span class="line">    &#125;</span><br><span class="line">    Eigen::Vector3f texture_color;</span><br><span class="line">    texture_color &lt;&lt; return_color.x(), return_color.y(), return_color.z();</span><br><span class="line"></span><br><span class="line">    Eigen::Vector3f ka = Eigen::Vector3f(<span class="number">0.005</span>, <span class="number">0.005</span>, <span class="number">0.005</span>);</span><br><span class="line">    Eigen::Vector3f kd = texture_color / <span class="number">255.f</span>;</span><br><span class="line">    Eigen::Vector3f ks = Eigen::Vector3f(<span class="number">0.7937</span>, <span class="number">0.7937</span>, <span class="number">0.7937</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">auto</span> l1 = light&#123;&#123;<span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>&#125;, &#123;<span class="number">500</span>, <span class="number">500</span>, <span class="number">500</span>&#125;&#125;;</span><br><span class="line">    <span class="keyword">auto</span> l2 = light&#123;&#123;<span class="number">-20</span>, <span class="number">20</span>, <span class="number">0</span>&#125;, &#123;<span class="number">500</span>, <span class="number">500</span>, <span class="number">500</span>&#125;&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;light&gt; lights = &#123;l1, l2&#125;;</span><br><span class="line">    Eigen::Vector3f amb_light_intensity&#123;<span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>&#125;;</span><br><span class="line">    Eigen::Vector3f eye_pos&#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">10</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="type">float</span> p = <span class="number">150</span>;</span><br><span class="line"></span><br><span class="line">    Eigen::Vector3f color = texture_color;</span><br><span class="line">    Eigen::Vector3f point = payload.view_pos;</span><br><span class="line">    Eigen::Vector3f normal = payload.normal;</span><br><span class="line"></span><br><span class="line">    Eigen::Vector3f result_color = &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>&#125;;</span><br><span class="line">    Eigen::Vector3f La = ka.cwiseProduct(amb_light_intensity);</span><br><span class="line">    result_color += La;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; light : lights)</span><br><span class="line">    &#123;</span><br><span class="line">        Eigen::Vector3f view_dir = (eye_pos - point).normalized();</span><br><span class="line">        Eigen::Vector3f light_dir = (light.position - point).normalized();</span><br><span class="line">        Eigen::Vector3f half_dir = (view_dir + light_dir).normalized();</span><br><span class="line">        Eigen::Vector3f point_to_light = light.position - point;</span><br><span class="line">        <span class="type">double</span> r = point_to_light.dot(point_to_light);</span><br><span class="line">        <span class="type">double</span> NoL = <span class="built_in">std</span>::max(<span class="number">0.0f</span>, normal.normalized().dot(light_dir));</span><br><span class="line">        <span class="type">double</span> VoH = <span class="built_in">std</span>::max(<span class="number">0.0f</span>, normal.normalized().dot(half_dir));</span><br><span class="line"></span><br><span class="line">        Eigen::Vector3f Ld = kd.cwiseProduct(light.intensity / r) * NoL;</span><br><span class="line">        Eigen::Vector3f Ls = ks.cwiseProduct(light.intensity / r) * <span class="built_in">std</span>::<span class="built_in">pow</span>(VoH, p);</span><br><span class="line">        result_color += (Ld + Ls);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result_color * <span class="number">255.f</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Bump-mapping"><a href="#Bump-mapping" class="headerlink" title="Bump mapping"></a>Bump mapping</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.cpp</span></span><br><span class="line">Eigen::Vector3f <span class="title function_">bump_fragment_shader</span><span class="params">(<span class="type">const</span> fragment_shader_payload&amp; payload)</span></span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">    Eigen::Vector3f ka = Eigen::Vector3f(<span class="number">0.005</span>, <span class="number">0.005</span>, <span class="number">0.005</span>);</span><br><span class="line">    Eigen::Vector3f kd = payload.color;</span><br><span class="line">    Eigen::Vector3f ks = Eigen::Vector3f(<span class="number">0.7937</span>, <span class="number">0.7937</span>, <span class="number">0.7937</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">auto</span> l1 = light&#123;&#123;<span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>&#125;, &#123;<span class="number">500</span>, <span class="number">500</span>, <span class="number">500</span>&#125;&#125;;</span><br><span class="line">    <span class="keyword">auto</span> l2 = light&#123;&#123;<span class="number">-20</span>, <span class="number">20</span>, <span class="number">0</span>&#125;, &#123;<span class="number">500</span>, <span class="number">500</span>, <span class="number">500</span>&#125;&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;light&gt; lights = &#123;l1, l2&#125;;</span><br><span class="line">    Eigen::Vector3f amb_light_intensity&#123;<span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>&#125;;</span><br><span class="line">    Eigen::Vector3f eye_pos&#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">10</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="type">float</span> p = <span class="number">150</span>;</span><br><span class="line"></span><br><span class="line">    Eigen::Vector3f color = payload.color; </span><br><span class="line">    Eigen::Vector3f point = payload.view_pos;</span><br><span class="line">    Eigen::Vector3f normal = payload.normal;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="type">float</span> kh = <span class="number">0.2</span>, kn = <span class="number">0.1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="type">float</span> x = normal.x();</span><br><span class="line">    <span class="type">float</span> y = normal.y();</span><br><span class="line">    <span class="type">float</span> z = normal.z();</span><br><span class="line">    <span class="type">float</span> u = payload.tex_coords.x();</span><br><span class="line">    <span class="type">float</span> v = payload.tex_coords.y();</span><br><span class="line">    <span class="type">float</span> w = payload.texture-&gt;width;</span><br><span class="line">    <span class="type">float</span> h = payload.texture-&gt;height;</span><br><span class="line"></span><br><span class="line">    Eigen::Vector3f <span class="title function_">t</span><span class="params">(x * y / <span class="built_in">std</span>::<span class="built_in">sqrt</span>(x * x + z * z), <span class="built_in">std</span>::<span class="built_in">sqrt</span>(x * x + z * z), z * y / <span class="built_in">std</span>::<span class="built_in">sqrt</span>(x * x + z * z))</span>;</span><br><span class="line">    Eigen::Vector3f b = normal.cross(t);</span><br><span class="line">    Eigen::Matrix3f TBN;</span><br><span class="line">    TBN &lt;&lt; t, b, normal;</span><br><span class="line"></span><br><span class="line">    <span class="type">float</span> dU = kh * kn * (payload.texture-&gt;getColor(u + <span class="number">1.0f</span> / w, v).norm() - payload.texture-&gt;getColor(u, v).norm());</span><br><span class="line">    <span class="type">float</span> dV = kh * kn * (payload.texture-&gt;getColor(u, v + <span class="number">1.0f</span> / h).norm() - payload.texture-&gt;getColor(u, v).norm());</span><br><span class="line"></span><br><span class="line">    Eigen::Vector3f <span class="title function_">ln</span><span class="params">(-dU, -dV, <span class="number">1.0</span>)</span>;</span><br><span class="line">    normal = TBN * ln;</span><br><span class="line">    normal.normalized();</span><br><span class="line"></span><br><span class="line">    Eigen::Vector3f result_color = normal;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result_color * <span class="number">255.f</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Displacement-mapping"><a href="#Displacement-mapping" class="headerlink" title="Displacement mapping"></a>Displacement mapping</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">// main.cpp</span><br><span class="line">Eigen::Vector3f displacement_fragment_shader(const fragment_shader_payload&amp; payload)</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">    Eigen::Vector3f ka = Eigen::Vector3f(0.005, 0.005, 0.005);</span><br><span class="line">    Eigen::Vector3f kd = payload.color;</span><br><span class="line">    Eigen::Vector3f ks = Eigen::Vector3f(0.7937, 0.7937, 0.7937);</span><br><span class="line"></span><br><span class="line">    auto l1 = light&#123;&#123;20, 20, 20&#125;, &#123;500, 500, 500&#125;&#125;;</span><br><span class="line">    auto l2 = light&#123;&#123;-20, 20, 0&#125;, &#123;500, 500, 500&#125;&#125;;</span><br><span class="line"></span><br><span class="line">    std::vector&lt;light&gt; lights = &#123;l1, l2&#125;;</span><br><span class="line">    Eigen::Vector3f amb_light_intensity&#123;10, 10, 10&#125;;</span><br><span class="line">    Eigen::Vector3f eye_pos&#123;0, 0, 10&#125;;</span><br><span class="line"></span><br><span class="line">    float p = 150;</span><br><span class="line"></span><br><span class="line">    Eigen::Vector3f color = payload.color; </span><br><span class="line">    Eigen::Vector3f point = payload.view_pos;</span><br><span class="line">    Eigen::Vector3f normal = payload.normal;</span><br><span class="line"></span><br><span class="line">    float kh = 0.2, kn = 0.1;</span><br><span class="line">    </span><br><span class="line">    float x = normal.x();</span><br><span class="line">    float y = normal.y();</span><br><span class="line">    float z = normal.z();</span><br><span class="line">    float u = payload.tex_coords.x();</span><br><span class="line">    float v = payload.tex_coords.y();</span><br><span class="line">    float w = payload.texture-&gt;width;</span><br><span class="line">    float h = payload.texture-&gt;height;</span><br><span class="line"></span><br><span class="line">    Eigen::Vector3f t(x * y / std::sqrt(x * x + z * z), std::sqrt(x * x + z * z), z * y / std::sqrt(x * x + z * z));</span><br><span class="line">    Eigen::Vector3f b = normal.cross(t);</span><br><span class="line">    Eigen::Matrix3f TBN;</span><br><span class="line">    TBN &lt;&lt; t, b, normal;</span><br><span class="line"></span><br><span class="line">    float dU = kh * kn * (payload.texture-&gt;getColor(u + 1.0f / w, v).norm() - payload.texture-&gt;getColor(u, v).norm());</span><br><span class="line">    float dV = kh * kn * (payload.texture-&gt;getColor(u, v + 1.0f / h).norm() - payload.texture-&gt;getColor(u, v).norm());</span><br><span class="line"></span><br><span class="line">    Eigen::Vector3f ln(-dU, -dV, 1.0);</span><br><span class="line">    point = point + kn * normal * payload.texture-&gt;getColor(u, v).norm();</span><br><span class="line">    normal = TBN * ln;</span><br><span class="line">    normal = normal.normalized();</span><br><span class="line"></span><br><span class="line">    Eigen::Vector3f result_color = &#123;0, 0, 0&#125;;</span><br><span class="line">    Eigen::Vector3f La = ka.cwiseProduct(amb_light_intensity);</span><br><span class="line">    result_color += La;</span><br><span class="line"></span><br><span class="line">    for (auto&amp; light : lights)</span><br><span class="line">    &#123;</span><br><span class="line">        Eigen::Vector3f view_dir = (eye_pos - point).normalized();</span><br><span class="line">        Eigen::Vector3f light_dir = (light.position - point).normalized();</span><br><span class="line">        Eigen::Vector3f half_dir = (view_dir + light_dir).normalized();</span><br><span class="line">        Eigen::Vector3f point_to_light = light.position - point;</span><br><span class="line">        double r = point_to_light.dot(point_to_light);</span><br><span class="line">        double NoL = std::max(0.0f, normal.normalized().dot(light_dir));</span><br><span class="line">        double VoH = std::max(0.0f, normal.normalized().dot(half_dir));</span><br><span class="line"></span><br><span class="line">        Eigen::Vector3f Ld = kd.cwiseProduct(light.intensity / r) * NoL;</span><br><span class="line">        Eigen::Vector3f Ls = ks.cwiseProduct(light.intensity / r) * std::pow(VoH, p);</span><br><span class="line"></span><br><span class="line">        result_color += (Ld + Ls);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return result_color * 255.f;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1X7411F744?p=8">Lecture 07 Shading 1 (Illumination, Shading and  Graphics Pipeline)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1X7411F744?p=9">Lecture 08 Shading 2 (Shading, Pipeline and Texture Mapping)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1X7411F744?p=10">Lecture 09 Shading 3 (Texture Mapping Cont.)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1X7411F744?p=11">Lecture 10 Geometry 1 (Introduction)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/graphics/archive/2013/02/21/2920627.html">求反射向量</a></p>
+<p><a target="_blank" rel="noopener" href="https://rhetty.github.io/2018/03/20/三角形线性插值——重心坐标/">三角形线性插值——重心坐标</a></p>
+<p><a target="_blank" rel="noopener" href="https://dmtamakuwala.blogspot.com/2013/07/pixel-vs-texel.html">Pixel vs. Texel</a></p>
+<p><a target="_blank" rel="noopener" href="http://people.hsc.edu/faculty-staff/robbk/Coms385/Lectures/30 Textures - Magnification and Minification.ppt">Textures - Magnification and Minification</a></p>
+<p><a target="_blank" rel="noopener" href="https://cgl.ethz.ch/teaching/former/vc_master_06/Downloads/Mipmaps_1.pdf">MipMap Texturing</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8OtOFN17jxM">Mipmapping</a></p>
+<p><a target="_blank" rel="noopener" href="https://paroj.github.io/gltut/Texturing/Tut15 Magnification.html">Linear Filtering</a></p>
+<p><a target="_blank" rel="noopener" href="https://paroj.github.io/gltut/Texturing/Tut15 Needs More Pictures.html">Needs More Pictures</a></p>
+<p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/凹凸贴图">凹凸贴图</a></p>
+<p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/法线贴图">法线贴图</a></p>
+<p>文章作者 scarletsky</p>
+<p>上次更新 2020-09-01 <a target="_blank" rel="noopener" href="https://scarletsky.github.io/commit/c96fd6e64d6a60230f7d46d89e949f65246469e3">(c96fd6e)</a></p>
+<p><a target="_blank" rel="noopener" href="https://scarletsky.github.io/tags/games101/">games101</a></p>
+<p><a target="_blank" rel="noopener" href="https://scarletsky.github.io/2021/03/06/gl-depth-transformation/"> 深度变换总结</a><a target="_blank" rel="noopener" href="https://scarletsky.github.io/2020/06/10/games101-notes-rasterization/">Games101 笔记 —— 光栅化 </a></p>
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/Games101/">Games101</a>
+      
+    </div>
+    
+      
+  <nav class="post-nav">  
+      
+      
+      <a class="next" href="/2024/07/23/%E5%8D%95%E6%9B%B2%E5%BE%AA%E7%8E%AF/">  
+        <span class="next-text nav-default">单曲循环</span>  
+        <span class="prev-text nav-mobile">下一篇</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+      <div id="gitalk-container"></div>  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/fengxuegt" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2021 - 2024      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">枫雪</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+    
+    
+    
+  
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css" />
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'Ov23linyjoE7z3V3Gako',
+    clientSecret: '4bbd23045cfc104a6cf9f988ca2051cf86f1b25b',
+    repo: 'blog-review',
+    owner: 'fengxuegt',
+    admin: ['fengxuegt'],
+    id: md5(location.pathname),
+    
+    language: '',
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
+    
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+
+</html>
