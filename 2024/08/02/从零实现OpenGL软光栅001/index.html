@@ -264,7 +264,7 @@
 <p>将mCanvasBuffer指针传入initSurface函数；后续操作的就是这个位图；</p>
 <p>两个位图数据不是swap的关系，而是始终是mCanvasDC的内容复制到mhDC，之前的那个swap函数有误导。</p>
 <h3 id="通俗流程"><a href="#通俗流程" class="headerlink" title="通俗流程"></a>通俗流程</h3><p>就是有两个DC，一个是设备绑定的，叫做mhDC，另一个叫做mCanvasDC，我们渲染的时候操作的是后者，但是在每次显示的时候，会将后者的内容复制到mhDC中；其实负责显示的一直mhDC；</p>
-<h1 id="Brensenham直线绘制算法"><a href="#Brensenham直线绘制算法" class="headerlink" title="Brensenham直线绘制算法"></a>Brensenham直线绘制算法</h1><p>详情见另一篇Blog；</p>
+<h1 id="Brensenham直线绘制算法"><a href="#Brensenham直线绘制算法" class="headerlink" title="Brensenham直线绘制算法"></a>Brensenham直线绘制算法</h1><p>详情见<a target="_blank" rel="noopener" href="https://fengxuegt.github.io/2024/08/06/Brensenham%E7%AE%97%E6%B3%95%E7%94%BB%E7%9B%B4%E7%BA%BF/">blog</a></p>
 <h1 id="向量库的代码编写"><a href="#向量库的代码编写" class="headerlink" title="向量库的代码编写"></a>向量库的代码编写</h1><p>本部分等后续有时间重写写一遍，用于联系C++代码书写；</p>
 <h1 id="三角形绘制算法"><a href="#三角形绘制算法" class="headerlink" title="三角形绘制算法"></a>三角形绘制算法</h1><img src="/2024/08/02/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85001/image-20240807152218916.png" class title="image-20240807152218916">
 <h2 id="判断像素是否在三角形内部"><a href="#判断像素是否在三角形内部" class="headerlink" title="判断像素是否在三角形内部"></a>判断像素是否在三角形内部</h2><img src="/2024/08/02/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85001/image-20240807152304058.png" class title="image-20240807152304058">
