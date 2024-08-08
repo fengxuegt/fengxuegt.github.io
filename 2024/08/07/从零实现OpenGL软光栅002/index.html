@@ -230,60 +230,60 @@
     <p><strong>写在前面</strong></p>
 <p>本系列博客用于记录《从零实现OpenGL软光栅》的学习过程；</p>
 <span id="more"></span>
-<h1 id="图片的读取和显示"><a href="#图片的读取和显示" class="headerlink" title="图片的读取和显示"></a>图片的读取和显示</h1>
+<h1 id="图片的读取和显示"><a href="#图片的读取和显示" class="headerlink" title="图片的读取和显示"></a>图片的读取和显示</h1><img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240807172002922.png" class title="image-20240807172002922">
 <p>使用库函数读取文件，将其保存到bits指向的内存中；创建Image后调用函数free掉bits指向的内存；</p>
-
+<img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240807172215292.png" class title="image-20240807172215292">
 <p>创建Image时会将内存保存到mData中；</p>
-
+<img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240807172716922.png" class title="image-20240807172716922">
 <p>画图片的函数；</p>
-<h1 id="颜色混合介绍"><a href="#颜色混合介绍" class="headerlink" title="颜色混合介绍"></a>颜色混合介绍</h1>
-
+<h1 id="颜色混合介绍"><a href="#颜色混合介绍" class="headerlink" title="颜色混合介绍"></a>颜色混合介绍</h1><img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240807172925473-3022967.png" class title="image-20240807172925473">
+<img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240807173258522.png" class title="image-20240807173258522">
 <p>用透明度来混合图像；当srcAlpha越大，就代表覆盖效果越明显；</p>
-
-<h1 id="UV坐标和纹理贴图"><a href="#UV坐标和纹理贴图" class="headerlink" title="UV坐标和纹理贴图"></a>UV坐标和纹理贴图</h1>
-
-
-
-
-<h1 id="UV坐标和纹理贴图代码实现"><a href="#UV坐标和纹理贴图代码实现" class="headerlink" title="UV坐标和纹理贴图代码实现"></a>UV坐标和纹理贴图代码实现</h1>
+<img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240807174025945.png" class title="image-20240807174025945">
+<h1 id="UV坐标和纹理贴图"><a href="#UV坐标和纹理贴图" class="headerlink" title="UV坐标和纹理贴图"></a>UV坐标和纹理贴图</h1><img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240807175850410.png" class title="image-20240807175850410">
+<img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240807180236758.png" class title="image-20240807180236758">
+<img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240808100001598.png" class title="image-20240808100001598">
+<img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240808100303948.png" class title="image-20240808100303948">
+<img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240808100943567.png" class title="image-20240808100943567">
+<h1 id="UV坐标和纹理贴图代码实现"><a href="#UV坐标和纹理贴图代码实现" class="headerlink" title="UV坐标和纹理贴图代码实现"></a>UV坐标和纹理贴图代码实现</h1><img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240808104510007.png" class title="image-20240808104510007">
 <ul>
 <li>prepare函数执行一次，准备好纹理贴图需要的图片，并同时设定要贴图的位置；</li>
 <li>setTexture方法设定纹理；</li>
 <li>给定三个顶点画三角形</li>
 </ul>
-
+<img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240808104926739.png" class title="image-20240808104926739">
 <ul>
 <li>interpolantTriangle插值函数中增加UV坐标插值逻辑，之前只有颜色插值逻辑；</li>
 </ul>
-
+<img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240808105458841.png" class title="image-20240808105458841">
 <ul>
 <li>增加了采样的过程sampleNearest函数</li>
 </ul>
-
+<img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240808105200142.png" class title="image-20240808105200142">
 <p>最终显示效果：</p>
-
+<img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240808105711790.png" class title="image-20240808105711790">
 <p>注：</p>
 <p>三角形的位置由三个顶点的坐标确定；三角形内部的点的color由三个顶点的UV坐标插值得出并从纹理贴图中取得；</p>
-<h1 id="双线性插值采样算法"><a href="#双线性插值采样算法" class="headerlink" title="双线性插值采样算法"></a>双线性插值采样算法</h1>
-
-
-
-
-
-
-<h1 id="双线性插值采样算法代码实现"><a href="#双线性插值采样算法代码实现" class="headerlink" title="双线性插值采样算法代码实现"></a>双线性插值采样算法代码实现</h1>
-
+<h1 id="双线性插值采样算法"><a href="#双线性插值采样算法" class="headerlink" title="双线性插值采样算法"></a>双线性插值采样算法</h1><img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240808111910305.png" class title="image-20240808111910305">
+<img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240808112055197.png" class title="image-20240808112055197">
+<img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240808112303991.png" class title="image-20240808112303991">
+<img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240808112759150.png" class title="image-20240808112759150">
+<img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240808112857972.png" class title="image-20240808112857972">
+<img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240808113155217.png" class title="image-20240808113155217">
+<img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240808113335900.png" class title="image-20240808113335900">
+<h1 id="双线性插值采样算法代码实现"><a href="#双线性插值采样算法代码实现" class="headerlink" title="双线性插值采样算法代码实现"></a>双线性插值采样算法代码实现</h1><img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240808114448874.png" class title="image-20240808114448874">
+<img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240808114628269.png" class title="image-20240808114628269">
 <p>双线性插值算法实现；</p>
-<h1 id="纹理的Wrap方式"><a href="#纹理的Wrap方式" class="headerlink" title="纹理的Wrap方式"></a>纹理的Wrap方式</h1>
-
-
-
-
-
+<h1 id="纹理的Wrap方式"><a href="#纹理的Wrap方式" class="headerlink" title="纹理的Wrap方式"></a>纹理的Wrap方式</h1><img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240808135337657.png" class title="image-20240808135337657">
+<img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240808140847164.png" class title="image-20240808140847164">
+<img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240808140923324.png" class title="image-20240808140923324">
+<img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240808141503022.png" class title="image-20240808141503022">
+<img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240808141804362.png" class title="image-20240808141804362">
+<img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240808141915664.png" class title="image-20240808141915664">
 <h1 id="Warp方式实现跑马灯效果"><a href="#Warp方式实现跑马灯效果" class="headerlink" title="Warp方式实现跑马灯效果"></a>Warp方式实现跑马灯效果</h1><p>每次渲染U坐标都会增加0.01；</p>
-
+<img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240808142946923.png" class title="image-20240808142946923">
 <p>checkWrap函数</p>
-
+<img src="/2024/08/07/%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0OpenGL%E8%BD%AF%E5%85%89%E6%A0%85002/image-20240808144324665.png" class title="image-20240808144324665">
 <p>每次渲染之前更新像素点的UV坐标，采样图片的不同位置，造成动画效果；</p>
 
     
