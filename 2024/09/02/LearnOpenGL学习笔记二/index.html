@@ -18,12 +18,12 @@
 
 <!-- Website description -->
 
-<meta name="description" content="懂得那么多道理" />
+<meta name="description" content="LearnOpenGL学习笔记二" />
 
 
 <!-- Website keywords -->
 
-<meta name="keywords" content="道理, 枫雪gt" />
+<meta name="keywords" content="OpenGL, 枫雪gt" />
 
 
 
@@ -39,7 +39,7 @@
 
 
 <!-- Canonical, good for google search engine -->
-<link rel="canonical" href="http://example.com/2024/08/31/懂得那么多道理/" />
+<link rel="canonical" href="http://example.com/2024/09/02/LearnOpenGL学习笔记二/" />
 
 <!-- Fancybox styling -->
 
@@ -72,7 +72,7 @@
   window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"latex":true};
 </script>
   
-  <title>懂得那么多道理 - 枫雪gt</title>
+  <title>LearnOpenGL学习笔记二 - 枫雪gt</title>
 
 <meta name="generator" content="Hexo 7.3.0"></head>
 
@@ -196,19 +196,19 @@
   <header class="post-header">
     <h1 class="post-title">
       
-      懂得那么多道理
+      LearnOpenGL学习笔记二
       
     </h1>
 
     <div class="post-meta">
       <span class="post-time">
-        2024-08-31
+        2024-09-02
       </span>
       
       
       <span class="post-category">
         
-        <a href="/categories/Life/">Life</a>
+        <a href="/categories/Technology/">Technology</a>
         
       </span>
       
@@ -220,7 +220,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%80%8A%E8%AE%A4%E7%9F%A5%E8%A7%89%E9%86%92%E3%80%8B"><span class="toc-number">1.</span> <span class="toc-text">《认知觉醒》</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%84%A6%E8%99%91"><span class="toc-number">1.1.</span> <span class="toc-text">焦虑</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Mipmap"><span class="toc-number">1.</span> <span class="toc-text">Mipmap</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%A9%E5%B0%94%E7%BA%B9%E4%BB%A5%E5%8F%8A%E6%AF%9B%E5%88%BA"><span class="toc-number">1.1.</span> <span class="toc-text">摩尔纹以及毛刺</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mipmap-1"><span class="toc-number">1.2.</span> <span class="toc-text">Mipmap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87%E5%8E%9F%E5%A7%8B%E5%9B%BE%E7%89%87%E4%BA%A7%E7%94%9F%E5%A4%9A%E7%BA%A7Mipmap"><span class="toc-number">1.3.</span> <span class="toc-text">如何通过原始图片产生多级Mipmap</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BB%A4%E6%B3%A2"><span class="toc-number">1.3.1.</span> <span class="toc-text">滤波</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%87%E6%A0%B7"><span class="toc-number">1.3.2.</span> <span class="toc-text">采样</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E5%BD%93%E5%89%8D%E7%89%A9%E4%BD%93%E8%A6%81%E4%BD%BF%E7%94%A8%E5%93%AA%E4%B8%80%E7%BA%A7%E5%88%AB%E7%9A%84Mipmap"><span class="toc-number">1.4.</span> <span class="toc-text">如何判断当前物体要使用哪一级别的Mipmap</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87GLSL%E4%B8%AD%E7%9A%84%E6%B1%82%E5%81%8F%E5%AF%BC%E5%87%BD%E6%95%B0%E8%AE%A1%E7%AE%97%E5%8F%98%E5%8C%96%E9%87%8F%E5%86%B3%E5%AE%9A"><span class="toc-number">1.4.1.</span> <span class="toc-text">通过GLSL中的求偏导函数计算变化量决定</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenGL%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Mipmap"><span class="toc-number">1.5.</span> <span class="toc-text">OpenGL如何使用Mipmap</span></a></li></ol></li></ol>
     </div>
   </div>
   
@@ -228,29 +228,21 @@
   <div class="post-content">
     
     <p><strong>写在前面</strong></p>
-<p>懂得那么多道理，努力过好这一生。</p>
-<span id="more"></span>
-<h1 id="《认知觉醒》"><a href="#《认知觉醒》" class="headerlink" title="《认知觉醒》"></a>《认知觉醒》</h1><p>读完认知觉醒，印象最深刻的点应该：</p>
-<ul>
-<li>拉伸区学习</li>
-<li>不要急功近利</li>
-<li>在决定去玩之前思考几秒让意志力发挥作用</li>
-<li>脚踏实地，深度学习</li>
-<li>进行总结输出</li>
-</ul>
-<h2 id="焦虑"><a href="#焦虑" class="headerlink" title="焦虑"></a>焦虑</h2><p>“跟着报了很多课，买了很多书，希望能立即改变自己，特别的在每次收到书的一瞬间，总会产生一种已经拥有这些知识的错觉，但事后才发现，读书的艰难和买书的惬意相差十万八千里”</p>
-<p><strong>感想：</strong>资料收集也是一样的，总是努力的去收集好的资源，花了很多时间和精力收集到了，但是真的要开始学习了，又发现很难坚持；浮于表面，不能深入进去，一遍一遍的学自己已经会的东西，总是躺在舒适区，没有进步；同时又急功近利，恨不得今天学了明天就要看到效果，后天就成为大牛，沉不下心来；</p>
-<p><strong>怎样做：</strong></p>
-<ul>
-<li>要有耐心</li>
-<li>脚踏实地的学习</li>
-<li>不要急功近利</li>
-<li>在拉伸区进行学习，例如在看书的时候直接从没理解过的地方开始看，成长是最快的；等全部知识结束之后再进行重复，而不是对简单的地方一直进行重复；</li>
-<li>在做任何事情或者决定之前，停留个几秒钟，让自己的意志力发挥作用；</li>
-<li>进行总结输出，将论点用自己的话说出来并进行输出，写到blog也好，写到小红书也罢，应用费曼学习法；</li>
-<li>早冥读写跑</li>
-</ul>
-
+<p>这是LearnOpenGL的blog记录（二）。<span id="more"></span></p>
+<h1 id="Mipmap"><a href="#Mipmap" class="headerlink" title="Mipmap"></a>Mipmap</h1><h2 id="摩尔纹以及毛刺"><a href="#摩尔纹以及毛刺" class="headerlink" title="摩尔纹以及毛刺"></a>摩尔纹以及毛刺</h2><p>高分辨率图片采样到低分辨率图片；</p>
+<h2 id="Mipmap-1"><a href="#Mipmap-1" class="headerlink" title="Mipmap"></a>Mipmap</h2><p>为一张纹理图片生成一系列的纹理图像，后一个图像是前一个的二分之一，当物体距离摄像机较远的时候，会不断切换为更小的贴图进行使用；</p>
+<img src="/2024/09/02/LearnOpenGL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%BA%8C/image-20240902143437973-5258879.png" class title="image-20240902143437973">
+<h2 id="如何通过原始图片产生多级Mipmap"><a href="#如何通过原始图片产生多级Mipmap" class="headerlink" title="如何通过原始图片产生多级Mipmap"></a>如何通过原始图片产生多级Mipmap</h2><h3 id="滤波"><a href="#滤波" class="headerlink" title="滤波"></a>滤波</h3><p>对图片先进行一次模糊的预处理；</p>
+<p>分为均值滤波</p>
+<p>周围9个像素的权重是一样的；</p>
+<p>高斯滤波；</p>
+<p>通过高斯分布来决定9个像素的权重，中间的权重最高；</p>
+<img src="/2024/09/02/LearnOpenGL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%BA%8C/image-20240902145505568.png" class title="image-20240902145505568">
+<h3 id="采样"><a href="#采样" class="headerlink" title="采样"></a>采样</h3><p>对上一步模糊后的图片，选取像素组成下一张图片；</p>
+<p>二分下采样：每隔一个格子取值；</p>
+<p>计算统计值：每四个像素选择或者生成一个像素；</p>
+<h2 id="如何判断当前物体要使用哪一级别的Mipmap"><a href="#如何判断当前物体要使用哪一级别的Mipmap" class="headerlink" title="如何判断当前物体要使用哪一级别的Mipmap"></a>如何判断当前物体要使用哪一级别的Mipmap</h2><h3 id="通过GLSL中的求偏导函数计算变化量决定"><a href="#通过GLSL中的求偏导函数计算变化量决定" class="headerlink" title="通过GLSL中的求偏导函数计算变化量决定"></a>通过GLSL中的求偏导函数计算变化量决定</h3><img src="/2024/09/02/LearnOpenGL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%BA%8C/image-20240902175627901.png" class title="image-20240902175627901">
+<h2 id="OpenGL如何使用Mipmap"><a href="#OpenGL如何使用Mipmap" class="headerlink" title="OpenGL如何使用Mipmap"></a>OpenGL如何使用Mipmap</h2>
     
   </div>
 
@@ -266,22 +258,22 @@
     
     <div class="post-tags">
       
-      <a href="/tags/%E9%81%93%E7%90%86/">道理</a>
+      <a href="/tags/OpenGL/">OpenGL</a>
       
     </div>
     
       
   <nav class="post-nav">  
       
-      <a class="prev" href="/2024/09/02/LearnOpenGL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%BA%8C/">  
+      <a class="prev" href="/2024/09/03/TheCherno-OpenGL%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B%E7%AC%94%E8%AE%B0/">  
         <i class="iconfont icon-left"></i>  
-        <span class="prev-text nav-default">LearnOpenGL学习笔记二</span>  
+        <span class="prev-text nav-default">TheCherno OpenGL学习教程笔记</span>  
         <span class="prev-text nav-mobile">上一篇</span>  
       </a>  
       
       
-      <a class="next" href="/2024/08/31/%E7%94%9F%E6%B4%BB%E8%A7%84%E5%88%92/">  
-        <span class="next-text nav-default">生活规划</span>  
+      <a class="next" href="/2024/08/31/%E6%87%82%E5%BE%97%E9%82%A3%E4%B9%88%E5%A4%9A%E9%81%93%E7%90%86/">  
+        <span class="next-text nav-default">懂得那么多道理</span>  
         <span class="prev-text nav-mobile">下一篇</span>  
         <i class="iconfont icon-right"></i>  
       </a>  
