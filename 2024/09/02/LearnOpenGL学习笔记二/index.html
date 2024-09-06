@@ -220,7 +220,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Mipmap"><span class="toc-number">1.</span> <span class="toc-text">Mipmap</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%A9%E5%B0%94%E7%BA%B9%E4%BB%A5%E5%8F%8A%E6%AF%9B%E5%88%BA"><span class="toc-number">1.1.</span> <span class="toc-text">摩尔纹以及毛刺</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mipmap-1"><span class="toc-number">1.2.</span> <span class="toc-text">Mipmap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87%E5%8E%9F%E5%A7%8B%E5%9B%BE%E7%89%87%E4%BA%A7%E7%94%9F%E5%A4%9A%E7%BA%A7Mipmap"><span class="toc-number">1.3.</span> <span class="toc-text">如何通过原始图片产生多级Mipmap</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BB%A4%E6%B3%A2"><span class="toc-number">1.3.1.</span> <span class="toc-text">滤波</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%87%E6%A0%B7"><span class="toc-number">1.3.2.</span> <span class="toc-text">采样</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E5%BD%93%E5%89%8D%E7%89%A9%E4%BD%93%E8%A6%81%E4%BD%BF%E7%94%A8%E5%93%AA%E4%B8%80%E7%BA%A7%E5%88%AB%E7%9A%84Mipmap"><span class="toc-number">1.4.</span> <span class="toc-text">如何判断当前物体要使用哪一级别的Mipmap</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87GLSL%E4%B8%AD%E7%9A%84%E6%B1%82%E5%81%8F%E5%AF%BC%E5%87%BD%E6%95%B0%E8%AE%A1%E7%AE%97%E5%8F%98%E5%8C%96%E9%87%8F%E5%86%B3%E5%AE%9A"><span class="toc-number">1.4.1.</span> <span class="toc-text">通过GLSL中的求偏导函数计算变化量决定</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenGL%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Mipmap"><span class="toc-number">1.5.</span> <span class="toc-text">OpenGL如何使用Mipmap</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Mipmap"><span class="toc-number">1.</span> <span class="toc-text">Mipmap</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%A9%E5%B0%94%E7%BA%B9%E4%BB%A5%E5%8F%8A%E6%AF%9B%E5%88%BA"><span class="toc-number">1.1.</span> <span class="toc-text">摩尔纹以及毛刺</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mipmap-1"><span class="toc-number">1.2.</span> <span class="toc-text">Mipmap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87%E5%8E%9F%E5%A7%8B%E5%9B%BE%E7%89%87%E4%BA%A7%E7%94%9F%E5%A4%9A%E7%BA%A7Mipmap"><span class="toc-number">1.3.</span> <span class="toc-text">如何通过原始图片产生多级Mipmap</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BB%A4%E6%B3%A2"><span class="toc-number">1.3.1.</span> <span class="toc-text">滤波</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%87%E6%A0%B7"><span class="toc-number">1.3.2.</span> <span class="toc-text">采样</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E5%BD%93%E5%89%8D%E7%89%A9%E4%BD%93%E8%A6%81%E4%BD%BF%E7%94%A8%E5%93%AA%E4%B8%80%E7%BA%A7%E5%88%AB%E7%9A%84Mipmap"><span class="toc-number">1.4.</span> <span class="toc-text">如何判断当前物体要使用哪一级别的Mipmap</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87GLSL%E4%B8%AD%E7%9A%84%E6%B1%82%E5%81%8F%E5%AF%BC%E5%87%BD%E6%95%B0%E8%AE%A1%E7%AE%97%E5%8F%98%E5%8C%96%E9%87%8F%E5%86%B3%E5%AE%9A"><span class="toc-number">1.4.1.</span> <span class="toc-text">通过GLSL中的求偏导函数计算变化量决定</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GLM%E6%95%B0%E5%AD%A6%E5%BA%93"><span class="toc-number">2.</span> <span class="toc-text">GLM数学库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#glm%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.1.</span> <span class="toc-text">glm常用的数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0"><span class="toc-number">2.2.</span> <span class="toc-text">常用函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E5%8C%96%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B"><span class="toc-number">2.3.</span> <span class="toc-text">变化代码示例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.</span> <span class="toc-text">坐标系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E8%BF%B0"><span class="toc-number">3.1.</span> <span class="toc-text">简述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">3.2.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%80%E9%83%A8%E7%A9%BA%E9%97%B4"><span class="toc-number">3.3.</span> <span class="toc-text">局部空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%96%E7%95%8C%E7%A9%BA%E9%97%B4"><span class="toc-number">3.4.</span> <span class="toc-text">世界空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%82%E5%AF%9F%E7%A9%BA%E9%97%B4"><span class="toc-number">3.5.</span> <span class="toc-text">观察空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A3%81%E5%89%AA%E7%A9%BA%E9%97%B4"><span class="toc-number">3.6.</span> <span class="toc-text">裁剪空间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E5%B0%84%E6%8A%95%E5%BD%B1"><span class="toc-number">3.6.1.</span> <span class="toc-text">正射投影</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%8F%E8%A7%86%E6%8A%95%E5%BD%B1"><span class="toc-number">3.6.2.</span> <span class="toc-text">透视投影</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E5%85%A53D"><span class="toc-number">3.7.</span> <span class="toc-text">进入3D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E5%8A%A03D"><span class="toc-number">3.8.</span> <span class="toc-text">更加3D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Z%E7%BC%93%E5%86%B2"><span class="toc-number">3.9.</span> <span class="toc-text">Z缓冲</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MVP%E5%8F%98%E6%8D%A2"><span class="toc-number">4.</span> <span class="toc-text">MVP变换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E7%A9%BA%E9%97%B4"><span class="toc-number">4.1.</span> <span class="toc-text">模型空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%96%E7%95%8C%E7%A9%BA%E9%97%B4-1"><span class="toc-number">4.2.</span> <span class="toc-text">世界空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%82%E5%AF%9F%E7%A9%BA%E9%97%B4-1"><span class="toc-number">4.3.</span> <span class="toc-text">观察空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A3%81%E5%89%AA%E7%A9%BA%E9%97%B4-1"><span class="toc-number">4.4.</span> <span class="toc-text">裁剪空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%8F%E8%A7%86%E6%8A%95%E5%BD%B1-1"><span class="toc-number">4.5.</span> <span class="toc-text">透视投影</span></a></li></ol></li></ol>
     </div>
   </div>
   
@@ -242,7 +242,127 @@
 <p>二分下采样：每隔一个格子取值；</p>
 <p>计算统计值：每四个像素选择或者生成一个像素；</p>
 <h2 id="如何判断当前物体要使用哪一级别的Mipmap"><a href="#如何判断当前物体要使用哪一级别的Mipmap" class="headerlink" title="如何判断当前物体要使用哪一级别的Mipmap"></a>如何判断当前物体要使用哪一级别的Mipmap</h2><h3 id="通过GLSL中的求偏导函数计算变化量决定"><a href="#通过GLSL中的求偏导函数计算变化量决定" class="headerlink" title="通过GLSL中的求偏导函数计算变化量决定"></a>通过GLSL中的求偏导函数计算变化量决定</h3><img src="/2024/09/02/LearnOpenGL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%BA%8C/image-20240902175627901.png" class title="image-20240902175627901">
-<h2 id="OpenGL如何使用Mipmap"><a href="#OpenGL如何使用Mipmap" class="headerlink" title="OpenGL如何使用Mipmap"></a>OpenGL如何使用Mipmap</h2>
+<h1 id="GLM数学库"><a href="#GLM数学库" class="headerlink" title="GLM数学库"></a>GLM数学库</h1><h2 id="glm常用的数据类型"><a href="#glm常用的数据类型" class="headerlink" title="glm常用的数据类型"></a>glm常用的数据类型</h2><ul>
+<li>vec2</li>
+<li>vec3</li>
+<li>vec4</li>
+<li>mat2</li>
+<li>mat3</li>
+<li>mat4</li>
+</ul>
+<h2 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h2><ul>
+<li>radians：角度转弧度制</li>
+<li>translate：创建一个平移矩阵，第一个参数是目标矩阵，第二个参数是平移的方向向量</li>
+<li>rotate：创建一个绕某个轴旋转的矩阵，第一个参数是弧度，第二个参数是旋转轴</li>
+<li>scale：创建一个缩放矩阵，第一个参数是目标矩阵，第二个参数是缩放系数</li>
+</ul>
+<h2 id="变化代码示例"><a href="#变化代码示例" class="headerlink" title="变化代码示例"></a>变化代码示例</h2><p>代码中是先旋转，然后再平移，但是实际应用时是先平移，再旋转，所以产生的效果如图所示；</p>
+<img src="/2024/09/02/LearnOpenGL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%BA%8C/image-20240905111007013-5505809.png" class title="image-20240905111007013">
+<img src="/2024/09/02/LearnOpenGL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%BA%8C/image-20240905111050064-5505852.png" class title="image-20240905111050064">
+<p>交换两个变换的顺序再看：</p>
+<img src="/2024/09/02/LearnOpenGL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%BA%8C/image-20240905111224844-5505946.png" class title="image-20240905111224844">
+<img src="/2024/09/02/LearnOpenGL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%BA%8C/image-20240905111247545-5505968.png" class title="image-20240905111247545">
+<p>那就是先旋转，再平移了；</p>
+<h1 id="坐标系统"><a href="#坐标系统" class="headerlink" title="坐标系统"></a>坐标系统</h1><h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>OpenGL希望在每次顶点着色器运行之后，我们可见的所有顶点都转化为标准化设备坐标NDC，也就是说每个顶点的x、y、z坐标都在-1到+1之间，超出这个坐标范围的顶点都将不可见。我们通常会自己设定一个坐标的范围，之后再在顶点着色器中将这些坐标转化为标准化设备坐标。然后将这些标准化坐标传入光栅化器，将他们转化为屏幕上的二维坐标或者像素。对于我们来说，总共有5个不同的坐标系：</p>
+<ul>
+<li>局部空间，或者称为物体空间</li>
+<li>世界空间</li>
+<li>观察空间</li>
+<li>裁剪空间</li>
+<li>屏幕空间</li>
+</ul>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>为了将坐标从一个坐标系转化到另一个坐标系，我们需要用到几个变换矩阵，最重要的几个分别是模型、观察、投影三个矩阵。我们的顶点坐标起始于局部空间，在这里它被称为局部坐标，他在之后会变成世界坐标，观察坐标，裁剪坐标，并最后以屏幕坐标的形式结束。</p>
+<img src="/2024/09/02/LearnOpenGL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%BA%8C/coordinate_systems.png" class title="coordinate_systems">
+<p>局部坐标是对象相对于局部原点的坐标，也是物体起始的坐标。</p>
+<p>下一步是将局部坐标变换为世界空间坐标，世界空间坐标是出于一个更大的空间范围的。这些坐标相对于世界的全局原点，他们会和其他物体一起相对于世界的原点进行摆放。</p>
+<p>接下来需要将世界坐标转化为观察空间坐标，使得每个坐标都是从摄像机或者说观察者的角度进行观察的。</p>
+<p>坐标到达观察空间之后，我们需要将其投影到裁剪坐标，裁剪坐标会被处理至-1 到 1范围内，并且判断哪些顶点会出现在屏幕上。</p>
+<p>最后，我们将裁剪坐标转换为屏幕坐标，我们将使用一个叫做视口变换的过程，视口变换将-1到1范围的坐标变换到glViewPoint函数所定义的坐标范围内。最后变化出来的坐标会被送到光栅器，将其转化为片段。</p>
+<h2 id="局部空间"><a href="#局部空间" class="headerlink" title="局部空间"></a>局部空间</h2><p>对象最开始所在的地方。模型的所有顶点都是在局部空间中：它们相对于你的物体来说都是局部的。</p>
+<p>我们一直使用的那个箱子的顶点是被设定在-0.5到0.5的坐标范围中的，（0,0）是它的原点，这些都是局部坐标。</p>
+<h2 id="世界空间"><a href="#世界空间" class="headerlink" title="世界空间"></a>世界空间</h2><p>是指顶点相对于世界的坐标。将物体分散在世界上进行拜访（特别是非常真实的那样），这就是希望物体变换到的空间。物体的坐标将会从局部空间变换到世界空间；该变换是由模型矩阵实现的。</p>
+<p>模型矩阵是一个变换矩阵，它能够通过物体进行位移、缩放、旋转来将它置于它本应该在的位置或者朝向。你可以将它想象为变换一个房子，你需要先将其缩小（它在局部空间中太大了），并将其移动到郊区的一个小镇，然后在y轴上往左旋转一点以搭配附近的房子。</p>
+<h2 id="观察空间"><a href="#观察空间" class="headerlink" title="观察空间"></a>观察空间</h2><p>观察空间经常被人们称之为OpenGL的摄像机。所以有时候也称为摄像机空间或者观察空间。观察空间是将世界空间坐标转化为用户视野前方的坐标而产生的结果。因此观察空间就是从摄像机的视角所观察到的空间。而这通常是由一系列的位移和旋转的组合来完成的。这些组合通常存储在一个观察矩阵中。</p>
+<h2 id="裁剪空间"><a href="#裁剪空间" class="headerlink" title="裁剪空间"></a>裁剪空间</h2><p>在一个顶点着色器执行的最后，OpenGL希望所有的坐标能够落在一个特定的范围内，且任何这个范围外的点都应该被裁剪掉。被裁剪掉的坐标就会被忽略，所以剩下的坐标就将变为屏幕上可见的片段。这就是裁剪空间名字的由来。</p>
+<p>为了将顶点坐标从观察变换到裁剪空间，我们需要定义一个投影矩阵，它指定了一个范围的坐标，比如在每个维度上的-1000到1000。投影矩阵接着会将这个指定的范围内的坐标变换为NDC。所有在范围外的坐标都不会被映射，被裁剪掉。例如（1250，500,750）坐标就是不可见的，因为它的x坐标超出了范围。</p>
+<p>将特定范围内的坐标转化到NDC的过程称为投影。因为使用投影矩阵能够将3D坐标投影到2D的NDC中。</p>
+<p>将观察坐标变换为裁剪坐标的投影矩阵可以是不同的形式，每种形式都定义了不同的平截头体。我们可以选择一个正射投影矩阵或者一个透视投影矩阵。</p>
+<h3 id="正射投影"><a href="#正射投影" class="headerlink" title="正射投影"></a>正射投影</h3><p>要创建一个正射投影矩阵，我们可以使用GLM的内置函数glm：：ortho。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">glm::ortho(<span class="number">0.0f</span>, <span class="number">800.f</span>, <span class="number">0.0f</span>, <span class="number">600.f</span>, <span class="number">0.1f</span>, <span class="number">100.f</span>);</span><br></pre></td></tr></table></figure>
+<p>前两个参数指定了平截头体的左右坐标，第三和第四个参数指定了平截头体的顶部和顶部。通过这四个参数我们定义了近平面和远平面的大小。然后第五个和第六个参数定义了近平面和远平面的距离。这个投影矩阵会将处于这些x,y,z值范围内的坐标转化为NDC。</p>
+<p>正射投影矩阵直接将坐标映射到2D平面中，即你的屏幕，但实际上一个直接的投影矩阵会产生不真实的结果。因为这个矩阵没有将透视考虑进去，所以我们需要透视矩阵来解决这个问题。</p>
+<h3 id="透视投影"><a href="#透视投影" class="headerlink" title="透视投影"></a>透视投影</h3><p>如果你曾经体验过实际生活给你带来的景象。你就会注意到离你越远的东西越小，这个奇怪的效果被称为透视。透视的效果在我们看一条无限长的高速公路或者铁路时尤其明显。透视效果是透视矩阵来完成的。</p>
+<p><strong>这章需要结合其他资料一起看；</strong></p>
+<p>我们为上述的每个步骤都创建了一个变换矩阵：模型矩阵、观察矩阵、投影矩阵。一个顶点坐标会根据以下过程被变换到裁剪坐标：</p>
+<p>MVP变化；</p>
+<p>注意矩阵运算的顺序是相反的。最后的顶点应该被赋值到顶点着色器的gl_position，OpenGL将会自动进行透视和裁剪。</p>
+<p>之后；</p>
+<p>顶点着色器的输出要求所有的顶点都在裁剪空间内，这正是我们使用变换矩阵做的。OpenGL然后对裁剪坐标进行透视除法从而将他们变换到NDC中。OpenGL会使用glViewPort内部的参数来将NDC坐标映射到屏幕坐标，每个坐标都关联了一个屏幕上的点。这个过程称为视口变换。</p>
+<h2 id="进入3D"><a href="#进入3D" class="headerlink" title="进入3D"></a>进入3D</h2><p>在开始进行3D绘图时，我们首先创建一个模型矩阵。这个模型矩阵包含了位移、缩放与旋转操作，他们会被应用所有物体的顶点上，以变换他们到全局的世界空间。让我们变换一下我们的平面，将其绕着X轴旋转，使他看起来像放在地面上一样。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">glm::mat4 model;</span><br><span class="line">model = glm::rotate(model, glm::radians(<span class="number">-55.0f</span>), glm::vec3(<span class="number">1.0f</span>, <span class="number">0.0f</span>, <span class="number">0.0f</span>));</span><br></pre></td></tr></table></figure>
+<p>通过顶点坐标乘以这个模型矩阵，我们将该顶点坐标变换到世界坐标。我们的平面看起来就是在地板上，代表全局世界里的平面。</p>
+<p>接下来我们需要创建一个观察矩阵。我们想要在场景里稍微往后移动，使得物体变成可见的。当在世界空间时，我们位于原点，想要在场景里面移动，要知道，将摄像机向后移动，和整个场景向前移动是一样的。</p>
+<p>这正是观察矩阵所做的，我们以相反于摄像机移动的方向移动整个场景。因为我们想要往后移动，并且OpenGL是一个右手坐标系，所以我们需要沿着Z的正方向移动，我们会通过将场景沿着Z轴负方向平移来实现。它会给我们一种向后移动的感觉。</p>
+<p>就目前来说，观察矩阵是这样的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">glm::mat4 view;</span><br><span class="line">// 注意，我们将矩阵向我们要进行移动场景的反方向移动。</span><br><span class="line">view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));</span><br></pre></td></tr></table></figure>
+<p>最后我们需要定义一个投影矩阵。我们希望在场景中使用透视投影，所以像这样声明一个投影矩阵：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">glm::mat4 projection;</span><br><span class="line">projection = glm::perspective(glm::radians(45.0f), screenWidth / screenHeight, 0.1f, 100.0f);</span><br></pre></td></tr></table></figure>
+<p>既然我们已经创建了变换矩阵，我们应该将他们传入着色器。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#version 330 core</span></span><br><span class="line">layout (location = <span class="number">0</span>) in vec3 aPos;</span><br><span class="line">...</span><br><span class="line">uniform mat4 model;</span><br><span class="line">uniform mat4 view;</span><br><span class="line">uniform mat4 projection;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 注意乘法要从右向左读</span></span><br><span class="line">    gl_Position = projection * view * model * vec4(aPos, <span class="number">1.0</span>);</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<img src="/2024/09/02/LearnOpenGL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%BA%8C/image-20240905150732274-5520054.png" class title="image-20240905150732274">
+<h2 id="更加3D"><a href="#更加3D" class="headerlink" title="更加3D"></a>更加3D</h2><p>到目前为止，我们一直在使用2D平面，甚至在3D空间里面。所以，拓展我们的2D平面成为一个3D立方体。</p>
+<p>使立方体旋转的矩阵：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model = glm::<span class="built_in">rotate</span>(model, (<span class="type">float</span>)<span class="built_in">glfwGetTime</span>() * glm::<span class="built_in">radians</span>(<span class="number">50.0f</span>), glm::<span class="built_in">vec3</span>(<span class="number">0.5f</span>, <span class="number">1.0f</span>, <span class="number">0.0f</span>));</span><br></pre></td></tr></table></figure>
+<p>然后我们使用glDrawArrays来绘制立方体，这次一共有36个顶点。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">glDrawArrays(GL_TRIANGLES, 0, 36);</span><br></pre></td></tr></table></figure>
+<h2 id="Z缓冲"><a href="#Z缓冲" class="headerlink" title="Z缓冲"></a>Z缓冲</h2><p>OpenGL存储它的所有深度信息在一个Z缓冲，也被成为深度缓冲。深度值存储在每个片段中，当片段要输出它的颜色时，OpenGL会将它的深度值和Z缓冲进行比较，如果当前的片段在其他片段之后，它就会被丢弃，否则则会覆盖。这个过程称为深度测试，是由OpenGL自动完成的。</p>
+<p>通过glEnable函数来开启深度测试，glEnable和glDisable函数允许我们启用或者禁用某个OpenGL功能，这个功能就会一直保持开启或者禁用状态，直到另一个函数被调用。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">glEnable(GL_DEPTH_TEST);</span><br><span class="line">glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);</span><br></pre></td></tr></table></figure>
+<h1 id="MVP变换"><a href="#MVP变换" class="headerlink" title="MVP变换"></a>MVP变换</h1><p>MVP矩阵分别是Model、View、Projection三个矩阵。我们的顶点起步于局部空间，在这里称为局部坐标，在之后变成世界坐标，观察坐标，裁剪坐标，最后以屏幕坐标的形式结束。</p>
+<p>Local coordinate —— World Coordinate —— View Coordinate —— Clip Coordinate —— Screen Coordinate</p>
+<h2 id="模型空间"><a href="#模型空间" class="headerlink" title="模型空间"></a>模型空间</h2><p>以模型自身为原点的坐标系；</p>
+<img src="/2024/09/02/LearnOpenGL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%BA%8C/image-20240905164624645-5525986.png" class title="image-20240905164624645">
+<h2 id="世界空间-1"><a href="#世界空间-1" class="headerlink" title="世界空间"></a>世界空间</h2><p>世界空间是一个特殊的坐标系，因为它建立了我们所关心的最大的空间。这里的最大指的是一个宏观的概念，也就是说它是我们所关心的最外层的坐标空间。以我们的农场游戏为例，在这个游戏里世界空间指的就是农场，我们不关心农场在什么地方，在这个虚拟的游戏世界里面，农场就是最大的空间概念。</p>
+<p>世界空间可以用于描述绝对位置。绝对位置指的就是在世界坐标系中的位置。通常，我们会把世界空间的原点放置在游戏空间的中心。</p>
+<p>顶点变换的第一步，就是从模型空间变换到世界空间。这个变换叫做模型变换。</p>
+<ul>
+<li>第一步做了缩放</li>
+<li>第二步做了旋转</li>
+<li>第三步做了平移</li>
+</ul>
+<p>一个三维场景中的各个模型一般都需要各自建模，再通过坐标变换放到一个统一的世界空间的指定位置上，这个过程在3D图形学中称为“世界变换”。实际变换有三种，平移、旋转和缩放，这三种变换以不同顺序执行的结果是不同的。实际应用中一般按照缩放、旋转和平移的顺序执行。</p>
+<img src="/2024/09/02/LearnOpenGL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%BA%8C/image-20240905163348519-5525230.png" class title="image-20240905163348519">
+<p>例子：</p>
+<p>根据Transform组件上的信息，我们知道在世界空间中，妞妞进行了(2,2,2)的缩放，又进行了(0,150,0)的旋转以及(5,0,25)的平移。注意这里的变换顺序是不能互换的，即先进行缩放，再进行旋转，最后是平移。据此我们可以构建出模型变换的变换矩阵：</p>
+<img src="/2024/09/02/LearnOpenGL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%BA%8C/image-20240905171020060.png" class title="image-20240905171020060">
+<p>根据模型变换矩阵对妞妞的鼻子进行变换：</p>
+<img src="/2024/09/02/LearnOpenGL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%BA%8C/image-20240905171121228-5527486.png" class title="image-20240905171121228">
+<p>也就是说，在世界空间下，妞妞鼻子的位置是（9,4,18.072）。</p>
+<h2 id="观察空间-1"><a href="#观察空间-1" class="headerlink" title="观察空间"></a>观察空间</h2><p>观察空间又叫做摄像机空间。观察空间可以认为是模型空间的一个特例，在所有的模型中有个非常特殊的模型，即摄像机。他的模型空间值得我们单独拿出来讨论，也就是观察空间。</p>
+<p>摄像机决定了我们渲染游戏时所用的视角。在观察空间中，摄像机位于原点，同样，其坐标轴的选择可以是任意的。</p>
+<p>顶点变换的第二步，就是将顶点坐标从世界空间变换到观察空间中。这个变换叫做观察变换。</p>
+<p>回到农场游戏中，我们需要把妞妞的鼻子从世界空间变换到观察空间中。为此，我们需要知道世界坐标系下摄像机的变换信息。同样可以通过摄像机面板中的Transform组件得到。</p>
+<p>为了得到顶点在观察空间中的位置，我们可以有两种方法：</p>
+<ul>
+<li>一种方法就是计算观察空间的三个坐标轴在世界空间下的表示，然后根据一定计算方法构建出观察空间到世界空间的变换矩阵，然后求逆来得到世界空间到观察空间的变换矩阵。</li>
+<li>另一种方法就是想象平移整个观察空间，使得摄像机原点位于世界空间的原点，坐标轴与世界空间的坐标轴重合即可。这两种方法得到的变换矩阵是相同的。</li>
+</ul>
+<p>这里我们使用第二种方法，由Transform组件得知，摄像机在世界空间的变换是按照（30,0,0）进行旋转，然后按照（0,10,-10）进行了平移。那么为了把摄像机重新移动回初始状态，就需要进行逆变换。先按照（0,10,-10）进行平移，然后按照（30,0,0）进行旋转，以便让坐标轴重合。因此，变换矩阵就是：</p>
+<img src="/2024/09/02/LearnOpenGL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%BA%8C/image-20240905172823950.png" class title="image-20240905172823950">
+<p>妞妞的鼻子进行顶点变换：</p>
+<img src="/2024/09/02/LearnOpenGL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%BA%8C/image-20240905172921056.png" class title="image-20240905172921056">
+<h2 id="裁剪空间-1"><a href="#裁剪空间-1" class="headerlink" title="裁剪空间"></a>裁剪空间</h2><p>顶点接下来要从观察空间转换到裁剪空间。这个用于变换的矩阵叫做裁剪矩阵，也叫做投影矩阵。</p>
+<p>裁剪空间的目标是能够方便的堆渲染图元进行裁剪：完全位于这块空间内部的图元会被保留，完全位于这块空间外部的图元会被剔除，而与这块空间边界相交的图元就会被裁剪。那么这块空间是如何决定的呢？答案是由视椎体决定的；</p>
+<p>视椎体是指的空间中的一块区域，这块区域决定了摄像机能够看到的空间。</p>
+<img src="/2024/09/02/LearnOpenGL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%BA%8C/image-20240906092535971-5585938.png" class title="image-20240906092535971">
+<p>由图中可以看出，透视投影的视椎体是一个金字塔形状。侧面的四个裁剪平面将会在摄像机处相交。正交投影的视椎体是一个长方体。我们可以通过一个投影矩阵把顶点转换到一个裁剪空间中。投影矩阵的两个目的：</p>
+<ul>
+<li>投影可以理解成是一个空间的降维，而投影矩阵并不会真的进行这个步骤，它会为真正的投影做准备工作。真正的投影会在屏幕映射时发生，通过齐次除法来得到二维坐标。</li>
+<li>齐次是对x、y、z分量进行缩放；经过投影矩阵的缩放后，我们可以直接使用w分量作为一个范围值，如果xyz分量都位于这个范围内，就说明该点位于裁剪空间当中。</li>
+</ul>
+<p>在裁剪空间之前，我们使用了w分量，但是都是固定的。经过投影矩阵之后，w分量会有更加丰富的含义。</p>
+<h2 id="透视投影-1"><a href="#透视投影-1" class="headerlink" title="透视投影"></a>透视投影</h2><p>详见另一篇games-101 变换blog</p>
+
     
   </div>
 
