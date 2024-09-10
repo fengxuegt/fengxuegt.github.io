@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="种一棵树最好的时间是在十年前，其次便是现在了。" />
+
+
+<!-- Website keywords -->
+
+<meta name="keywords" content="OpenGL ES, 枫雪gt" />
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/default" title="枫雪gt" >
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="http://example.com/2024/09/09/OpenGL-ES-学习一/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });  
+  </script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<!-- Analytics and push -->
+
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"latex":true};
+</script>
+  
+  <title> - 枫雪gt</title>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">枫雪gt</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        首页              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        归档              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        标签              </li>
+    </a>
+    
+    <a href="/categories/">
+      <li class="mobile-menu-item">
+        
+        
+        分类              </li>
+    </a>
+    
+    <a href="/about/">
+      <li class="mobile-menu-item">
+        
+        
+        关于              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">枫雪gt</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              首页  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              归档  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              标签  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/categories/">  
+              
+              
+              分类  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/about/">  
+              
+              
+              关于  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2024-09-09
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/Technology/">Technology</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%9F%E4%BA%A7%E8%80%85%E5%92%8C%E6%B6%88%E8%B4%B9%E8%80%85"><span class="toc-number">1.</span> <span class="toc-text">生产者和消费者</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GLSurfaceView"><span class="toc-number">2.</span> <span class="toc-text">GLSurfaceView</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GLSurfaceView-Renderer"><span class="toc-number">3.</span> <span class="toc-text">GLSurfaceView.Renderer</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E4%BE%8B"><span class="toc-number">4.</span> <span class="toc-text">代码实例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E%E7%89%B9%E5%AE%9A%E7%89%88%E6%9C%AC"><span class="toc-number">4.1.</span> <span class="toc-text">声明特定版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F%E4%B8%80%EF%BC%9A%E5%9C%A8Layout%E4%B8%AD%E5%A3%B0%E6%98%8EGLSurfaceView"><span class="toc-number">4.2.</span> <span class="toc-text">方式一：在Layout中声明GLSurfaceView</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Layout%E6%96%87%E4%BB%B6"><span class="toc-number">4.2.1.</span> <span class="toc-text">Layout文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MainActivity%E6%96%87%E4%BB%B6"><span class="toc-number">4.2.2.</span> <span class="toc-text">MainActivity文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GLSurfaceView%E6%96%87%E4%BB%B6"><span class="toc-number">4.2.3.</span> <span class="toc-text">GLSurfaceView文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#RenderMode"><span class="toc-number">4.2.3.1.</span> <span class="toc-text">RenderMode</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E5%A4%84%E7%90%86"><span class="toc-number">4.2.3.2.</span> <span class="toc-text">状态处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GLSurfaceView%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86"><span class="toc-number">4.2.3.3.</span> <span class="toc-text">GLSurfaceView的事件处理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GLRenderer%E6%96%87%E4%BB%B6"><span class="toc-number">4.2.4.</span> <span class="toc-text">GLRenderer文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F%E4%BA%8C%EF%BC%9A%E5%9C%A8%E4%BB%A3%E7%A0%81%E4%B8%AD%E5%A3%B0%E6%98%8EGLSurfaceView"><span class="toc-number">4.3.</span> <span class="toc-text">方式二：在代码中声明GLSurfaceView</span></a></li></ol></li></ol>
+    </div>
+  </div>
+  
+
+  <div class="post-content">
+    
+    <p><strong>写在前面</strong></p>
+<p>这是学习OpenGL ES 的blog记录（一）。<span id="more"></span></p>
+<h1 id="生产者和消费者"><a href="#生产者和消费者" class="headerlink" title="生产者和消费者"></a>生产者和消费者</h1><p>在Android系统中，无论开发者调用什么渲染API，一切内容都会被渲染到Surface上。</p>
+<p>Surface表示缓冲区队列中的生产者，而缓冲区队列会被消费者SurfaceFlinger消耗掉。</p>
+<p>在Android平台上创建的每个窗口都由Surface提供支持。用户通过在Surface这张画布上绘制生成图形数据，这些数据会被BufferQueue传输给SurfaceFlinger，所有被渲染的可见Surface都被SurfaceFlinger合成到屏幕。</p>
+<p>Android通过其框架API和原生开发套件（NDK）来支持OpenGL。</p>
+<p>Android框架中有如下两个基本类，用于通过OpenGL ES API来创建和操控图形：GLSurfaceView和GLSurfaceView.Renderer。也就是说我们想在Android中使用OpenGL ES的最简单方法就是将我们要渲染的图像渲染到GLSurfaceView上，但是它只是一个展示类，至于怎么渲染到上面需要我们自己去实现GLSurfaceView.Renderer来生成我们自己的渲染器从而完成渲染操作。</p>
+<p>后面要分析GLSurfaceView的源码，然后去实现GLTextureView。</p>
+<h1 id="GLSurfaceView"><a href="#GLSurfaceView" class="headerlink" title="GLSurfaceView"></a>GLSurfaceView</h1><p>SurfaceView在View的基础上创建了独立的Surface，拥有SurfaceHolder来管理它的Surface，渲染的工作可以不在主线程中做，可以通过SurfaceHolder得到Canvas，在单独的线程中，利用Canvas绘制需要显示的内容，然后更新到Surface上。</p>
+<p>GLSurfaceView继承自SurfaceView，它主要是在SurfaceView的基础上加入了EGL的管理，并自带了一个GLThread的绘制线程，绘制的工作直接通过OpenGL在绘制线程中运行，不会堵塞主线程，绘制的结果输出到SurfaceView提供的Surface上。这使得GLSurfaceView拥有了OpenGL ES所提供的图形处理能力，通过它定义的Render接口，使更改具体Render的行为非常灵活，只需要将实现了渲染函数的Render实现类设置给GLSurfaceView即可。也就是说它是对SurfaceView的再次封装，为了方便我们在Android中使用OpenGL ES。</p>
+<p>常用方法：</p>
+<ul>
+<li>setEGLContextClientVersion：设置OpenGL ES的版本，3.0则设置3</li>
+<li>onPause：暂停渲染，最好在Activity、Fragment的onPause方法内部调用，减少不必要的性能开销，避免不必要的崩溃</li>
+<li>onResume：恢复渲染，同上；</li>
+<li>setRender：设置渲染器</li>
+<li>setRenderMode：设置渲染模式，有连续渲染和按需渲染两种模式。按需渲染需要调用RequestRender方法才会渲染</li>
+<li>requestRender：请求渲染，请求异步线程进行渲染，调用后不会立即渲染，渲染会回调到Renderer的onDrawFrame方法。</li>
+<li>queueEvent：插入一个Runnable任务到后台渲染线程上执行，相应的，渲染线程中可以通过Activity的runOnUIThread的方法来传递事件给主线程去执行。</li>
+</ul>
+<p>GLSurfaceView的特性：</p>
+<ul>
+<li>管理一个Surface，这个Surface是一块特殊的内存，能直接排版到Android的视图View上</li>
+<li>管理一个EGL Display，能让OpenGL把内容渲染到Surface上</li>
+<li>用户自定义渲染器Render</li>
+<li>让渲染器在独立的线程里运作</li>
+<li>支持按需渲染和持续渲染</li>
+<li>可以封装、跟踪并且排查渲染器的问题</li>
+</ul>
+<h1 id="GLSurfaceView-Renderer"><a href="#GLSurfaceView-Renderer" class="headerlink" title="GLSurfaceView.Renderer"></a>GLSurfaceView.Renderer</h1><p>此接口定义了在GLSurfaceView中绘制图形所需要的方法。必须将此接口的一个实现作为单独的类提供，并使用GLSurfaceView的setRender方法将其设置到GLSurfaceView实例中。</p>
+<p>实现接口；</p>
+<ul>
+<li>onSurfaceCreated：系统会在创建GLSurface时调用一次此方法。使用此方法可以执行只需要一次的操作，例如设置OpenGL环境参数或初始化OpenGL图形对象。</li>
+<li>onDrawFrame：完成绘制工作，每帧的图像的渲染都会在这里完成，系统会在每次重新绘制GLSurfaceView时调用此方法。将此方法作为绘制（重新绘制）图形对象的主要执行点。</li>
+<li>onSurfaceChanged：系统会在GLSurfaceView几何图形发生变化（包括GLSurfaceView大小发生变化或者设备屏幕方向发生变化）时调用此方法。</li>
+</ul>
+<p>使用GLSurfaceView和GLSurfaceView.Renderer为OpenGL ES建立容器视图后，您便可以开始使用以下类调用OpenGL API：</p>
+<p>Android.opengl：此软件包提供了OpenGL ES3.0/3.1类的接口</p>
+<ul>
+<li>GLES30</li>
+<li>GLES31</li>
+<li>GLES31EXT</li>
+</ul>
+<h1 id="代码实例"><a href="#代码实例" class="headerlink" title="代码实例"></a>代码实例</h1><h2 id="声明特定版本"><a href="#声明特定版本" class="headerlink" title="声明特定版本"></a>声明特定版本</h2><p>在AndroidManifest.xml文件中声明OpenGL的依赖</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- Tell the system this app requires OpenGL ES 2.0. --&gt;</span><br><span class="line">&lt;uses-feature android:glEsVersion=&quot;0x00020000&quot; android:required=&quot;true&quot; /&gt;</span><br><span class="line">&lt;!-- Tell the system this app requires OpenGL ES 3.0. --&gt;</span><br><span class="line">&lt;uses-feature android:glEsVersion=&quot;0x00030000&quot; android:required=&quot;true&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="方式一：在Layout中声明GLSurfaceView"><a href="#方式一：在Layout中声明GLSurfaceView" class="headerlink" title="方式一：在Layout中声明GLSurfaceView"></a>方式一：在Layout中声明GLSurfaceView</h2><h3 id="Layout文件"><a href="#Layout文件" class="headerlink" title="Layout文件"></a>Layout文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;androidx.constraintlayout.widget.ConstraintLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;</span><br><span class="line">    xmlns:tools=&quot;http://schemas.android.com/tools&quot;</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;match_parent&quot;</span><br><span class="line">    tools:context=&quot;.MainActivity&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;com.example.openglesproject.MyGLSurfaceView</span><br><span class="line">        android:id=&quot;@+id/glsurfaceview&quot;</span><br><span class="line">        android:layout_width=&quot;match_parent&quot;</span><br><span class="line">        android:layout_height=&quot;match_parent&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;/com.example.openglesproject.MyGLSurfaceView&gt;</span><br><span class="line"></span><br><span class="line">&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="MainActivity文件"><a href="#MainActivity文件" class="headerlink" title="MainActivity文件"></a>MainActivity文件</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainActivity</span> <span class="keyword">extends</span> <span class="title class_">AppCompatActivity</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> GLSurfaceView glSurfaceView;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(Bundle savedInstanceState)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        glSurfaceView = findViewById(R.id.glsurfaceview);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onPostResume</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onPostResume();</span><br><span class="line">        <span class="comment">//lSurfaceView.onResume();</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onPause</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onPause();</span><br><span class="line">        <span class="comment">//glSurfaceView.onPause();</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="GLSurfaceView文件"><a href="#GLSurfaceView文件" class="headerlink" title="GLSurfaceView文件"></a>GLSurfaceView文件</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyGLSurfaceView</span> <span class="keyword">extends</span> <span class="title class_">GLSurfaceView</span> &#123;</span><br><span class="line">    <span class="keyword">private</span>  MyGLRender render;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">MyGLSurfaceView</span><span class="params">(Context context)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>(context, <span class="literal">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">MyGLSurfaceView</span><span class="params">(Context context, AttributeSet attrs)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>(context, attrs);</span><br><span class="line"></span><br><span class="line">        setEGLContextClientVersion(<span class="number">2</span>);</span><br><span class="line">        render = <span class="keyword">new</span> <span class="title class_">MyGLRender</span>();</span><br><span class="line">        <span class="comment">// Render the view only when there is a change in the drawing data</span></span><br><span class="line">        setRenderer(render);</span><br><span class="line">        setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="RenderMode"><a href="#RenderMode" class="headerlink" title="RenderMode"></a>RenderMode</h4><p>GLSurfaceView默认采用的是RENDERMODE_CONTINUOUSLY连续渲染的方式，刷新的频率是60fps，16ms重绘一次，可以通过setRenderMode函数更改渲染方式，代码中改为按需渲染，在SurfaceCreate的时候会绘制一次，之后只有在调用requestRender或者是onResume等方法时才会进行渲染，如果你的界面不需要频繁的刷新最好使用RENDERMODE_WHEN_DIRTY，这样可以降低CPU和GPU的活动。</p>
+<h4 id="状态处理"><a href="#状态处理" class="headerlink" title="状态处理"></a>状态处理</h4><p>使用GLSurfaceView需要注意程序的生命周期，Activity及Fragment会有暂停和恢复状态，GLSurfaceView也需要根据这些状态来做相应的处理，GLSurfaceView具有onResume和onPause两个同Activity及Fragment中的生命周期同名的方法，在其对应的方法中，主动调用GLSurfaceView的相应方法，这样能够使得OpenGL ES的内部线程做出正确的判断，从而保证程序的稳定性。</p>
+<h4 id="GLSurfaceView的事件处理"><a href="#GLSurfaceView的事件处理" class="headerlink" title="GLSurfaceView的事件处理"></a>GLSurfaceView的事件处理</h4><p>为了处理事件，需要继承GLSurfaceView类并重载它的事件方法，但是由于GLSurfaceView是多线程的，渲染器在独立的渲染线程中，需要使用java的跨线程机制与渲染器进行通信，GLSurfaceView提供了queueEvent(Runnable runnable)方法，就是一种相对简单的操作，queueEvent方法被安全的用于在UI线程和渲染线程之间进行交流通信。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">* To handle an event you will typically subclass GLSurfaceView and override the</span><br><span class="line">* appropriate method, just as you would with any other View. However, when handling</span><br><span class="line">* the event, you may need to communicate with the Renderer object</span><br><span class="line">* that<span class="string">&#x27;s running in the rendering thread. You can do this using any</span></span><br><span class="line"><span class="string">* standard Java cross-thread communication mechanism. In addition,</span></span><br><span class="line"><span class="string">* one relatively easy way to communicate with your renderer is</span></span><br><span class="line"><span class="string">* to call</span></span><br><span class="line"><span class="string">* &#123;@link #queueEvent(Runnable)&#125;. For example:</span></span><br><span class="line"><span class="string">* &lt;pre class=&quot;prettyprint&quot;&gt;</span></span><br><span class="line"><span class="string">* class MyGLSurfaceView extends GLSurfaceView &#123;</span></span><br><span class="line"><span class="string">*</span></span><br><span class="line"><span class="string">*     private MyRenderer mMyRenderer;</span></span><br><span class="line"><span class="string">*</span></span><br><span class="line"><span class="string">*     public void start() &#123;</span></span><br><span class="line"><span class="string">*         mMyRenderer = ...;</span></span><br><span class="line"><span class="string">*         setRenderer(mMyRenderer);</span></span><br><span class="line"><span class="string">*     &#125;</span></span><br><span class="line"><span class="string">*</span></span><br><span class="line"><span class="string">*     public boolean onKeyDown(int keyCode, KeyEvent event) &#123;</span></span><br><span class="line"><span class="string">*         if (keyCode == KeyEvent.KEYCODE_DPAD_CENTER) &#123;</span></span><br><span class="line"><span class="string">*             queueEvent(new Runnable() &#123;</span></span><br><span class="line"><span class="string">*                 // This method will be called on the rendering</span></span><br><span class="line"><span class="string">*                 // thread:</span></span><br><span class="line"><span class="string">*                 public void run() &#123;</span></span><br><span class="line"><span class="string">*                     mMyRenderer.handleDpadCenter();</span></span><br><span class="line"><span class="string">*                 &#125;&#125;);</span></span><br><span class="line"><span class="string">*             return true;</span></span><br><span class="line"><span class="string">*         &#125;</span></span><br><span class="line"><span class="string">*         return super.onKeyDown(keyCode, event);</span></span><br><span class="line"><span class="string">*     &#125;</span></span><br><span class="line"><span class="string">*&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="GLRenderer文件"><a href="#GLRenderer文件" class="headerlink" title="GLRenderer文件"></a>GLRenderer文件</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyGLRender</span> <span class="keyword">implements</span> <span class="title class_">GLSurfaceView</span>.Renderer &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onSurfaceCreated</span><span class="params">(GL10 gl10, EGLConfig eglConfig)</span> &#123;</span><br><span class="line">        GLES20.glClearColor(<span class="number">0.0f</span>, <span class="number">0.0f</span>, <span class="number">0.0f</span>, <span class="number">1.0f</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onSurfaceChanged</span><span class="params">(GL10 gl10, <span class="type">int</span> i, <span class="type">int</span> i1)</span> &#123;</span><br><span class="line">        GLES20.glViewport(<span class="number">0</span>, <span class="number">0</span>, i, i1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onDrawFrame</span><span class="params">(GL10 gl10)</span> &#123;</span><br><span class="line"></span><br><span class="line">        GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">Render接口重写的三个方法中调用了OpenGL API</span></span><br><span class="line"><span class="comment">glClearColor：设置清空屏幕的颜色，参数为RGBA</span></span><br><span class="line"><span class="comment">glClear：清空屏幕，当调用glClear函数清空颜色缓冲之后，整个颜色缓冲会被设置成glClearColor里设置的颜色。</span></span><br><span class="line"><span class="comment">glViewPoint：设置视图的尺寸，告诉OpenGL我们渲染的Surface大小</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong>在Layout文件中声明GLSurfaceView时，必须实现GLSurfaceView的<code>public MyGLSurfaceView(Context context, AttributeSet attrs)</code>方法，否则创建会失败。</p>
+<p>具体问题详情查看：</p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/25896862/how-can-i-inflate-glsurfaceview-in-androids-layout-xml">https://stackoverflow.com/questions/25896862/how-can-i-inflate-glsurfaceview-in-androids-layout-xml</a></p>
+<h2 id="方式二：在代码中声明GLSurfaceView"><a href="#方式二：在代码中声明GLSurfaceView" class="headerlink" title="方式二：在代码中声明GLSurfaceView"></a>方式二：在代码中声明GLSurfaceView</h2><p>与上述代码的差别在于Activity文件中的写法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(Bundle savedInstanceState)</span> &#123;</span><br><span class="line">    <span class="built_in">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    glSurfaceView = <span class="keyword">new</span> <span class="title class_">MyGLSurfaceView</span>(<span class="built_in">this</span>);</span><br><span class="line">    setContentView(glSurfaceView);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果窗口的大小想自己控制内嵌在页面中的话就使用Layout文件方式声明，否则使用代码方式声明即可；</p>
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/OpenGL-ES/">OpenGL ES</a>
+      
+    </div>
+    
+      
+  <nav class="post-nav">  
+      
+      <a class="prev" href="/2024/09/10/Android-SurfaceView/">  
+        <i class="iconfont icon-left"></i>  
+        <span class="prev-text nav-default">Android SurfaceView</span>  
+        <span class="prev-text nav-mobile">上一篇</span>  
+      </a>  
+      
+      
+      <a class="next" href="/2024/09/06/LearnOpenGL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%89/">  
+        <span class="next-text nav-default">LearnOpenGL学习笔记三</span>  
+        <span class="prev-text nav-mobile">下一篇</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+      <div id="gitalk-container"></div>  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/fengxuegt" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2021 - 2024      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">枫雪</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+    
+    
+    
+  
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css" />
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'Ov23linyjoE7z3V3Gako',
+    clientSecret: '4bbd23045cfc104a6cf9f988ca2051cf86f1b25b',
+    repo: 'blog-review',
+    owner: 'fengxuegt',
+    admin: ['fengxuegt'],
+    id: md5(location.pathname),
+    
+    language: '',
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
+    
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+
+</html>
