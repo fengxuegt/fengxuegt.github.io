@@ -298,6 +298,9 @@
 <p>注意矩阵运算的顺序是相反的。最后的顶点应该被赋值到顶点着色器的gl_position，OpenGL将会自动进行透视和裁剪。</p>
 <p>之后；</p>
 <p>顶点着色器的输出要求所有的顶点都在裁剪空间内，这正是我们使用变换矩阵做的。OpenGL然后对裁剪坐标进行透视除法从而将他们变换到NDC中。OpenGL会使用glViewPort内部的参数来将NDC坐标映射到屏幕坐标，每个坐标都关联了一个屏幕上的点。这个过程称为视口变换。</p>
+<p>组合到一起；</p>
+<img src="/2024/09/02/LearnOpenGL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%BA%8C/image-20241009102721419-8440843.png" class title="image-20241009102721419">
+<p>注意矩阵运算的顺序是相反的（记住我们需要从右往左阅读矩阵的乘法）。最后的顶点应该被赋值到顶点着色器中的gl_Position，OpenGL将会自动进行透视除法和裁剪。</p>
 <h2 id="进入3D"><a href="#进入3D" class="headerlink" title="进入3D"></a>进入3D</h2><p>在开始进行3D绘图时，我们首先创建一个模型矩阵。这个模型矩阵包含了位移、缩放与旋转操作，他们会被应用所有物体的顶点上，以变换他们到全局的世界空间。让我们变换一下我们的平面，将其绕着X轴旋转，使他看起来像放在地面上一样。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">glm::mat4 model;</span><br><span class="line">model = glm::rotate(model, glm::radians(<span class="number">-55.0f</span>), glm::vec3(<span class="number">1.0f</span>, <span class="number">0.0f</span>, <span class="number">0.0f</span>));</span><br></pre></td></tr></table></figure>
 <p>通过顶点坐标乘以这个模型矩阵，我们将该顶点坐标变换到世界坐标。我们的平面看起来就是在地板上，代表全局世界里的平面。</p>
@@ -307,6 +310,13 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">glm::mat4 view;</span><br><span class="line">// 注意，我们将矩阵向我们要进行移动场景的反方向移动。</span><br><span class="line">view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));</span><br></pre></td></tr></table></figure>
 <p>最后我们需要定义一个投影矩阵。我们希望在场景中使用透视投影，所以像这样声明一个投影矩阵：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">glm::mat4 projection;</span><br><span class="line">projection = glm::perspective(glm::radians(45.0f), screenWidth / screenHeight, 0.1f, 100.0f);</span><br></pre></td></tr></table></figure>
+<p>投影矩阵函数的参数解释：</p>
+<ul>
+<li>垂直视场角FOV</li>
+<li>屏幕宽高比</li>
+<li>近平面Z值</li>
+<li>远平面Z值</li>
+</ul>
 <p>既然我们已经创建了变换矩阵，我们应该将他们传入着色器。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#version 330 core</span></span><br><span class="line">layout (location = <span class="number">0</span>) in vec3 aPos;</span><br><span class="line">...</span><br><span class="line">uniform mat4 model;</span><br><span class="line">uniform mat4 view;</span><br><span class="line">uniform mat4 projection;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 注意乘法要从右向左读</span></span><br><span class="line">    gl_Position = projection * view * model * vec4(aPos, <span class="number">1.0</span>);</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <img src="/2024/09/02/LearnOpenGL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%BA%8C/image-20240905150732274-5520054.png" class title="image-20240905150732274">
