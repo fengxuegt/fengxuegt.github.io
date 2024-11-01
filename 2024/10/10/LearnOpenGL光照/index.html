@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="Blog - LearnOpenGL光照" />
+
+
+<!-- Website keywords -->
+
+<meta name="keywords" content="OpenGL, 枫雪gt" />
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/default" title="枫雪gt" >
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="http://example.com/2024/10/10/LearnOpenGL光照/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });  
+  </script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<!-- Analytics and push -->
+
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"latex":true};
+</script>
+  
+  <title>Blog - LearnOpenGL光照 - 枫雪gt</title>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">枫雪gt</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        首页              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        归档              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        标签              </li>
+    </a>
+    
+    <a href="/categories/">
+      <li class="mobile-menu-item">
+        
+        
+        分类              </li>
+    </a>
+    
+    <a href="/about/">
+      <li class="mobile-menu-item">
+        
+        
+        关于              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">枫雪gt</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              首页  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              归档  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              标签  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/categories/">  
+              
+              
+              分类  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/about/">  
+              
+              
+              关于  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      Blog - LearnOpenGL光照
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2024-10-10
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/Technology/">Technology</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%9C%E8%89%B2"><span class="toc-number">1.</span> <span class="toc-text">颜色</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80"><span class="toc-number">1.1.</span> <span class="toc-text">理论基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E6%9E%84%E5%BB%BA"><span class="toc-number">1.2.</span> <span class="toc-text">场景构建</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E5%85%89%E7%85%A7"><span class="toc-number">2.</span> <span class="toc-text">基础光照</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%85%89%E7%85%A7"><span class="toc-number">2.1.</span> <span class="toc-text">环境光照</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%AB%E5%8F%8D%E5%B0%84%E5%85%89%E7%85%A7"><span class="toc-number">2.2.</span> <span class="toc-text">漫反射光照</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%95%E5%90%91%E9%87%8F"><span class="toc-number">2.2.1.</span> <span class="toc-text">法向量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%BC%AB%E5%8F%8D%E5%B0%84%E5%85%89%E7%85%A7"><span class="toc-number">2.2.2.</span> <span class="toc-text">计算漫反射光照</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%95%E7%BA%BF%E7%9F%A9%E9%98%B5"><span class="toc-number">2.2.3.</span> <span class="toc-text">法线矩阵</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%95%9C%E9%9D%A2%E5%85%89%E7%85%A7"><span class="toc-number">2.3.</span> <span class="toc-text">镜面光照</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9D%90%E8%B4%A8"><span class="toc-number">3.</span> <span class="toc-text">材质</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E6%9D%90%E8%B4%A8"><span class="toc-number">3.1.</span> <span class="toc-text">设置材质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%89%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-number">3.2.</span> <span class="toc-text">光的属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E7%9A%84%E5%85%89%E6%BA%90%E9%A2%9C%E8%89%B2"><span class="toc-number">3.3.</span> <span class="toc-text">不同的光源颜色</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%89%E7%85%A7%E8%B4%B4%E5%9B%BE"><span class="toc-number">4.</span> <span class="toc-text">光照贴图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%AB%E5%8F%8D%E5%B0%84%E8%B4%B4%E5%9B%BE"><span class="toc-number">4.0.1.</span> <span class="toc-text">漫反射贴图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%95%9C%E9%9D%A2%E5%85%89%E8%B4%B4%E5%9B%BE"><span class="toc-number">4.0.2.</span> <span class="toc-text">镜面光贴图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%87%E6%A0%B7%E9%95%9C%E9%9D%A2%E5%85%89%E8%B4%B4%E5%9B%BE"><span class="toc-number">4.0.3.</span> <span class="toc-text">采样镜面光贴图</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E5%8A%A0%E8%BD%BD"><span class="toc-number">5.</span> <span class="toc-text">模型加载</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E5%8A%A0%E8%BD%BD%E5%BA%93"><span class="toc-number">5.1.</span> <span class="toc-text">模型加载库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E5%BB%BAAssimp"><span class="toc-number">5.2.</span> <span class="toc-text">构建Assimp</span></a></li></ol></li></ol>
+    </div>
+  </div>
+  
+
+  <div class="post-content">
+    
+    <p><strong>写在前面</strong><br>LearnOpenGL光照章节。</p>
+<span id="more"></span>
+<h1 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h1><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><p>在OpenGL中，使用一个向量来表示颜色值，RGB就是三维向量，RGBA就是四维向量。其实就是三通道和四通道的区别。<br>日常生活中物体的颜色并不是物体真正拥有的颜色，而是它所反射的光的颜色。白色是所有可见颜色的集合。<br>这些颜色反射的定律在图形领域依然适用。在OpenGL中创建一个光源时，我们希望给光源一个颜色。可以把光源设置为白色，把光源和物体的颜色相乘，就是这个物体所反射的颜色。注意，这里的相乘概念是glsl中的语法相乘，不是点乘，也不是叉乘。就是对应元素相乘。<br>例如下面这个例子：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">glm::vec3 <span class="title function_">lightColor</span><span class="params">(<span class="number">1.0f</span>, <span class="number">1.0f</span>, <span class="number">1.0f</span>)</span>; </span><br><span class="line">glm::vec3 <span class="title function_">toyColor</span><span class="params">(<span class="number">1.0f</span>, <span class="number">0.5f</span>, <span class="number">0.31f</span>)</span>; </span><br><span class="line">glm::vec3 result = lightColor * toyColor; <span class="comment">// = (1.0f, 0.5f, 0.31f);</span></span><br></pre></td></tr></table></figure><br>光源的颜色是白色。物体的颜色是toyColor，呈现的颜色就是两个向量对应元素相乘形成新的向量。</p>
+<p>物体的颜色除了与自身颜色相关外，还与光源颜色相关，例如用绿色光源去照射物体，物体只能呈现绿色。其他两个分量会被置为0。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">glm::vec3 <span class="title function_">lightColor</span><span class="params">(<span class="number">0.0f</span>, <span class="number">1.0f</span>, <span class="number">0.0f</span>)</span>; </span><br><span class="line">glm::vec3 <span class="title function_">toyColor</span><span class="params">(<span class="number">1.0f</span>, <span class="number">0.5f</span>, <span class="number">0.31f</span>)</span>; </span><br><span class="line">glm::vec3 result = lightColor * toyColor; <span class="comment">// = (0.0f, 0.5f, 0.0f);</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="场景构建"><a href="#场景构建" class="headerlink" title="场景构建"></a>场景构建</h2><p>需要创建一个被投光的对象和一个光源对象。<br>分成两个VAO来绘制两个物体。<br>由于光源和物体都是两个正方体，所以顶点数据并不需要搞两个，只需要将物体进行平移和缩放就可以绘制光源的立方体。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">model = glm::mat4();</span><br><span class="line">model = glm::translate(model, lightPos);</span><br><span class="line">model = glm::scale(model, glm::vec3(<span class="number">0.2f</span>));</span><br></pre></td></tr></table></figure><br>最终将会有一个类似于这种的场景。</p>
+<img src="/2024/10/10/LearnOpenGL%E5%85%89%E7%85%A7/Pasted%20image%2020241010170851.png" class>
+<h1 id="基础光照"><a href="#基础光照" class="headerlink" title="基础光照"></a>基础光照</h1><p>现实世界的光照是极其复杂的，而且会受到诸多因素的影响，因此OpenGL使用的是简化的光照模型。对现实的情况进行近似。其中一个模型叫做phone光照模型。phong光照模型的主要结构由3个分量组成。环境、漫反射、镜面反射。</p>
+<ul>
+<li>环境光照（Ambient light）即使是在黑暗的条件下，世界上通常也有一些光亮，所以物体几乎永远不会是黑暗的。为了模拟这个，我们会使用一个环境光照常量，它会永远给物体一些颜色。</li>
+<li>漫反射光照（Diffuse light）模拟光源对物体的方向性影响。是光照模型中最显著的分量，物体的某一部分越对着光，它就会越亮。</li>
+<li>镜面反射（Specular light）模拟光泽物体上面出现的亮点。镜面光照的颜色相比于物体的颜色会更倾向于光的颜色<h2 id="环境光照"><a href="#环境光照" class="headerlink" title="环境光照"></a>环境光照</h2>光通常都不是来自于同一个光源，而是来自于我们周围分散的许多光源。光的一个属性是它可以向很多方向发散并反弹，从而能够达到不是非常直接临近的点。所以，光能够在其他的表面上反射，对一个物体产生间接的影响。考虑到这种情况的算法叫做全局照明。这种算法开销高昂并极其复杂。<br>我们这里并不考虑全局照明的算法。会使用一个简化的全局照明模型，即环境光照。我们使用一个很小的常量，添加到物体的最终颜色当中，这样子的话即使场景中没有直接的光源也能看起来存在一些发散的光。<br>在Shader中添加环境光照十分简单：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">float</span> ambientStrength = <span class="number">0.1</span>;</span><br><span class="line">    vec3 ambient = ambientStrength * lightColor;</span><br><span class="line"></span><br><span class="line">    vec3 result = ambient * objectColor;</span><br><span class="line">    FragColor = vec4(result, <span class="number">1.0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+用光的颜色<code>*</code>一个常量代表是环境光照。物体的颜色就是物体本身的颜色<code>*</code>环境光照。<h2 id="漫反射光照"><a href="#漫反射光照" class="headerlink" title="漫反射光照"></a>漫反射光照</h2>漫反射光照使物体上与光线方向越接近的片段能从光源处获得更多的亮度。为了能够更好的理解漫反射光照，请看下图：</li>
+</ul>
+<img src="/2024/10/10/LearnOpenGL%E5%85%89%E7%85%A7/Pasted%20image%2020241010180828.png" class>
+<p>图左上方有一个光源，它所发出的光线落在物体的片段上。我们需要测量这个光线以什么样的角度接触到这个片段的。如果光线垂直于物体表面，这束光对物体的影响会最大化。为了测量光线和片段的角度，我们使用一个叫做法向量的东西，它是垂直于片段的一个向量。这两个向量之间的角度很容易通过点乘计算出来。<br>所以，计算漫反射光照需要什么？</p>
+<ul>
+<li>法向量</li>
+<li>定向的光线：作为光源的位置与片段位置之间向量差的方向向量，为了计算这个光线，我们需要光的位置向量和片段的位置向量。<h3 id="法向量"><a href="#法向量" class="headerlink" title="法向量"></a>法向量</h3>是一个垂直于顶点表面的单位向量。由于顶点本身并没有表面，我们利用其周围的顶点来计算出这个顶点的表面。我们能够使用一个小技巧，使用叉乘对立方体所有的顶点计算法向量，但是由于3D立方体并不是一个复杂的形状，我们可以简单的把法向量数据手工添加到顶点数据中。<br>由于我们更新了顶点数组，所以我们要更新光照的顶点着色器：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#version 330 core</span></span><br><span class="line">layout (location = <span class="number">0</span>) in vec3 aPos;</span><br><span class="line">layout (location = <span class="number">1</span>) in vec3 aNormal;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+现在我们已经向每个顶点添加了一个法向量并更新了顶点着色器，我们还要更新顶点属性指针。灯的着色器并没有使用法向量，但是在进行属性配置的时候需要把新添加的法向量数据跳过去；<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">glVertexAttribPointer(<span class="number">0</span>, <span class="number">3</span>, GL_FLOAT, GL_FALSE, <span class="number">6</span> * <span class="keyword">sizeof</span>(<span class="type">float</span>), (<span class="type">void</span>*)<span class="number">0</span>);</span><br><span class="line">glEnableVertexAttribArray(<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+只需要把跳过的步长改成6即可。<br>所有光照的计算都是在Fragment Shader里面进行，所以需要将法向量的数据传递到Fragment Shader。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">out vec3 Normal;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    gl_Position = projection * view * model * vec4(aPos, <span class="number">1.0</span>);</span><br><span class="line">    Normal = aNormal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+然后再FS中定义in变量；<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">in vec3 Normal;</span><br></pre></td></tr></table></figure>
+<h3 id="计算漫反射光照"><a href="#计算漫反射光照" class="headerlink" title="计算漫反射光照"></a>计算漫反射光照</h3>我们现在对每个顶点有了法向量，但是我们仍然需要光源的位置向量和片段的位置向量。由于光源的位置是一个静态变量，我们可以简单的在FS中将其声明为Uniform。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uniform vec3 lightPos;</span><br></pre></td></tr></table></figure>
+然后再渲染循环中更新Uniform，我们使用在前面声明的lightPos作为光源的位置。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lightingShader.setVec3(<span class="string">&quot;lightPos&quot;</span>, lightPos);</span><br></pre></td></tr></table></figure>
+最后我们还需要片段的位置，我们会在世界空间中进行所有的光照计算，因此我们需要一个在世界空间中的顶点位置。我们可以通过把顶点位置属性乘以模型矩阵来把它变成世界空间坐标。这个在VS中很容易完成。所以我们声明一个输出变量，并计算它的世界空间坐标：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">out vec3 FragPos;  </span><br><span class="line">out vec3 Normal;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    gl_Position = projection * view * model * vec4(aPos, <span class="number">1.0</span>);</span><br><span class="line">    FragPos = vec3(model * vec4(aPos, <span class="number">1.0</span>));</span><br><span class="line">    Normal = aNormal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+最后，在FS中添加相应的输入变量。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">in vec3 FragPos;</span><br></pre></td></tr></table></figure>
+这个in变量就是每个片段的世界位置。现在所有的准备都已经做好了，在FS中添加光照计算。<br>我们需要做的第一件事情是计算光源和片段之间的方向向量。前面提到，光的方向向量是光源位置向量和片段位置向量之间的向量差。我们能够通过向量相减的方式计算向量差。同时需要保证所有的向量最后转化为单位向量。我们把法线向量和方向向量都归一化：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vec3 norm = normalize(Normal);</span><br><span class="line">vec3 lightDir = normalize(lightPos - FragPos);</span><br></pre></td></tr></table></figure>
+下一步，我们对norm和lightDir进行点乘，计算光源对当前片段的漫反射影响。结果值再乘光的颜色，得到漫反射分量。两个向量之间的夹角越大，漫反射分量就越小。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> diff = max(dot(norm, lightDir), <span class="number">0.0</span>); </span><br><span class="line">vec3 diffuse = diff * lightColor;</span><br></pre></td></tr></table></figure>
+如果两个向量之间的角度大于90度，点乘的结果就会变成负数，这会导致漫反射分量变成负数，为此我们使用max函数返回两个参数中较大的那个数，保证漫反射分量不会变成负数。<br>现在有了环境光分量和漫反射分量，我们把它相加，然后把结果再乘物体的颜色，来获得片段最后的输出颜色。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vec3 result = (ambient + diffuse) * objectColor;</span><br><span class="line">FragColor = vec4(result, <span class="number">1.0</span>);</span><br></pre></td></tr></table></figure>
+你可以观察到使用了漫反射光照，立方体看起来就像是个真正的立方体了。</li>
+</ul>
+<h3 id="法线矩阵"><a href="#法线矩阵" class="headerlink" title="法线矩阵"></a>法线矩阵</h3><p>这个部分感觉比较难，后面有时间再看，目前还不需要用到这块。</p>
+<h2 id="镜面光照"><a href="#镜面光照" class="headerlink" title="镜面光照"></a>镜面光照</h2><p>我们需要再把镜面光照添加进来，phong光照模型才算完整。<br>和漫反射一样，镜面光照也取决于光的方向和物体的法向量。但是它也取决于观察方向，例如眼睛是从哪个方向看到这个片段的。镜面光照取决于表面的反射特性。如果我们把片段设想为一面镜子，那么镜面光照最强的地方就是我们看到表面上反射光的地方。</p>
+<img src="/2024/10/10/LearnOpenGL%E5%85%89%E7%85%A7/Pasted%20image%2020241011102345.png" class>
+<p>我们通过根据法向量翻折入射光的方向来计算反射向量。然后我们计算反射向量和观察方向的角度差，两者之间的夹角越小，镜面光的作用就越大，由此产生的效果就是，我们看向在入射光在片段的反射方向时，会看到一点高光。<br>观察向量是我们在计算镜面光照时需要的一个额外变量，我们可以使用观察者的世界空间位置和片段的位置来计算，之后我们计算出镜面光照强度，用它乘以光源的颜色，并将它与环境光照和漫反射光照部分相加。<br>要得到观察者的世界空间坐标，我们直接使用摄像机的位置向量即可。把摄像机的位置也添加为一个Uniform到VS中。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">uniform vec3 viewPos;</span><br><span class="line">lightingShader.setVec3(<span class="string">&quot;viewPos&quot;</span>, camera.Position);</span><br></pre></td></tr></table></figure>
+<p>现在我们已经获得所有需要的变量，可以进行计算了。首先我们要定义一个镜面强度，给镜面高光一个中等亮度的颜色，避免产生过度的影响。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> specularStrength = <span class="number">0.5</span>;</span><br></pre></td></tr></table></figure><br>如果我们把它设置为1.0f，我们会得到一个非常亮的镜面光分量，这对于一个珊瑚色的立方体来说太多了。下一步我们需要计算视线方向。和反射向量。<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vec3 viewDir = normalize(viewPos - FragPos);</span><br><span class="line">vec3 reflectDir = reflect(-lightDir, norm);</span><br></pre></td></tr></table></figure><br>需要注意的是我们对lightDir进行了取反，reflect函数要求第一个向量是从光源指向片段位置的向量，但是lightDir正好相反，是从片段指向光源的，所以要取反。剩下的就是计算镜面光照分量。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> spec = <span class="built_in">pow</span>(max(dot(viewDir, reflectDir), <span class="number">0.0</span>), <span class="number">32</span>);</span><br><span class="line">vec3 specular = specularStrength * spec * lightColor;</span><br></pre></td></tr></table></figure><br>我们先计算视线方向和反射方向的点乘（并确保它不是负值），然后取它的32次幂。这个32次幂是高光的反光度，一个物体的反光度越高，反射光的能力越强，散射越少，高光点就会越小。<br>我们不希望镜面成分过于显眼，所以我们把指数保持为32。剩下的最后一件事就是添加镜面光照分量。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vec3 result = (ambient + diffuse + specular) * objectColor;</span><br><span class="line">FragColor = vec4(result, <span class="number">1.0</span>);</span><br></pre></td></tr></table></figure></p>
+<h1 id="材质"><a href="#材质" class="headerlink" title="材质"></a>材质</h1><p>在现实世界里，每个物体会对光产生不同的反应。例如钢制物体会比陶土更闪闪发光。有些物体反光的时候不会有太多的散射，因而产生较小的高光点，而有些物体会散射更多，产生一个有更大半径的高光点。如果我们想要在OpenGL中模拟多种类型的物体，我们必须针对每种表面定义不同的材质属性。<br>当描述一个表面时，我们可以分别为三个光照分量定义一个材质颜色：环境光照、漫反射光照、和镜面光照。通过为每个分量指定一个颜色，我们就能够对表面的颜色输出有细粒度的控制了。现在，我们再添加一个反光度分量，结合上述的三个颜色，我们就有了全部所需的材质属性了：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#version 330 core</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Material</span> &#123;</span></span><br><span class="line">    vec3 ambient;</span><br><span class="line">    vec3 diffuse;</span><br><span class="line">    vec3 specular;</span><br><span class="line">    <span class="type">float</span> shininess;</span><br><span class="line">&#125;; </span><br><span class="line"></span><br><span class="line">uniform Material material;</span><br></pre></td></tr></table></figure><br>在FS中，我们创建一个结构体来存储物体的材质属性。我们也可以把它们存储为独立的Uniform值，但是作为一个结构体来储存会更有条理一些。我们首先定义结构体的布局（Layout），然后简单的以刚创建的结构体为类型声明一个Uniform变量。<br>如你所见，我们为Phong光照模型的每个分量都定义了一个颜色向量。ambient材质定义了在环境光照下这个表面反射什么颜色，通常与表面的颜色相同。diffuse材质向量定义了在漫反射光照下表面的颜色。漫反射颜色也被设置为我们期望的物体颜色。specular材质向量设置的是表面上镜面高光的颜色。最后shininess影响镜面高光的散射/半径。<br><strong>其实就是每个光照分量对应使用不同的颜色。</strong><br>有这四个元素定义一个物体的材质，我们能够模拟现实世界中的材质。</p>
+<img src="/2024/10/10/LearnOpenGL%E5%85%89%E7%85%A7/Pasted%20image%2020241011114902.png" class>
+<p>可以看到，通过正确的指定一个物体的材质属性，我们对这个物体的感知也就不同了。效果非常明显，但是想要获取真实的效果，我们需要以更加复杂的形状替换这个立方体。在模型加载章节中，我们会讨论更加复杂的形状。<br>搞清楚一个物体的正确材质是个困难的工程，需要实验和丰富的经验。用了不合适的材质而毁了物体的视觉质量是件经常发生的事情。</p>
+<h2 id="设置材质"><a href="#设置材质" class="headerlink" title="设置材质"></a>设置材质</h2><p>我们在FS中创建了一个材质结构体的Uniform，所以下面我们希望修改一下光照的计算来尊崇新的材质属性。由于所有材质变量都存在于一个结构体中，我们可以从Uniform material中访问它们：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;    </span><br><span class="line">    <span class="comment">// 环境光</span></span><br><span class="line">    vec3 ambient = lightColor * material.ambient;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 漫反射 </span></span><br><span class="line">    vec3 norm = normalize(Normal);</span><br><span class="line">    vec3 lightDir = normalize(lightPos - FragPos);</span><br><span class="line">    <span class="type">float</span> diff = max(dot(norm, lightDir), <span class="number">0.0</span>);</span><br><span class="line">    vec3 diffuse = lightColor * (diff * material.diffuse);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 镜面光</span></span><br><span class="line">    vec3 viewDir = normalize(viewPos - FragPos);</span><br><span class="line">    vec3 reflectDir = reflect(-lightDir, norm);  </span><br><span class="line">    <span class="type">float</span> spec = <span class="built_in">pow</span>(max(dot(viewDir, reflectDir), <span class="number">0.0</span>), material.shininess);</span><br><span class="line">    vec3 specular = lightColor * (spec * material.specular);  </span><br><span class="line"></span><br><span class="line">    vec3 result = ambient + diffuse + specular;</span><br><span class="line">    FragColor = vec4(result, <span class="number">1.0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>可以看到，我们现在在需要的地方访问了材质结构体中的所有属性，并且这次是根据材质的颜色来计算最终的输出颜色的。物体的每个材质属性都乘上了它们各自对应的光照分量。<br>我们现在可以通过设置适当的Uniform来设置物体的应用材质了。glsl中一个结构体在设置Uniform时并没有任何区别，结构体只是充当Uniform变量们的一个命名空间。所以如果想要填充这个结构体的话，我们必须设置每个单独的Uniform，但要以结构体名称为前缀：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lightingShader.setVec3(<span class="string">&quot;material.ambient&quot;</span>, <span class="number">1.0f</span>, <span class="number">0.5f</span>, <span class="number">0.31f</span>); lightingShader.setVec3(<span class="string">&quot;material.diffuse&quot;</span>, <span class="number">1.0f</span>, <span class="number">0.5f</span>, <span class="number">0.31f</span>); lightingShader.setVec3(<span class="string">&quot;material.specular&quot;</span>, <span class="number">0.5f</span>, <span class="number">0.5f</span>, <span class="number">0.5f</span>); lightingShader.setFloat(<span class="string">&quot;material.shininess&quot;</span>, <span class="number">32.0f</span>);</span><br></pre></td></tr></table></figure><br>我们将环境光和漫反射分量设置成我们想要让物体所拥有的颜色，而将镜面分量设置为一个中等亮度的颜色，我们不希望镜面分量过于强烈，我们仍然将反光度保持为32。<br>最终的显示效果如下：</p>
+<img src="/2024/10/10/LearnOpenGL%E5%85%89%E7%85%A7/Pasted%20image%2020241011120455.png" class>
+<h2 id="光的属性"><a href="#光的属性" class="headerlink" title="光的属性"></a>光的属性</h2><p> 但是这个物体太亮了，物体过亮的原因是环境光、漫反射、镜面光这三个颜色对任何一个光源都是全力反射。光源对环境、漫反射、镜面反射也应该具有分别的强度。因此对每个光照分量都分别指定一个强度向量。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vec3 ambient  = vec3(<span class="number">1.0</span>) * material.ambient;</span><br><span class="line">vec3 diffuse  = vec3(<span class="number">1.0</span>) * (diff * material.diffuse);</span><br><span class="line">vec3 specular = vec3(<span class="number">1.0</span>) * (spec * material.specular);</span><br></pre></td></tr></table></figure><br>物体的每个材质属性对每个光照分量都返回了最大的强度。对单个光源来说，这些<code>vec3(1.0)</code>值同样可以对每种光源分别改变，而这通常就是我们想要的。现在的情况是物体的环境光分量完全影响了立方体的颜色，可是环境光分量实际上不应该对最终的颜色有这么大的影响，所以我们会将光源的环境光强度设置为一个小一点的值，从而限制环境光的颜色：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vec3 ambient = vec3(<span class="number">0.1</span>) * material.ambient;</span><br></pre></td></tr></table></figure><br>我们可以用同样的方式影响光源的漫反射和镜面光强度。我们希望可以为光照属性创造类似于材质结构体的东西：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Light</span> &#123;</span></span><br><span class="line">    vec3 position;</span><br><span class="line"></span><br><span class="line">    vec3 ambient;</span><br><span class="line">    vec3 diffuse;</span><br><span class="line">    vec3 specular;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">uniform Light light;</span><br></pre></td></tr></table></figure><br>一个光源对它的ambient、diffuse、specular光照分量有不同的强度。环境光照通常被设置为一个较低的强度，因为我们不希望环境光太过主导。光源的漫反射分量通常会被设置为我们所希望光所具有的那个颜色，通常是一个比较明亮的白色。镜面光分量通常会保持1.0，以最大强度发光。注意我们也将光源的位置加入了结构体。<br>和材质Uniform一样，我们需要更新FS。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vec3 ambient  = light.ambient * material.ambient;</span><br><span class="line">vec3 diffuse  = light.diffuse * (diff * material.diffuse);</span><br><span class="line">vec3 specular = light.specular * (spec * material.specular);</span><br></pre></td></tr></table></figure><br>我们接下来在应用中设置光照强度：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lightingShader.setVec3(<span class="string">&quot;light.ambient&quot;</span>,  <span class="number">0.2f</span>, <span class="number">0.2f</span>, <span class="number">0.2f</span>);</span><br><span class="line">lightingShader.setVec3(<span class="string">&quot;light.diffuse&quot;</span>,  <span class="number">0.5f</span>, <span class="number">0.5f</span>, <span class="number">0.5f</span>); <span class="comment">// 将光照调暗了一些以搭配场景</span></span><br><span class="line">lightingShader.setVec3(<span class="string">&quot;light.specular&quot;</span>, <span class="number">1.0f</span>, <span class="number">1.0f</span>, <span class="number">1.0f</span>);</span><br></pre></td></tr></table></figure><br>现在我们已经调整了光照对物体材质的影响，我们得到了一个与上一节很相似的视觉效果。但这次我们有了对材质和光照的完全掌控。</p>
+<img src="/2024/10/10/LearnOpenGL%E5%85%89%E7%85%A7/Pasted%20image%2020241011142800.png" class>
+<h2 id="不同的光源颜色"><a href="#不同的光源颜色" class="headerlink" title="不同的光源颜色"></a>不同的光源颜色</h2><p>到目前为止，我们只对光源设置了从白到灰到黑范围内的颜色，这样只会改变物体各个分量的强度，而不是它真正的颜色。由于现在能够非常容易的访问光的属性了，我们可以随着时间改变光源的颜色，从而获得一些有趣的效果。<br>你可以看到，不同的光照颜色能够极大的影响物体最终的颜色输出，由于光照颜色能够直接影响物体能够反色的颜色。<br>我们可以利用sin和glfwGetTime函数改变光源的环境光和漫反射颜色，从而很容易的让光源的颜色随着时间发生变化：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">glm::vec3 lightColor;</span><br><span class="line">lightColor.x = <span class="built_in">sin</span>(glfwGetTime() * <span class="number">2.0f</span>);</span><br><span class="line">lightColor.y = <span class="built_in">sin</span>(glfwGetTime() * <span class="number">0.7f</span>);</span><br><span class="line">lightColor.z = <span class="built_in">sin</span>(glfwGetTime() * <span class="number">1.3f</span>);</span><br><span class="line"></span><br><span class="line">glm::vec3 diffuseColor = lightColor   * glm::vec3(<span class="number">0.5f</span>); <span class="comment">// 降低影响</span></span><br><span class="line">glm::vec3 ambientColor = diffuseColor * glm::vec3(<span class="number">0.2f</span>); <span class="comment">// 很低的影响</span></span><br><span class="line"></span><br><span class="line">lightingShader.setVec3(<span class="string">&quot;light.ambient&quot;</span>, ambientColor);</span><br><span class="line">lightingShader.setVec3(<span class="string">&quot;light.diffuse&quot;</span>, diffuseColor);</span><br></pre></td></tr></table></figure></p>
+<h1 id="光照贴图"><a href="#光照贴图" class="headerlink" title="光照贴图"></a>光照贴图</h1><p>给每个物体不同的材质能够使得物体在同一个光源中也能有独特的外观。但是仍然不能对一个物体的视觉输出提供足够的灵活性。<br>在之前的章节中，我们将物体整体认为是一种材质。实际上这是不可能的。一辆汽车，它的外壳、窗户玻璃和轮胎会有不同的材质。一个模型不同部位会有不同的材质。<br>因此引入贴图的概念。</p>
+<h3 id="漫反射贴图"><a href="#漫反射贴图" class="headerlink" title="漫反射贴图"></a>漫反射贴图</h3><p>我们希望通过某种方式对物体的每个片段单独设置漫反射颜色。所以我们需要使用纹理。<br>在光照场景中，这样的纹理叫做漫反射贴图，它是一个表现了物体所有的漫反射颜色的纹理图像。<br>为了演示漫反射贴图，我们会使用这张图片</p>
+<img src="/2024/10/10/LearnOpenGL%E5%85%89%E7%85%A7/Pasted%20image%2020241011150001.png" class>
+<p>在着色器中使用漫反射贴图的方法和纹理是完全一样的，但是这次我们会将纹理存储为material结构体中的一个Sampler2D。我们将之前定义的vec3漫反射颜色向量替换为漫反射贴图。<br>也移除了环境光材质颜色向量，因为环境光颜色在几乎所有情况下都等于漫反射颜色。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Material</span> &#123;</span></span><br><span class="line">    sampler2D diffuse;</span><br><span class="line">    vec3      specular;</span><br><span class="line">    <span class="type">float</span>     shininess;</span><br><span class="line">&#125;; </span><br><span class="line">...</span><br><span class="line">in vec2 TexCoords;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vec3 diffuse = light.diffuse * diff * vec3(texture(material.diffuse, TexCoords));</span><br><span class="line">vec3 ambient = light.ambient * vec3(texture(material.diffuse, TexCoords));</span><br></pre></td></tr></table></figure>
+<h3 id="镜面光贴图"><a href="#镜面光贴图" class="headerlink" title="镜面光贴图"></a>镜面光贴图</h3><h3 id="采样镜面光贴图"><a href="#采样镜面光贴图" class="headerlink" title="采样镜面光贴图"></a>采样镜面光贴图</h3><h1 id="模型加载"><a href="#模型加载" class="headerlink" title="模型加载"></a>模型加载</h1><p>我们需要将模型导入到程序当中去，模型通常是由3D艺术家在Blender、3DS MAX或者Maya这样的工具中精心制作的。<br>这些所谓的3D建模工具可以让艺术家创建复杂的形状，并使用一种叫做UV映射的手段来应用贴图。这些工具会在导出到模型文件的时候自动生成所有的顶点坐标、顶点法线以及纹理坐标。这样子艺术家即使不了解图形技术细节的情况下，也能拥有一套强大的工具来构建高品质的模型了。所有的技术细节都保存在了导出的文件模型当中，作为图形开发者，我们是需要了解这些技术细节的。<br>所以，我们的工作就是解析这些导出的模型文件以及提取所有有用的信息，将他们存储为OpenGL所能够理解的格式。一个常见的问题是，模型的格式文件有很多种，每一种都会以他们自己的方式来导出模型数据。不同类型的文件格式有很多，他们之间通常没有一个通用的结构。所以如果我们想要从这些文件格式导入模型的话，我们必须针对需要导入的文件格式写一个导入器。正好有个库是专门解决这个问题的。</p>
+<h2 id="模型加载库"><a href="#模型加载库" class="headerlink" title="模型加载库"></a>模型加载库</h2><p>一个非常流行的加载库是Assimp。它能够导入很多不同格式的模型文件。它会将所有的模型数据存储到Assimp自己的通用数据结构当中。当Assimp加载完模型后，我们就能够从Assimp的数据结构提取我们所需要的数据了。由于Assimp的数据结构保持不变，不论导入的是什么格式的文件，我们都能够以一种通用的方式访问模型数据。<br>当使用Assimp导入一个模型时，它通常会将整个模型加载进一个场景对象，它会包含导入的模型/场景的所有数据。Assimp会将场景载入为一系列的节点，每个节点包含了场景对象中所存储数据的索引。每个节点可以有任意数量的子节点。Assimp的数据结构模型如下：</p>
+<img src="/2024/10/10/LearnOpenGL%E5%85%89%E7%85%A7/Pasted%20image%2020241011162745.png" class>
+<ul>
+<li>和材质和网格一样，所有的场景模型数据都包含在Scene对象当中。Scene对象也包含了场景根节点的引用。</li>
+<li>场景的Root node可能包含子节点，它会有一系列指向场景对象中mMeshes数组中存储的网格数据的索引。Scene下的mMeshes数组存储了真正的Mesh对象，节点中的mMeshes数组保存的只是场景中网格数据的索引。</li>
+<li>一个Mesh对象本身包含了渲染所需要的所有相关数据，像是顶点位置、法向量、纹理坐标、面和物体的材质。</li>
+<li>一个网格包含了多个面，Face代表的是物体的渲染图元。一个面包含了组成图元的顶点的索引。由于顶点和索引是分开的，使用一个索引缓冲来渲染是十分简单的。</li>
+<li>最后，一个网格也包含了一个Material对象，包含了一些函数使我们能够获取物体的材质属性，比如颜色和纹理贴图<br>所以我们需要做的第一件事就是将一个模型加载到Scene对象中，遍历节点，获取对应的mesh对象，并处理每个Mesh对象来获取顶点数据、索引以及它的材质属性。最终的结果是一系列的网格数据，我们将它们包含到一个Model对象当中。<br>什么是网格呢？<br>当使用建模工具对物体进行建模的时候，艺术家通常不会用单个形状创建整个模型。通常每个模型都由几个子模型组合而成。组合模型的每个单独的形状就叫做一个网格。一个网格是在OpenGL中绘制物体所需的最小单位（顶点数据、索引和材质属性）。一个模型会包含多个网格。<br>如果我们想要绘制一个模型，我们不需要将整个模型渲染为一个整体，只需要渲染组成模型的每个独立的网格就行了。<h2 id="构建Assimp"><a href="#构建Assimp" class="headerlink" title="构建Assimp"></a>构建Assimp</h2>网格代表的是单个的可绘制实体，我们现在先来定义一个我们自己的网格类。<br>一个网格所需要的数据：</li>
+<li>一系列的顶点数据，顶点数据中包含位置向量、法向量、纹理坐标</li>
+<li>索引绘制的索引以及纹理的材质数据<br>既然我们有了一个网格的最低需求，我们可以在OpenGL中定义一个顶点。<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Vertex</span> &#123;</span><br><span class="line">    glm::vec3 Position;</span><br><span class="line">    glm::vec3 Normal;</span><br><span class="line">    glm::vec2 TexCoords;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+我们将所有需要的向量存储到一个叫做Vertex的结构体中，我们可以用它来索引每个顶点属性。除了这个结构体之外，我们还需要将纹理数据整理到一个Texture结构体中。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Texture</span> &#123;</span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">int</span> id;</span><br><span class="line">    <span class="built_in">string</span> type;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/OpenGL/">OpenGL</a>
+      
+    </div>
+    
+      
+  <nav class="post-nav">  
+      
+      
+      <a class="next" href="/2024/10/07/LearnOpenGL%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E7%B3%BB%E5%88%97/">  
+        <span class="next-text nav-default">Blog - LearnOpenGL源码阅读系列</span>  
+        <span class="prev-text nav-mobile">下一篇</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+      <div id="gitalk-container"></div>  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/fengxuegt" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2021 - 2024      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">枫雪</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+    
+    
+    
+  
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css" />
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'Ov23linyjoE7z3V3Gako',
+    clientSecret: '4bbd23045cfc104a6cf9f988ca2051cf86f1b25b',
+    repo: 'blog-review',
+    owner: 'fengxuegt',
+    admin: ['fengxuegt'],
+    id: md5(location.pathname),
+    
+    language: '',
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
+    
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+
+</html>

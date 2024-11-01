@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="Blog - LearnOpenGL源码阅读系列" />
+
+
+<!-- Website keywords -->
+
+<meta name="keywords" content="LearnOpenGL, 枫雪gt" />
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/default" title="枫雪gt" >
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="http://example.com/2024/10/07/LearnOpenGL源码阅读系列/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });  
+  </script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<!-- Analytics and push -->
+
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"latex":true};
+</script>
+  
+  <title>Blog - LearnOpenGL源码阅读系列 - 枫雪gt</title>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">枫雪gt</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        首页              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        归档              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        标签              </li>
+    </a>
+    
+    <a href="/categories/">
+      <li class="mobile-menu-item">
+        
+        
+        分类              </li>
+    </a>
+    
+    <a href="/about/">
+      <li class="mobile-menu-item">
+        
+        
+        关于              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">枫雪gt</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              首页  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              归档  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              标签  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/categories/">  
+              
+              
+              分类  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/about/">  
+              
+              
+              关于  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      Blog - LearnOpenGL源码阅读系列
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2024-10-07
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/Technology/">Technology</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%A0%E5%A5%BD%E7%AA%97%E5%8F%A3"><span class="toc-number">1.</span> <span class="toc-text">你好窗口</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#GLFW-Initialize-and-Config"><span class="toc-number">1.1.</span> <span class="toc-text">GLFW Initialize  and Config</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GLFW-Window-Creation"><span class="toc-number">1.2.</span> <span class="toc-text">GLFW Window Creation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GLAD%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">1.3.</span> <span class="toc-text">GLAD初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Render-Loop"><span class="toc-number">1.4.</span> <span class="toc-text">Render Loop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GLFW-Terminate"><span class="toc-number">1.5.</span> <span class="toc-text">GLFW Terminate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%99%E7%AA%97%E5%8F%A3%E6%8D%A2%E4%B8%AA%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2"><span class="toc-number">1.6.</span> <span class="toc-text">给窗口换个背景颜色</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%A0%E5%A5%BD%E4%B8%89%E8%A7%92%E5%BD%A2"><span class="toc-number">2.</span> <span class="toc-text">你好三角形</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Shader%E6%BA%90%E7%A0%81"><span class="toc-number">2.1.</span> <span class="toc-text">Shader源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%B9%B6%E7%BC%96%E8%AF%91Program"><span class="toc-number">2.2.</span> <span class="toc-text">创建并编译Program</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A6%96%E5%85%88%E5%88%9B%E5%BB%BA%E5%B9%B6%E7%BC%96%E8%AF%91Vertex-Shader"><span class="toc-number">2.2.1.</span> <span class="toc-text">首先创建并编译Vertex Shader</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%84%B6%E5%90%8E%E6%98%AFFragment-Shader"><span class="toc-number">2.2.2.</span> <span class="toc-text">然后是Fragment Shader</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Link-Shader-and-Program"><span class="toc-number">2.2.3.</span> <span class="toc-text">Link Shader and Program</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E6%95%B0%E6%8D%AE"><span class="toc-number">2.3.</span> <span class="toc-text">设置数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B2%E6%9F%93"><span class="toc-number">2.4.</span> <span class="toc-text">渲染</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EBO"><span class="toc-number">2.5.</span> <span class="toc-text">EBO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%83%E4%B9%A01-%E4%B8%A4%E4%B8%AA%E7%9B%B8%E8%BF%9E%E7%9A%84%E4%B8%89%E8%A7%92%E5%BD%A2%EF%BC%9B"><span class="toc-number">2.6.</span> <span class="toc-text">练习1 两个相连的三角形；</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%83%E4%B9%A02-%E5%88%9B%E5%BB%BA%E7%9B%B8%E5%90%8C%E7%9A%84%E4%B8%A4%E4%B8%AA%E4%B8%89%E8%A7%92%E5%BD%A2%EF%BC%8C%E4%BD%86%E6%98%AF%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%90%8C%E7%9A%84VBO%E5%92%8CVAO"><span class="toc-number">2.7.</span> <span class="toc-text">练习2 创建相同的两个三角形，但是使用不同的VBO和VAO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%83%E4%B9%A03-%E4%BD%BF%E7%94%A8%E4%B8%A4%E4%B8%AA%E4%B8%8D%E5%90%8C%E7%9A%84Program"><span class="toc-number">2.8.</span> <span class="toc-text">练习3 使用两个不同的Program</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9D%80%E8%89%B2%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text">着色器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Uniform"><span class="toc-number">3.1.</span> <span class="toc-text">Uniform</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B6%E7%82%B9%E4%B8%AD%E5%8C%85%E5%90%AB%E6%9B%B4%E5%A4%9A%E5%B1%9E%E6%80%A7"><span class="toc-number">3.2.</span> <span class="toc-text">顶点中包含更多属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E5%8F%96Shader%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB"><span class="toc-number">3.3.</span> <span class="toc-text">提取Shader自定义类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%83%E4%B9%A01-%E4%BF%AE%E6%94%B9%E9%A1%B6%E7%82%B9%E7%9D%80%E8%89%B2%E5%99%A8%E8%AE%A9%E4%B8%89%E8%A7%92%E5%BD%A2%E4%B8%8A%E4%B8%8B%E9%A2%A0%E5%80%92"><span class="toc-number">3.4.</span> <span class="toc-text">练习1 修改顶点着色器让三角形上下颠倒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%83%E4%B9%A02-%E4%BD%BF%E7%94%A8Uniform%E5%AE%9A%E4%B9%89%E6%B0%B4%E5%B9%B3%E5%81%8F%E7%A7%BB%E9%87%8F%EF%BC%8C%E5%B9%B6%E7%A7%BB%E5%8A%A8%E4%B8%89%E8%A7%92%E5%BD%A2"><span class="toc-number">3.5.</span> <span class="toc-text">练习2 使用Uniform定义水平偏移量，并移动三角形</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%83%E4%B9%A03-%E4%BD%BF%E7%94%A8out%E5%85%B3%E9%94%AE%E5%AD%97%E6%8A%8A%E9%A1%B6%E7%82%B9%E4%BD%8D%E7%BD%AE%E8%BE%93%E5%87%BA%E5%88%B0%E7%89%87%E6%AE%B5%E7%9D%80%E8%89%B2%E5%99%A8"><span class="toc-number">3.6.</span> <span class="toc-text">练习3 使用out关键字把顶点位置输出到片段着色器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%B9%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text">纹理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E7%BA%B9%E7%90%86%E5%9D%90%E6%A0%87"><span class="toc-number">4.1.</span> <span class="toc-text">添加纹理坐标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%B9%E7%90%86%E7%8E%AF%E7%BB%95%E6%96%B9%E5%BC%8F"><span class="toc-number">4.2.</span> <span class="toc-text">纹理环绕方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%B9%E7%90%86%E8%BF%87%E6%BB%A4"><span class="toc-number">4.3.</span> <span class="toc-text">纹理过滤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%BA%A7%E6%B8%90%E8%BF%9C%E7%BA%B9%E7%90%86"><span class="toc-number">4.4.</span> <span class="toc-text">多级渐远纹理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E8%BD%BD%E7%BA%B9%E7%90%86"><span class="toc-number">4.5.</span> <span class="toc-text">加载纹理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E7%BA%B9%E7%90%86"><span class="toc-number">4.6.</span> <span class="toc-text">生成纹理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%B9%E7%90%86%E9%87%87%E6%A0%B7"><span class="toc-number">4.7.</span> <span class="toc-text">纹理采样</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E6%80%BB%E7%BB%93"><span class="toc-number">4.8.</span> <span class="toc-text">流程总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%B9%E7%90%86%E5%8D%95%E5%85%83"><span class="toc-number">4.9.</span> <span class="toc-text">纹理单元</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%B9%E7%90%86%E6%B7%B7%E5%90%88"><span class="toc-number">4.10.</span> <span class="toc-text">纹理混合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stb-image%E7%9A%84%E5%8F%8D%E8%BD%AC"><span class="toc-number">4.11.</span> <span class="toc-text">stb_image的反转</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%98%E6%8D%A2"><span class="toc-number">5.</span> <span class="toc-text">变换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#GLM"><span class="toc-number">5.1.</span> <span class="toc-text">GLM</span></a></li></ol></li></ol>
+    </div>
+  </div>
+  
+
+  <div class="post-content">
+    
+    <p><strong>写在前面</strong><br>重新阅读LearnOpenGL的Github源码。</p>
+<span id="more"></span>
+<h1 id="你好窗口"><a href="#你好窗口" class="headerlink" title="你好窗口"></a>你好窗口</h1><h2 id="GLFW-Initialize-and-Config"><a href="#GLFW-Initialize-and-Config" class="headerlink" title="GLFW Initialize  and Config"></a>GLFW Initialize  and Config</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">// glfw: initialize and configure</span></span><br><span class="line">    <span class="comment">// ------------------------------</span></span><br><span class="line">    <span class="built_in">glfwInit</span>();</span><br><span class="line">    <span class="built_in">glfwWindowHint</span>(GLFW_CONTEXT_VERSION_MAJOR, <span class="number">3</span>);</span><br><span class="line">    <span class="built_in">glfwWindowHint</span>(GLFW_CONTEXT_VERSION_MINOR, <span class="number">3</span>);</span><br><span class="line">    <span class="built_in">glfwWindowHint</span>(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">ifdef</span> __APPLE__</span></span><br><span class="line">    <span class="built_in">glfwWindowHint</span>(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="GLFW-Window-Creation"><a href="#GLFW-Window-Creation" class="headerlink" title="GLFW Window Creation"></a>GLFW Window Creation</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">GLFWwindow* window = <span class="built_in">glfwCreateWindow</span>(SCR_WIDTH, SCR_HEIGHT, <span class="string">&quot;LearnOpenGL&quot;</span>, <span class="literal">NULL</span>, <span class="literal">NULL</span>);</span><br><span class="line"><span class="keyword">if</span> (window == <span class="literal">NULL</span>)</span><br><span class="line">&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Failed to create GLFW window&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    <span class="built_in">glfwTerminate</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">glfwMakeContextCurrent</span>(window);</span><br><span class="line"><span class="built_in">glfwSetFramebufferSizeCallback</span>(window, framebuffer_size_callback);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建窗口</li>
+<li>将创建的窗口设置为当前上下文</li>
+<li>设置窗口变化时的回调函数，当窗口大小发生变化时，调用视口函数。<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// glfw: whenever the window size changed (by OS or user resize) this callback function executes</span></span><br><span class="line"><span class="comment">// ---------------------------------------------------------------------------------------------</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">framebuffer_size_callback</span><span class="params">(GLFWwindow* window, <span class="type">int</span> width, <span class="type">int</span> height)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// make sure the viewport matches the new window dimensions; note that width and </span></span><br><span class="line">    <span class="comment">// height will be significantly larger than specified on retina displays.</span></span><br><span class="line">    <span class="built_in">glViewport</span>(<span class="number">0</span>, <span class="number">0</span>, width, height);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="GLAD初始化"><a href="#GLAD初始化" class="headerlink" title="GLAD初始化"></a>GLAD初始化</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// glad: load all OpenGL function pointers</span></span><br><span class="line"><span class="comment">// ---------------------------------------</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="built_in">gladLoadGLLoader</span>((GLADloadproc)glfwGetProcAddress))</span><br><span class="line">&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Failed to initialize GLAD&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;    </span><br></pre></td></tr></table></figure>
+<p>必须在调用任何OpenGL函数之前使用GLAD load所有的函数指针。</p>
+<h2 id="Render-Loop"><a href="#Render-Loop" class="headerlink" title="Render Loop"></a>Render Loop</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// render loop</span></span><br><span class="line"><span class="comment">// -----------</span></span><br><span class="line"><span class="keyword">while</span> (!<span class="built_in">glfwWindowShouldClose</span>(window))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// input</span></span><br><span class="line">    <span class="comment">// -----</span></span><br><span class="line">    <span class="built_in">processInput</span>(window);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)</span></span><br><span class="line">    <span class="comment">// -------------------------------------------------------------------------------</span></span><br><span class="line">    <span class="built_in">glfwSwapBuffers</span>(window);</span><br><span class="line">    <span class="built_in">glfwPollEvents</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>循环做渲染，只要不退出，就会一帧一帧的渲染。同时在每次循环时要处理键盘鼠标等输入事件。<br>glfwSwapBuffers采用双Buffer的模式，能够使得页面刷新一次性，不会断断续续。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly</span></span><br><span class="line"><span class="comment">// ---------------------------------------------------------------------------------------------------------</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">processInput</span><span class="params">(GLFWwindow *window)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">glfwGetKey</span>(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)</span><br><span class="line">        <span class="built_in">glfwSetWindowShouldClose</span>(window, <span class="literal">true</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="GLFW-Terminate"><a href="#GLFW-Terminate" class="headerlink" title="GLFW Terminate"></a>GLFW Terminate</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// glfw: terminate, clearing all previously allocated GLFW resources.</span></span><br><span class="line"><span class="comment">// ------------------------------------------------------------------</span></span><br><span class="line"><span class="built_in">glfwTerminate</span>();</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="给窗口换个背景颜色"><a href="#给窗口换个背景颜色" class="headerlink" title="给窗口换个背景颜色"></a>给窗口换个背景颜色</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">glClearColor</span>(<span class="number">0.2f</span>, <span class="number">0.3f</span>, <span class="number">0.3f</span>, <span class="number">1.0f</span>);</span><br><span class="line"><span class="built_in">glClear</span>(GL_COLOR_BUFFER_BIT);</span><br></pre></td></tr></table></figure>
+<p>OpenGL是一个巨大的状态机，设置函数是成对对应的，一个是状态设置函数，一个是状态使用函数。</p>
+<h1 id="你好三角形"><a href="#你好三角形" class="headerlink" title="你好三角形"></a>你好三角形</h1><h2 id="Shader源码"><a href="#Shader源码" class="headerlink" title="Shader源码"></a>Shader源码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">char</span> *vertexShaderSource = <span class="string">&quot;#version 330 core\n&quot;</span></span><br><span class="line">    <span class="string">&quot;layout (location = 0) in vec3 aPos;\n&quot;</span></span><br><span class="line">    <span class="string">&quot;void main()\n&quot;</span></span><br><span class="line">    <span class="string">&quot;&#123;\n&quot;</span></span><br><span class="line">    <span class="string">&quot;   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n&quot;</span></span><br><span class="line">    <span class="string">&quot;&#125;\0&quot;</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">char</span> *fragmentShaderSource = <span class="string">&quot;#version 330 core\n&quot;</span></span><br><span class="line">    <span class="string">&quot;out vec4 FragColor;\n&quot;</span></span><br><span class="line">    <span class="string">&quot;void main()\n&quot;</span></span><br><span class="line">    <span class="string">&quot;&#123;\n&quot;</span></span><br><span class="line">    <span class="string">&quot;   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n&quot;</span></span><br><span class="line">    <span class="string">&quot;&#125;\n\0&quot;</span>;</span><br></pre></td></tr></table></figure>
+<p>具体语法是glsl的语法。需要单独去学习。<br>这里的position和color是写死的。</p>
+<h2 id="创建并编译Program"><a href="#创建并编译Program" class="headerlink" title="创建并编译Program"></a>创建并编译Program</h2><h3 id="首先创建并编译Vertex-Shader"><a href="#首先创建并编译Vertex-Shader" class="headerlink" title="首先创建并编译Vertex Shader"></a>首先创建并编译Vertex Shader</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vertex shader</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">int</span> vertexShader = <span class="built_in">glCreateShader</span>(GL_VERTEX_SHADER);</span><br><span class="line"><span class="built_in">glShaderSource</span>(vertexShader, <span class="number">1</span>, &amp;vertexShaderSource, <span class="literal">NULL</span>);</span><br><span class="line"><span class="built_in">glCompileShader</span>(vertexShader);</span><br><span class="line"><span class="comment">// check for shader compile errors</span></span><br><span class="line"><span class="type">int</span> success;</span><br><span class="line"><span class="type">char</span> infoLog[<span class="number">512</span>];</span><br><span class="line"><span class="built_in">glGetShaderiv</span>(vertexShader, GL_COMPILE_STATUS, &amp;success);</span><br><span class="line"><span class="keyword">if</span> (!success)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">glGetShaderInfoLog</span>(vertexShader, <span class="number">512</span>, <span class="literal">NULL</span>, infoLog);</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;ERROR::SHADER::VERTEX::COMPILATION_FAILED\n&quot;</span> &lt;&lt; infoLog &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="然后是Fragment-Shader"><a href="#然后是Fragment-Shader" class="headerlink" title="然后是Fragment Shader"></a>然后是Fragment Shader</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// fragment shader</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">int</span> fragmentShader = <span class="built_in">glCreateShader</span>(GL_FRAGMENT_SHADER);</span><br><span class="line"><span class="built_in">glShaderSource</span>(fragmentShader, <span class="number">1</span>, &amp;fragmentShaderSource, <span class="literal">NULL</span>);</span><br><span class="line"><span class="built_in">glCompileShader</span>(fragmentShader);</span><br><span class="line"><span class="comment">// check for shader compile errors</span></span><br><span class="line"><span class="built_in">glGetShaderiv</span>(fragmentShader, GL_COMPILE_STATUS, &amp;success);</span><br><span class="line"><span class="keyword">if</span> (!success)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">glGetShaderInfoLog</span>(fragmentShader, <span class="number">512</span>, <span class="literal">NULL</span>, infoLog);</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n&quot;</span> &lt;&lt; infoLog &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Link-Shader-and-Program"><a href="#Link-Shader-and-Program" class="headerlink" title="Link Shader and Program"></a>Link Shader and Program</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// link shaders</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">int</span> shaderProgram = <span class="built_in">glCreateProgram</span>();</span><br><span class="line"><span class="built_in">glAttachShader</span>(shaderProgram, vertexShader);</span><br><span class="line"><span class="built_in">glAttachShader</span>(shaderProgram, fragmentShader);</span><br><span class="line"><span class="built_in">glLinkProgram</span>(shaderProgram);</span><br><span class="line"><span class="comment">// check for linking errors</span></span><br><span class="line"><span class="built_in">glGetProgramiv</span>(shaderProgram, GL_LINK_STATUS, &amp;success);</span><br><span class="line"><span class="keyword">if</span> (!success) &#123;</span><br><span class="line">    <span class="built_in">glGetProgramInfoLog</span>(shaderProgram, <span class="number">512</span>, <span class="literal">NULL</span>, infoLog);</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;ERROR::SHADER::PROGRAM::LINKING_FAILED\n&quot;</span> &lt;&lt; infoLog &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">glDeleteShader</span>(vertexShader);</span><br><span class="line"><span class="built_in">glDeleteShader</span>(fragmentShader);</span><br></pre></td></tr></table></figure>
+<h2 id="设置数据"><a href="#设置数据" class="headerlink" title="设置数据"></a>设置数据</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// set up vertex data (and buffer(s)) and configure vertex attributes</span></span><br><span class="line"><span class="comment">// ------------------------------------------------------------------</span></span><br><span class="line"><span class="type">float</span> vertices[] = &#123;</span><br><span class="line">    <span class="number">-0.5f</span>, <span class="number">-0.5f</span>, <span class="number">0.0f</span>, <span class="comment">// left  </span></span><br><span class="line">     <span class="number">0.5f</span>, <span class="number">-0.5f</span>, <span class="number">0.0f</span>, <span class="comment">// right </span></span><br><span class="line">     <span class="number">0.0f</span>,  <span class="number">0.5f</span>, <span class="number">0.0f</span>  <span class="comment">// top   </span></span><br><span class="line">&#125;; </span><br><span class="line"></span><br><span class="line"><span class="type">unsigned</span> <span class="type">int</span> VBO, VAO;</span><br><span class="line"><span class="built_in">glGenVertexArrays</span>(<span class="number">1</span>, &amp;VAO);</span><br><span class="line"><span class="built_in">glGenBuffers</span>(<span class="number">1</span>, &amp;VBO);</span><br><span class="line"><span class="comment">// bind the Vertex Array Object first, then bind and set vertex buffer(s), and then configure vertex attributes(s).</span></span><br><span class="line"><span class="built_in">glBindVertexArray</span>(VAO);</span><br><span class="line"></span><br><span class="line"><span class="built_in">glBindBuffer</span>(GL_ARRAY_BUFFER, VBO);</span><br><span class="line"><span class="built_in">glBufferData</span>(GL_ARRAY_BUFFER, <span class="built_in">sizeof</span>(vertices), vertices, GL_STATIC_DRAW);</span><br><span class="line"></span><br><span class="line"><span class="built_in">glVertexAttribPointer</span>(<span class="number">0</span>, <span class="number">3</span>, GL_FLOAT, GL_FALSE, <span class="number">3</span> * <span class="built_in">sizeof</span>(<span class="type">float</span>), (<span class="type">void</span>*)<span class="number">0</span>);</span><br><span class="line"><span class="built_in">glEnableVertexAttribArray</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// note that this is allowed, the call to glVertexAttribPointer registered VBO as the vertex attribute&#x27;s bound vertex buffer object so afterwards we can safely unbind</span></span><br><span class="line"><span class="built_in">glBindBuffer</span>(GL_ARRAY_BUFFER, <span class="number">0</span>); </span><br><span class="line"></span><br><span class="line"><span class="comment">// You can unbind the VAO afterwards so other VAO calls won&#x27;t accidentally modify this VAO, but this rarely happens. Modifying other</span></span><br><span class="line"><span class="comment">// VAOs requires a call to glBindVertexArray anyways so we generally don&#x27;t unbind VAOs (nor VBOs) when it&#x27;s not directly necessary.</span></span><br><span class="line"><span class="built_in">glBindVertexArray</span>(<span class="number">0</span>); </span><br></pre></td></tr></table></figure>
+<p>搞清楚VAO和VBO的关系。以及如何将数据设置到对应的VBO和VAO中。<br>理解的时候把OpenGL认为是一个充满卡槽的状态机，设置函数的时候就是把其中一个卡槽打开了。</p>
+<h2 id="渲染"><a href="#渲染" class="headerlink" title="渲染"></a>渲染</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// draw our first triangle</span></span><br><span class="line"><span class="built_in">glUseProgram</span>(shaderProgram);</span><br><span class="line"><span class="built_in">glBindVertexArray</span>(VAO); <span class="comment">// seeing as we only have a single VAO there&#x27;s no need to bind it every time, but we&#x27;ll do so to keep things a bit more organized</span></span><br><span class="line"><span class="built_in">glDrawArrays</span>(GL_TRIANGLES, <span class="number">0</span>, <span class="number">3</span>);</span><br><span class="line"><span class="comment">// glBindVertexArray(0); // no need to unbind it every time</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>使用Program，并绑定VAO，同时画出三角形。</p>
+<h2 id="EBO"><a href="#EBO" class="headerlink" title="EBO"></a>EBO</h2><p>使用方式与VBO类似。<br>相当于是VBO统计了Vertex的数据，EBO统计了构造图形需要哪些点；<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明数据</span></span><br><span class="line">   <span class="type">unsigned</span> <span class="type">int</span> indices[] = &#123;  <span class="comment">// note that we start from 0!</span></span><br><span class="line">       <span class="number">0</span>, <span class="number">1</span>, <span class="number">3</span>,  <span class="comment">// first Triangle</span></span><br><span class="line">       <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>   <span class="comment">// second Triangle</span></span><br><span class="line">   &#125;;</span><br><span class="line"><span class="comment">// 生成EBO</span></span><br><span class="line">   <span class="built_in">glGenBuffers</span>(<span class="number">1</span>, &amp;EBO);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打开EBO的插槽，绑定数据</span></span><br><span class="line">   <span class="built_in">glBindBuffer</span>(GL_ELEMENT_ARRAY_BUFFER, EBO);</span><br><span class="line">   <span class="built_in">glBufferData</span>(GL_ELEMENT_ARRAY_BUFFER, <span class="built_in">sizeof</span>(indices), indices, GL_STATIC_DRAW);</span><br><span class="line"><span class="comment">// 更改Render的代码</span></span><br><span class="line"><span class="built_in">glDrawElements</span>(GL_TRIANGLES, <span class="number">6</span>, GL_UNSIGNED_INT, <span class="number">0</span>);</span><br><span class="line"><span class="comment">// 删除Buffer</span></span><br><span class="line"><span class="built_in">glDeleteBuffers</span>(<span class="number">1</span>, &amp;EBO);</span><br></pre></td></tr></table></figure></p>
+<h2 id="练习1-两个相连的三角形；"><a href="#练习1-两个相连的三角形；" class="headerlink" title="练习1 两个相连的三角形；"></a>练习1 两个相连的三角形；</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// add a new set of vertices to form a second triangle (a total of 6 vertices); the vertex attribute configuration remains the same (still one 3-float position vector per vertex)</span></span><br><span class="line"><span class="type">float</span> vertices[] = &#123;</span><br><span class="line">    <span class="comment">// first triangle</span></span><br><span class="line">    <span class="number">-0.9f</span>, <span class="number">-0.5f</span>, <span class="number">0.0f</span>,  <span class="comment">// left </span></span><br><span class="line">    <span class="number">-0.0f</span>, <span class="number">-0.5f</span>, <span class="number">0.0f</span>,  <span class="comment">// right</span></span><br><span class="line">    <span class="number">-0.45f</span>, <span class="number">0.5f</span>, <span class="number">0.0f</span>,  <span class="comment">// top </span></span><br><span class="line">    <span class="comment">// second triangle</span></span><br><span class="line">     <span class="number">0.0f</span>, <span class="number">-0.5f</span>, <span class="number">0.0f</span>,  <span class="comment">// left</span></span><br><span class="line">     <span class="number">0.9f</span>, <span class="number">-0.5f</span>, <span class="number">0.0f</span>,  <span class="comment">// right</span></span><br><span class="line">     <span class="number">0.45f</span>, <span class="number">0.5f</span>, <span class="number">0.0f</span>   <span class="comment">// top </span></span><br><span class="line">&#125;; </span><br><span class="line"></span><br><span class="line">    <span class="built_in">glDrawArrays</span>(GL_TRIANGLES, <span class="number">0</span>, <span class="number">6</span>); <span class="comment">// set the count to 6 since we&#x27;re drawing 6 vertices now (2 triangles); not 3!</span></span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+<p>画出两个相连的三角形，需要设置六个点。最终Render的时候也需要将3改成6；同时绑定VBO的时候用的是sizeof，因此不用单独修改代码；</p>
+<h2 id="练习2-创建相同的两个三角形，但是使用不同的VBO和VAO"><a href="#练习2-创建相同的两个三角形，但是使用不同的VBO和VAO" class="headerlink" title="练习2 创建相同的两个三角形，但是使用不同的VBO和VAO"></a>练习2 创建相同的两个三角形，但是使用不同的VBO和VAO</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用数组保存多个VBO和VAO的索引值</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">int</span> VBOs[<span class="number">2</span>], VAOs[<span class="number">2</span>];</span><br><span class="line">   <span class="built_in">glGenVertexArrays</span>(<span class="number">2</span>, VAOs); <span class="comment">// we can also generate multiple VAOs or buffers at the same time</span></span><br><span class="line">   <span class="built_in">glGenBuffers</span>(<span class="number">2</span>, VBOs);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置数据</span></span><br><span class="line">   <span class="type">float</span> firstTriangle[] = &#123;</span><br><span class="line">       <span class="number">-0.9f</span>, <span class="number">-0.5f</span>, <span class="number">0.0f</span>,  <span class="comment">// left </span></span><br><span class="line">       <span class="number">-0.0f</span>, <span class="number">-0.5f</span>, <span class="number">0.0f</span>,  <span class="comment">// right</span></span><br><span class="line">       <span class="number">-0.45f</span>, <span class="number">0.5f</span>, <span class="number">0.0f</span>,  <span class="comment">// top </span></span><br><span class="line">   &#125;;</span><br><span class="line">   <span class="type">float</span> secondTriangle[] = &#123;</span><br><span class="line">       <span class="number">0.0f</span>, <span class="number">-0.5f</span>, <span class="number">0.0f</span>,  <span class="comment">// left</span></span><br><span class="line">       <span class="number">0.9f</span>, <span class="number">-0.5f</span>, <span class="number">0.0f</span>,  <span class="comment">// right</span></span><br><span class="line">       <span class="number">0.45f</span>, <span class="number">0.5f</span>, <span class="number">0.0f</span>   <span class="comment">// top </span></span><br><span class="line">   &#125;;</span><br><span class="line">   <span class="type">unsigned</span> <span class="type">int</span> VBOs[<span class="number">2</span>], VAOs[<span class="number">2</span>];</span><br><span class="line">   <span class="built_in">glGenVertexArrays</span>(<span class="number">2</span>, VAOs); <span class="comment">// we can also generate multiple VAOs or buffers at the same time</span></span><br><span class="line">   <span class="built_in">glGenBuffers</span>(<span class="number">2</span>, VBOs);</span><br><span class="line">   <span class="comment">// first triangle setup</span></span><br><span class="line">   <span class="comment">// --------------------</span></span><br><span class="line">   <span class="built_in">glBindVertexArray</span>(VAOs[<span class="number">0</span>]);</span><br><span class="line">   <span class="built_in">glBindBuffer</span>(GL_ARRAY_BUFFER, VBOs[<span class="number">0</span>]);</span><br><span class="line">   <span class="built_in">glBufferData</span>(GL_ARRAY_BUFFER, <span class="built_in">sizeof</span>(firstTriangle), firstTriangle, GL_STATIC_DRAW);</span><br><span class="line">   <span class="built_in">glVertexAttribPointer</span>(<span class="number">0</span>, <span class="number">3</span>, GL_FLOAT, GL_FALSE, <span class="number">3</span> * <span class="built_in">sizeof</span>(<span class="type">float</span>), (<span class="type">void</span>*)<span class="number">0</span>);	<span class="comment">// Vertex attributes stay the same</span></span><br><span class="line">   <span class="built_in">glEnableVertexAttribArray</span>(<span class="number">0</span>);</span><br><span class="line">   <span class="comment">// glBindVertexArray(0); // no need to unbind at all as we directly bind a different VAO the next few lines</span></span><br><span class="line">   <span class="comment">// second triangle setup</span></span><br><span class="line">   <span class="comment">// ---------------------</span></span><br><span class="line">   <span class="built_in">glBindVertexArray</span>(VAOs[<span class="number">1</span>]);	<span class="comment">// note that we bind to a different VAO now</span></span><br><span class="line">   <span class="built_in">glBindBuffer</span>(GL_ARRAY_BUFFER, VBOs[<span class="number">1</span>]);	<span class="comment">// and a different VBO</span></span><br><span class="line">   <span class="built_in">glBufferData</span>(GL_ARRAY_BUFFER, <span class="built_in">sizeof</span>(secondTriangle), secondTriangle, GL_STATIC_DRAW);</span><br><span class="line">   <span class="built_in">glVertexAttribPointer</span>(<span class="number">0</span>, <span class="number">3</span>, GL_FLOAT, GL_FALSE, <span class="number">0</span>, (<span class="type">void</span>*)<span class="number">0</span>); <span class="comment">// because the vertex data is tightly packed we can also specify 0 as the vertex attribute&#x27;s stride to let OpenGL figure it out</span></span><br><span class="line">   <span class="built_in">glEnableVertexAttribArray</span>(<span class="number">0</span>);</span><br><span class="line">   <span class="comment">// glBindVertexArray(0); // not really necessary as well, but beware of calls that could affect VAOs while this one is bound (like binding element buffer objects, or enabling/disabling vertex attributes)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 绘制指令</span></span><br><span class="line"><span class="comment">// draw first triangle using the data from the first VAO</span></span><br><span class="line"><span class="built_in">glBindVertexArray</span>(VAOs[<span class="number">0</span>]);</span><br><span class="line"><span class="built_in">glDrawArrays</span>(GL_TRIANGLES, <span class="number">0</span>, <span class="number">3</span>);</span><br><span class="line"><span class="comment">// then we draw the second triangle using the data from the second VAO</span></span><br><span class="line"><span class="built_in">glBindVertexArray</span>(VAOs[<span class="number">1</span>]);</span><br><span class="line"><span class="built_in">glDrawArrays</span>(GL_TRIANGLES, <span class="number">0</span>, <span class="number">3</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>即将不同的点bind到不同的VAO中，为了练习不同VAO的切换绘制。</p>
+<h2 id="练习3-使用两个不同的Program"><a href="#练习3-使用两个不同的Program" class="headerlink" title="练习3 使用两个不同的Program"></a>练习3 使用两个不同的Program</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">   <span class="type">unsigned</span> <span class="type">int</span> fragmentShaderOrange = <span class="built_in">glCreateShader</span>(GL_FRAGMENT_SHADER); <span class="comment">// the first fragment shader that outputs the color orange</span></span><br><span class="line">   <span class="type">unsigned</span> <span class="type">int</span> fragmentShaderYellow = <span class="built_in">glCreateShader</span>(GL_FRAGMENT_SHADER); <span class="comment">// the second fragment shader that outputs the color yellow</span></span><br><span class="line">   <span class="type">unsigned</span> <span class="type">int</span> shaderProgramOrange = <span class="built_in">glCreateProgram</span>();</span><br><span class="line">   <span class="type">unsigned</span> <span class="type">int</span> shaderProgramYellow = <span class="built_in">glCreateProgram</span>(); <span class="comment">// the second shader program</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line"><span class="comment">// now when we draw the triangle we first use the vertex and orange fragment shader from the first program</span></span><br><span class="line"><span class="built_in">glUseProgram</span>(shaderProgramOrange);</span><br><span class="line"><span class="comment">// draw the first triangle using the data from our first VAO</span></span><br><span class="line"><span class="built_in">glBindVertexArray</span>(VAOs[<span class="number">0</span>]);</span><br><span class="line"><span class="built_in">glDrawArrays</span>(GL_TRIANGLES, <span class="number">0</span>, <span class="number">3</span>);	<span class="comment">// this call should output an orange triangle</span></span><br><span class="line"><span class="comment">// then we draw the second triangle using the data from the second VAO</span></span><br><span class="line"><span class="comment">// when we draw the second triangle we want to use a different shader program so we switch to the shader program with our yellow fragment shader.</span></span><br><span class="line"><span class="built_in">glUseProgram</span>(shaderProgramYellow);</span><br><span class="line"><span class="built_in">glBindVertexArray</span>(VAOs[<span class="number">1</span>]);</span><br><span class="line"><span class="built_in">glDrawArrays</span>(GL_TRIANGLES, <span class="number">0</span>, <span class="number">3</span>);	<span class="comment">// this call should output a yellow triangle</span></span><br></pre></td></tr></table></figure>
+<p>创建不同的Program，Attach不同的Shader，最后Render的时候使用不同的Program。</p>
+<h1 id="着色器"><a href="#着色器" class="headerlink" title="着色器"></a>着色器</h1><h2 id="Uniform"><a href="#Uniform" class="headerlink" title="Uniform"></a>Uniform</h2><p>Uniform是OpenGL中全局变量的概念。每个顶点都是相同的，比如光照信息等。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 首先需要在Shader source中声明Uniform变量，这里是让三角形的颜色直接显示我们设定的颜色</span></span><br><span class="line"><span class="type">const</span> <span class="type">char</span> *fragmentShaderSource = <span class="string">&quot;#version 330 core\n&quot;</span></span><br><span class="line">    <span class="string">&quot;out vec4 FragColor;\n&quot;</span></span><br><span class="line">    <span class="string">&quot;uniform vec4 ourColor;\n&quot;</span></span><br><span class="line">    <span class="string">&quot;void main()\n&quot;</span></span><br><span class="line">    <span class="string">&quot;&#123;\n&quot;</span></span><br><span class="line">    <span class="string">&quot;   FragColor = ourColor;\n&quot;</span></span><br><span class="line">    <span class="string">&quot;&#125;\n\0&quot;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// Render中改变Uniform的值</span></span><br><span class="line">	<span class="comment">// update shader uniform</span></span><br><span class="line">	<span class="type">double</span>  timeValue = <span class="built_in">glfwGetTime</span>();</span><br><span class="line">	<span class="type">float</span> greenValue = <span class="built_in">static_cast</span>&lt;<span class="type">float</span>&gt;(<span class="built_in">sin</span>(timeValue) / <span class="number">2.0</span> + <span class="number">0.5</span>);</span><br><span class="line">	<span class="type">int</span> vertexColorLocation = <span class="built_in">glGetUniformLocation</span>(shaderProgram, <span class="string">&quot;ourColor&quot;</span>);  <span class="comment">// 获取Shader中叫做outColor的Uniform Location</span></span><br><span class="line">	<span class="built_in">glUniform4f</span>(vertexColorLocation, <span class="number">0.0f</span>, greenValue, <span class="number">0.0f</span>, <span class="number">1.0f</span>); <span class="comment">// 根据上述Location设置Uniform的值</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><br>上述代码的API就是设定Uniform的API，重要的是体会Uniform的作用。Uniform的值是直接使用API设定的，并不需要VBO进行储存。</p>
+<h2 id="顶点中包含更多属性"><a href="#顶点中包含更多属性" class="headerlink" title="顶点中包含更多属性"></a>顶点中包含更多属性</h2><p>可以在VBO中存储更多信息，并不仅仅是位置信息，还可以有颜色等其他信息。<br>![[Pasted image 20241007161642.png]]<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 首先需要修改Shader</span></span><br><span class="line"><span class="type">const</span> <span class="type">char</span> *vertexShaderSource =<span class="string">&quot;#version 330 core\n&quot;</span></span><br><span class="line">    <span class="string">&quot;layout (location = 0) in vec3 aPos;\n&quot;</span></span><br><span class="line">    <span class="string">&quot;layout (location = 1) in vec3 aColor;\n&quot;</span></span><br><span class="line">    <span class="string">&quot;out vec3 ourColor;\n&quot;</span></span><br><span class="line">    <span class="string">&quot;void main()\n&quot;</span></span><br><span class="line">    <span class="string">&quot;&#123;\n&quot;</span></span><br><span class="line">    <span class="string">&quot;   gl_Position = vec4(aPos, 1.0);\n&quot;</span></span><br><span class="line">    <span class="string">&quot;   ourColor = aColor;\n&quot;</span></span><br><span class="line">    <span class="string">&quot;&#125;\0&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">char</span> *fragmentShaderSource = <span class="string">&quot;#version 330 core\n&quot;</span></span><br><span class="line">    <span class="string">&quot;out vec4 FragColor;\n&quot;</span></span><br><span class="line">    <span class="string">&quot;in vec3 ourColor;\n&quot;</span></span><br><span class="line">    <span class="string">&quot;void main()\n&quot;</span></span><br><span class="line">    <span class="string">&quot;&#123;\n&quot;</span></span><br><span class="line">    <span class="string">&quot;   FragColor = vec4(ourColor, 1.0f);\n&quot;</span></span><br><span class="line">    <span class="string">&quot;&#125;\n\0&quot;</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>在Vertex Shader中，增加了layout1，设置aColor值。同时设置out的属性，表示输出到Fragment Shader。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 增加颜色信息</span></span><br><span class="line"><span class="type">float</span> vertices[] = &#123;</span><br><span class="line">	<span class="comment">// positions         // colors</span></span><br><span class="line">	 <span class="number">0.5f</span>, <span class="number">-0.5f</span>, <span class="number">0.0f</span>,  <span class="number">1.0f</span>, <span class="number">0.0f</span>, <span class="number">0.0f</span>,  <span class="comment">// bottom right</span></span><br><span class="line">	<span class="number">-0.5f</span>, <span class="number">-0.5f</span>, <span class="number">0.0f</span>,  <span class="number">0.0f</span>, <span class="number">1.0f</span>, <span class="number">0.0f</span>,  <span class="comment">// bottom left</span></span><br><span class="line">	 <span class="number">0.0f</span>,  <span class="number">0.5f</span>, <span class="number">0.0f</span>,  <span class="number">0.0f</span>, <span class="number">0.0f</span>, <span class="number">1.0f</span>   <span class="comment">// top </span></span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置颜色信息</span></span><br><span class="line">    <span class="comment">// position attribute</span></span><br><span class="line">    <span class="built_in">glVertexAttribPointer</span>(<span class="number">0</span>, <span class="number">3</span>, GL_FLOAT, GL_FALSE, <span class="number">6</span> * <span class="built_in">sizeof</span>(<span class="type">float</span>), (<span class="type">void</span>*)<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">glEnableVertexAttribArray</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="comment">// color attribute</span></span><br><span class="line">    <span class="built_in">glVertexAttribPointer</span>(<span class="number">1</span>, <span class="number">3</span>, GL_FLOAT, GL_FALSE, <span class="number">6</span> * <span class="built_in">sizeof</span>(<span class="type">float</span>), (<span class="type">void</span>*)(<span class="number">3</span> * <span class="built_in">sizeof</span>(<span class="type">float</span>)));</span><br><span class="line">    <span class="built_in">glEnableVertexAttribArray</span>(<span class="number">1</span>);</span><br></pre></td></tr></table></figure><br>将不同的数据设置不同的变量中，Render代码不用修改。</p>
+<h2 id="提取Shader自定义类"><a href="#提取Shader自定义类" class="headerlink" title="提取Shader自定义类"></a>提取Shader自定义类</h2><p>主要学习面向对象的思想，把代码重构，减少重复代码。<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Shader</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">    unsigned int ID; // shaderProgram的id</span><br><span class="line">    void use() </span><br><span class="line">    &#123; </span><br><span class="line">        glUseProgram(ID); </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>在构造函数中读取fs和vs文件并完成创建、build和compile操作。最终创建Program并Attach Shader。</p>
+<h2 id="练习1-修改顶点着色器让三角形上下颠倒"><a href="#练习1-修改顶点着色器让三角形上下颠倒" class="headerlink" title="练习1 修改顶点着色器让三角形上下颠倒"></a>练习1 修改顶点着色器让三角形上下颠倒</h2><p>直接修改vs中的y为-y。</p>
+<h2 id="练习2-使用Uniform定义水平偏移量，并移动三角形"><a href="#练习2-使用Uniform定义水平偏移量，并移动三角形" class="headerlink" title="练习2 使用Uniform定义水平偏移量，并移动三角形"></a>练习2 使用Uniform定义水平偏移量，并移动三角形</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 在cpp文件中定义offset，同时setFloat。setFloat的方法是在Shader类中定义的。</span></span><br><span class="line"><span class="type">float</span> offset = <span class="number">0.5f</span>;</span><br><span class="line">ourShader.<span class="built_in">setFloat</span>(<span class="string">&quot;xOffset&quot;</span>, offset);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setFloat</span><span class="params">(<span class="type">const</span> std::string &amp;name, <span class="type">float</span> value)</span> <span class="type">const</span></span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">	<span class="built_in">glUniform1f</span>(<span class="built_in">glGetUniformLocation</span>(ID, name.<span class="built_in">c_str</span>()), value); </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 在vs文件中需要定义Uniform，然后在坐标的X坐标中加上这个值以实现平移的效果</span></span><br><span class="line"></span><br><span class="line">uniform <span class="type">float</span> xOffset;</span><br><span class="line">gl_Position = <span class="built_in">vec4</span>(aPos.x + xOffset, aPos.y, aPos.z, <span class="number">1.0</span>); <span class="comment">// add the xOffset to the x position of the vertex position</span></span><br></pre></td></tr></table></figure>
+<h2 id="练习3-使用out关键字把顶点位置输出到片段着色器"><a href="#练习3-使用out关键字把顶点位置输出到片段着色器" class="headerlink" title="练习3 使用out关键字把顶点位置输出到片段着色器"></a>练习3 使用out关键字把顶点位置输出到片段着色器</h2><p>为什么三角形的左下角是黑色的。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FragColor = <span class="built_in">vec4</span>(ourPosition, <span class="number">1.0</span>);</span><br></pre></td></tr></table></figure><br>左下角的坐标是(-0.5f, -0.5f, 0.0f)，RGB中R和G都是负数，因此直接当做0处理。因此最终的RGB三个通道都是0。也就是黑色。</p>
+<h1 id="纹理"><a href="#纹理" class="headerlink" title="纹理"></a>纹理</h1><h2 id="添加纹理坐标"><a href="#添加纹理坐标" class="headerlink" title="添加纹理坐标"></a>添加纹理坐标</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> vertices[] = &#123;</span><br><span class="line">    <span class="comment">// positions          // colors           // texture coords</span></span><br><span class="line">     <span class="number">0.5f</span>,  <span class="number">0.5f</span>, <span class="number">0.0f</span>,   <span class="number">1.0f</span>, <span class="number">0.0f</span>, <span class="number">0.0f</span>,   <span class="number">1.0f</span>, <span class="number">1.0f</span>, <span class="comment">// top right</span></span><br><span class="line">     <span class="number">0.5f</span>, <span class="number">-0.5f</span>, <span class="number">0.0f</span>,   <span class="number">0.0f</span>, <span class="number">1.0f</span>, <span class="number">0.0f</span>,   <span class="number">1.0f</span>, <span class="number">0.0f</span>, <span class="comment">// bottom right</span></span><br><span class="line">    <span class="number">-0.5f</span>, <span class="number">-0.5f</span>, <span class="number">0.0f</span>,   <span class="number">0.0f</span>, <span class="number">0.0f</span>, <span class="number">1.0f</span>,   <span class="number">0.0f</span>, <span class="number">0.0f</span>, <span class="comment">// bottom left</span></span><br><span class="line">    <span class="number">-0.5f</span>,  <span class="number">0.5f</span>, <span class="number">0.0f</span>,   <span class="number">1.0f</span>, <span class="number">1.0f</span>, <span class="number">0.0f</span>,   <span class="number">0.0f</span>, <span class="number">1.0f</span>  <span class="comment">// top left </span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// texture coord attribute  绑定到VAO中。</span></span><br><span class="line"><span class="built_in">glVertexAttribPointer</span>(<span class="number">2</span>, <span class="number">2</span>, GL_FLOAT, GL_FALSE, <span class="number">8</span> * <span class="built_in">sizeof</span>(<span class="type">float</span>), (<span class="type">void</span>*)(<span class="number">6</span> * <span class="built_in">sizeof</span>(<span class="type">float</span>)));</span><br><span class="line"><span class="built_in">glEnableVertexAttribArray</span>(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// load and create a texture </span></span><br><span class="line"><span class="comment">// -------------------------</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">int</span> texture;</span><br><span class="line"><span class="built_in">glGenTextures</span>(<span class="number">1</span>, &amp;texture);</span><br><span class="line"><span class="built_in">glBindTexture</span>(GL_TEXTURE_2D, texture); <span class="comment">// all upcoming GL_TEXTURE_2D operations now have effect on this texture object</span></span><br><span class="line"><span class="comment">// set the texture wrapping parameters</span></span><br><span class="line"><span class="built_in">glTexParameteri</span>(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	<span class="comment">// set texture wrapping to GL_REPEAT (default wrapping method)</span></span><br><span class="line"><span class="built_in">glTexParameteri</span>(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);</span><br><span class="line"><span class="comment">// set texture filtering parameters</span></span><br><span class="line"><span class="built_in">glTexParameteri</span>(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);</span><br><span class="line"><span class="built_in">glTexParameteri</span>(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);</span><br><span class="line"><span class="comment">// load image, create texture and generate mipmaps</span></span><br><span class="line"><span class="type">int</span> width, height, nrChannels;</span><br><span class="line"><span class="comment">// The FileSystem::getPath(...) is part of the GitHub repository so we can find files on any IDE/platform; replace it with your own image path.</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">char</span> *data = <span class="built_in">stbi_load</span>(FileSystem::<span class="built_in">getPath</span>(<span class="string">&quot;resources/textures/container.jpg&quot;</span>).<span class="built_in">c_str</span>(), &amp;width, &amp;height, &amp;nrChannels, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">if</span> (data)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">glTexImage2D</span>(GL_TEXTURE_2D, <span class="number">0</span>, GL_RGB, width, height, <span class="number">0</span>, GL_RGB, GL_UNSIGNED_BYTE, data);</span><br><span class="line">    <span class="built_in">glGenerateMipmap</span>(GL_TEXTURE_2D);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Failed to load texture&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">stbi_image_free</span>(data);</span><br></pre></td></tr></table></figure>
+<p>将顶点的纹理坐标值也放到VBO中存储。<br>创建Texture，绑定Texture，设置纹理的环绕方式。S和T代表的是坐标轴。STR和XYZ是等价的。</p>
+<h2 id="纹理环绕方式"><a href="#纹理环绕方式" class="headerlink" title="纹理环绕方式"></a>纹理环绕方式</h2><p>通俗的讲就是纹理超过0-1的范围时贴图是怎样的行为，是重复还是其他的行为。</p>
+<h2 id="纹理过滤"><a href="#纹理过滤" class="headerlink" title="纹理过滤"></a>纹理过滤</h2><p>OpenGL需要知道如何将纹理像素映射到纹理坐标，说白了就是如何找到映射的那个像素点。主要分GL_NEAREST和GL_LINEAR，一个是直接找中心点距离最近的像素。一个是根据附近的像素点计算出一个插值。</p>
+<h2 id="多级渐远纹理"><a href="#多级渐远纹理" class="headerlink" title="多级渐远纹理"></a>多级渐远纹理</h2><p> 不同距离使用不同分辨率的纹理。</p>
+<h2 id="加载纹理"><a href="#加载纹理" class="headerlink" title="加载纹理"></a>加载纹理</h2><p>需要将纹理（也就是图片）加载到我们的应用中。图片可以有很多不同的格式，每种都有自己的结构和排列。如果是我们自己实现的话，我们会选择一种图片格式，然后为其写一个图像加载器，将其转化为字节序列。如果是多种格式的话，就需要多种加载器。为了不那么麻烦，我们使用市面上的已有加载器。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> width, height, nrChannels; <span class="type">unsigned</span> <span class="type">char</span> *data = <span class="built_in">stbi_load</span>(<span class="string">&quot;container.jpg&quot;</span>, &amp;width, &amp;height, &amp;nrChannels, <span class="number">0</span>);</span><br></pre></td></tr></table></figure><br>图像的宽度、高度和颜色通道的个数填写到几个参数中。</p>
+<h2 id="生成纹理"><a href="#生成纹理" class="headerlink" title="生成纹理"></a>生成纹理</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 生成纹理</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">int</span> texture; </span><br><span class="line"><span class="built_in">glGenTextures</span>(<span class="number">1</span>, &amp;texture);</span><br><span class="line"><span class="comment">// 绑定纹理</span></span><br><span class="line"><span class="built_in">glBindTexture</span>(GL_TEXTURE_2D, texture);</span><br><span class="line"><span class="comment">// 将图片数据导入纹理</span></span><br><span class="line"><span class="built_in">glTexImage2D</span>(GL_TEXTURE_2D, <span class="number">0</span>, GL_RGB, width, height, <span class="number">0</span>, GL_RGB, GL_UNSIGNED_BYTE, data);</span><br><span class="line"><span class="built_in">glGenerateMipmap</span>(GL_TEXTURE_2D);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>当使用glTexImage2D函数时，当前绑定的纹理对象就会被附加上纹理图像。<br>glGenerateMipmap函数为生成多级渐远纹理。<br>完整代码应该如下这样：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="type">int</span> texture;</span><br><span class="line"><span class="built_in">glGenTextures</span>(<span class="number">1</span>, &amp;texture);</span><br><span class="line"><span class="built_in">glBindTexture</span>(GL_TEXTURE_2D, texture);</span><br><span class="line"><span class="comment">// 为当前绑定的纹理对象设置环绕、过滤方式</span></span><br><span class="line"><span class="built_in">glTexParameteri</span>(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);   </span><br><span class="line"><span class="built_in">glTexParameteri</span>(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);</span><br><span class="line"><span class="built_in">glTexParameteri</span>(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);</span><br><span class="line"><span class="built_in">glTexParameteri</span>(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);</span><br><span class="line"><span class="comment">// 加载并生成纹理</span></span><br><span class="line"><span class="type">int</span> width, height, nrChannels;</span><br><span class="line"><span class="type">unsigned</span> <span class="type">char</span> *data = <span class="built_in">stbi_load</span>(<span class="string">&quot;container.jpg&quot;</span>, &amp;width, &amp;height, &amp;nrChannels, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">if</span> (data)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">glTexImage2D</span>(GL_TEXTURE_2D, <span class="number">0</span>, GL_RGB, width, height, <span class="number">0</span>, GL_RGB, GL_UNSIGNED_BYTE, data);</span><br><span class="line">    <span class="built_in">glGenerateMipmap</span>(GL_TEXTURE_2D);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Failed to load texture&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">stbi_image_free</span>(data);</span><br></pre></td></tr></table></figure></p>
+<h2 id="纹理采样"><a href="#纹理采样" class="headerlink" title="纹理采样"></a>纹理采样</h2><p>生成纹理之后，我们需要告诉OpenGL如何对纹理进行采样。<br>首先在顶点属性中添加了纹理坐标属性；<br>同时需要在VBO中配置；<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> vertices[] = &#123;</span><br><span class="line"><span class="comment">//     ---- 位置 ----       ---- 颜色 ----     - 纹理坐标 -</span></span><br><span class="line">     <span class="number">0.5f</span>,  <span class="number">0.5f</span>, <span class="number">0.0f</span>,   <span class="number">1.0f</span>, <span class="number">0.0f</span>, <span class="number">0.0f</span>,   <span class="number">1.0f</span>, <span class="number">1.0f</span>,   <span class="comment">// 右上</span></span><br><span class="line">     <span class="number">0.5f</span>, <span class="number">-0.5f</span>, <span class="number">0.0f</span>,   <span class="number">0.0f</span>, <span class="number">1.0f</span>, <span class="number">0.0f</span>,   <span class="number">1.0f</span>, <span class="number">0.0f</span>,   <span class="comment">// 右下</span></span><br><span class="line">    <span class="number">-0.5f</span>, <span class="number">-0.5f</span>, <span class="number">0.0f</span>,   <span class="number">0.0f</span>, <span class="number">0.0f</span>, <span class="number">1.0f</span>,   <span class="number">0.0f</span>, <span class="number">0.0f</span>,   <span class="comment">// 左下</span></span><br><span class="line">    <span class="number">-0.5f</span>,  <span class="number">0.5f</span>, <span class="number">0.0f</span>,   <span class="number">1.0f</span>, <span class="number">1.0f</span>, <span class="number">0.0f</span>,   <span class="number">0.0f</span>, <span class="number">1.0f</span>    <span class="comment">// 左上</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><br>![[Pasted image 20241008105138.png]]<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">glVertexAttribPointer</span>(<span class="number">2</span>, <span class="number">2</span>, GL_FLOAT, GL_FALSE, <span class="number">8</span> * <span class="built_in">sizeof</span>(<span class="type">float</span>), (<span class="type">void</span>*)(<span class="number">6</span> * <span class="built_in">sizeof</span>(<span class="type">float</span>)));</span><br><span class="line"><span class="built_in">glEnableVertexAttribArray</span>(<span class="number">2</span>);</span><br></pre></td></tr></table></figure><br>之后更改Vertex Shader，定义纹理坐标变量接取数据，并把数据传递给Fragment Shader。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#version 330 core</span></span><br><span class="line">layout (location = <span class="number">0</span>) in vec3 aPos;</span><br><span class="line">layout (location = <span class="number">1</span>) in vec3 aColor;</span><br><span class="line">layout (location = <span class="number">2</span>) in vec2 aTexCoord;</span><br><span class="line"></span><br><span class="line">out vec3 ourColor;</span><br><span class="line">out vec2 TexCoord;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    gl_Position = vec4(aPos, <span class="number">1.0</span>);</span><br><span class="line">    ourColor = aColor;</span><br><span class="line">    TexCoord = aTexCoord;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>Fragment Shader将把TexCoord当做输入变量。<br>Fragment Shader将使用采样器对纹理进行采样。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#version 330 core</span></span><br><span class="line">out vec4 FragColor;</span><br><span class="line"></span><br><span class="line">in vec3 ourColor;</span><br><span class="line">in vec2 TexCoord;</span><br><span class="line"></span><br><span class="line">uniform sampler2D ourTexture;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    FragColor = texture(ourTexture, TexCoord);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>最终的颜色由texture函数决定，函数参数有两个，一个是定义的采样器，一个是采样的纹理坐标。<br>texture函数会使用之前设置的纹理参数对相应的颜色值进行采样。最终的输出颜色就是纹理坐标上的颜色。<br>最终是在Render的时候绑定纹理并渲染。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">glBindTexture(GL_TEXTURE_2D, texture);</span><br><span class="line">glBindVertexArray(VAO);</span><br><span class="line">glDrawElements(GL_TRIANGLES, <span class="number">6</span>, GL_UNSIGNED_INT, <span class="number">0</span>);</span><br></pre></td></tr></table></figure></p>
+<h2 id="流程总结"><a href="#流程总结" class="headerlink" title="流程总结"></a>流程总结</h2><p>首先需要在顶点数据中添加纹理坐标数据。<br>在Vertex Shader中定义变量来接取。<br>将纹理坐标传递给Fragment Shader，作为texture函数的第二个参数。<br>texture函数的第一个参数定义个Sampler即可，不需要cpu端配置。这是因为会激活默认的纹理单元0。<br>texture函数的第一个参数是上一步定义的Sampler。<br>在DrawElement之前进行texture的绑定即可。</p>
+<h2 id="纹理单元"><a href="#纹理单元" class="headerlink" title="纹理单元"></a>纹理单元</h2><p>纹理单元的目的是为了让我们可以在着色器中使用不止一个纹理。<br>可以在bindTexture之前进行纹理单元的激活。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">glActiveTexture(GL_TEXTURE0); <span class="comment">// 在绑定纹理之前先激活纹理单元</span></span><br><span class="line">glBindTexture(GL_TEXTURE_2D, texture);</span><br></pre></td></tr></table></figure></p>
+<h2 id="纹理混合"><a href="#纹理混合" class="headerlink" title="纹理混合"></a>纹理混合</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#version 330 core</span></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">uniform sampler2D texture1;</span><br><span class="line">uniform sampler2D texture2;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    FragColor = mix(texture(texture1, TexCoord), texture(texture2, TexCoord), <span class="number">0.2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最终的输出颜色是两个纹理的混合。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">glActiveTexture(GL_TEXTURE0);</span><br><span class="line">glBindTexture(GL_TEXTURE_2D, texture1);</span><br><span class="line">glActiveTexture(GL_TEXTURE1);</span><br><span class="line">glBindTexture(GL_TEXTURE_2D, texture2);</span><br><span class="line"></span><br><span class="line">glBindVertexArray(VAO);</span><br><span class="line">glDrawElements(GL_TRIANGLES, <span class="number">6</span>, GL_UNSIGNED_INT, <span class="number">0</span>);</span><br></pre></td></tr></table></figure><br>可以理解纹理单元是链接纹理和采样器之间的桥梁。<br>上述代码是纹理单元绑定纹理的过程。<br>下面代码是纹理单元绑定采样器的过程。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ourShader.use(); <span class="comment">// 不要忘记在设置uniform变量之前激活着色器程序！</span></span><br><span class="line">glUniform1i(glGetUniformLocation(ourShader.ID, <span class="string">&quot;texture1&quot;</span>), <span class="number">0</span>); <span class="comment">// 手动设置</span></span><br><span class="line">ourShader.setInt(<span class="string">&quot;texture2&quot;</span>, <span class="number">1</span>); <span class="comment">// 或者使用着色器类设置</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="stb-image的反转"><a href="#stb-image的反转" class="headerlink" title="stb_image的反转"></a>stb_image的反转</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stbi_set_flip_vertically_on_load(<span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+<h1 id="变换"><a href="#变换" class="headerlink" title="变换"></a>变换</h1><h2 id="GLM"><a href="#GLM" class="headerlink" title="GLM"></a>GLM</h2><p>教程使用glm库完成矩阵的操作。有几个注意事项：</p>
+<ul>
+<li>矩阵在内存中存储是列优先的</li>
+<li>向量是列向量，应该坐标乘矩阵，但是当右边乘矩阵时也可看做行向量</li>
+<li>mat4.length返回的是矩阵的列数，glm::mat4<code>[i][j]</code>表示的是第i列，第j行</li>
+<li>glm内置矩阵进行矩阵变换时，矩阵是连续右乘。如下列代码，得到的结果是<code>glm_point2 = glm_mat * translate * rotate * glm_point</code>虽然是先调用了glm：：translate然后再调用rotate，但是作用时却是反过来。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">glm::mat4 <span class="title function_">glm_mat</span><span class="params">(<span class="number">1.0f</span>)</span>;</span><br><span class="line">glm_mat = glm::translate(glm_mat, glm::vec3(<span class="number">0.0f</span>, <span class="number">-25.0f</span>, <span class="number">0.0f</span>)); <span class="comment">// 若矩阵中存在-25这个值，证明是先旋转再平移</span></span><br><span class="line">glm_mat = glm::rotate(glm_mat2, glm::radians(<span class="number">180.0f</span>), glm::vec3(<span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">1.0</span>));</span><br><span class="line">glm::vec4 <span class="title function_">glm_point</span><span class="params">(<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">1</span>)</span>;</span><br><span class="line">glm::vec4 glm_point2 = glm_mat * glm_point; </span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>即glm的内置矩阵变换都是一直右乘上去，然后最终左乘到向量上。进行作用的时候就是从右边开始向左变换。</li>
+</ul>
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/LearnOpenGL/">LearnOpenGL</a>
+      
+    </div>
+    
+      
+  <nav class="post-nav">  
+      
+      <a class="prev" href="/2024/10/10/LearnOpenGL%E5%85%89%E7%85%A7/">  
+        <i class="iconfont icon-left"></i>  
+        <span class="prev-text nav-default">Blog - LearnOpenGL光照</span>  
+        <span class="prev-text nav-mobile">上一篇</span>  
+      </a>  
+      
+      
+      <a class="next" href="/2024/09/23/C-%E5%AE%9E%E7%8E%B0EGL%E7%8E%AF%E5%A2%83/">  
+        <span class="next-text nav-default">Blog - C++实现EGL环境</span>  
+        <span class="prev-text nav-mobile">下一篇</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+      <div id="gitalk-container"></div>  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/fengxuegt" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2021 - 2024      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">枫雪</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+    
+    
+    
+  
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css" />
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'Ov23linyjoE7z3V3Gako',
+    clientSecret: '4bbd23045cfc104a6cf9f988ca2051cf86f1b25b',
+    repo: 'blog-review',
+    owner: 'fengxuegt',
+    admin: ['fengxuegt'],
+    id: md5(location.pathname),
+    
+    language: '',
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
+    
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+
+</html>

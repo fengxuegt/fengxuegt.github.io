@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="Blog - Android NDK 学习一" />
+
+
+<!-- Website keywords -->
+
+<meta name="keywords" content="Android, 枫雪gt" />
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/default" title="枫雪gt" >
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="http://example.com/2024/09/19/Android-NDK学习/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });  
+  </script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<!-- Analytics and push -->
+
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"latex":true};
+</script>
+  
+  <title>Blog - Android NDK 学习一 - 枫雪gt</title>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">枫雪gt</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        首页              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        归档              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        标签              </li>
+    </a>
+    
+    <a href="/categories/">
+      <li class="mobile-menu-item">
+        
+        
+        分类              </li>
+    </a>
+    
+    <a href="/about/">
+      <li class="mobile-menu-item">
+        
+        
+        关于              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">枫雪gt</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              首页  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              归档  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              标签  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/categories/">  
+              
+              
+              分类  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/about/">  
+              
+              
+              关于  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      Blog - Android NDK 学习一
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2024-09-19
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/Technology/">Technology</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#NDK%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">NDK介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JNI%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.</span> <span class="toc-text">JNI介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JNI%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">JNI的基本流程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#NDK-HelloWorld-%E5%B7%A5%E7%A8%8B%E8%A7%A3%E6%9E%90"><span class="toc-number">4.</span> <span class="toc-text">NDK HelloWorld 工程解析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E5%B7%A5%E7%A8%8B"><span class="toc-number">4.1.</span> <span class="toc-text">创建新工程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CMakeList-txt%E6%96%87%E4%BB%B6"><span class="toc-number">4.2.</span> <span class="toc-text">CMakeList.txt文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MainActivity%E6%96%87%E4%BB%B6"><span class="toc-number">4.3.</span> <span class="toc-text">MainActivity文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#native-lib-cpp%E6%96%87%E4%BB%B6"><span class="toc-number">4.4.</span> <span class="toc-text">native-lib.cpp文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8BAPK"><span class="toc-number">4.5.</span> <span class="toc-text">查看APK</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gradle%E8%84%9A%E6%9C%AC"><span class="toc-number">4.6.</span> <span class="toc-text">Gradle脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-ABI"><span class="toc-number">4.7.</span> <span class="toc-text">Android ABI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%8D%E6%AC%A1%E5%88%86%E6%9E%90cpp%E6%96%87%E4%BB%B6"><span class="toc-number">4.8.</span> <span class="toc-text">再次分析cpp文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JNI%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.9.</span> <span class="toc-text">JNI数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java%E5%92%8Cnative%E4%BA%A4%E4%BA%92"><span class="toc-number">4.10.</span> <span class="toc-text">java和native交互</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#java%E5%90%91native%E5%B1%82%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0%E5%92%8C%E8%8E%B7%E5%8F%96%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-number">4.10.1.</span> <span class="toc-text">java向native层传递参数和获取返回值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#native%E8%AE%BF%E9%97%AEjava%E5%B1%82%E5%B1%9E%E6%80%A7%E5%92%8C%E6%96%B9%E6%B3%95"><span class="toc-number">4.10.2.</span> <span class="toc-text">native访问java层属性和方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BF%E9%97%AEjava%E5%B1%9E%E6%80%A7"><span class="toc-number">4.10.2.1.</span> <span class="toc-text">访问java属性</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#java%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AF%B9%E8%B1%A1"><span class="toc-number">5.</span> <span class="toc-text">java自定义对象</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#native%E4%BF%AE%E6%94%B9java%E4%BC%A0%E5%85%A5%E7%9A%84%E5%AF%B9%E8%B1%A1"><span class="toc-number">5.1.</span> <span class="toc-text">native修改java传入的对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#native%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E8%BF%94%E5%9B%9E%E7%BB%99java"><span class="toc-number">5.2.</span> <span class="toc-text">native创建对象返回给java</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%95%E7%94%A8"><span class="toc-number">6.</span> <span class="toc-text">引用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%80%E9%83%A8%E5%BC%95%E7%94%A8"><span class="toc-number">6.1.</span> <span class="toc-text">局部引用</span></a></li></ol></li></ol>
+    </div>
+  </div>
+  
+
+  <div class="post-content">
+    
+    <p><strong>写在前面</strong><br>Android NDK 的学习Blog。<br>参考资料：<br><a target="_blank" rel="noopener" href="https://juejin.cn/post/7061553507622453279">https://juejin.cn/post/7061553507622453279</a></p>
+<span id="more"></span>
+<h1 id="NDK介绍"><a href="#NDK介绍" class="headerlink" title="NDK介绍"></a>NDK介绍</h1><p><strong>官网介绍</strong></p>
+<blockquote>
+<p>原生开发套件 (NDK) 是一套工具，使您能够在 Android 应用中使用 C 和 C++ 代码，并提供众多平台库，您可使用这些平台库管理原生 Activity 和访问实体设备组件，例如传感器和触摸输入。NDK 可能不适合大多数 Android 编程初学者，这些初学者只需使用 Java 代码和框架 API 开发应用。然而，如果您需要实现以下一个或多个目标，那么 NDK 就能派上用场： 1.进一步提升设备性能，以降低延迟或运行游戏或物理模拟等计算密集型应用。 2.重复使用您自己或其他开发者的 C 或 C++ 库。</p>
+</blockquote>
+<p>NDK能够快速开发C/C++的动态库，并能够自动将so和应用一起打包成APK。</p>
+<h1 id="JNI介绍"><a href="#JNI介绍" class="headerlink" title="JNI介绍"></a>JNI介绍</h1><p><strong>官网介绍</strong></p>
+<blockquote>
+<p>The JNI is a native programming interface. It allows Java code that runs inside a Java Virtual Machine (VM) to interoperate with applications and libraries written in other programming languages, such as C, C++, and assembly.</p>
+</blockquote>
+<p>JNI是一个编程接口，允许我们在java代码中调用C/C++代码。<br>注意：JNI是java语言的特性，与Android无关，NDK是Android的工具，与java无关。<br>JNI就像是在java和native之间的桥梁。</p>
+<img src="/2024/09/19/Android-NDK%E5%AD%A6%E4%B9%A0/Pasted%20image%2020240920115746.png" class>
+<p>NDK是一套可以使得Android引用C/C++的工具，也就意味着NDK正是使用了java的JNI特性来实现C/C++代码的调用。</p>
+<h1 id="JNI的基本流程"><a href="#JNI的基本流程" class="headerlink" title="JNI的基本流程"></a>JNI的基本流程</h1><ol>
+<li>定义一个java类A</li>
+<li>在类A中定义一个native修饰的方法：public native String sayHello()</li>
+<li>创建一个C/C++文件，定义一个方法，方法名为Java_类A全名sayHello拼接而成</li>
+<li>将C/C++文件打包为一个动态链接库</li>
+<li>在类A中通过static代码块使用System.loadLibrary()加载4中生成的动态链接库</li>
+</ol>
+<h1 id="NDK-HelloWorld-工程解析"><a href="#NDK-HelloWorld-工程解析" class="headerlink" title="NDK HelloWorld 工程解析"></a>NDK HelloWorld 工程解析</h1><h2 id="创建新工程"><a href="#创建新工程" class="headerlink" title="创建新工程"></a>创建新工程</h2><p>选择Native C/C++工程</p>
+<img src="/2024/09/19/Android-NDK%E5%AD%A6%E4%B9%A0/Pasted%20image%2020240920120455.png" class>
+<p>工程目录结构如图所示：</p>
+<img src="/2024/09/19/Android-NDK%E5%AD%A6%E4%B9%A0/Pasted%20image%2020240920134447.png" class>
+<p>与一般Android工程不同的是多了一个cpp的文件夹，用于存放cpp的源代码文件；<br>Android Studio为我们创建了一个文件夹，里面存放着cpp文件和CMakeList.txt文件；默认构建工具为Cmake；</p>
+<h2 id="CMakeList-txt文件"><a href="#CMakeList-txt文件" class="headerlink" title="CMakeList.txt文件"></a>CMakeList.txt文件</h2><p>观察CMakeList.txt文件：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># For more information about using CMake with Android Studio, read the  </span></span><br><span class="line"><span class="comment"># documentation: https://d.android.com/studio/projects/add-native-code.html  </span></span><br><span class="line">  </span><br><span class="line"><span class="comment"># Sets the minimum version of CMake required to build the native library.  </span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.18</span>.<span class="number">1</span>)  </span><br><span class="line">  </span><br><span class="line"><span class="comment"># Declares and names the project.  </span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">project</span>(<span class="string">&quot;jniproject&quot;</span>)  </span><br><span class="line">  </span><br><span class="line"><span class="comment"># Creates and names a library, sets it as either STATIC  </span></span><br><span class="line"><span class="comment"># or SHARED, and provides the relative paths to its source code.  </span></span><br><span class="line"><span class="comment"># You can define multiple libraries, and CMake builds them for you.  </span></span><br><span class="line"><span class="comment"># Gradle automatically packages shared libraries with your APK.  </span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">add_library</span>( <span class="comment"># Sets the name of the library.  </span></span><br><span class="line">        jniproject  </span><br><span class="line">  </span><br><span class="line">        <span class="comment"># Sets the library as a shared library.  </span></span><br><span class="line">        SHARED  </span><br><span class="line">  </span><br><span class="line">        <span class="comment"># Provides a relative path to your source file(s).  </span></span><br><span class="line">        native-lib.cpp)  </span><br><span class="line">  </span><br><span class="line"><span class="comment"># Searches for a specified prebuilt library and stores the path as a  </span></span><br><span class="line"><span class="comment"># variable. Because CMake includes system libraries in the search path by  </span></span><br><span class="line"><span class="comment"># default, you only need to specify the name of the public NDK library  </span></span><br><span class="line"><span class="comment"># you want to add. CMake verifies that the library exists before  </span></span><br><span class="line"><span class="comment"># completing its build.  </span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">find_library</span>( <span class="comment"># Sets the name of the path variable.  </span></span><br><span class="line">        log-lib  </span><br><span class="line">  </span><br><span class="line">        <span class="comment"># Specifies the name of the NDK library that  </span></span><br><span class="line">        <span class="comment"># you want CMake to locate.        log)  </span></span><br><span class="line">  </span><br><span class="line"><span class="comment"># Specifies libraries CMake should link to your target library. You  </span></span><br><span class="line"><span class="comment"># can link multiple libraries, such as libraries you define in this  </span></span><br><span class="line"><span class="comment"># build script, prebuilt third-party libraries, or system libraries.  </span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">target_link_libraries</span>( <span class="comment"># Specifies the target library.  </span></span><br><span class="line">        jniproject  </span><br><span class="line">  </span><br><span class="line">        <span class="comment"># Links the target library to the log library  </span></span><br><span class="line">        <span class="comment"># included in the NDK.        $&#123;log-lib&#125;)</span></span><br></pre></td></tr></table></figure><br>从native-lib.cpp文件生成libjniproject.so，然后将系统的liblog.so库链接到libjniproject.so。<br>find_library是找到已有的库并赋值给一个变量，因为系统库默认在ndk的cmake搜索路径中，所以无序指定路径，只指定库名即可；<br>这里ndk会到对应目录寻找lib+find_library第二个参数名称对应的库。</p>
+<h2 id="MainActivity文件"><a href="#MainActivity文件" class="headerlink" title="MainActivity文件"></a>MainActivity文件</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.jniproject;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">import</span> androidx.appcompat.app.AppCompatActivity;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;  </span><br><span class="line"><span class="keyword">import</span> android.widget.TextView;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">import</span> com.example.jniproject.databinding.ActivityMainBinding;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainActivity</span> <span class="keyword">extends</span> <span class="title class_">AppCompatActivity</span> &#123;  </span><br><span class="line">  </span><br><span class="line">    <span class="comment">// Used to load the &#x27;jniproject&#x27; library on application startup.  </span></span><br><span class="line">    <span class="keyword">static</span> &#123;  </span><br><span class="line">        System.loadLibrary(<span class="string">&quot;jniproject&quot;</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="keyword">private</span> ActivityMainBinding binding;  </span><br><span class="line">  </span><br><span class="line">    <span class="meta">@Override</span>  </span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(Bundle savedInstanceState)</span> &#123;  </span><br><span class="line">        <span class="built_in">super</span>.onCreate(savedInstanceState);  </span><br><span class="line">  </span><br><span class="line">        binding = ActivityMainBinding.inflate(getLayoutInflater());  </span><br><span class="line">        setContentView(binding.getRoot());  </span><br><span class="line">  </span><br><span class="line">        <span class="comment">// Example of a call to a native method  </span></span><br><span class="line">        <span class="type">TextView</span> <span class="variable">tv</span> <span class="operator">=</span> binding.sampleText;  </span><br><span class="line">        tv.setText(stringFromJNI());  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="comment">/**  </span></span><br><span class="line"><span class="comment">     * A native method that is implemented by the &#x27;jniproject&#x27; native library,     * which is packaged with this application.     */</span>    <span class="keyword">public</span> <span class="keyword">native</span> String <span class="title function_">stringFromJNI</span><span class="params">()</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到有native方法stringFromJNI，此时基本流程已经走完了1、2；接下来是3；因此看下native-lib.cpp文件中是否有对应的方法；</p>
+<h2 id="native-lib-cpp文件"><a href="#native-lib-cpp文件" class="headerlink" title="native-lib.cpp文件"></a>native-lib.cpp文件</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;jni.h&gt;  </span><br><span class="line">#include &lt;string&gt;  </span><br><span class="line">  </span><br><span class="line">extern <span class="string">&quot;C&quot;</span> JNIEXPORT jstring JNICALL  </span><br><span class="line"><span class="title function_">Java_com_example_jniproject_MainActivity_stringFromJNI</span><span class="params">(  </span></span><br><span class="line"><span class="params">        JNIEnv* env,  </span></span><br><span class="line"><span class="params">        jobject <span class="comment">/* this */</span>)</span> &#123;  </span><br><span class="line">    std::<span class="type">string</span> <span class="variable">hello</span> <span class="operator">=</span> <span class="string">&quot;Hello from C++&quot;</span>;  </span><br><span class="line">    <span class="keyword">return</span> env-&gt;NewStringUTF(hello.c_str());  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看得到AS已经帮忙实现了native层的函数。名称的构建规则是：Java_   +   包名     +   类名  +   方法名；</p>
+<h2 id="查看APK"><a href="#查看APK" class="headerlink" title="查看APK"></a>查看APK</h2><img src="/2024/09/19/Android-NDK%E5%AD%A6%E4%B9%A0/Pasted%20image%2020240920140351.png" class>
+<p>由此可见动态库已经被打包到安装包当中了。</p>
+<h2 id="Gradle脚本"><a href="#Gradle脚本" class="headerlink" title="Gradle脚本"></a>Gradle脚本</h2><p>Android的代码是通过gradle脚本进行构建的，所以查看app模块的gradle脚本，<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">externalNativeBuild &#123;  </span><br><span class="line">    cmake &#123;  </span><br><span class="line">        path <span class="keyword">file</span>(<span class="string">&#x27;src/main/cpp/CMakeLists.txt&#x27;</span>)  </span><br><span class="line">        version <span class="string">&#x27;3.18.1&#x27;</span>  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>Cmake集成到了Gradle中。当Gradle执行脚本到externalNativeBuild时就会执行内部的Cmake命令，进行cpp源码的构建；<br>这里制定了两个参数，path制定了路径，version制定了Cmake的版本。<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">defaultConfig &#123;  </span><br><span class="line">    applicationId &quot;com.example.jniproject&quot;  </span><br><span class="line">    minSdk 21  </span><br><span class="line">    targetSdk 32  </span><br><span class="line">    versionCode 1  </span><br><span class="line">    versionName &quot;1.0&quot;  </span><br><span class="line">  </span><br><span class="line">    testInstrumentationRunner &quot;androidx.test.runner.AndroidJUnitRunner&quot;  </span><br><span class="line">    externalNativeBuild &#123;  </span><br><span class="line">        cmake &#123;  </span><br><span class="line">            cppFlags &#x27;-std=c++11&#x27; </span><br><span class="line">            // arguments &#x27;-DANDROID_STL=c++_shared&#x27; </span><br><span class="line">        &#125;  </span><br><span class="line">        ndk &#123;</span><br><span class="line">	        abiFilters &quot;armeabi-v7a&quot;, &quot;arm64-v8a&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><br>在defaultConfig模块也有externalNativeBuild块；<br>这里用于配置Cmake的具体构建参数；<br>cppFlags用于配置C++编译参数，arguments用于配置其他参数；</p>
+<h2 id="Android-ABI"><a href="#Android-ABI" class="headerlink" title="Android ABI"></a>Android ABI</h2><p>这是个什么东西呢？<br>通俗的说就是不同的CPU支持不同的指令集，每种指令集有不同的规范，一个CPU只能读取符合他规范的机器代码。因此对于不同的CPU，代码需要编译成不同的机器码。比如一个手机的指令集是armeabi，则运行的时候会去armeabi-v7a目录寻找动态库，如果手机的指令集是AArch64，则会先去arm64-v8a目录寻找动态库，如果找不到才会去armeabi-v7a，这就是ABI兼容的体现。<br>如果没有指定ABI，则会默认生成四个最常用的，每个目录都有一个对应的so；</p>
+<img src="/2024/09/19/Android-NDK%E5%AD%A6%E4%B9%A0/Pasted%20image%2020240920141729.png" class>
+<p>但是一般没必要四个都生成，可以使用配置生成指定的ABI。</p>
+<p><img src="/Users/fengxuegt/GitHubCode/blog/source/_posts/Android-NDK学习/Pasted image 20240920141856.png" alt></p>
+<p>根据ABI的兼容性，一般只需要生成armeabi-v7a的动态库就行了；</p>
+<h2 id="再次分析cpp文件"><a href="#再次分析cpp文件" class="headerlink" title="再次分析cpp文件"></a>再次分析cpp文件</h2><p>引入jni.h头文件<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;jni.h&gt;</span></span></span><br></pre></td></tr></table></figure><br>看下第四行<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span> JNIEXPORT jstring JNICALL</span><br></pre></td></tr></table></figure><br>我们写的是CPP程序，CPP程序是支持方法重载的，为了能够区分重载的方法，CPP程序在编译的时候会把参数信息和方法名结合起来形成一个新的方法名。<br>extern “C” 是告诉编译器，该方法是C语言的方法。编译器不用将参数信息和方法名结合起来进行编译。<br>java执行native方法是通过一定的命名规则来寻找方法的。如果不加extern，那么就会将参数信息也放到方法名中，这样java就找不到对应的方法了。<br>再看下JNIEXPORT关键字，是jni.h里面的一个宏定义：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> JNIIMPORT  </span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> JNIEXPORT  __attribute__ ((visibility (<span class="string">&quot;default&quot;</span>)))  </span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> JNICALL  </span></span><br><span class="line"><span class="meta">#<span class="keyword">ifdef</span> __cplusplus  </span></span><br><span class="line">&#125;  </span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure><br><code>__attribute__</code>表示一个属性，这里的属性就是指的visibility，属性值为default，意思是这个方法是否对外可见，这里的default表示是可见的。<br>其实就是确认一个方法是否放入动态链接库的一个动态方法表里，该方法可以看作是jni提供可以让java调用的方法，放入这个表就意味着java可以通过jni调用，否则就不能调用，由此控制方法接口的权限。<br>如果把default修改成hidden，那么程序就会执行报错。报告找不到对应的方法。<br>jstring，是方法的返回类型，因为java的数据类型是不能够直接在native中使用的，所以java在native代码中有对应的类型；jstring就对应java中的String；<br>后面的JNICALL是一个空的宏定义。它其实只是一个标记作用，用于标记这个方法可以用于JNI；</p>
+<p>JNIEnv* env 参数，在jni中是一个核心的参数，用于链接java和c++。<br>JNIEnv是一个线程相关的结构体，该结构体代表了java在本线程的运行环境，通过JNIEnv可以调用到一系列的JNI系统函数，每个线程都有一个JNIEnv指针，JNIEnv只在其所在线程有效，不能在不同线程之间传递。<br>JNIEnv实际上就是结构体__JNIEnv，里面包含着所有java和C/C++交互的方法。</p>
+<h2 id="JNI数据类型"><a href="#JNI数据类型" class="headerlink" title="JNI数据类型"></a>JNI数据类型</h2><p>对于java中的数据类型，native代码中都有对应的类型。基本上都是在java类型前面添加j字母。<br>可以在java层的native方法中添加参数，option+enter类自动在cpp文件中生成对应的方法；可见参数类型是相互对应的；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">native</span> String <span class="title function_">sayHello</span><span class="params">(String s, Boolean b, <span class="type">int</span> []arr, Object obs)</span>;</span><br></pre></td></tr></table></figure><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span>  </span><br><span class="line"><span class="function">JNIEXPORT jstring JNICALL  </span></span><br><span class="line"><span class="function"><span class="title">Java_com_example_jniproject_MainActivity_sayHello</span><span class="params">(JNIEnv *env, jobject thiz, jstring s, jobject b,  </span></span></span><br><span class="line"><span class="params"><span class="function">                                                  jintArray arr, jobject obs)</span> </span>&#123;  </span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span> implement sayHello()  </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="java和native交互"><a href="#java和native交互" class="headerlink" title="java和native交互"></a>java和native交互</h2><h3 id="java向native层传递参数和获取返回值"><a href="#java向native层传递参数和获取返回值" class="headerlink" title="java向native层传递参数和获取返回值"></a>java向native层传递参数和获取返回值</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;jni.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="comment">//注意到visibility 改为&quot;hidden&quot;</span></span><br><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span> __attribute__ ((<span class="built_in">visibility</span> (<span class="string">&quot;hidden&quot;</span>))) <span class="function">jstring JNICALL</span></span><br><span class="line"><span class="function"><span class="title">Java_com_example_ndkdemo_MainActivity_stringFromJNI</span><span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">        JNIEnv* env,</span></span></span><br><span class="line"><span class="params"><span class="function">        jobject <span class="comment">/* this */</span>)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//创建一个C++字符串</span></span><br><span class="line">    std::string hello = <span class="string">&quot;Hello from C++&quot;</span>;</span><br><span class="line">    <span class="comment">//将C++字符串转为jstring 再返回给Java层。hello.c_str将string转为char*类型。</span></span><br><span class="line">    <span class="keyword">return</span> env-&gt;<span class="built_in">NewStringUTF</span>(hello.<span class="built_in">c_str</span>());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在native方法中创建一个C++的字符串，要使用NewStringUTF方法转为jstring之后才能交给java处理；<br>如果是传入的参数呢？<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">native</span> String <span class="title function_">stringForJNI</span><span class="params">(String s)</span>;</span><br></pre></td></tr></table></figure><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span></span><br><span class="line"><span class="function">JNIEXPORT jstring JNICALL</span></span><br><span class="line"><span class="function"><span class="title">Java_com_example_ndkdemo_MainActivity_stringForJNI</span><span class="params">(JNIEnv *env, jobject thiz, jstring s)</span> </span>&#123;</span><br><span class="line">    jboolean isCopy = JNI_FALSE;</span><br><span class="line">    <span class="comment">//isCopy是JVM返回的标志位（还记得通过指针传参在函数内部修改外面变量吧）。返回JNI_TRUE表示原字符串的拷贝。返回JNI_FALSE表示返回原字符串的指针，即指向原来从Java的字符串</span></span><br><span class="line">    <span class="type">const</span> <span class="type">char</span>* c = env-&gt;<span class="built_in">GetStringUTFChars</span>(s, &amp;isCopy);</span><br><span class="line">    <span class="comment">//这里为了简单就直接原封不动返回给Java</span></span><br><span class="line">    <span class="keyword">return</span> env-&gt;<span class="built_in">NewStringUTF</span>(c);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>通过java传入的字符串会转化为jstring形式传递给native，这时C++必须通过GetStringUTFChars方法转化为C++形式的字符串才能继续使用。<br>要注意，一般情况下，如果确认java传入的字符串不再C++继续使用了，需要通过ReleaseStringUTFChars方法释放对java层对象的持有以防止内存泄漏。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">char</span>* c = env-&gt;<span class="built_in">GetStringUTFChars</span>(s, &amp;isCopy);</span><br><span class="line"><span class="comment">//对c的使用。。。</span></span><br><span class="line">env-&gt;<span class="built_in">ReleaseStringUTFChars</span>(s,c);</span><br><span class="line"><span class="comment">//不再使用c。。。</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><br>Demo：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span></span><br><span class="line"><span class="function">JNIEXPORT jstring JNICALL</span></span><br><span class="line"><span class="function"><span class="title">Java_com_example_ndkdemo_MainActivity_stringForJNI</span><span class="params">(JNIEnv *env, jobject thiz, jstring s)</span> </span>&#123;</span><br><span class="line">    jboolean isCopy = JNI_FALSE;</span><br><span class="line">    <span class="comment">//返回JNI_TRUE表示原字符串的拷贝。返回JNI_FALSE表示返回原字符串的指针，即指向原来从Java的字符串</span></span><br><span class="line">    <span class="type">const</span> <span class="type">char</span>* c = env-&gt;<span class="built_in">GetStringUTFChars</span>(s, &amp;isCopy);</span><br><span class="line">    jstring result = env-&gt;<span class="built_in">NewStringUTF</span>(c);</span><br><span class="line">    <span class="comment">//字符串c不再使用到则释放对Java层字符串的引用</span></span><br><span class="line">    env-&gt;<span class="built_in">ReleaseStringUTFChars</span>(s,c);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>对于基本类型来讲，可以不需要手动转jint或者jboolean，直接返回或者传参即可；</p>
+<h3 id="native访问java层属性和方法"><a href="#native访问java层属性和方法" class="headerlink" title="native访问java层属性和方法"></a>native访问java层属性和方法</h3><h4 id="访问java属性"><a href="#访问java属性" class="headerlink" title="访问java属性"></a>访问java属性</h4><p>如果一个native函数在java类中被声明为成员方法，那么其一定会有一个jobject参数，这个参数代表是调用方法的对象本身。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span></span><br><span class="line"><span class="function">JNIEXPORT <span class="type">void</span> JNICALL</span></span><br><span class="line"><span class="function"><span class="title">Java_com_example_ndkdemo_MainActivity_setStringForText</span><span class="params">(JNIEnv *env, jobject thiz)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span> implement setStringForText()</span></span><br><span class="line">    jclass activityClass=env-&gt;<span class="built_in">GetObjectClass</span>(thiz);</span><br><span class="line"><span class="comment">//    获取java层的text属性</span></span><br><span class="line">    jfieldID idText = env-&gt;<span class="built_in">GetFieldID</span>(activityClass, <span class="string">&quot;text&quot;</span>, <span class="string">&quot;Ljava/lang/String;&quot;</span>);</span><br><span class="line">    <span class="comment">//给text属性赋值</span></span><br><span class="line">    jstring text1 = env-&gt;<span class="built_in">NewStringUTF</span>(<span class="string">&quot;native 层修改&quot;</span>);</span><br><span class="line">    env-&gt;<span class="built_in">SetObjectField</span>(thiz, idText, text1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>通过jobject参数获取MainActivity对应的class对象并在native层转化为jclass对象</li>
+<li>通过jclass对象获取text属性的id</li>
+<li>通过text属性id去修改text的值<br>其实就是用了反射的方式；</li>
+</ol>
+<h1 id="java自定义对象"><a href="#java自定义对象" class="headerlink" title="java自定义对象"></a>java自定义对象</h1><h2 id="native修改java传入的对象"><a href="#native修改java传入的对象" class="headerlink" title="native修改java传入的对象"></a>native修改java传入的对象</h2><p>首先创建自定义对象Person；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getAge</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setAge</span><span class="params">(<span class="type">int</span> age)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Person&#123;&quot;</span> +</span><br><span class="line">                <span class="string">&quot;name=&#x27;&quot;</span> + name + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&quot;, age=&quot;</span> + age +</span><br><span class="line">                <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>java层添加native方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">native</span> Person <span class="title function_">setInfoForPerson</span><span class="params">(Person person)</span>;</span><br></pre></td></tr></table></figure><br>native层添加方法；<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span>  </span><br><span class="line"><span class="function">JNIEXPORT jobject JNICALL  </span></span><br><span class="line"><span class="function"><span class="title">Java_com_example_jniproject_MainActivity_setInfoForPerson</span><span class="params">(JNIEnv *env, jobject thiz,  </span></span></span><br><span class="line"><span class="params"><span class="function">                                                          jobject person)</span> </span>&#123;  </span><br><span class="line">    jclass personClass = env-&gt;<span class="built_in">FindClass</span>(<span class="string">&quot;com/example/jniproject/Person&quot;</span>);  </span><br><span class="line">    jfieldID  name = env-&gt;<span class="built_in">GetFieldID</span>(personClass, <span class="string">&quot;name&quot;</span>, <span class="string">&quot;Ljava/lang/String;&quot;</span>);  </span><br><span class="line">    jfieldID age = env-&gt;<span class="built_in">GetFieldID</span>(personClass, <span class="string">&quot;age&quot;</span>, <span class="string">&quot;I&quot;</span>);  </span><br><span class="line">    env-&gt;<span class="built_in">SetObjectField</span>(person, name, env-&gt;<span class="built_in">NewStringUTF</span>(<span class="string">&quot;liyang&quot;</span>));  </span><br><span class="line">    env-&gt;<span class="built_in">SetIntField</span>(person, age, <span class="number">18</span>);  </span><br><span class="line">    <span class="keyword">return</span> person;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>通过反射机制获取对象，然后给对象的属性赋值；<br>新建Person对象并调用方法；<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2024-09-20 16:26:52.264 15999-15999/com.example.jniproject D/lw: onCreate: Person&#123;name=&#x27;liyang&#x27;, age=18&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="native创建对象返回给java"><a href="#native创建对象返回给java" class="headerlink" title="native创建对象返回给java"></a>native创建对象返回给java</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">native</span> Person <span class="title function_">getPerson</span><span class="params">()</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span></span><br><span class="line"><span class="function">JNIEXPORT jobject JNICALL</span></span><br><span class="line"><span class="function"><span class="title">Java_com_example_ndkdemo_MainActivity_getNewPerson</span><span class="params">(JNIEnv *env, jobject thiz)</span> </span>&#123;</span><br><span class="line">    jclass personClass = env-&gt;<span class="built_in">FindClass</span>(<span class="string">&quot;com/example/ndkdemo/Person&quot;</span>);</span><br><span class="line">    <span class="comment">// 获取类的构造函数，记住这里是调用无参的构造函数</span></span><br><span class="line">    jmethodID id = env-&gt;<span class="built_in">GetMethodID</span>(personClass, <span class="string">&quot;&lt;init&gt;&quot;</span>, <span class="string">&quot;()V&quot;</span>);</span><br><span class="line">    <span class="comment">// 创建一个新的对象</span></span><br><span class="line">    jobject person_ = env-&gt;<span class="built_in">NewObject</span>(personClass, id);</span><br><span class="line"></span><br><span class="line">    jfieldID name = env-&gt;<span class="built_in">GetFieldID</span>(personClass, <span class="string">&quot;name&quot;</span>, <span class="string">&quot;Ljava/lang/String;&quot;</span>);</span><br><span class="line">    jfieldID age = env-&gt;<span class="built_in">GetFieldID</span>(personClass, <span class="string">&quot;age&quot;</span>, <span class="string">&quot;I&quot;</span>);</span><br><span class="line"></span><br><span class="line">    env-&gt;<span class="built_in">SetObjectField</span>(person_, name, env-&gt;<span class="built_in">NewStringUTF</span>(<span class="string">&quot;wangtao&quot;</span>));</span><br><span class="line">    env-&gt;<span class="built_in">SetIntField</span>(person_, age, <span class="number">20</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> person_;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><p>在jni中，无论是从java层传递给native层，还是native层创建的java对象，本质上都是native层持有的指向JVM对象的一个引用；</p>
+<h2 id="局部引用"><a href="#局部引用" class="headerlink" title="局部引用"></a>局部引用</h2><p>java层作为方法参数传递的java对象或者是native层创建的java对象，默认为被局部引用指向。即会在方法返回的时候自动释放引用，也可以在方法返回前手动释放。和java一样，释放引用的目的是告诉jvm这个对象这边已经不会再使用，让jvm决定是否回收。</p>
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/Android/">Android</a>
+      
+    </div>
+    
+      
+  <nav class="post-nav">  
+      
+      <a class="prev" href="/2024/09/19/Android-EGL%E5%AD%A6%E4%B9%A0/">  
+        <i class="iconfont icon-left"></i>  
+        <span class="prev-text nav-default">Blog - Android EGL 学习</span>  
+        <span class="prev-text nav-mobile">上一篇</span>  
+      </a>  
+      
+      
+      <a class="next" href="/2024/09/11/OpenGL-ES-%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B5%E6%8C%87%E5%8D%97%E5%AD%A6%E4%B9%A0%E4%B8%80/">  
+        <span class="next-text nav-default">OpenGL ES 应用开发实践指南学习一</span>  
+        <span class="prev-text nav-mobile">下一篇</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+      <div id="gitalk-container"></div>  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/fengxuegt" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2021 - 2024      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">枫雪</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+    
+    
+    
+  
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css" />
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'Ov23linyjoE7z3V3Gako',
+    clientSecret: '4bbd23045cfc104a6cf9f988ca2051cf86f1b25b',
+    repo: 'blog-review',
+    owner: 'fengxuegt',
+    admin: ['fengxuegt'],
+    id: md5(location.pathname),
+    
+    language: '',
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
+    
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+
+</html>
